@@ -581,6 +581,198 @@
       ],
       "correct_option_id": 1,
       "explanation": "O‘lat, chechak, poliomiyelit va qizamiq kasalliklarining oldi olingan."
+    },
+    {
+      "id": 138,
+      "question": "Hayvonlar ustida tajribalar (viviseksiya) olib borgan dastlabki olim kim?",
+      "options": [
+        "Galen",
+        "Da Vinchi va Vezaliy",
+        "Vezaliy",
+        "Mechnikov"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Klavdiy Galen birinchi bo'lib hayvonlar ustida tajribalar o'tkazishni tibbiyotga kiritgan."
+    },
+    {
+      "id": 139,
+      "question": "Yog‘ to‘qimasi to‘qimalarning qaysi guruhiga kiradi?",
+      "options": [
+        "Epiteliy",
+        "Nerv to'qimasi",
+        "Muskul to'qimasi",
+        "Biriktiruvchi to'qima"
+      ],
+      "correct_option_id": 3,
+      "explanation": "Yog' to'qimasi biriktiruvchi to'qimaning g'ovak tolali xiliga kiradi."
+    },
+    {
+      "id": 140,
+      "question": "Organizmda so‘rilish jarayonining boshqarilish mexanizmini ochib bergan o'zbek olimi:",
+      "options": [
+        "To‘raqulov Yolqin",
+        "Yunusov Adham",
+        "Zufarov Komiljon",
+        "Vohidov Vosid"
+      ],
+      "correct_option_id": 2,
+      "explanation": "Akademik Komiljon Zufarov ichakda so'rilish jarayonining hujayraviy mexanizmini kashf etgan."
+    },
+    {
+      "id": 141,
+      "question": "Hujayralarning yashashi va hayot faoliyatining bir me'yorda kechishini nima ta'minlaydi?",
+      "options": [
+        "Ichki muhit doimiyligi",
+        "Faqat nafas olish",
+        "Faqat oziqlanish",
+        "Dissimilyatsiya"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Organizmning nisbiy doimiy ichki muhiti (gomeostaz) barcha to'qima va organlar faoliyatini ta'minlaydi."
+    },
+    {
+      "id": 142,
+      "question": "Moddalarni qamrab olib hujayra ichiga o‘tkazadigan yoki tashqariga chiqaradigan qism:",
+      "options": [
+        "Hujayra membranasi",
+        "Lizosoma",
+        "Vakuola",
+        "Endoplazmatik to‘r"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Hujayra membranasi fagotsitoz va pinotsitoz yo'li bilan moddalarni o'tkazadi."
+    },
+    {
+      "id": 143,
+      "question": "Hazm qilish va nafas yo'llarining ichki shilliq qavatini qoplab turuvchi to‘qima:",
+      "options": [
+        "Nerv to'qimasi",
+        "Biriktiruvchi to'qima",
+        "Epiteliy to‘qimasi",
+        "Muskul to'qimasi"
+      ],
+      "correct_option_id": 2,
+      "explanation": "Ichki organlar naylari bo'shlig'ini bir qavatli shilliq epiteliy qoplab turadi."
+    },
+    {
+      "id": 144,
+      "question": "Hujayralar oralig‘i moddasining holatiga ko‘ra yurak xaltasi va paylar qanday to'qima?",
+      "options": [
+        "Tig‘iz tolali biriktiruvchi",
+        "G'ovak tolali biriktiruvchi",
+        "Qoplovchi epiteliy",
+        "Silliq muskul"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Yurak xaltasi, paylar va fassiyalar tig'iz tolali biriktiruvchi to'qimadan tuzilgan."
+    },
+    {
+      "id": 145,
+      "question": "Odam organizmida qonning osmotik bosimi qanchaga teng?",
+      "options": [
+        "5.5 - 6.0 atm",
+        "7.6 - 8.1 atm",
+        "1.0 - 2.0 atm",
+        "10 - 12 atm"
+      ],
+      "correct_option_id": 1,
+      "explanation": "8-sinf darsligiga ko'ra qonning osmotik bosimi 7.6 - 8.1 atmosferani tashkil etadi."
+    },
+    {
+      "id": 146,
+      "question": "«Yulduzsimon ko‘p o‘simtali, mayda hujayralardan iborat» ta'rif qaysi hujayraga xos?",
+      "options": [
+        "Neyron",
+        "Akson",
+        "Neyrogliya (oraliq hujayralar)",
+        "Dendrit"
+      ],
+      "correct_option_id": 2,
+      "explanation": "Neyrogliya — nerv to'qimasining oraliq, tayanch va oziqlantiruvchi mayda hujayralaridir."
+    },
+    {
+      "id": 147,
+      "question": "Hujayralar oralig‘i moddasiga ko‘ra teriosti yog‘ kletchatkasi qanday to'qima?",
+      "options": [
+        "Tig‘iz tolali",
+        "G‘ovak tolali biriktiruvchi",
+        "Qoplovchi epiteliy",
+        "Nerv to'qimasi"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Teriosti yog' kletchatkasi g'ovak tolali biriktiruvchi to'qima hisoblanadi."
+    },
+    {
+      "id": 148,
+      "question": "Oddiy moddalardan hujayra uchun zarur murakkab moddalar hosil bo‘lishi (biosintez) nima deyiladi?",
+      "options": [
+        "Dissimilyatsiya",
+        "Assimilatsiya (plastik almashinuv)",
+        "Parchalanish",
+        "Nafas olish"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Assimilatsiya (anabolizm) — yangi to'qima va murakkab organik moddalarning biosintez jarayonidir."
+    },
+    {
+      "id": 149,
+      "question": "Hujayra ichki muhiti va osmotik bosimning doimiyligida qaysi moddalar asosiy rol o‘ynaydi?",
+      "options": [
+        "Mineral tuzlar",
+        "Faqat glyukoza",
+        "Faqat vitaminlar",
+        "Yog'lar"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Hujayra va qonning osmotik bosimi mineral tuzlar (natriy, kaliy, xlor) konsentratsiyasiga bog'liq."
+    },
+    {
+      "id": 150,
+      "question": "Biologik reaksiyalarni yuzlab marta tezlashtiruvchi oqsil tabiatli moddalar:",
+      "options": [
+        "Fermentlar (enzimlar)",
+        "Gormonlar",
+        "Vitaminlar",
+        "Gemoglobin"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Fermentlar — organizmdagi barcha biokimyoviy jarayonlarni tezlashtiruvchi biologik katalizatorlardir."
+    },
+    {
+      "id": 151,
+      "question": "Odam jigaridagi somatik (epiteliy) hujayralari yadrosida nechta xromosoma bo‘ladi?",
+      "options": [
+        "46 juft",
+        "23 ta",
+        "23 juft (46 ta)",
+        "92 ta"
+      ],
+      "correct_option_id": 2,
+      "explanation": "Odamning tana (somatik) hujayralarida 23 juft, ya'ni 46 ta xromosoma bo'ladi."
+    },
+    {
+      "id": 152,
+      "question": "Hujayraning suyuqlik tomchilarini qamrab olib o'z ichiga yutishi nima deb ataladi?",
+      "options": [
+        "Fagotsitoz",
+        "Pinotsitoz",
+        "Mitoz",
+        "Diffuziya"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Pinotsitoz (grekcha 'pino' — ichaman) — hujayra tomonidan suyuqlik tomchilarining qamrab olinishi."
+    },
+    {
+      "id": 153,
+      "question": "Muskul to‘qimasining asosiy fiziologik xususiyati nima?",
+      "options": [
+        "Qisqaruvchanlik va qo'zg'aluvchanlik",
+        "Oziqlantirish",
+        "Qon yaratish",
+        "Hujayralarni o'rash"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Muskul to'qimasi qo'zg'aluvchanlik va qisqaruvchanlik xususiyatlariga ega."
     }
   ],
   "9": [
