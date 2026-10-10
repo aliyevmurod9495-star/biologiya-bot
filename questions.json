@@ -1,0 +1,664 @@
+{
+  "5": [
+    {
+      "id": 1,
+      "question": "Botanika fani nimani o'rganadi?",
+      "options": [
+        "Hayvonlarni",
+        "O'simliklarni",
+        "Bakteriyalarni",
+        "Zamburug'larni"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Botanika — o'simliklar haqidagi fandir."
+    },
+    {
+      "id": 2,
+      "question": "O'simlik hujayrasining po'sti asosan qanday moddadan iborat?",
+      "options": [
+        "Xitin",
+        "Glikogen",
+        "Kletchatka (sellyuloza)",
+        "Xromatin"
+      ],
+      "correct_option_id": 2,
+      "explanation": "O'simlik hujayra qobig'i sellyulozadan (kletchatkadan) tashkil topgan."
+    },
+    {
+      "id": 3,
+      "question": "Fotosintez jarayoni o'simlikning qaysi organoidida kechadi?",
+      "options": [
+        "Xloroplast",
+        "Ribosoma",
+        "Mitoxondriya",
+        "Vakuola"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Fotosintez yashil plastidalar — xloroplastlarda sodir bo'ladi."
+    },
+    {
+      "id": 4,
+      "question": "Ulotriks qanday tuzilishga ega suvo't hisoblanadi?",
+      "options": [
+        "Bir hujayrali",
+        "Ipimon ko'p hujayrali",
+        "Tarmoqlangan",
+        "Qatlamli"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Ulotriks — chuchuk suvlarda yashovchi ipimon ko'p hujayrali yashil suvo'tdir."
+    },
+    {
+      "id": 5,
+      "question": "Xlamidomonadaning qizil 'ko'zchasi' nima vazifani bajaradi?",
+      "options": [
+        "Ko'rish",
+        "Yorug'likni sezish",
+        "Harakatlanish",
+        "Ko'payish"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Qizil ko'zcha (stigma) yorug'likni sezish vazifasini bajaradi."
+    }
+  ],
+  "6": [
+    {
+      "id": 6,
+      "question": "Ildizning qaysi zonasi orqali suv va mineral moddalar so'riladi?",
+      "options": [
+        "Bo'linish zonasi",
+        "O'sish zonasi",
+        "So'ruvchi zona (ildiz tukchalari)",
+        "O'tkazuvchi zona"
+      ],
+      "correct_option_id": 2,
+      "explanation": "Ildiz tukchalari joylashgan so'ruvchi zona orqali suv va minerallar shimib olinadi."
+    },
+    {
+      "id": 7,
+      "question": "Gulli o'simliklarda urug'lanish necha marta sodir bo'ladi (qo'sh urug'lanish)?",
+      "options": [
+        "1 marta",
+        "2 marta",
+        "3 marta",
+        "4 marta"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Gulli o'simliklarga xos bo'lgan hodisa qo'sh urug'lanish deb ataladi (S.G. Navashin kashf etgan)."
+    },
+    {
+      "id": 8,
+      "question": "Qaysi o'simlikning mevasi dukkak deb ataladi?",
+      "options": [
+        "Bug'doy",
+        "Mosh va loviya",
+        "Olma",
+        "Pomidor"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Dukkakdoshlar oilasiga mansub o'simliklar mevasi dukkakdir."
+    }
+  ],
+  "7": [
+    {
+      "id": 9,
+      "question": "Oddiy amyoba qanday usulda harakatlanadi?",
+      "options": [
+        "Xivchinlar yordamida",
+        "Soxta oyoqlar (psevdopodiyalar)",
+        "Kipriklar yordamida",
+        "Harakatlanmaydi"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Amyoba sitoplazmasining oqishi hisobiga soxta oyoqlar hosil qilib harakatlanadi."
+    },
+    {
+      "id": 10,
+      "question": "Gidraning tanasi necha qavat hujayralardan iborat?",
+      "options": [
+        "1 qavat",
+        "2 qavat (ektoderma va entoderma)",
+        "3 qavat",
+        "Ko'p qavat"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Kovakichlilarga mansub gidra ikki qavat hujayradan: ektoderma va entodermadan iborat."
+    },
+    {
+      "id": 11,
+      "question": "Hasharotlarning nafas olish organi nima?",
+      "options": [
+        "Jabralar",
+        "Traxeyalar",
+        "O'pka",
+        "Teri"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Hasharotlar traxeyalar (mayda havo naychalari) orqali nafas oladi."
+    }
+  ],
+  "8": [
+    {
+      "id": 101,
+      "question": "«Inson uchun birinchi baxt uning soglig‘i, ikkinchisi go‘zallikdir» bu jumla kimga tegishli?",
+      "options": [
+        "Galen",
+        "Gippokrat",
+        "Leonardo da Vinchi",
+        "Aristotel"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Gippokrat aytgan: «Inson uchun birinchi baxt uning sog'lig'i, ikkinchisi go'zallikdir»."
+    },
+    {
+      "id": 102,
+      "question": "Barcha tibbiyot fanlarining asosini tashkil etadi?",
+      "options": [
+        "Anatomiya",
+        "Fiziologiya",
+        "Gigiyena",
+        "Barcha javoblar to'g'ri"
+      ],
+      "correct_option_id": 3,
+      "explanation": "Anatomiya, fiziologiya va gigiyena barcha tibbiyot fanlarining asosidir."
+    },
+    {
+      "id": 103,
+      "question": "Odam organizmi ichki tuzilishini murdani yorib ko'rish orqali o‘rganish dastlab qayerda boshlangan?",
+      "options": [
+        "Italiya",
+        "Yunoniston",
+        "Rim",
+        "Yunoniston va Rimda"
+      ],
+      "correct_option_id": 3,
+      "explanation": "Murdani yorib ko'rish orqali o'rganish dastlab Yunoniston va Rimda boshlangan."
+    },
+    {
+      "id": 104,
+      "question": "Odamning to‘rt xil mizoji va organizmning bir butunligi to‘g‘risidagi jahonga mashhur g‘oyalarni ishlab chiqqan:",
+      "options": [
+        "Gipokrat",
+        "Aristotel",
+        "Galen",
+        "Vezaliy"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Gippokrat 4 xil mizoj va organizmning bir butunligi g'oyalarini ishlab chiqqan."
+    },
+    {
+      "id": 105,
+      "question": "«Odam tanasi qismlari» asarida odam organizmini tasvirlab bergan olim:",
+      "options": [
+        "Aristotel",
+        "Gipokrat",
+        "Galen",
+        "Vezaliy"
+      ],
+      "correct_option_id": 2,
+      "explanation": "Galen «Odam tanasi qismlari» asarida odam organizmini tasvirlagan."
+    },
+    {
+      "id": 106,
+      "question": "U bemorga va uni davolashga xususiy (individual) yondashuv g‘oyasini taklif qilgan:",
+      "options": [
+        "Vezaliy",
+        "Gipokrat",
+        "Galen",
+        "Aristotel"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Gippokrat har bir bemorga xususiy yondashish kerakligini taklif qilgan."
+    },
+    {
+      "id": 107,
+      "question": "Tibbiyotga hayvonlar ustida tajribalarni kiritgan olim:",
+      "options": [
+        "Aristotel",
+        "Gipokrat",
+        "Galen",
+        "Vezaliy"
+      ],
+      "correct_option_id": 2,
+      "explanation": "Galen hayvonlar ustida tajriba o'tkazishni tibbiyotga kiritgan."
+    },
+    {
+      "id": 108,
+      "question": "Fanga aorta tushunchasini kiritgan olim:",
+      "options": [
+        "Gipokrat",
+        "Aristotel",
+        "Galen",
+        "Vezaliy"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Aristotel fanga «aorta» tushunchasini kiritgan."
+    },
+    {
+      "id": 109,
+      "question": "Odam - ijtimoiy jonzot, o‘z aql va idroki bilan hayvonlardan farq qilishi to‘g‘risidagi fikrni ilgari surgan:",
+      "options": [
+        "Gipokrat",
+        "Vezaliy",
+        "Galen",
+        "Aristotel"
+      ],
+      "correct_option_id": 3,
+      "explanation": "Aristotel odam ijtimoiy mavjudot ekanligini ta'kidlagan."
+    },
+    {
+      "id": 110,
+      "question": "Uning asarlari klinik tibbiyotga asos soldi:",
+      "options": [
+        "Vezaliy",
+        "Gipokrat",
+        "Galen",
+        "Aristotel"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Gippokrat asarlari klinik tibbiyotga asos soldi."
+    },
+    {
+      "id": 111,
+      "question": "Anatomiya va fiziologiya diagnostikasi davolash va profilaktikaning asosi ekanligini ko'rsatib bergan:",
+      "options": [
+        "Aristotel",
+        "Gipokrat",
+        "Galen",
+        "Vezaliy"
+      ],
+      "correct_option_id": 2,
+      "explanation": "Galen anatomiya va fiziologiya tashxis va davolashning asosi ekanini ko'rsatgan."
+    },
+    {
+      "id": 112,
+      "question": "Odam tanasi tuzilishining butun dunyoga mashhur bilimdoni (realistik tasvirlar yaratgan):",
+      "options": [
+        "Vezaliy",
+        "Gipokrat",
+        "Galen",
+        "Leonardo da Vinchi"
+      ],
+      "correct_option_id": 3,
+      "explanation": "Leonardo da Vinchi odam anatomiyasi tasvirlarining mashhur bilimdonidir."
+    },
+    {
+      "id": 113,
+      "question": "Tabiatning asosiy pog‘onalari - anorganik dunyo, o‘simlik, hayvon, odam to‘g‘risidagi g‘oyani ilgari surgan:",
+      "options": [
+        "Aristotel",
+        "Gipokrat",
+        "Sechenov",
+        "Leonardo da Vinchi"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Aristotel tabiatning asosiy pog'onalari g'oyasini ilgari surgan."
+    },
+    {
+      "id": 114,
+      "question": "Uning asarlaridan 14 asr davomida foydalanib kelingan:",
+      "options": [
+        "Vezaliy",
+        "Galen",
+        "Gipokrat",
+        "Aristotel"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Galen asarlaridan 14 asr (1400 yil) davomida foydalanilgan."
+    },
+    {
+      "id": 115,
+      "question": "Uning anatomiyaga oid rasmlari hozirgi davrda ham o‘z ahamiyatini yo‘qotmagan:",
+      "options": [
+        "Vezaliy",
+        "Gipokrat",
+        "Leonardo da Vinchi",
+        "Galen"
+      ],
+      "correct_option_id": 2,
+      "explanation": "Leonardo da Vinchi chizgan rasmlar bugun ham o'z ahamiyatini yo'qotmagan."
+    },
+    {
+      "id": 116,
+      "question": "Shartli reflekslarning tormozlanishi to‘g‘risidagi ta’limotni yaratgan olim:",
+      "options": [
+        "Sechenov",
+        "Mechnikov",
+        "Pavlov",
+        "Galen"
+      ],
+      "correct_option_id": 2,
+      "explanation": "Pavlov shartli reflekslar tormozlanishi ta'limotini yaratgan."
+    },
+    {
+      "id": 117,
+      "question": "U odam organizmi tuzilishini yorib ko‘rish orqali o‘rganishni birinchilardan bo‘lib boshlagan:",
+      "options": [
+        "Gipokrat",
+        "Vezaliy",
+        "Galen",
+        "Sechenov"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Vezaliy murdani yorib o'rganish orqali ilmiy anatomiyaga asos solgan."
+    },
+    {
+      "id": 118,
+      "question": "«Bosh miya reflekslari», «Nerv sistemasi fiziologiyasi» asarlarining muallifi:",
+      "options": [
+        "Sechenov",
+        "Mechnikov",
+        "Pavlov",
+        "Galen"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Sechenov «Bosh miya reflekslari» asarining muallifidir."
+    },
+    {
+      "id": 119,
+      "question": "«Odam tanasining tuzilishi to‘g‘risida» asarida barcha organlarni rasmlar orqali tasvirlagan olim:",
+      "options": [
+        "Vezaliy",
+        "Gipokrat",
+        "Leonardo da Vinchi",
+        "Galen"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Vezaliy 1543-yilda bu fundamental asarni yozgan."
+    },
+    {
+      "id": 120,
+      "question": "Biologiyaning mikrobiologiya va immunologiya sohalariga asos solgan olim:",
+      "options": [
+        "Mechnikov",
+        "Sechenov",
+        "Pavlov",
+        "Galen"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Mechnikov immunologiya va fagotsitoz nazariyasi asoschisi."
+    },
+    {
+      "id": 121,
+      "question": "«... uni Rus fiziologiyasining otasi deb atagan» — nuqtalar o‘rnini to‘ldiring:",
+      "options": [
+        "Sechenov",
+        "Galen",
+        "Pavlov",
+        "Mechnikov"
+      ],
+      "correct_option_id": 2,
+      "explanation": "Pavlov Sechenovni «Rus fiziologiyasining otasi» deb atagan."
+    },
+    {
+      "id": 122,
+      "question": "Organizmning kasalliklarga chidamliligi xususiyatlarini ochib bergan olim:",
+      "options": [
+        "Sechenov",
+        "Mechnikov",
+        "Pavlov",
+        "Galen"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Mechnikov organizmning immunitet xususiyatlarini ochgan."
+    },
+    {
+      "id": 123,
+      "question": "Mechnikov qaysi ishlari uchun Nobel mukofotiga sazovor bo'lgan?",
+      "options": [
+        "Anatomiya",
+        "Gerontologiya (qarish muammolari)",
+        "Fiziologiya va tibbiyot",
+        "Gigiyena"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Mechnikov immunitet va gerontologiya sohasidagi ishlari bilan jahonga tanilgan."
+    },
+    {
+      "id": 124,
+      "question": "U immunitetning fagotsitar nazariyasini yaratgan:",
+      "options": [
+        "Mechnikov",
+        "Sechenov",
+        "Pavlov",
+        "Galen"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Mechnikov fagotsitoz hodisasini kashf qilgan."
+    },
+    {
+      "id": 125,
+      "question": "Issiq sharoitda suv va tuz almashinuvining fiziologik mexanizmini o'rgangan olim:",
+      "options": [
+        "Abu Rayhon Beruniy",
+        "Yunusov Adham",
+        "To‘raqulov Yolqin",
+        "Abu Ali ibn Sino"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Adham Yunusov suv-tuz almashinuvini o'rgangan."
+    },
+    {
+      "id": 126,
+      "question": "Sog‘lom va kasal organizmda sodir bo'ladigan jarayonlar, ularning boshqarilishini o‘rgangan:",
+      "options": [
+        "Vohidov Vosid",
+        "Yunusov Adham",
+        "To‘raqulov Yolqin",
+        "Zufarov Komiljon"
+      ],
+      "correct_option_id": 3,
+      "explanation": "Komiljon Zufarov organizmdagi patologik jarayonlarni o'rgangan."
+    },
+    {
+      "id": 127,
+      "question": "Organlar va to'qimalarni ko‘chirib o‘tkazish sohasida maxsus laboratoriya tashkil etgan:",
+      "options": [
+        "Vohidov Vosid",
+        "Aripov O‘ktam",
+        "To‘raqulov Yolqin",
+        "Zufarov Komiljon"
+      ],
+      "correct_option_id": 1,
+      "explanation": "O‘ktam Aripov transplantologiya laboratoriyasini tashkil etgan."
+    },
+    {
+      "id": 128,
+      "question": "Organizmning yuqori haroratga moslanish xususiyatlarini ochib bergan olim:",
+      "options": [
+        "Zufarov Komiljon",
+        "Yunusov Adham",
+        "To‘raqulov Yolqin",
+        "Vohidov Vosid"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Adham Yunusov yuqori haroratga moslanishni tadqiq qilgan."
+    },
+    {
+      "id": 129,
+      "question": "Oshqozonosti bezining bir qismini ko‘chirib o‘tkazish usulini ishlab chiqqan:",
+      "options": [
+        "Vohidov Vosid",
+        "Aripov O‘ktam",
+        "To‘raqulov Yolqin",
+        "Zufarov Komiljon"
+      ],
+      "correct_option_id": 1,
+      "explanation": "O‘ktam Aripov oshqozonosti bezini ko'chirib o'tkazish usulini ishlab chiqqan."
+    },
+    {
+      "id": 130,
+      "question": "Filtratsiya, sekretsiya va so‘rilish jarayonlarining hujayraviy mexanizmini ochib bergan:",
+      "options": [
+        "Vohidov Vosid",
+        "Yunusov Adham",
+        "To‘raqulov Yolqin",
+        "Zufarov Komiljon"
+      ],
+      "correct_option_id": 3,
+      "explanation": "Komiljon Zufarov hujayraviy mexanizmlarni ochgan."
+    },
+    {
+      "id": 131,
+      "question": "O‘zbekistonda birinchi bo‘lib elektron mikroskopiya laboratoriyasini tashkil etgan:",
+      "options": [
+        "Zufarov Komiljon",
+        "Aripov O‘ktam",
+        "To‘raqulov Yolqin",
+        "Vohidov Vosid"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Komiljon Zufarov elektron mikroskopiya laboratoriyasiga asos solgan."
+    },
+    {
+      "id": 132,
+      "question": "Surunkali buyrak xastaliklarida bemorga sog'lom buyrakni ko'chirib o'tkazgan jarroh:",
+      "options": [
+        "Vohidov Vosid",
+        "Aripov O‘ktam",
+        "To‘raqulov Yolqin",
+        "Zufarov Komiljon"
+      ],
+      "correct_option_id": 1,
+      "explanation": "O‘ktam Aripov birinchi bo'lib buyrak ko'chirib o'tkazgan."
+    },
+    {
+      "id": 133,
+      "question": "Olim izotoplardan biologiya va tibbiyotda foydalanish yo‘llarini ochib bergan:",
+      "options": [
+        "Zufarov Komiljon",
+        "Aripov O‘ktam",
+        "To‘raqulov Yolqin",
+        "Vohidov Vosid"
+      ],
+      "correct_option_id": 2,
+      "explanation": "Yolqin To‘raqulov radioaktiv izotoplardan foydalanishni ochgan."
+    },
+    {
+      "id": 134,
+      "question": "O‘zbekistonda ixtisoslashgan jarrohlik yordami maktabining tashkilotchisi:",
+      "options": [
+        "Vohidov Vosid",
+        "Yunusov Adham",
+        "To‘raqulov Yolqin",
+        "Zufarov Komiljon"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Vosid Vohidov ixtisoslashgan jarrohlik maktabini yaratgan."
+    },
+    {
+      "id": 135,
+      "question": "Qalqonsimon bez gormonlari va endokrin xastaliklarini o‘rgangan olim:",
+      "options": [
+        "Zufarov Komiljon",
+        "Aripov O‘ktam",
+        "To‘raqulov Yolqin",
+        "Vohidov Vosid"
+      ],
+      "correct_option_id": 2,
+      "explanation": "Yolqin To‘raqulov endokrin kasalliklar diagnostikasini yaratgan."
+    },
+    {
+      "id": 136,
+      "question": "O‘pka, o‘t yo‘llari, jigar, yurak, qon tomirlari xastaliklarini tadqiq qilgan jarroh:",
+      "options": [
+        "Vohidov Vosid",
+        "Yunusov Adham",
+        "To‘raqulov Yolqin",
+        "Zufarov Komiljon"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Vosid Vohidov ko'krak va qorin a'zolari kasalliklarini tadqiq qilgan."
+    },
+    {
+      "id": 137,
+      "question": "Yoppasiga o‘tkazilgan tibbiy emlashlar natijasida qaysi kasalliklarning oldi olingan?",
+      "options": [
+        "Vabo, sil, ensefalit, poliomiyelit",
+        "O‘lat, poliomiyelit, qizamiq, chechak",
+        "Qizamiq, chechak, ensefalit, o‘lat",
+        "Chechak, ensefalit, poliomiyelit, sil"
+      ],
+      "correct_option_id": 1,
+      "explanation": "O‘lat, chechak, poliomiyelit va qizamiq kasalliklarining oldi olingan."
+    }
+  ],
+  "9": [
+    {
+      "id": 15,
+      "question": "Hujayraning energetik stansiyasi qaysi organoid?",
+      "options": [
+        "Mitoxondriya",
+        "Lizosoma",
+        "Ribosoma",
+        "Golji majmuasi"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Mitoxondriyada ATF sintezlanadi, shuning uchun u hujayraning energetik stansiyasi deyiladi."
+    },
+    {
+      "id": 16,
+      "question": "Oqsillarning birlamchi monomeri nima?",
+      "options": [
+        "Glyukoza",
+        "Aminokislotalar",
+        "Nukleotidlar",
+        "Glitserin"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Oqsillar 20 xil aminokislotalardan tuzilgan polimerlardir."
+    }
+  ],
+  "10": [
+    {
+      "id": 17,
+      "question": "Genetika fanining asoschisi kim?",
+      "options": [
+        "Charlz Darvin",
+        "Gregor Mendel",
+        "Tomas Morgan",
+        "Lui Paster"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Gregor Mendel no'xat ustida o'tkazgan tajribalari bilan irsiyat qonunlarini ochgan."
+    },
+    {
+      "id": 18,
+      "question": "Mitoz bo'linish necha fazadan iborat?",
+      "options": [
+        "2 ta",
+        "3 ta",
+        "4 ta (Profaza, Metafaza, Anafaza, Telofaza)",
+        "6 ta"
+      ],
+      "correct_option_id": 2,
+      "explanation": "Mitoz 4 ta asosiy fazadan iborat: profaza, metafaza, anafaza va telofaza."
+    }
+  ],
+  "11": [
+    {
+      "id": 19,
+      "question": "Tirik organizmlar va ularning atrof-muhit bilan o'zaro munosabatlarini o'rganuvchi fan nima?",
+      "options": [
+        "Ekologiya",
+        "Sitologiya",
+        "Embriologiya",
+        "Gistologiya"
+      ],
+      "correct_option_id": 0,
+      "explanation": "Ekologiya — organizmlarning muhit va bir-biri bilan o'zaro ta'sirini o'rganadi (E.Gekkel kiritgan)."
+    },
+    {
+      "id": 20,
+      "question": "Evolyutsiya nazariyasining harakatlantiruvchi asosiy kuchi nima?",
+      "options": [
+        "Modifikatsion o'zgaruvchanlik",
+        "Tabiiy tanlanish",
+        "Sun'iy tanlanish",
+        "O'z-o'zidan paydo bo'lish"
+      ],
+      "correct_option_id": 1,
+      "explanation": "Darvin ta'limotiga ko'ra, tabiiy tanlanish yashash uchun kurash natijasida sodir bo'ladi."
+    }
+  ]
+}
