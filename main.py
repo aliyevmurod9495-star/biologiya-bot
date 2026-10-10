@@ -29,10 +29,9 @@ dp = Dispatcher()
 
 # Savollarni yuklash
 with open("questions.json", "r", encoding="utf-8") as f:
-    QUESTIONS_DATA: Dict[str, list] = json.load(f)
+    QUESTIONS_DATA: Dict[str, Any] = json.load(f)
 
 # O'quvchilarning faol test sessiyalarini saqlash
-# user_id -> { "grade_name": str, "questions": list, "index": int, "score": int, "last_poll_id": str }
 active_sessions: Dict[int, Dict[str, Any]] = {}
 poll_to_user: Dict[str, int] = {}
 
@@ -61,6 +60,38 @@ def get_grades_keyboard() -> InlineKeyboardMarkup:
         [InlineKeyboardButton(text="🌍 11-sinf (Ekologiya)", callback_data="grade_11")],
         [InlineKeyboardButton(text="🎲 Barcha sinflardan aralash test", callback_data="grade_all")]
     ]
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
+
+def get_topics_keyboard(grade_id: str) -> InlineKeyboardMarkup:
+    """Tanlangan sinf mavzulari ro'yxati"""
+    grade_data = QUESTIONS_DATA.get(grade_id, {})
+    topics = grade_data.get("topics", [])
+    buttons = []
+    
+    for t in topics:
+        q_count = len(t.get("questions", []))
+        buttons.append([
+            InlineKeyboardButton(
+                text=f"📖 {t['title']} ({q_count} ta)",
+                callback_data=f"topic_{grade_id}_{t['id']}"
+            )
+        ])
+    
+    total_q = sum(len(t.get("questions", [])) for t in topics)
+    buttons.append([
+        InlineKeyboardButton(
+            text=f"🎲 Barcha mavzulardan aralash ({total_q} ta)",
+            callback_data=f"topic_{grade_id}_all"
+        )
+    ])
+    
+    buttons.append([
+        InlineKeyboardButton(
+            text="⬅️ Orqaga (Sinflar ro'yxati)",
+            callback_data="back_to_grades"
+        )
+    ])
+    
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
 
@@ -215,6 +246,28 @@ async def start_ai_mode(message: Message):
     await message.answer(text, reply_markup=MAIN_KEYBOARD)
 
 
+GRADE_SHORTCUTS = {
+    "5", "6", "7", "8", "9", "10", "11",
+    "5-sinf", "6-sinf", "7-sinf", "8-sinf", "9-sinf", "10-sinf", "11-sinf",
+    "5 sinf", "6 sinf", "7 sinf", "8 sinf", "9 sinf", "10 sinf", "11 sinf"
+}
+
+@dp.message(F.text.func(lambda t: t and t.strip().lower() in GRADE_SHORTCUTS))
+async def handle_grade_shortcut(message: Message):
+    """Foydalanuvchi sinf raqamini yozganda darhol mavzularni chiqarish"""
+    raw = message.text.lower().replace("-sinf", "").replace("sinf", "").strip()
+    if raw in QUESTIONS_DATA:
+        grade_data = QUESTIONS_DATA[raw]
+        grade_name = grade_data.get("name", f"{raw}-sinf")
+        text = (
+            f"📚 <b>{grade_name}</b>\n\n"
+            "O'zingizga kerakli <b>mavzuni</b> tanlang yoki umumiy test ishlang:"
+        )
+        await message.answer(text, reply_markup=get_topics_keyboard(raw))
+    else:
+        await message.answer("📚 Qaysi sinf darsligidan test topshirmoqchisiz?", reply_markup=get_grades_keyboard())
+
+
 @dp.message(F.text & ~F.text.startswith("/") & ~F.text.in_(["🧪 Test topshirish", "📊 Mening natijalarim", "🏆 O'quvchilar reytingi", "ℹ️ Bot haqida", "🧠 AI Ustoz"]))
 async def handle_ai_question(message: Message):
     """Foydalanuvchi erkin savol yozganda AI orqali javob berish"""
@@ -238,29 +291,105 @@ async def handle_ai_question(message: Message):
             await loading_msg.edit_text(answer)
 
 
+@dp.callback_query(F.data == "back_to_grades")
+async def back_to_grades_callback(callback: CallbackQuery):
+    """Sinflar ro'yxatiga qaytish"""
+    await callback.answer()
+    text = "📚 <b>Qaysi sinf darsligi bo'yicha test topshirmoqchisiz?</b>\n\nQuyidagi ro'yxatdan tanlang:"
+    try:
+        await callback.message.edit_text(text, reply_markup=get_grades_keyboard())
+    except Exception:
+        await callback.message.answer(text, reply_markup=get_grades_keyboard())
+
+
 @dp.callback_query(F.data.startswith("grade_"))
-async def start_quiz_session(callback: CallbackQuery):
-    """Tanlangan sinf bo'yicha testni boshlash"""
+async def choose_topics_or_start(callback: CallbackQuery):
+    """Sinf tanlanganda mavzularni ko'rsatish yoki aralash test boshlash"""
     await callback.answer()
     grade = callback.data.replace("grade_", "")
     user_id = callback.from_user.id
 
     if grade == "all":
+        import random
         questions = []
-        for g_list in QUESTIONS_DATA.values():
-            questions.extend(g_list)
-        grade_name = "Aralash (5–11 sinf)"
-    else:
-        questions = QUESTIONS_DATA.get(grade, [])
-        grade_name = f"{grade}-sinf"
+        for g_data in QUESTIONS_DATA.values():
+            if isinstance(g_data, dict) and "topics" in g_data:
+                for t in g_data["topics"]:
+                    questions.extend(t.get("questions", []))
+            elif isinstance(g_data, list):
+                questions.extend(g_data)
 
-    if not questions:
-        await callback.message.answer("⚠️ Bu sinf bo'yicha hozircha savollar mavjud emas.")
+        if not questions:
+            await callback.message.answer("⚠️ Hozircha savollar mavjud emas.")
+            return
+
+        sample_q = questions[:]
+        random.shuffle(sample_q)
+        sample_q = sample_q[:30]
+
+        active_sessions[user_id] = {
+            "grade_name": "Aralash (5–11 sinf)",
+            "questions": sample_q,
+            "index": 0,
+            "score": 0,
+            "last_poll_id": None
+        }
+
+        await callback.message.answer(
+            f"🎯 <b>Aralash (5–11 sinf)</b> bo'yicha test boshlandi!\n"
+            f"Jami savollar: <b>{len(sample_q)} ta</b>\n\n"
+            "<i>Har bir savol uchun to'g'ri javobni tanlang. Omad!</i>"
+        )
+        await send_next_question(user_id)
         return
 
-    # Sessiyani saqlash
+    grade_data = QUESTIONS_DATA.get(grade)
+    if not grade_data:
+        await callback.message.answer("⚠️ Bu sinf bo'yicha ma'lumot topilmadi.")
+        return
+
+    grade_name = grade_data.get("name", f"{grade}-sinf")
+    text = (
+        f"📚 <b>{grade_name}</b>\n\n"
+        "O'zingizga kerakli <b>mavzuni</b> tanlang yoki barcha mavzulardan umumiy test ishlang:"
+    )
+    try:
+        await callback.message.edit_text(text, reply_markup=get_topics_keyboard(grade))
+    except Exception:
+        await callback.message.answer(text, reply_markup=get_topics_keyboard(grade))
+
+
+@dp.callback_query(F.data.startswith("topic_"))
+async def start_topic_quiz(callback: CallbackQuery):
+    """Tanlangan mavzu bo'yicha testni boshlash"""
+    await callback.answer()
+    parts = callback.data.split("_")
+    grade = parts[1]
+    topic_id = parts[2]
+    user_id = callback.from_user.id
+
+    grade_data = QUESTIONS_DATA.get(grade, {})
+    topics = grade_data.get("topics", [])
+
+    if topic_id == "all":
+        questions = []
+        for t in topics:
+            questions.extend(t.get("questions", []))
+        session_title = f"{grade_data.get('name', f'{grade}-sinf')} (Barcha mavzular)"
+    else:
+        topic = next((t for t in topics if str(t["id"]) == str(topic_id)), None)
+        if not topic:
+            await callback.message.answer("⚠️ Mavzu topilmadi.")
+            return
+        questions = topic.get("questions", [])
+        session_title = f"{grade_data.get('name', f'{grade}-sinf')} — {topic['title']}"
+
+    if not questions:
+        await callback.message.answer("⚠️ Bu mavzu bo'yicha hozircha savollar kiritilmagan.")
+        return
+
     active_sessions[user_id] = {
-        "grade_name": grade_name,
+        "grade_name": session_title,
         "questions": questions,
         "index": 0,
         "score": 0,
@@ -268,7 +397,7 @@ async def start_quiz_session(callback: CallbackQuery):
     }
 
     await callback.message.answer(
-        f"🎯 <b>{grade_name}</b> bo'yicha test boshlandi!\n"
+        f"🎯 <b>{session_title}</b> bo'yicha test boshlandi!\n"
         f"Jami savollar: <b>{len(questions)} ta</b>\n\n"
         "<i>Har bir savol uchun to'g'ri javobni tanlang. Omad!</i>"
     )
