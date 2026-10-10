@@ -36,11 +36,15 @@ with open("questions.json", "r", encoding="utf-8") as f:
 active_sessions: Dict[int, Dict[str, Any]] = {}
 poll_to_user: Dict[str, int] = {}
 
+# AI rejimida turgan foydalanuvchilar
+ai_mode_users = set()
+
 # Asosiy menyu klaviaturasi
 MAIN_KEYBOARD = ReplyKeyboardMarkup(
     keyboard=[
-        [KeyboardButton(text="🧪 Test topshirish"), KeyboardButton(text="📊 Mening natijalarim")],
-        [KeyboardButton(text="🏆 O'quvchilar reytingi"), KeyboardButton(text="ℹ️ Bot haqida")]
+        [KeyboardButton(text="🧪 Test topshirish"), KeyboardButton(text="🧠 AI Ustoz")],
+        [KeyboardButton(text="📊 Mening natijalarim"), KeyboardButton(text="🏆 O'quvchilar reytingi")],
+        [KeyboardButton(text="ℹ️ Bot haqida")]
     ],
     resize_keyboard=True
 )
@@ -143,11 +147,95 @@ async def show_about(message: Message):
     text = (
         "🤖 <b>Biologiya Viktorina Boti (@Biologiya1_N2_bot)</b>\n\n"
         "Ushbu bot maktab o'quvchilari va abituriyentlar uchun biologiya fanidan "
-        "bilimlarni mustahkamlash va test sinovlariga tayyorlanishga yordam beradi.\n\n"
+        "bilimlarni mustahkamlash, test sinovlari va Sun'iy Intellekt yordamida o'rganishga yordam beradi.\n\n"
         f"👥 Foydalanuvchilar soni: <b>{total_users} nafar</b>\n"
-        "⚡️ Dasturlash tili: Python (aiogram 3)"
+        "⚡️ Dasturlash tili: Python (aiogram 3 + Google Gemini AI)"
     )
     await message.answer(text, reply_markup=MAIN_KEYBOARD)
+
+
+async def ask_gemini_ai(prompt: str) -> str:
+    """Google Gemini AI orqali biologik savolga javob olish"""
+    if not config.GEMINI_API_KEY:
+        return (
+            "⚠️ <b>Sun'iy intellekt (AI) API kaliti ulanmagan.</b>\n\n"
+            "Admin tomonidan Google Gemini API kaliti sozlanishi kerak."
+        )
+    
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key={config.GEMINI_API_KEY}"
+    
+    system_prompt = (
+        "Siz o'zbek tilida so'zlashuvchi biologiya fani bo'yicha yuqori malakali o'qituvchi va repetitorsiz (AI Ustoz). "
+        "O'quvchining savoliga o'zbek tilida aniq, tushunarli, darslikka asoslangan va ilmiy to'g'ri javob bering. "
+        "Agar biologiya yoki genetika masalasi bo'lsa, uni bosqichma-bosqich formulasi, yechimi va javobi bilan tushuntiring. "
+        "Javobni Telegram HTML formatida chiroyli sarlavha va qalin matnlar bilan bezating."
+    )
+    
+    payload = {
+        "contents": [
+            {
+                "parts": [
+                    {"text": f"{system_prompt}\n\nO'quvchi savoli: {prompt}"}
+                ]
+            }
+        ]
+    }
+    
+    import aiohttp
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.post(url, json=payload, timeout=aiohttp.ClientTimeout(total=40)) as resp:
+                if resp.status == 200:
+                    data = await resp.json()
+                    candidates = data.get("candidates", [])
+                    if candidates and "content" in candidates[0]:
+                        parts = candidates[0]["content"].get("parts", [])
+                        if parts:
+                            return parts[0].get("text", "Kechirasiz, javob olishda xatolik yuz berdi.")
+                    return "Kechirasiz, sun'iy intellektdan javob kelmadi."
+                else:
+                    return f"⚠️ Sun'iy intellekt serverida xatolik yuz berdi (Status: {resp.status})."
+    except Exception as e:
+        logging.error(f"Gemini API xatoligi: {e}")
+        return "⚠️ Sun'iy intellekt bilan bog'lanishda vaqt tugadi. Iltimos qaytadan urinib ko'ring."
+
+
+@dp.message(F.text == "🧠 AI Ustoz")
+async def start_ai_mode(message: Message):
+    """AI ustoz rejimini yoqish"""
+    ai_mode_users.add(message.from_user.id)
+    text = (
+        "🧠 <b>Assalomu alaykum! Men sizning biologiya bo‘yicha Sun'iy Intellekt Ustozingizman.</b>\n\n"
+        "Menga biologiyadan istalgan savolingizni yozing yoki masalani yuboring:\n"
+        "• <i>«Fotosintez qanday sodir bo'ladi?»</i>\n"
+        "• <i>«Mitoz va meyozning farqi nima?»</i>\n"
+        "• <i>Genetika yoki DNK masalalarining matni</i>\n\n"
+        "✍️ <b>Savolingizni yoki masalangizni yozib yuboring:</b>"
+    )
+    await message.answer(text, reply_markup=MAIN_KEYBOARD)
+
+
+@dp.message(F.text & ~F.text.startswith("/") & ~F.text.in_(["🧪 Test topshirish", "📊 Mening natijalarim", "🏆 O'quvchilar reytingi", "ℹ️ Bot haqida", "🧠 AI Ustoz"]))
+async def handle_ai_question(message: Message):
+    """Foydalanuvchi erkin savol yozganda AI orqali javob berish"""
+    await bot.send_chat_action(chat_id=message.chat.id, action="typing")
+    loading_msg = await message.answer("🤔 <i>Sun'iy intellekt javob tayyorlamoqda...</i>")
+    
+    answer = await ask_gemini_ai(message.text)
+    
+    if len(answer) > 4000:
+        await loading_msg.delete()
+        for i in range(0, len(answer), 4000):
+            chunk = answer[i:i+4000]
+            try:
+                await message.answer(chunk, parse_mode="HTML")
+            except Exception:
+                await message.answer(chunk)
+    else:
+        try:
+            await loading_msg.edit_text(answer, parse_mode="HTML")
+        except Exception:
+            await loading_msg.edit_text(answer)
 
 
 @dp.callback_query(F.data.startswith("grade_"))
