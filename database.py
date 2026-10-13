@@ -156,3 +156,24 @@ async def get_total_users_count() -> int:
         async with db.execute("SELECT COUNT(*) FROM users") as cursor:
             row = await cursor.fetchone()
             return row[0] if row else 0
+
+
+async def get_user_topic_result(user_id: int, grade: str, topic_id_or_title: str) -> Optional[Dict[str, Any]]:
+    """O'quvchining muayyan mavzu bo'yicha oxirgi natijasini olish"""
+    async with aiosqlite.connect(DB_PATH) as db:
+        async with db.execute("""
+            SELECT score, total_questions, finished_at
+            FROM test_results
+            WHERE user_id = ? AND grade = ? AND (topic_title LIKE ? OR topic_title LIKE ?)
+            ORDER BY finished_at DESC
+            LIMIT 1
+        """, (user_id, grade, f"%{topic_id_or_title}%", f"%{topic_id_or_title}-mavzu%")) as cursor:
+            row = await cursor.fetchone()
+            if row:
+                return {
+                    "score": row[0],
+                    "total": row[1],
+                    "finished_at": row[2]
+                }
+            return None
+

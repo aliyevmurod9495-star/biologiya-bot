@@ -153,39 +153,160 @@ async def show_topics_menu(message: Message):
     )
 
 
-@dp.callback_query(F.data.startswith("read_topic_"))
+@dp.callback_query(F.data.startswith("read_topic_") | F.data.startswith("thub_"))
 async def read_topic_content(callback: CallbackQuery):
+    """Mavzu Boshqaruv Markazi (Topic Hub) — Ma'ruza, Qo'llanma, Video va Testlar"""
+    await callback.answer()
+    parts = callback.data.split("_")
+    grade = parts[2] if parts[0] == "read" else parts[1]
+    topic_id = parts[3] if parts[0] == "read" else parts[2]
+    user_id = callback.from_user.id
+
+    lectures = materials.TOPICS_CONTENT.get(grade, [])
+    lec = next((l for l in lectures if str(l["id"]) == str(topic_id)), None)
+
+    grade_data = QUESTIONS_DATA.get(grade, {})
+    topic_info = next((t for t in grade_data.get("topics", []) if str(t["id"]) == str(topic_id)), None)
+    
+    title = lec["title"] if lec else (topic_info["title"] if topic_info else f"{topic_id}-mavzu")
+    q_count = len(topic_info.get("questions", [])) if topic_info else 0
+
+    hub_text = (
+        f"🧬 <b>{title.upper()}</b>\n\n"
+        f"Ushbu mavzu bo'yicha bazada <b>{q_count} ta</b> rasmiy test savoli mavjud.\n\n"
+        "Kerakli o'quv bo'limini tanlang:\n"
+        "• 📖 <b>Ma'ruza matni</b> — Darslik konspekti va nazariya\n"
+        "• 📘 <b>Qisqa qo'llanma</b> — Muhim formulalar, atamalar va faktlar\n"
+        "• 🎥 <b>Video va 3D Animatsiya</b> — Mavzuga oid darslik videolari\n"
+        "• 📝 <b>Test ishlash</b> — 10 ta, 20 ta yoki to'liq hajmda\n"
+        "• 📊 <b>Mening natijam</b> — Ushbu mavzudagi shaxsiy ko'rsatkichingiz"
+    )
+
+    buttons = [
+        [InlineKeyboardButton(text="📖 Ma'ruza matni (Konspekt)", callback_data=f"tlec_{grade}_{topic_id}")],
+        [InlineKeyboardButton(text="📘 Qisqa qo'llanma (Faktlar)", callback_data=f"tgui_{grade}_{topic_id}")],
+        [InlineKeyboardButton(text="🎥 Video dars va 3D Animatsiya", callback_data=f"tmed_{grade}_{topic_id}")],
+        [InlineKeyboardButton(text=f"📝 Test ishlash ({q_count} ta savol)", callback_data=f"tquiz_choose_{grade}_{topic_id}")],
+        [InlineKeyboardButton(text="📊 Mening ushbu mavzudagi natijam", callback_data=f"tstat_{grade}_{topic_id}")],
+        [InlineKeyboardButton(text="⬅️ Barcha mavzular ro'yxati", callback_data=f"back_to_topics_{grade}")]
+    ]
+
+    await callback.message.answer(
+        hub_text,
+        reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons)
+    )
+
+
+@dp.callback_query(F.data.startswith("tlec_"))
+async def show_topic_lecture(callback: CallbackQuery):
     """Mavzu ma'ruzasini ko'rsatish"""
     await callback.answer()
     parts = callback.data.split("_")
-    grade = parts[2]
-    topic_id = parts[3]
+    grade = parts[1]
+    topic_id = parts[2]
 
     lectures = materials.TOPICS_CONTENT.get(grade, [])
     lec = next((l for l in lectures if str(l["id"]) == str(topic_id)), None)
 
     if not lec:
-        # Agar materials.py da bo'lmasa, questions.json dan qidiramiz
-        grade_data = QUESTIONS_DATA.get(grade, {})
-        topic_info = next((t for t in grade_data.get("topics", []) if str(t["id"]) == str(topic_id)), None)
-        title = topic_info["title"] if topic_info else f"{topic_id}-mavzu"
-        lecture_text = (
-            f"📖 <b>{title}</b>\n\n"
-            "Ushbu mavzu bo'yicha qisqa konspekt va asosiy qoidalar tayyorlanmoqda.\n"
-            "Darhol mavzu bo'yicha test ishlab bilimlaringizni sinashingiz mumkin!"
-        )
+        text = "📖 Ushbu mavzu ma'ruzasi tayyorlanmoqda."
     else:
-        lecture_text = lec["text"]
+        text = lec["text"]
 
     buttons = [
-        [InlineKeyboardButton(text="📝 Ushbu mavzudan test ishlash", callback_data=f"topic_{grade}_{topic_id}")],
-        [InlineKeyboardButton(text="⬅️ Barcha mavzular ro'yxati", callback_data=f"back_to_topics_{grade}")]
+        [InlineKeyboardButton(text="📘 Qisqa qo'llanma", callback_data=f"tgui_{grade}_{topic_id}"),
+         InlineKeyboardButton(text="📝 Test ishlash", callback_data=f"tquiz_choose_{grade}_{topic_id}")],
+        [InlineKeyboardButton(text="⬅️ Mavzu bosh menyusi", callback_data=f"thub_{grade}_{topic_id}")]
     ]
+    await callback.message.answer(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
 
-    await callback.message.answer(
-        lecture_text,
-        reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons)
+
+@dp.callback_query(F.data.startswith("tgui_"))
+async def show_topic_guide(callback: CallbackQuery):
+    """Mavzu bo'yicha qisqa qo'llanma (savol-javob, muhim faktlar)"""
+    await callback.answer()
+    parts = callback.data.split("_")
+    grade = parts[1]
+    topic_id = parts[2]
+
+    lectures = materials.TOPICS_CONTENT.get(grade, [])
+    lec = next((l for l in lectures if str(l["id"]) == str(topic_id)), None)
+
+    guide_text = lec.get("guide") if (lec and "guide" in lec) else (
+        "📘 <b>QISQA QO'LLANMA:</b>\n\n"
+        "Ushbu mavzu bo'yicha asosiy formulalar va tayanch tushunchalar ma'ruza matnida keltirilgan."
     )
+
+    buttons = [
+        [InlineKeyboardButton(text="📖 Ma'ruza matni", callback_data=f"tlec_{grade}_{topic_id}"),
+         InlineKeyboardButton(text="📝 Test ishlash", callback_data=f"tquiz_choose_{grade}_{topic_id}")],
+        [InlineKeyboardButton(text="⬅️ Mavzu bosh menyusi", callback_data=f"thub_{grade}_{topic_id}")]
+    ]
+    await callback.message.answer(guide_text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+
+@dp.callback_query(F.data.startswith("tmed_"))
+async def show_topic_media(callback: CallbackQuery):
+    """Mavzuga oid Video dars va 3D Animatsiya ma'lumotlari"""
+    await callback.answer()
+    parts = callback.data.split("_")
+    grade = parts[1]
+    topic_id = parts[2]
+
+    lectures = materials.TOPICS_CONTENT.get(grade, [])
+    lec = next((l for l in lectures if str(l["id"]) == str(topic_id)), None)
+
+    media_text = lec.get("media") if (lec and "media" in lec) else (
+        "🎥 <b>MULTIMEDIA MATERIALLARI:</b>\n\n"
+        "Ushbu mavzuga oid qo'shimcha video roliklar va 3D animatsiyalar tayyorlanmoqda."
+    )
+
+    buttons = [
+        [InlineKeyboardButton(text="📝 Test ishlash", callback_data=f"tquiz_choose_{grade}_{topic_id}")],
+        [InlineKeyboardButton(text="⬅️ Mavzu bosh menyusi", callback_data=f"thub_{grade}_{topic_id}")]
+    ]
+    await callback.message.answer(media_text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+
+@dp.callback_query(F.data.startswith("tstat_"))
+async def show_topic_user_stats(callback: CallbackQuery):
+    """O'quvchining ushbu mavzudagi shaxsiy natijasini ko'rsatish"""
+    await callback.answer()
+    parts = callback.data.split("_")
+    grade = parts[1]
+    topic_id = parts[2]
+    user_id = callback.from_user.id
+
+    grade_data = QUESTIONS_DATA.get(grade, {})
+    topic_info = next((t for t in grade_data.get("topics", []) if str(t["id"]) == str(topic_id)), None)
+    title = topic_info["title"] if topic_info else f"{topic_id}-mavzu"
+
+    result = await database.get_user_topic_result(user_id, grade, topic_id)
+
+    if result:
+        score = result["score"]
+        total = result["total"]
+        pct = round((score / total) * 100, 1) if total > 0 else 0
+        mark = "A'lo (5 baho) ⭐️" if pct >= 85 else ("Yaxshi (4 baho) 👍" if pct >= 70 else ("Qoniqarli (3 baho) 👌" if pct >= 55 else "Qayta tayyorlaning (2 baho) ⚠️"))
+        stat_text = (
+            f"📊 <b>SIZNING USHBU MAVZUDAGI NATIJANGIZ:</b>\n\n"
+            f"📌 Mavzu: <b>{title}</b>\n"
+            f"✅ Oxirgi natija: <b>{score} / {total}</b> ({pct}%)\n"
+            f"🏆 Baho: <b>{mark}</b>\n"
+            f"🕒 Topshirilgan vaqt: <i>{result['finished_at']}</i>\n\n"
+            "<i>Natijangizni yanada yaxshilash uchun qaytadan test topshirishingiz mumkin!</i>"
+        )
+    else:
+        stat_text = (
+            f"ℹ️ <b>Siz hali {title} bo'yicha test topshirmagansiz!</b>\n\n"
+            "Mavzuni qanchalik yaxshi o'zlashtirganingizni bilish uchun hoziroq testni boshlang."
+        )
+
+    buttons = [
+        [InlineKeyboardButton(text="📝 Test topshirish", callback_data=f"tquiz_choose_{grade}_{topic_id}")],
+        [InlineKeyboardButton(text="⬅️ Mavzu bosh menyusi", callback_data=f"thub_{grade}_{topic_id}")]
+    ]
+    await callback.message.answer(stat_text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
 
 
 @dp.callback_query(F.data.startswith("back_to_topics_"))
@@ -194,23 +315,26 @@ async def back_to_topics_callback(callback: CallbackQuery):
     await callback.answer()
     grade = callback.data.split("_")[3]
     grade_name = GRADE_NAMES.get(grade, f"{grade}-sinf")
-    lectures = materials.TOPICS_CONTENT.get(grade, [])
+    
+    grade_data = QUESTIONS_DATA.get(grade, {})
+    topics = grade_data.get("topics", [])
 
     buttons = []
-    for lec in lectures:
+    for t in topics:
         buttons.append([
-            InlineKeyboardButton(text=f"📖 {lec['title']}", callback_data=f"read_topic_{grade}_{lec['id']}")
+            InlineKeyboardButton(text=f"📖 {t['title']}", callback_data=f"thub_{grade}_{t['id']}")
         ])
     buttons.append([InlineKeyboardButton(text="🔄 Sinfni almashtirish", callback_data="switch_grade_prompt")])
 
     await callback.message.answer(
-        f"📚 <b>{grade_name} — Mavzular ro'yxati:</b>",
+        f"📚 <b>{grade_name} — Mavzular ro'yxati:</b>\n\n"
+        "O'rganmoqchi bo'lgan mavzungizni tanlang:",
         reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons)
     )
 
 
 # ==========================================
-# 2. TESTLAR BO'LIMI
+# 2. TESTLAR BO'LIMI (TEST SIZE CHOOSER)
 # ==========================================
 @dp.message(F.text == "📝 Testlar")
 async def show_tests_menu(message: Message):
@@ -238,14 +362,14 @@ async def show_tests_menu(message: Message):
         buttons.append([
             InlineKeyboardButton(
                 text=f"📝 {t['title']} ({q_count} ta)",
-                callback_data=f"topic_{grade}_{t['id']}"
+                callback_data=f"tquiz_choose_{grade}_{t['id']}"
             )
         ])
 
     buttons.append([
         InlineKeyboardButton(
             text=f"🎲 Barcha mavzulardan aralash test ({total_q} ta)",
-            callback_data=f"topic_{grade}_all"
+            callback_data=f"tquiz_choose_{grade}_all"
         )
     ])
     buttons.append([
@@ -259,13 +383,64 @@ async def show_tests_menu(message: Message):
     )
 
 
-@dp.callback_query(F.data.startswith("topic_"))
-async def start_topic_quiz(callback: CallbackQuery):
-    """Tanlangan mavzu bo'yicha viktorina testini boshlash"""
+@dp.callback_query(F.data.startswith("tquiz_choose_") | F.data.startswith("topic_"))
+async def choose_quiz_mode(callback: CallbackQuery):
+    """Test hajmiga qarab tanlov berish (1-variant: 10 ta, 20 ta yoki Barchasi)"""
+    await callback.answer()
+    parts = callback.data.split("_")
+    # Callback either: tquiz_choose_{grade}_{topic_id} or topic_{grade}_{topic_id}
+    grade = parts[2] if parts[0] == "tquiz" else parts[1]
+    topic_id = parts[3] if parts[0] == "tquiz" else parts[2]
+
+    grade_data = QUESTIONS_DATA.get(grade, {})
+    topics = grade_data.get("topics", [])
+
+    if topic_id == "all":
+        total_q = sum(len(t.get("questions", [])) for t in topics)
+        title = f"{GRADE_NAMES.get(grade, grade)} (Barcha mavzular)"
+        prompt_text = (
+            f"🎲 <b>{title}</b>\n\n"
+            f"Bazada jami <b>{total_q} ta</b> savol mavjud.\n"
+            "Nechta savol ishlamoqchisiz? Tanlang:"
+        )
+        buttons = [
+            [InlineKeyboardButton(text="⚡️ Tezkor aralash test (15 ta savol)", callback_data=f"quizstart_{grade}_all_15")],
+            [InlineKeyboardButton(text="📝 Standart DTM bloki (30 ta savol)", callback_data=f"quizstart_{grade}_all_30")],
+            [InlineKeyboardButton(text="⬅️ Ortga", callback_data=f"back_to_topics_{grade}")]
+        ]
+    else:
+        topic = next((t for t in topics if str(t["id"]) == str(topic_id)), None)
+        if not topic:
+            await callback.message.answer("⚠️ Mavzu topilmadi.")
+            return
+        total_q = len(topic.get("questions", []))
+        title = topic["title"]
+        prompt_text = (
+            f"📝 <b>{title}</b>\n\n"
+            f"Ushbu mavzu bo'yicha bazada <b>{total_q} ta</b> savol mavjud.\n"
+            "O'zingizga qulay test rejimini tanlang:"
+        )
+        buttons = [
+            [InlineKeyboardButton(text="⚡️ Tezkor test (10 ta savol)", callback_data=f"quizstart_{grade}_{topic_id}_10")],
+            [InlineKeyboardButton(text="📝 Standart test (20 ta savol)", callback_data=f"quizstart_{grade}_{topic_id}_20")],
+            [InlineKeyboardButton(text=f"🏆 To'liq test (Barcha {total_q} ta)", callback_data=f"quizstart_{grade}_{topic_id}_all")],
+            [InlineKeyboardButton(text="⬅️ Mavzu bosh menyusi", callback_data=f"thub_{grade}_{topic_id}")]
+        ]
+
+    await callback.message.answer(
+        prompt_text,
+        reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons)
+    )
+
+
+@dp.callback_query(F.data.startswith("quizstart_"))
+async def start_quiz_with_count(callback: CallbackQuery):
+    """Tanlangan miqdorda viktorina testini boshlash"""
     await callback.answer()
     parts = callback.data.split("_")
     grade = parts[1]
     topic_id = parts[2]
+    count_str = parts[3]
     user_id = callback.from_user.id
 
     grade_data = QUESTIONS_DATA.get(grade, {})
@@ -275,7 +450,7 @@ async def start_topic_quiz(callback: CallbackQuery):
         questions = []
         for t in topics:
             questions.extend(t.get("questions", []))
-        session_title = f"{GRADE_NAMES.get(grade, grade)} (Barcha mavzular)"
+        session_title = f"{GRADE_NAMES.get(grade, grade)} (Aralash test)"
     else:
         topic = next((t for t in topics if str(t["id"]) == str(topic_id)), None)
         if not topic:
@@ -288,13 +463,16 @@ async def start_topic_quiz(callback: CallbackQuery):
         await callback.message.answer("⚠️ Bu mavzu bo'yicha savollar mavjud emas.")
         return
 
-    # Savollarni aralashtirib berish (bitta sessiya uchun 25 ta, aralash test uchun 30 ta)
+    # Savollarni aralashtirib berish va tanlangan miqdorda kesish
     quiz_questions = questions[:]
     random.shuffle(quiz_questions)
-    if topic_id == "all" and len(quiz_questions) > 30:
-        quiz_questions = quiz_questions[:30]
-    elif len(quiz_questions) > 25:
-        quiz_questions = quiz_questions[:25]
+
+    if count_str != "all":
+        try:
+            limit = int(count_str)
+            quiz_questions = quiz_questions[:limit]
+        except ValueError:
+            pass
 
     active_sessions[user_id] = {
         "grade": grade,
@@ -307,7 +485,7 @@ async def start_topic_quiz(callback: CallbackQuery):
 
     await callback.message.answer(
         f"🎯 <b>{session_title}</b> bo'yicha test boshlandi!\n"
-        f"Jami savollar: <b>{len(quiz_questions)} ta</b>\n\n"
+        f"Tanlangan savollar soni: <b>{len(quiz_questions)} ta</b>\n\n"
         "<i>Har bir savol uchun to'g'ri javobni belgilang. Omad!</i>"
     )
 
