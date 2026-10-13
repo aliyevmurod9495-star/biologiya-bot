@@ -288,9 +288,13 @@ async def start_topic_quiz(callback: CallbackQuery):
         await callback.message.answer("⚠️ Bu mavzu bo'yicha savollar mavjud emas.")
         return
 
-    # Savollarni aralashtirib berish
+    # Savollarni aralashtirib berish (bitta sessiya uchun 25 ta, aralash test uchun 30 ta)
     quiz_questions = questions[:]
     random.shuffle(quiz_questions)
+    if topic_id == "all" and len(quiz_questions) > 30:
+        quiz_questions = quiz_questions[:30]
+    elif len(quiz_questions) > 25:
+        quiz_questions = quiz_questions[:25]
 
     active_sessions[user_id] = {
         "grade": grade,
@@ -324,16 +328,31 @@ async def send_next_question(user_id: int):
         return
 
     q = questions[index]
-    options_list = [InputPollOption(text=str(opt)) for opt in q["options"]]
+    
+    # Telegram Quiz cheklovlariga qarshi himoya
+    q_text = f"[{index + 1}/{len(questions)}] {q['question']}"
+    if len(q_text) > 295:
+        q_text = q_text[:292] + "..."
+        
+    options_list = []
+    for opt in q["options"]:
+        opt_text = str(opt).strip()
+        if len(opt_text) > 95:
+            opt_text = opt_text[:92] + "..."
+        options_list.append(InputPollOption(text=opt_text))
+
+    expl_text = q.get("explanation", "To'g'ri javob belgilandi!")
+    if len(expl_text) > 195:
+        expl_text = expl_text[:192] + "..."
 
     try:
         poll_msg = await bot.send_poll(
             chat_id=user_id,
-            question=f"[{index + 1}/{len(questions)}] {q['question']}",
+            question=q_text,
             options=options_list,
             type="quiz",
             correct_option_id=q["correct_option_id"],
-            explanation=q.get("explanation", "To'g'ri javob belgilandi!"),
+            explanation=expl_text,
             is_anonymous=False
         )
 
@@ -341,7 +360,9 @@ async def send_next_question(user_id: int):
         poll_to_user[poll_msg.poll.id] = user_id
     except Exception as e:
         logging.error(f"Savol yuborishda xatolik: {e}")
-        await bot.send_message(user_id, "Savolni yuborishda xatolik yuz berdi.")
+        # Xatolik bo'lsa, qotib qolmasdan keyingi savolga o'tish
+        session["index"] += 1
+        await send_next_question(user_id)
 
 
 @dp.poll_answer()
