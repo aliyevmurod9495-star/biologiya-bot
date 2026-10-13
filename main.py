@@ -29,9 +29,13 @@ logging.basicConfig(level=logging.INFO)
 bot = Bot(token=config.BOT_TOKEN, default=DefaultBotProperties(parse_mode="HTML"))
 dp = Dispatcher()
 
-# Savollarni yuklash
-with open("questions.json", "r", encoding="utf-8") as f:
-    QUESTIONS_DATA: Dict[str, Any] = json.load(f)
+# Savollarni yuklash (BOM bilan ham, BOM siz ham xatosiz yuklash)
+try:
+    with open("questions.json", "r", encoding="utf-8-sig") as f:
+        QUESTIONS_DATA: Dict[str, Any] = json.load(f)
+except Exception as e:
+    logging.error(f"questions.json yuklashda xatolik: {e}")
+    QUESTIONS_DATA: Dict[str, Any] = {}
 
 # O'quvchilarning faol test sessiyalarini saqlash
 active_sessions: Dict[int, Dict[str, Any]] = {}
