@@ -656,7 +656,7 @@ async def ask_gemini_ai(prompt: str) -> str:
             "Admin tomonidan Google Gemini API kaliti sozlanishi kerak."
         )
 
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key={config.GEMINI_API_KEY}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key={config.GEMINI_API_KEY}"
 
     system_prompt = (
         "Siz o'zbek tilida so'zlashuvchi biologiya fani bo'yicha yuqori malakali o'qituvchi va repetitorsiz (AI Ustoz). "
