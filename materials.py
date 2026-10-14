@@ -371,6 +371,71 @@ TOPICS_CONTENT: Dict[str, List[Dict[str, Any]]] = {
                 "🎬 <b>Video dars:</b> Shartli va shartsiz reflekslar mexanizmi (11 daqiqa)\n"
                 "🧬 <b>3D Animatsiya:</b> Bosh miyada xotira va yangi refleks yoyi hosil bo'lishi"
             )
+        },
+        {
+            "id": "14",
+            "title": "14-mavzu: Ko'payish va individual rivojlanish sistemasi",
+            "text": (
+                "📖 <b>14-MAVZU: KO'PAYISH VA INDIVIDUAL RIVOJLANISH SISTEMASI</b>\n\n"
+                "🔹 Ko'payish organizmning o'ziga o'xshash nasl qoldirib, turning davomiyligini ta'minlash xususiyatidir.\n\n"
+                "🚹 <b>Erkaklik jinsiy organlari:</b>\n"
+                "• <b>Urug'donlar (moyaklar):</b> Spermatozoidlar va testosteron gormoni ishlab chiqariladi.\n"
+                "• Urug'donlar yo'li, urug' pufakchalari, prostata bezi va jinsiy olat.\n\n"
+                "🚺 <b>Ayollik jinsiy organlari:</b>\n"
+                "• <b>Tuxumdonlar:</b> Tuxum hujayralar va estrogen gormoni yetiladi. Follikulalar ichida tuxum yetiladi.\n"
+                "• <b>Bachadon naylari (tuxum yo'li):</b> Urug'lanish jarayoni aynan shu yerda kechadi.\n"
+                "• <b>Bachadon:</b> Homilaning 9 oy davomida rivojlanish joyi.\n\n"
+                "🌱 <b>Ontogenez va Homila taraqqiyoti:</b>\n"
+                "• Urug'lanishdan <b>zigota</b> (diploid, 46 ta xromosoma) hosil bo'ladi.\n"
+                "• Zigota bo'linib, blastula va gastrulaga aylanadi, bachadon devoriga implantatsiya bo'ladi.\n"
+                "• Ona va homila qoni to'g'ridan-to'g'ri aralashmaydi, oziq va kislorod yo'ldosh (plasenta) orqali o'tadi.\n"
+                "• Homiladorlik davri o'rtacha 280 kun (40 hafta) davom etadi."
+            ),
+            "guide": (
+                "📘 <b>14-MAVZU BO'YICHA QISQA QO'LLANMA:</b>\n\n"
+                "• <b>Spermatozoid:</b> Mayda, harakatchan (boshcha, bo'yin, dum). 23 ta xromosoma.\n"
+                "• <b>Tuxum hujayra:</b> Yirik (0.15-0.2 mm), harakatsiz, oziq zaxirasiga boy. 23 ta xromosoma.\n"
+                "• <b>Zigota:</b> Urug'langan tuxum, 46 ta (diploid) xromosomaga ega.\n"
+                "• <b>Urug'lanish joyi:</b> Bachadon nayining yuqori 1/3 qismi.\n"
+                "• <b>Homiladorlik davomiyligi:</b> 270-280 kun (9 oy, 40 hafta).\n"
+                "• <b>Zararli omillar:</b> Spirtli ichimlik, nikotin, giyohvandlik plasenta to'sig'idan o'tib, tug'ma nuqsonlar keltirib chiqaradi."
+            ),
+            "media": (
+                "🎥 <b>Mavzuga oid Video va 3D modellar:</b>\n\n"
+                "🎬 <b>Video dars:</b> Tuxum, sperma va urug'lanish — Odam tanasidagi sistemalar (12 daqiqa)\n"
+                "🧬 <b>3D Animatsiya:</b> Urug'lanish jarayoni va homila rivojlanish bosqichlari"
+            )
+        },
+        {
+            "id": "15",
+            "title": "15-mavzu: Anatomiya kasalliklari, profilaktika va birinchi yordam",
+            "text": (
+                "📖 <b>15-MAVZU: ANATOMIYA KASALLIKLARI, PROFILAKTIKA VA BIRINCHI YORDAM</b>\n\n"
+                "🔹 Salomatlikni asrash organlar sistemalari gigiyenasi va kasalliklarning oldini olishga bog'liq.\n\n"
+                "❤️ <b>Yurak-qon tomir kasalliklari:</b>\n"
+                "• <b>Gipertoniya:</b> Qon bosimining oshishi (140/90 dan yuqori).\n"
+                "• <b>Ateroskleroz:</b> Tomirlar devoriga yog' (xolesterin) cho'kishi va elastiklik yo'qolishi.\n"
+                "• <b>Infarkt va Insult:</b> Yurak yoki miya qon tomirining tiqilishi/yorilishi.\n\n"
+                "🫁 <b>Nafas va Hazm kasalliklari:</b>\n"
+                "• <b>Sil (tuberkulyoz):</b> Kox tayoqchasi keltirib chiqaradi.\n"
+                "• <b>Gastrit:</b> Oshqozon shilliq qavati yallig'lanishi; <b>Botulizm:</b> Konservadan zaharlanish.\n\n"
+                "🩹 <b>Birinchi tibbiy yordam:</b>\n"
+                "• <b>Arterial qon ketganda:</b> Qon qip-qizil favvora bo'lib oqadi. Jgut jarohatdan YUQORIGA qo'yiladi (yozda 1.5-2 soat, qishda 1 soat).\n"
+                "• <b>Venoz qon ketganda:</b> To'q qizil qon bir tekis oqadi. Bosuvchi bog'lam qo'yiladi.\n"
+                "• <b>Suyak singanda:</b> Shina qo'yilib, kamida ikkita bo'g'im harakatsizlantiriladi."
+            ),
+            "guide": (
+                "📘 <b>15-MAVZU BO'YICHA QISQA QO'LLANMA:</b>\n\n"
+                "• <b>Jgut qoidalari:</b> Faqat arterial qon ketishda, jarohatdan yuqoriga; vaqti yozilgan qog'oz qistiriladi.\n"
+                "• <b>Sun'iy nafas:</b> Minutiga 16-18 marta nafas beriladi, har bir nafasga 4-5 marta yurak yopiq massaji qilinadi.\n"
+                "• <b>Allomalar:</b> Abu Ali ibn Sino («Tib qonunlari») kasalliklar profilaktikasi va gigiyenani birinchi o'ringa qo'ygan.\n"
+                "• <b>Kasallik turlari:</b> Bakterial (sil, vabo, terlama), Virusli (gripp, gepatit, OITS), Gormonal (diabet, buqoq, akromegaliya, kretinizm)."
+            ),
+            "media": (
+                "🎥 <b>Mavzuga oid Video va 3D modellar:</b>\n\n"
+                "🎬 <b>Video dars:</b> Qon ketish, suyak sinishi va jarohatlarda birinchi yordam (15 daqiqa)\n"
+                "🧬 <b>3D Animatsiya:</b> Buyrak transplantatsiyasi va sun'iy qon aylantirish apparati modeli"
+            )
         }
     ]
 }

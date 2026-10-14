@@ -8116,6 +8116,1583 @@
                                                        "explanation":  "To\u0027g\u0027ri javob: 2"
                                                    }
                                                ]
+                             },
+                             {
+                                 "id":  "14",
+                                 "title":  "14-mavzu: Ko\u0027payish va individual rivojlanish sistemasi",
+                                 "questions":  {
+                                                   "value":  [
+                                                                 {
+                                                                     "id":  1,
+                                                                     "question":  "……. tufayli organizm o‘z tuzilish belgilari va hayotiy xususiyatlarini saqlab qolib, naslga o\u0027tkazadi.",
+                                                                     "options":  [
+                                                                                     "Ko‘payish",
+                                                                                     "o`sish",
+                                                                                     "rivojlanish",
+                                                                                     "retseptorlar"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  2,
+                                                                     "question":  "Urug‘lanish natijasida ikkita jinsiy hujayradan bitta uruglangan hujayra …… hosil bo‘ladi.",
+                                                                     "options":  [
+                                                                                     "spermatozoid",
+                                                                                     "zigota",
+                                                                                     "tuxum hujayra",
+                                                                                     "sistola"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  3,
+                                                                     "question":  "…… da ota va ona organizm belgilari mujassamlashgan bo‘ladi.",
+                                                                     "options":  [
+                                                                                     "spermatozoid",
+                                                                                     "zigota",
+                                                                                     "tuxum hujayra",
+                                                                                     "sistola"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  4,
+                                                                     "question":  "…… ning ketma-ket bo\u0027linishi natijasida ko‘p hujayrali organizm shakllanadi.",
+                                                                     "options":  [
+                                                                                     "spermatozoid",
+                                                                                     "zigota",
+                                                                                     "tuxum hujayra",
+                                                                                     "sistola"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  5,
+                                                                     "question":  "……. - bu organizmning miqdoriy jihatdan, ya’ni bo‘yi va og‘irligining ortishi",
+                                                                     "options":  [
+                                                                                     "rivojlanish",
+                                                                                     "o`sish",
+                                                                                     "xigota",
+                                                                                     "embrion"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  6,
+                                                                     "question":  "…….. organizmning zigota davridan boshlab hayoti davomida yangi belgi va xususiyatlarni hosil qilishidan iborat.",
+                                                                     "options":  [
+                                                                                     "rivojlanish",
+                                                                                     "o`sish",
+                                                                                     "xigota",
+                                                                                     "embrion"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  7,
+                                                                     "question":  "bir juft urug‘donlar, 2. urug\u0027donlar yo‘li, 3. qo‘shimcha bezlar 4. urug‘ pufaklari, 5. prostata bezi 6.jinsiy olatdan",
+                                                                     "options":  [
+                                                                                     "barchasi",
+                                                                                     "5.6.1",
+                                                                                     "1.5.3.2",
+                                                                                     "3.5"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  8,
+                                                                     "question":  "…… teri xaltacha - moyak ichida joylashgan.",
+                                                                     "options":  [
+                                                                                     "bachadon",
+                                                                                     "tuxumdon",
+                                                                                     "urug`don",
+                                                                                     "qin"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  9,
+                                                                     "question":  "Tuxumdonlar, 2.bachadon nayi (tuxum yo‘li), 3. bachadon 4. jinsiy qin 5. urug\u0027donlar yo‘li",
+                                                                     "options":  [
+                                                                                     "barchasi",
+                                                                                     "2.3.4.5",
+                                                                                     "1.2.3.4.5",
+                                                                                     "1.2.3.4"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  10,
+                                                                     "question":  "Bir juft …….. kichik chanoqning yon devori va bachadon devoriga yopishgan.",
+                                                                     "options":  [
+                                                                                     "Tuxumdonlar,",
+                                                                                     "bachadon nayi (tuxum yo‘li),",
+                                                                                     "bachadon",
+                                                                                     "jinsiy qin"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  11,
+                                                                     "question":  "…… juda ko‘p follikulalar - pufakchalardan iborat.",
+                                                                     "options":  [
+                                                                                     "Tuxumdonlar,",
+                                                                                     "bachadon nayi (tuxum yo‘li),",
+                                                                                     "bachadon",
+                                                                                     "jinsiy qin"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  12,
+                                                                     "question":  "Follikula ichida bittadan …… yetiladi.",
+                                                                     "options":  [
+                                                                                     "urug`",
+                                                                                     "tuxum",
+                                                                                     "sperma",
+                                                                                     "chang"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  13,
+                                                                     "question":  "Yangi tug\u0027ilgan qiz bolada (a) ga yaqin yetilmagan tuxum hujayralar bo‘ladi, ulardan faqat (b) tasi qiz bola hayoti davomida yetilishga ulguradi.",
+                                                                     "options":  [
+                                                                                     "a- 400000 b- 350-500",
+                                                                                     "a- 40000 b- 350-500",
+                                                                                     "a-350-500 b-40000",
+                                                                                     "a-4000 b-4000000"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  14,
+                                                                     "question":  "Nima bachadon naylariga, ya’ni tuxum yo\u0027llariga, ikkala bachadon naylari esa yagona keng bachadonga ochiladi.",
+                                                                     "options":  [
+                                                                                     "Folekula",
+                                                                                     "Naycha",
+                                                                                     "voronka",
+                                                                                     "fistula"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  15,
+                                                                     "question":  "….. devori shilimshiq parda bilan qoplangan ichi bo‘sh muskulli xaltadan iborat.",
+                                                                     "options":  [
+                                                                                     "Tuxumdonlar,",
+                                                                                     "bachadon nayi (tuxum yo‘li),",
+                                                                                     "bachadon",
+                                                                                     "jinsiy qin"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  16,
+                                                                     "question":  "Urug‘ hujayralar jinsiy qinga tushgandan so‘ng nima tomonga harakat qiladi.",
+                                                                     "options":  [
+                                                                                     "Tuxumdonlar,",
+                                                                                     "bachadon nayi (tuxum yo‘li),",
+                                                                                     "bachadon",
+                                                                                     "jinsiy qin"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  17,
+                                                                     "question":  "Urug‘langan tuxum bachadon nayi bo‘ylab nima tomonga siljiy boshlaydi.",
+                                                                     "options":  [
+                                                                                     "Tuxumdonlar,",
+                                                                                     "bachadon nayi (tuxum yo‘li),",
+                                                                                     "bachadon",
+                                                                                     "jinsiy qin"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  18,
+                                                                     "question":  "Murtak (a) kun o\u0027tgach bachadonga tushadi, (b) kun davomida bachadonda erkin turadi, so\u0027ngra bachadonning shilliq qavatiga botib kirib, unga yopishib oladi.",
+                                                                     "options":  [
+                                                                                     "a- 5-6 b- 2",
+                                                                                     "a-5 b-3",
+                                                                                     "a-3-4 b-4",
+                                                                                     "a-6.7 b-3"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  19,
+                                                                     "question":  "Murtak parda sirtida qon tomirlari bilan ta’minlangan ………. paydo bo\u0027ladi",
+                                                                     "options":  [
+                                                                                     "Tuxumdonlar,",
+                                                                                     "bachadon nayi (tuxum yo‘li),",
+                                                                                     "vorsinkalar",
+                                                                                     "jinsiy qin"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  20,
+                                                                     "question":  "Nima orqali murtak ona organizmidan kislorod va oziq moddalar olib turadi.",
+                                                                     "options":  [
+                                                                                     "Tuxumdonlar,",
+                                                                                     "bachadon nayi (tuxum yo‘li),",
+                                                                                     "vorsinkalar",
+                                                                                     "jinsiy qin"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  21,
+                                                                     "question":  "Nima murtakni shikastlanishdan himoya qiladi.",
+                                                                     "options":  [
+                                                                                     "Tuxumdonlar,",
+                                                                                     "bachadon nayi (tuxum yo‘li),",
+                                                                                     "vorsinkalar",
+                                                                                     "jinsiy qin"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  22,
+                                                                     "question":  "Nima orqali ona organizmi bilan homila o`tasida gaz va oziq moddalar almashinib turadi.",
+                                                                     "options":  [
+                                                                                     "Yo`ldosh kapilarlari",
+                                                                                     "vorsinka",
+                                                                                     "tuxum yo`li",
+                                                                                     "bachadon nayi"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  23,
+                                                                     "question":  "(a) oylik homilaning barmoqlari bo\u0027ladi.(b) oylik homila (c) sm ga yetadi, uning ko‘rinishi odamga o\u0027xshaydi. (d) oylik homilaning deyarli barcha organlari rivojlangan bo‘ladi. (e) oylik homilaning yuragi ura boshlaydi.",
+                                                                     "options":  [
+                                                                                     "a-1 b-2 c-3 d-3 e-3-4",
+                                                                                     "a-2 b-2 c-3 d-3 e-4-5",
+                                                                                     "a-1 b-2 c-2 d-3 e-4-5",
+                                                                                     "a-1 b-2 c-3 d-3 e-4-5"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  24,
+                                                                     "question":  "Homilaning og‘irligi 5 oylik davrida (a) g, tug‘ilishidan oldin (b) kg ga yetadi",
+                                                                     "options":  [
+                                                                                     "a- 500 b- 3-3.5",
+                                                                                     "a-450 b-3.3.6",
+                                                                                     "a- 600 b-1.5-2",
+                                                                                     "a-700 b-5.5"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  25,
+                                                                     "question":  "Tug`lish …… bezi ishlab chiqaradigan gormon bilan bog‘liq",
+                                                                     "options":  [
+                                                                                     "epifiz",
+                                                                                     "qalqonsimon",
+                                                                                     "ayrisimon",
+                                                                                     "gipofiz"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  26,
+                                                                     "question":  "Nima ta’sirida bachadon devori kuchli qisqarib, to‘lg‘oq boshlanadi.",
+                                                                     "options":  [
+                                                                                     "garmon",
+                                                                                     "qon",
+                                                                                     "limfa",
+                                                                                     "nerv"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  27,
+                                                                     "question":  "Tug‘ilgan chaqaloqning yig\u0027isi uning …….",
+                                                                     "options":  [
+                                                                                     "o‘pka bilan nafas ola boshlaganligini bildiradi",
+                                                                                     "jinsini bildiradi",
+                                                                                     "nutqini bildiradi",
+                                                                                     "holatini bildiradi"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  28,
+                                                                     "question":  "Homiladorlik - bo‘lg‘usi farzandning bachadonda rivojlanish davri bo‘lib, ……… kun davom etadi.",
+                                                                     "options":  [
+                                                                                     "270-280",
+                                                                                     "260-270",
+                                                                                     "250-300",
+                                                                                     "250-260"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  29,
+                                                                     "question":  "Menstruatsiya siklining to‘xtashi, 2.uyqu bosishi, 3.ko‘ngil ay nab turishi, 4.sut bezlarining yiriklashuvi",
+                                                                     "options":  [
+                                                                                     "barchasi",
+                                                                                     "2.4",
+                                                                                     "3.2",
+                                                                                     "1.2.3"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  30,
+                                                                     "question":  "Chaqaloq tug‘ilgandan so\u0027ng (a) yoshgacha bolalik, (b) yoshgacha yigitlik yoki navqironlik, (c) yosh yetuklik, (d) yosh keksalik va (e) yoshdan yuqorisi qarilik davri deb ataladi. a- 16-18 b-15-21 c-22-60 d-60-75 e-75",
+                                                                     "options":  [
+                                                                                     "a- 16-18 b-16-21 c-22-65 d-60-75 e-75",
+                                                                                     "a- 16-18 b-16-21 c-21-60 d-60-75 e-75",
+                                                                                     "a- 16-18 b-15-21 c-22-60 d-60-75 e-75",
+                                                                                     "a- 16-18 b-16-21 c-20-60 d-60-75 e-75"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  31,
+                                                                     "question":  "chaqaloqlik, 2.go‘daklik, 5.maktabgacha tarbiya yoshi, 1.kichik maktab yoshi, 3.o\u0027smirlik davrlariga ajratiladi.",
+                                                                     "options":  [
+                                                                                     "4-2-5-1-3",
+                                                                                     "4-2-1-5-3",
+                                                                                     "4-2-1-5",
+                                                                                     "2-5-1-4-3"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  32,
+                                                                     "question":  "Bu davr bola tug‘ilganidan boshlab bir oylik muddatni o‘z ichiga oladi",
+                                                                     "options":  [
+                                                                                     "Go‘daklik davri.",
+                                                                                     "Chaqaloqlik davri..",
+                                                                                     "Maktabgacha tarbiya davri.",
+                                                                                     "chilla davri"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  33,
+                                                                     "question":  "Bu davr bir oydan boshlanib, bir yoshgacha davom etadi.",
+                                                                     "options":  [
+                                                                                     "Go‘daklik davri.",
+                                                                                     "Chaqaloqlik davri..",
+                                                                                     "Maktabgacha tarbiya davri.",
+                                                                                     "chilla davri"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  34,
+                                                                     "question":  "…. oylik bola chiroqqa, qimirlayotgan narsalarga qaraydi.",
+                                                                     "options":  [
+                                                                                     "1",
+                                                                                     "6",
+                                                                                     "3",
+                                                                                     "5"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  35,
+                                                                     "question":  "oylikda tovush chiqqati tomonga boshini buradi va kuladi, onasi va o\u0027yinchoq tomonga talpinadi, boshini tik tutadigan bo\u0027ladi.",
+                                                                     "options":  [
+                                                                                     "1",
+                                                                                     "6",
+                                                                                     "3",
+                                                                                     "5"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  36,
+                                                                     "question":  "Bu oylik bo‘lganida o‘z yaqinlarini taniy boshlaydi, ulami ko‘rganda kuladi va qiyqiradi, o‘yinchoqlari bilan o\u0027ynaydi.",
+                                                                     "options":  [
+                                                                                     "1",
+                                                                                     "6",
+                                                                                     "3",
+                                                                                     "5"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  37,
+                                                                     "question":  "Bu oydagi bola yuradi va 12 ta so‘zlarni gapira oladi.",
+                                                                     "options":  [
+                                                                                     "12",
+                                                                                     "6",
+                                                                                     "11",
+                                                                                     "8"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  38,
+                                                                     "question":  "Qaysi davrida bola juda tez o‘sadi, tanasining vazni ham tez ortadi va organlari takomillashib boradi.",
+                                                                     "options":  [
+                                                                                     "Go‘daklik davri.",
+                                                                                     "Chaqaloqlik davri..",
+                                                                                     "Maktabgacha tarbiya davri.",
+                                                                                     "chilla davri"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  39,
+                                                                     "question":  "Umurtqa pog‘onasi bo‘yin qismidagi egiklik ……",
+                                                                     "options":  [
+                                                                                     "tik turganga",
+                                                                                     "o`tira boshlaganda",
+                                                                                     "o`tira boshlaganda",
+                                                                                     "emaklay boshlaganda"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  40,
+                                                                     "question":  "ko\u0027krak egriligi ……,",
+                                                                     "options":  [
+                                                                                     "tik turganga",
+                                                                                     "o`tira boshlaganda",
+                                                                                     "o`tira boshlaganda",
+                                                                                     "emaklay boshlaganda"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  41,
+                                                                     "question":  "bel egikligi ……..",
+                                                                     "options":  [
+                                                                                     "tik turganga",
+                                                                                     "o`tira boshlaganda",
+                                                                                     "o`tira boshlaganda",
+                                                                                     "emaklay boshlaganda"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  42,
+                                                                     "question":  "Bu davr 1 yoshdan 6-7 yoshgacha davom etadi.",
+                                                                     "options":  [
+                                                                                     "Go‘daklik davri.",
+                                                                                     "Chaqaloqlik davri..",
+                                                                                     "Maktabgacha tarbiya davri.",
+                                                                                     "chilla davri"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  43,
+                                                                     "question":  "Bolaning nutqi, tafakkuri va harakat faolligi ………… yoshlarda jadal rivojlana boshlaydi.",
+                                                                     "options":  [
+                                                                                     "2-4",
+                                                                                     "4-6",
+                                                                                     "2-3",
+                                                                                     "1-4"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  44,
+                                                                     "question":  "Bu davrda biron sababga ko‘ra bola e’tibordan chetda qolib, tik yurishni va gapirishni o‘rganolmasdan qolsa, u jismoniy va ruhiy rivojlanishdan orqada qoladi.",
+                                                                     "options":  [
+                                                                                     "Go‘daklik davri.",
+                                                                                     "Chaqaloqlik davri..",
+                                                                                     "Maktabgacha tarbiya davri.",
+                                                                                     "chilla davri"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  45,
+                                                                     "question":  "Bolalikning bu davri 6-7 yoshdan 17-18 yoshgacha davom etadi.",
+                                                                     "options":  [
+                                                                                     "Go‘daklik davri.",
+                                                                                     "Maktab yoshi davri",
+                                                                                     "Maktabgacha tarbiya davri.",
+                                                                                     "chilla davri"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  46,
+                                                                     "question":  "Bu davrda bolaning hayotida va aqliy rivojlanishida keskin o\u0027zgarishlar yuz beradi.",
+                                                                     "options":  [
+                                                                                     "Maktab yoshi davri",
+                                                                                     "Chaqaloqlik davri..",
+                                                                                     "Maktabgacha tarbiya davri.",
+                                                                                     "chilla davri"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  47,
+                                                                     "question":  "Bu davrida bola kelgusida va jamiyatda yashash uchun zarur bo\u0027lgan bilim va kasb-hunarni egallay boshlaydi.",
+                                                                     "options":  [
+                                                                                     "Go‘daklik davri.",
+                                                                                     "Maktab yoshi davri",
+                                                                                     "Maktabgacha tarbiya davri.",
+                                                                                     "chilla davri"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  48,
+                                                                     "question":  "Bu davrda uning ichki sekretsiya bezlari faoliyati kuchayadi, o\u0027sishi tezlashib, ikkilamchi jinsiy belgilari rivojlanadi va balog‘atga yetadi.",
+                                                                     "options":  [
+                                                                                     "Go‘daklik davri.",
+                                                                                     "Chaqaloqlik davri..",
+                                                                                     "Maktabgacha tarbiya davri.",
+                                                                                     "Maktab yoshi davri"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  49,
+                                                                     "question":  "Qizlarning bo‘yi (a) yoshlarda, o‘g‘il bolalarniki (b) yoshlarda, ayniqsa, tez o‘sadi.",
+                                                                     "options":  [
+                                                                                     "a-10-12 b-12-16",
+                                                                                     "a-12-16 b-10-12",
+                                                                                     "a-10-15 b-11-13",
+                                                                                     "a-10-13 b-11-12"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  50,
+                                                                     "question":  "Yangi tug‘ilgan chaqaloq boshining tana uzunligiga nisbati …….",
+                                                                     "options":  [
+                                                                                     "1:5",
+                                                                                     "1:4",
+                                                                                     "2:4",
+                                                                                     "1:1"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  51,
+                                                                     "question":  "25 yoshga yetganida esa ……..nisbatda bo‘ladi.",
+                                                                     "options":  [
+                                                                                     "1:5",
+                                                                                     "1:4",
+                                                                                     "2:4",
+                                                                                     "1:8"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  52,
+                                                                     "question":  "bitta organizm qatnashadi 2)bir xil hujayralar qatnashadi 3)ota-ona organizmi qatnashadi 4)bitta hujayra bo\u0027linadi",
+                                                                     "options":  [
+                                                                                     "1",
+                                                                                     "2",
+                                                                                     "3",
+                                                                                     "4"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  53,
+                                                                     "question":  "Erkaklarning jinsiy organlariga ... kiradi. 1)moyak 2)tuxumdon 3)tuxum yo\u0027li (bachadon nayi) 4)moyak ortig\u0027i 5)urug\u0027 yo\u0027li 6)bachadon 7)urug\u0027 pufakchasi 8)prostata bezi 9)qin",
+                                                                     "options":  [
+                                                                                     "1,4,5,7,8",
+                                                                                     "2,3,6,9",
+                                                                                     "1,3,5,7,8",
+                                                                                     "2,4,5,8,9"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  54,
+                                                                     "question":  "Ayollarning jinsiy organlariga ... kiradi. 1)moyak 2)tuxumdon 3)tuxum yo\u0027li (bachadon nayi) 4)moyak ortig\u0027i 5)urug\u0027 yo\u0027li 6)bachadon 7)urug\u0027 pufakchasi 8)prostata bezi 9)qin",
+                                                                     "options":  [
+                                                                                     "1,4,5,7,8",
+                                                                                     "2,3,6,9",
+                                                                                     "2,4,6,9",
+                                                                                     "1,3,5,6,8,9"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  55,
+                                                                     "question":  "Uch oylik bola ... 1)o\u0027ziga yaqinlarini taniy boshlaydi 2)tovush chiqqan tomonga qaray boshlaydi 3)o\u0027yinchoq qimirlagan tomonga ko\u0027z soqqasini harakatlantiradi 4)bemalol o\u0027tiradi",
+                                                                     "options":  [
+                                                                                     "1",
+                                                                                     "2",
+                                                                                     "3",
+                                                                                     "4"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  56,
+                                                                     "question":  "Bir oylik bola ... 1)o\u0027ziga yaqinlarini taniy boshlaydi 2)tovush chiqqan tomonga qaray boshlaydi 3)o\u0027yinchoq qimirlagan tomonga ko\u0027z soqqasini harakatlantiradi 4)bemalol o\u0027tiradi",
+                                                                     "options":  [
+                                                                                     "1",
+                                                                                     "2",
+                                                                                     "3",
+                                                                                     "4"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  57,
+                                                                     "question":  "Besh oylik bola ... 1)o\u0027ziga yaqinlarini taniy boshlaydi, kuladi, qiyqiradi 2)tovush chiqqan tomonga qaray boshlaydi 3)o\u0027yinchoq qimirlagan tomonga ko\u0027z soqqasini harakatlantiradi 4)bemalol o\u0027tiradi",
+                                                                     "options":  [
+                                                                                     "1",
+                                                                                     "2",
+                                                                                     "3",
+                                                                                     "4"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  58,
+                                                                     "question":  "Yetti oylik bola ... 1)o\u0027yinchoq qimirlagan tomonga ko\u0027z soqqasini harakatlantiradi 2)bemalol o\u0027tiradi, emaklaydi 3)buyumlarni ushlab o\u0027rnidan tura boshlaydi 4)oddiy so\u0027zlarni ayta boshlaydi va qo\u0027lidan yetaklasa yura boshlaydi",
+                                                                     "options":  [
+                                                                                     "1",
+                                                                                     "2",
+                                                                                     "3",
+                                                                                     "4"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  59,
+                                                                     "question":  "8 oylik bola ... 1)bemalol o\u0027tiradi, emaklaydi 2)buyumlarni ushlab o\u0027rnidan tura boshlaydi 3)oddiy so\u0027zlarni ayta boshlaydi va qo\u0027lidan yetaklasa yura boshlaydi 4)o\u0027zi yura boshlaydi va 10-12 ta so\u0027zni ayta oladi",
+                                                                     "options":  [
+                                                                                     "1",
+                                                                                     "2",
+                                                                                     "3",
+                                                                                     "4"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  60,
+                                                                     "question":  "11 oylik bola ... 1)bemalol o\u0027tiradi, emaklaydi 2)buyumlarni ushlab o\u0027rnidan tura boshlaydi 3)oddiy so\u0027zlarni ayta boshlaydi va qo\u0027lidan yetaklasa yura boshlaydi 4)o\u0027zi yura boshlaydi va 10-12 ta so\u0027zni ayta oladi",
+                                                                     "options":  [
+                                                                                     "1",
+                                                                                     "2",
+                                                                                     "3",
+                                                                                     "4"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  61,
+                                                                     "question":  "12 oylik bola ... 1)bemalol o\u0027tiradi, emaklaydi 2)buyumlarni ushlab o\u0027rnidan tura boshlaydi 3)oddiy so\u0027zlarni ayta boshlaydi va qo\u0027lidan yetaklasa yura boshlaydi 4)o\u0027zi yura boshlaydi va 10-12 ta so\u0027zni ayta oladi",
+                                                                     "options":  [
+                                                                                     "1",
+                                                                                     "2",
+                                                                                     "3",
+                                                                                     "4"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  62,
+                                                                     "question":  ".Akseleratsiya nima? 1)odamlar yashash sharoitining yaxshilanishi hisobiga jismoniy va fiziologik rivojlanishning sekinlashuvi 2)odamlar yashash sharoitining yaxshilanishi hisobiga jismoniy va fiziologik rivojlanishning tezlashuvi 3)odamlar yashash sharoitining og\u0027irlashuvi hisobiga jismoniy va fiziologik rivojlanishning tezlashuvi 4)atrof muhitning ifloslanishi hisobiga kasalliklarning ko\u0027payishi va o\u0027rtacha umrning qisqarishi",
+                                                                     "options":  [
+                                                                                     "1",
+                                                                                     "2",
+                                                                                     "3",
+                                                                                     "4"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  63,
+                                                                     "question":  "Akseleratsiyaga misol ko\u0027rsating. 1)bo\u0027yning o\u0027rtacha uzunligi so\u0027nggi 100 yil davomida chaqaloqlarda 5 sm, o\u0027smirlarda 10-15 sm, o\u0027rtacha yoshdagi erkaklarda 6-8 sm ga ortgan 2)bo\u0027yning o\u0027rtacha uzunligi so\u0027nggi 100 yil davomida chaqaloqlarda 5 sm, o\u0027smirlarda 10-15 sm, o\u0027rtacha yoshdagi erkaklarda 6-8 sm ga kamaygan 3)bolalarning psixik rivojlanishi sekinlashgan 4)bolalarning psixik rivojlanishi tezlashgan 5)balog\u0027at yoshiga yetish tezlashgan 6)balog\u0027at yoshiga yetish sekinlashgan",
+                                                                     "options":  [
+                                                                                     "2,3,6",
+                                                                                     "1,4,5",
+                                                                                     "1,3,5",
+                                                                                     "2,4,6"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "57-61-mavzular: Ko\u0027payish va individual rivojlanish sistemasi bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 }
+                                                             ],
+                                                   "Count":  63
+                                               }
+                             },
+                             {
+                                 "id":  "15",
+                                 "title":  "15-mavzu: Anatomiya kasalliklari, profilaktika va birinchi yordam",
+                                 "questions":  {
+                                                   "value":  [
+                                                                 {
+                                                                     "id":  1,
+                                                                     "question":  "amilaza; 6) lipaza",
+                                                                     "options":  [
+                                                                                     "3, 5",
+                                                                                     "1, 2, 4",
+                                                                                     "1, 3, 5",
+                                                                                     "2, 4 , 6"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  2,
+                                                                     "question":  "Asosiy moddalar almashinuvini taminlash uchun 6 soatda 540 kkal energiya sarflaydigan sogʻlom odam tanasida necha gr eritrotsit bor? ( 1mm³ qon=1ml=1 gr deb olinsin)",
+                                                                     "options":  [
+                                                                                     "43,5 gr",
+                                                                                     "29 gr",
+                                                                                     "31,5 gr",
+                                                                                     "62 gr"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  3,
+                                                                     "question":  "Quyidagi rasmdagi 4-raqam uchun xos xususiyatni aniqlang?",
+                                                                     "options":  [
+                                                                                     "uzunligi 25-30 sm",
+                                                                                     "mahsuloti 12 barmoqli ichakka quyiladi",
+                                                                                     "aralash sekretsiya bezi",
+                                                                                     "hajmi katta yoshli odamda 2-2, 5 l"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  4,
+                                                                     "question":  "nerv  4) qon aylanish",
+                                                                     "options":  [
+                                                                                     "1-insult, 2-akromegaliya, 3-nefrit, 4-ateroskleroz",
+                                                                                     "1-pankreatit, 2-kretinizm, 3-radikulit, 4-ateroskleroz",
+                                                                                     "1-salmonelloz, 2-tetaniya, 3-laringit, 4-nefrit",
+                                                                                     "1-kolit, 2-tireoataksikoz, 3-nefrit, 4-infarkt"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  5,
+                                                                     "question":  "Nuqtalar o‘rnini to’ldiring.a) I guruh qonli odamlar ... guruhga donor bo‘ladi; b) IV guruh qonli odamlar ... guruhga donor bo\u0027ladi; с) II guruh qonli odamlar ... guruh uchun retsipiyent bo’ladi; d) IV guruh qonli odamlar ... guruh uchun retsipiyent bo‘ladiA) a - IV; b - IV; с - II; d – II",
+                                                                     "options":  [
+                                                                                     "a - II; b - IV; с - III; d - I",
+                                                                                     "a - II; b - III; с - II; d – III",
+                                                                                     "a - I; b - IV; с - II; d - IV"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  6,
+                                                                     "question":  "Bosh miya katta yarimsharlari po‘stlog’ining faqat o’ng qismi funksiyalari aniqlang?1) gavdaning chap tomonidagi organlar ishini boshqaradi; 2) nutqdagi intonatsiyani boshqaradi; 3) gapirishni",
+                                                                     "options":  [
+                                                                                     "3, 5;",
+                                                                                     "4, 5;",
+                                                                                     "4, 7;",
+                                                                                     "1, 4;"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  7,
+                                                                     "question":  "Quyidagi rasmda suyak tuzilishi tasvirlangan bo’lib ushbu rasmdagi 3-qismni  aniqlang?",
+                                                                     "options":  [
+                                                                                     "bo’g’im suyuqligi",
+                                                                                     "tizza qopqog’i",
+                                                                                     "katta bolder suyagi",
+                                                                                     "bo’g’im xaltachasi"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  8,
+                                                                     "question":  "Rasmda orqa miyaning ko’ndalang kesimi tasvirlangan. Rasmdagi 4-qism qanday nomlanadi?",
+                                                                     "options":  [
+                                                                                     "tepa",
+                                                                                     "ensa",
+                                                                                     "chakka",
+                                                                                     "yon egat"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  9,
+                                                                     "question":  "miopiya 7) tungi ko`rish",
+                                                                     "options":  [
+                                                                                     "4,6",
+                                                                                     "2,7",
+                                                                                     "1,2",
+                                                                                     "3,7"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  10,
+                                                                     "question":  "o`ng bo`lmacha sistola holatida 3 tavaqali klapan ochiq bo`ladi 2) chap qorincha sistola holatida 2 tavaqali klapan ochiq 3) qon o`pka arteriyasiga harakatlanayotda 3 tavaqali klapan yopiq bo`ladi 4) o`ng qorincha diastola holatida 3 tavaqali klapan yopiq",
+                                                                     "options":  [
+                                                                                     "1,3",
+                                                                                     "2,3",
+                                                                                     "2,4",
+                                                                                     "1,4"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  11,
+                                                                     "question":  "Quyidagilarni qaysilari ta’sirida siydik ajralishi kamayadi? a) simpatik nerv ta’sirida; b) parasimpatik nerv ta’sirida c) tiroksin gormoni ta’sirida; d)antideuretik gormoni ta’sirida",
+                                                                     "options":  [
+                                                                                     "a, c",
+                                                                                     "a, d",
+                                                                                     "b, c",
+                                                                                     "b, d"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  12,
+                                                                     "question":  "Noto’g’ri fikrni toping?",
+                                                                     "options":  [
+                                                                                     "Tirnoqlar muguz plastinkadan iborat bo’lib, ildiz va tanadan iborat",
+                                                                                     "Tirnoqlar biroz bo’rtib chiqqan, silliq, tiniq va rangsiz bo’ladi",
+                                                                                     "Tirnoqlar tana hujayralari hisobidan har kuni",
+                                                                                     "Sochlar 2-3 oydan 2-3 yil davomida almashinib turadi"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  13,
+                                                                     "question":  "Kim odam – ijtimoiy jonzot, aql va idroki bilan hayvonlardan farq qilishi to’g’risidagi fikrni ilgari surgan (a) va kim O’zbekistonda ixtisoslashgan jarrohlik yordami maktabining tashkilotchisi hamda jarrohlikning ko’pgina sohalarida ko’pgina tadqiqodlar olib brogan (b)?",
+                                                                     "options":  [
+                                                                                     "a-Aristotel; b-Zufarov",
+                                                                                     "a-Galen; b-Zufarov",
+                                                                                     "a-Gippokrat; b-Aripov",
+                                                                                     "a-Aristotel; b-Vohidov"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  14,
+                                                                     "question":  "oziq moddalarni parchalab sitoplazmaga o’tkazadi",
+                                                                     "options":  [
+                                                                                     "a-4; b-3; c-1; d-2; e-5",
+                                                                                     "a-4; b-3; c-1; d-5; e-2",
+                                                                                     "a-2; b-4; c-1; d-5; e-2",
+                                                                                     "a-2; b-4; c-1; d-5; e-3"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  15,
+                                                                     "question":  "Aglyutinin b  14) Aglyutinogen  B 15) Aglyutinin a",
+                                                                     "options":  [
+                                                                                     "a – 1,2,3,14,15 b – 3,6,8,13",
+                                                                                     "a – 1,4,9,14,15,11 b - 1,2,3,4,",
+                                                                                     "a – 1,3,4,9,10,13 b – 1,3,4,",
+                                                                                     "a – 1,2,9,11,15 b – 1,4,6,11"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  16,
+                                                                     "question":  "Quyidagi rasmda yelka muskullarini dinamik harakati tasvirlangan bo‟lib ushbu rasmdagi 2-raqamdagi muskulni nomini aniqlang?",
+                                                                     "options":  [
+                                                                                     "yelka orqasidagi ikki boshli muskul",
+                                                                                     "yelkani oldidagi uch boshli muskul",
+                                                                                     "yelka oldidagi ikki boshli muskul",
+                                                                                     "yelka orqasidagi uch boshli muskul"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  17,
+                                                                     "question":  "Noto’g’ri ma’lumotni aniqlang. Nafas chiqarganda …",
+                                                                     "options":  [
+                                                                                     "Diafragma tepaga ko’tariladi",
+                                                                                     "Bo‘yin muskullari qisqaradi",
+                                                                                     "Ichki qovurg’alararo muskul qisqaradi",
+                                                                                     "Qorin muskullari qisqaradi"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  18,
+                                                                     "question":  "me’da  2) quloq oldi bezi 3) medaosti bezi 4) ingichka ichak 5) o‘n ikki barmoqli ichak 6) qizilo‘ngach 7) og‘iz bo‘shlig‘I  8) jigar",
+                                                                     "options":  [
+                                                                                     "a- 4, 5; b- 1, 3, 4",
+                                                                                     "a- 1, 3, 4; b- 4, 5",
+                                                                                     "a- 2, 4, 6; b- 1, 3, 5",
+                                                                                     "a- 2, 4; b- 1, 5, 8"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  19,
+                                                                     "question":  "Analizatorlarning periferik qismlari joylashuvi haqidagi ma`lumotlar to`g`ri berilgan javobni aniqlang? 1-proprioretseptorlar 2-visseroretseptorlar 3-kolbasimon retseptorlar",
+                                                                     "options":  [
+                                                                                     "1-muskul tolalarda 2-qon tomirlar devorida",
+                                                                                     "1-bo`g`imlarda 2-ichki organlarda 3-ko`zning ichki qismida",
+                                                                                     "1-ichak devorida 2-muskul paylarda 3-ko`zning tashqi pardasida",
+                                                                                     "1-yarimdoira kanalchalarda 2-siydik pufagi devorida"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  20,
+                                                                     "question":  "Ko‘krak qafasi qanday suyaklardan tashkil topgan?",
+                                                                     "options":  [
+                                                                                     "uzun naysimon, kalta naysimon",
+                                                                                     "uzun naysimon, kalta g‘ovaksimon",
+                                                                                     "uzun g‘ovaksimon, kalta naysimon",
+                                                                                     "uzun g’ovak, kalta g’ovak"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  21,
+                                                                     "question":  "yumaloq tuynukcha",
+                                                                     "options":  [
+                                                                                     "3,4,5",
+                                                                                     "2,6,5",
+                                                                                     "2,3,8",
+                                                                                     "6,7,8"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  22,
+                                                                     "question":  "Quyidagi rasmda odam bosh miyasi tasvirlangan. Unga asoslanib miya sopini hosil qiluvchi bosh miya bo`limlari raqamlari to`g`ri keltirilgan qatorni aniqlang.?",
+                                                                     "options":  [
+                                                                                     "3,4,5",
+                                                                                     "2,3,4",
+                                                                                     "2,3,6",
+                                                                                     "1,2,3"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  23,
+                                                                     "question":  "Rasmda keltirilgan oziq mahsulotlari tarkibida qaysi vitaminlar mavjud ekanligini belgilang?",
+                                                                     "options":  [
+                                                                                     "B",
+                                                                                     "D",
+                                                                                     "A",
+                                                                                     "C"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  24,
+                                                                     "question":  "Rasmda keltirilgan bolaga xos belgini ajrating?",
+                                                                     "options":  [
+                                                                                     "emaklaydi",
+                                                                                     "sut tishlari chiqa boshlaydi",
+                                                                                     "tayanib o’rnidan turadi",
+                                                                                     "bemalol o’tiradi"
+                                                                                 ],
+                                                                     "correct_option_id":  1,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  25,
+                                                                     "question":  "Qaysi holatda odam yuztuban yotqiziladi?",
+                                                                     "options":  [
+                                                                                     "umurtqa pog’onasi singanda",
+                                                                                     "bosh suyagi singanda",
+                                                                                     "qovurg’alar singanda",
+                                                                                     "pay cho’zilganda"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  26,
+                                                                     "question":  "Kuchli shovqin quloqqa uzoq vaqt davomida ta\u0027sir qilib turilsa....................",
+                                                                     "options":  [
+                                                                                     "elastik pardaning tarangligi ortadi",
+                                                                                     "nog\u0027ora pardaning tarangligi ortadi",
+                                                                                     "tashqi va o\u0027rta quloqni ajratib turuvchi pardaning tarangligi pasayadi",
+                                                                                     "t,j,yo\u0027q"
+                                                                                 ],
+                                                                     "correct_option_id":  2,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  27,
+                                                                     "question":  "Har bir nefron nimalardan tashkil topgan?",
+                                                                     "options":  [
+                                                                                     "Shumlyanskiy-Baumen kapsulasi, uning tashqarisida joylashgan mayda qon tomirlari-Malpigi chigali, kapsuladan boshlanadigan birlamchi ilonizi naychadan",
+                                                                                     "Shumlyanskiy-Baumen kapsulasi, uning ichkarisida joylashgan mayda qon tomirlari-Malpigi chigali, kapsuladan boshlanadigan birlamchi ilonizi naychadan,Genle halqasidan",
+                                                                                     "Shumlyanskiy-Baumen kapsulasi, uning ichkarisida joylashgan mayda qon tomirlari-Malpigi chigali, kapsuladan boshlanadigan birlamchi ilonizi naychadan,Genle halqasi va uchki birlamchi ilonizi naychalardan",
+                                                                                     "Shumlyanskiy-Baumen kapsulasi, uning ichkarisida joylashgan mayda qon tomirlari-Malpigi chigali, kapsuladan boshlanadigan birlamchi ilonizi naychadan,Genle halqasidan va uchki ikkilamchi ilonizi naychlardan"
+                                                                                 ],
+                                                                     "correct_option_id":  3,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  28,
+                                                                     "question":  "XIX asrda dastlab itlar oshqozoniga fistula qo’ygan;  2) oshqozon shirasini toza holda ajratib olgan; 3) itlarning halqumini kesib tashqariga chiqarib qo’ygan;  4) oshqozondan ajratib olingan shira ovqat qoldiqlari bilan aralash holda bo’lgan.",
+                                                                     "options":  [
+                                                                                     "a-1, 4; b-2",
+                                                                                     "a-1, 4; b-2, 3",
+                                                                                     "a-2, 4; b-1, 3",
+                                                                                     "a-1, 3; b-2, 4"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  29,
+                                                                     "question":  "bemorga mahsus bo’tqa ichiriladi; 2)hazm qilish organlari va bezlarining chiqarish sekret chiqarish yo’llarida kasalliklarni o’rganadi; 3)tekshirilayotgan organga mahsus rezina naycha kiritiladi",
+                                                                     "options":  [
+                                                                                     "a-2; b-1; c-3",
+                                                                                     "a-1; b-2; c-3",
+                                                                                     "a-1; b-3; c-2",
+                                                                                     "a-3, b-2; c-1"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  30,
+                                                                     "question":  "1 g gemoglobin 1,34 ml kislorodni biriktirib oladi.100 ml qonda 15 g gemoglobin bo‘lsa, u holda 1 litr qon qancha kislorodni tutishi mumkin?",
+                                                                     "options":  [
+                                                                                     "20,1 litr",
+                                                                                     "201 litr",
+                                                                                     "20,1 ml",
+                                                                                     "201 ml"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  31,
+                                                                     "question":  "Plevra pardasi necha qavat va qaysi to’qimadan iborat?",
+                                                                     "options":  [
+                                                                                     "Biriktiruvchi to’qima va 1 qavat",
+                                                                                     "Muskul to’qimasidan , 2 qavat",
+                                                                                     "Biriktiruvchi to’qima , 2 qavat",
+                                                                                     "Epiteliy to’qimasi, 2 qavat"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  32,
+                                                                     "question":  "gripp  2) eshakyemi 3) rinit 4) o’pka sili 5) astma",
+                                                                     "options":  [
+                                                                                     "a-4, b-1",
+                                                                                     "a-1, b-4",
+                                                                                     "a-3, b-1",
+                                                                                     "a-1 , b-5"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  33,
+                                                                     "question":  "Yaxshi shamollatib turilmagan xonada o’tirgan kishida nafas olish chastotasi qanday o’zgaradi?",
+                                                                     "options":  [
+                                                                                     "nafas olish chastotasi sekinlashib qoladi",
+                                                                                     "nafas olish chastotasi 2 barobar va hatto undan ham ko’proq oshib ketishi mumkin.",
+                                                                                     "nafas olish chastotasi 2 barobar va hatto undan ham ko’proq tushib ketishi mumkin.",
+                                                                                     "nafas olish chastotasiga tasir qilmaydi"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  34,
+                                                                     "question":  "Ovoz teshigi holatlari qachon qanday holatda bo’ladi? I-baland ovozda gaplashganda II-jim turganda III-pichirlaganda IV-ashula aytganda a-yarim ochiq.b- deyarli yopiq c-keng ochiq",
+                                                                     "options":  [
+                                                                                     "I-bII-c III-a IV-a",
+                                                                                     "I,IV-a II-c III-a",
+                                                                                     "I-bII-c III-a IV-c",
+                                                                                     "I,IV-b II-c III-a"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  35,
+                                                                     "question":  "CO2 ta’sirida….",
+                                                                     "options":  [
+                                                                                     "Nafas olish markazida qo’zg’alishlar kuchayadi va nafas olish sekinlashadi",
+                                                                                     "Nafas olish markazida qo’zg’alishlar pasayadi va nafas olish tezlashadi.",
+                                                                                     "Nafas olish markazida qo’zg’alishlar pasayadi va nafas olish sekinlashadi",
+                                                                                     "Nafas olish markazida qo’zg’alishlar kuchayadi va nafas olish tezlashadi"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  36,
+                                                                     "question":  "o’pka arteriyasi. 3) yurakning chap bo’lmasiga quyilayotgan qon tarkibi. 4) uch boshli muskuldan qon olib ketayotgan tomirda 5) o’pka venasi 6) o’ng qorinchaga quyilayotgan qon",
+                                                                     "options":  [
+                                                                                     "I-2,4,6 II-1,3,5",
+                                                                                     "I-2,4,5 II-1,3,6",
+                                                                                     "II-2,4,6 I-1,3,5",
+                                                                                     "I-2,3,6 II-1,4,5"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  37,
+                                                                     "question":  "Qachon qonda CO2 miqdori ortadi?",
+                                                                     "options":  [
+                                                                                     "Yaxshi shamollatilmagan xonada o’tirganda",
+                                                                                     "Jismoniy mashq qilganda",
+                                                                                     "Tez-tez nafas olganda",
+                                                                                     "A va B"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  38,
+                                                                     "question":  "Mayda so`lak bezlari qayerda joylashgan?",
+                                                                     "options":  [
+                                                                                     "Tilosti, jag\u0027osti va quloqoldi so‘lak bezlarida",
+                                                                                     "Og`iz bo`shlig`i va oshqozon bo`shlig`ida",
+                                                                                     "Og‘iz bo‘shlig‘i va tilning shilliq pardasida.",
+                                                                                     "Oshqozon va ichaklarda"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  39,
+                                                                     "question":  "Funksiyasiga binoan…………tishlar bo`ladi",
+                                                                     "options":  [
+                                                                                     "32 ta doimiy tishlar, yosh bolalarda 20 ta sut tishlari",
+                                                                                     "Kurak,qoziq,oziq",
+                                                                                     "Kurak,qoziq,katta va kichik oziq",
+                                                                                     "ikki va uch ildizli"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  40,
+                                                                     "question":  "Odatda, odamda 30 ta doimiy tishlar, yosh bolalarda 20 ta sut tishlaribor 3)Tishning milkdan chiqib turadigan qismi koronka deyiladi 4)Milk ichida tishningildizchasi bor  5) Tish ildizining uchki qismida joylashgan teshikcha orqali tish bo‘shlig‘i - pulpaga qon tomirlari va nervlar kiradi 6)Tish ildizi dentindan tashkil topgan",
+                                                                     "options":  [
+                                                                                     "1,3,5",
+                                                                                     "2,3,4,6",
+                                                                                     "1,2,3,5",
+                                                                                     "2,4,6"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  41,
+                                                                     "question":  "Bir ildizli (1 ) va ikki va uch ildizli (2) tishlarni juftlang? a) kurak   b) kichik oziq  c) katta oziq",
+                                                                     "options":  [
+                                                                                     "1-a,      2- b, c",
+                                                                                     "1-a, b   2- c",
+                                                                                     "1-c,      2- a",
+                                                                                     "1-c, b   2- a"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  42,
+                                                                     "question":  "Tish ildizi tish chuqurchasiga nima orqali birikadi",
+                                                                     "options":  [
+                                                                                     "Pulpa orqali",
+                                                                                     "sement orqali",
+                                                                                     "Periodont orqali",
+                                                                                     "Dentin orqali"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  43,
+                                                                     "question":  "Kurak tishlardan keyin jag`larning har tomonida bittadan o‘tkir uchli yassi…..tishlar joylashgan.",
+                                                                     "options":  [
+                                                                                     "Kurak",
+                                                                                     "oziq",
+                                                                                     "qoziq",
+                                                                                     "aql"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  44,
+                                                                     "question":  "So‘lak bezlari sutka davomida qancha so`lak ishlab chiqaradi?",
+                                                                     "options":  [
+                                                                                     "0,5-1litr",
+                                                                                     "0,5-2litr",
+                                                                                     "300-400ml",
+                                                                                     "2-2,5litr"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  45,
+                                                                     "question":  "So`lak ajralish refleksi ketma-ketligini aniqlang.",
+                                                                     "options":  [
+                                                                                     "RetseptorUzunchoq miyaso`lak bezlari",
+                                                                                     "Retseptormiya ko`prigiUzunchoq miyaso`lak bezlari",
+                                                                                     "Retseptorso`lak bezlari Uzunchoq miya",
+                                                                                     "retseptortalamusUzunchoq miya"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  46,
+                                                                     "question":  "So\u0027lak ….(1) reaksiyaga ega bo‘lib, uning tarkibida murakkab uglevodlarni parchalaydigan ……(2) hamda og‘iz bo‘shlig‘i shilliq pardasi zararlanganida uni tiklaydigan ….(3) moddasi bo`ladi.",
+                                                                     "options":  [
+                                                                                     "1-kislotali, 2-ptialin, 3-lizotsim",
+                                                                                     "1-ishqoriy, 2-ptialin, 3-lizotsim",
+                                                                                     "1-ishqoriy, 2-amilaza, 3-lizotsim",
+                                                                                     "1-kislotali, 2-amilaza, 3-lizotsim"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  47,
+                                                                     "question":  "qovurg’alar pastga tushsa 9) qovurg’alar ko’tarilganda",
+                                                                     "options":  [
+                                                                                     "1, 2, 4",
+                                                                                     "1, 5, 7",
+                                                                                     "6",
+                                                                                     "1, 9, 3"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  48,
+                                                                     "question":  "Vorsinkalardagi limfa(a)va qon(b)tomiriga qanday moddalar so`riladi? 1-oqsil 2-yog` 3-uglevod",
+                                                                     "options":  [
+                                                                                     "a- 2,  b- 1, 3",
+                                                                                     "a- 1, 3  b- 2",
+                                                                                     "a- 3  b- 1",
+                                                                                     "a- 1 b- 2"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  49,
+                                                                     "question":  "Qaysi metod orqali hazm qilish organlari va bezlarning sekret chiqarish yo‘lida paydo bo\u0027lgan kasalliklarni aniqlab olish mumkin?",
+                                                                     "options":  [
+                                                                                     "Rentgenoskopiya",
+                                                                                     "ultratovush",
+                                                                                     "endoskopiya",
+                                                                                     "Zondlash"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  50,
+                                                                     "question":  "Qaysi olim ovqatni ko‘rganda, uning hidini sezganda yoki ovqatlanish bilan bog\u0027liq boshqa hodisalar ta’sirida ajraladigan oshqozon shirasini «ishtaha shirasi» deb atagan.",
+                                                                     "options":  [
+                                                                                     "Sechenov",
+                                                                                     "Basov",
+                                                                                     "Pavlov",
+                                                                                     "Galen"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  51,
+                                                                     "question":  "Qorin og`rishi 2) Qorinning dam bo`lishi 3) Ich ketishi 4) qabziyat 5) ozib ketish 6) ko`ngli aynib qayt qilish",
+                                                                     "options":  [
+                                                                                     "1, 2, 3, 4, 5, 6",
+                                                                                     "1, 3, 4, 6",
+                                                                                     "2, 4, 5, 6",
+                                                                                     "2, 3, 5"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  52,
+                                                                     "question":  "Qaysi kasallangan odamga bir necha piyola iliq suv ichiriladi. So‘ngra tomoqqa choy qoshiq yoki barmoq tiqib, sun’iy qusdirish orqali ovqat oshqozondan chiqarib tashlanadi.",
+                                                                     "options":  [
+                                                                                     "Ichburug`",
+                                                                                     "Botulizm",
+                                                                                     "ichterlama",
+                                                                                     "Gastrit"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  53,
+                                                                     "question":  "Qaysi mahsulotlar foydali ichak florasini ko‘paytirib, ovqat hazm bo‘lishini izga tushirishga yordam beradi?",
+                                                                     "options":  [
+                                                                                     "Sabzavotlar va poliz mahsulotlari",
+                                                                                     "Sut-qatiq mahsulotlari, sabzavot, meva va yirik tortilgan undan tayyorlangan mahsulotlar",
+                                                                                     "B1 va C vitaminlariga boy mahsulotlar",
+                                                                                     "Ichak florasi faqat tayyor bakteriyalar hisobiga ko`paytiriladi"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  54,
+                                                                     "question":  "meva ,sabzavot va poliz mahsulotlarini yaxshilab yuvib iste`mol qilish 6) ko`katlatni yaxshi yuvib iste`mol qilish",
+                                                                     "options":  [
+                                                                                     "1, 2, 3, 4, 5",
+                                                                                     "2, 3, 4, 6",
+                                                                                     "3, 4, 5",
+                                                                                     "4, 5"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  55,
+                                                                     "question":  "Ovqatbilanzaharlanishdaamalga oshiriladigantadbirlarnitartibbilan ko‘rsating? A - yutilgan ovqat chiqarib tashlanadi, В - til ildizi yoki tomoq orqa devori qitiqlanadi, D - zaharlangan odamga bir stakan iliq suv ichiriladi,  E - sun’iy qayt qildiriladi.",
+                                                                     "options":  [
+                                                                                     "B, D, E, A",
+                                                                                     "D, B, A, E",
+                                                                                     "D, B, E, A",
+                                                                                     "D, E, B, A"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  56,
+                                                                     "question":  "Mahliyoning bo`yi 160 sm bo`lsa,uning ingichka ichagining uzunligi qancha?",
+                                                                     "options":  [
+                                                                                     "460-640",
+                                                                                     "480-640",
+                                                                                     "640-800",
+                                                                                     "800-960"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  57,
+                                                                     "question":  "Qaysi tishlar 2:1 nisbatda?",
+                                                                     "options":  [
+                                                                                     "qoziq:katta oziq",
+                                                                                     "Kichik oziq:katta oziq",
+                                                                                     "kichik oziq:qoziq",
+                                                                                     "Kurak:kichik oziq"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  58,
+                                                                     "question":  "Bir kunda o’pkasi orqali qon 350 marta aylanib, 1715 l qon o’tsa, odamning vaznini aniqlang.",
+                                                                     "options":  [
+                                                                                     "72kg",
+                                                                                     "70kg",
+                                                                                     "75kg",
+                                                                                     "65kg"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  59,
+                                                                     "question":  "Quyidagi rasmdagi 4-raqam uchun xos bo`lgan xususiyatni aniqlang? 4667252186400",
+                                                                     "options":  [
+                                                                                     "uzunligi 25-30sm",
+                                                                                     "mahsuloti 12 barmoqli ichakka quyiladi",
+                                                                                     "aralash sekretsiya bezi",
+                                                                                     "Hajmi katta yoshli odamda 2-2,5l"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  60,
+                                                                     "question":  "Havo tarkibida 21% kislorod bo’lsa,chiqargan nafas havosida 15% 21 litr kislorod iste’mol qilish uchun necha marta nafas olishi kerak? (nafas havosi 500ml)",
+                                                                     "options":  [
+                                                                                     "700",
+                                                                                     "500",
+                                                                                     "70",
+                                                                                     "350"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  61,
+                                                                     "question":  "Energiya almashinuvi jarayonida bir necha glyukoza parchalandi. 4 mol glyukoza to’liq parchalandi va bu umumiy parchalangan glyukozalarni 40%ini tashkil qilsa issiqlik sifatida ajralib chiqqan jami energiyani toping.",
+                                                                     "options":  [
+                                                                                     "28000",
+                                                                                     "5480",
+                                                                                     "12800",
+                                                                                     "5840"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  62,
+                                                                     "question":  "1- va 4- qon guruhi bo’lgan yigit va qiz nikohidan 2- qon guruh tug’ilish ehtimoli necha%?",
+                                                                     "options":  [
+                                                                                     "100 %",
+                                                                                     "50 %",
+                                                                                     "25 %",
+                                                                                     "0%"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  63,
+                                                                     "question":  "Plastik almashinuv jarayonida sintezlangan oqsil 49 peptid bog’ bo’lsa, shu oqsilni sinteziga javob bergan gen tarkibidagi vodorod bog’lar sonini toping. (DNK A- 30%)",
+                                                                     "options":  [
+                                                                                     "300",
+                                                                                     "360",
+                                                                                     "298",
+                                                                                     "90"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  64,
+                                                                     "question":  "Qaysi bemorning so’lagida (I) va qaysi bemorning tupugida (II) kasallik qo’zg’atuvchisi bo’ladi?",
+                                                                     "options":  [
+                                                                                     "II-sil va I- gripp bilan kasallangan bemor",
+                                                                                     "I-rinit va II- gripp bilan kasallangan bemor",
+                                                                                     "I-sil va II- gripp bilan kasallangan bemor",
+                                                                                     "II-gripp va I- allergiya bilan kasallangan bemor"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  65,
+                                                                     "question":  "G’o’zaning diploid navi urug’lanishida 20 ta mikrospora ishtirok etgan bo’lsa undan hosil bo’lgan urug’ning endospermlarida nechta xromosoma bo’ladi? (n=13)",
+                                                                     "options":  [
+                                                                                     "780",
+                                                                                     "260",
+                                                                                     "520",
+                                                                                     "1560"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  66,
+                                                                     "question":  "teri oqaradi  2) terisiga qizillik yuguradi 3) ko’z qorachigi torayadi. 4) ko’z qorachig’i kengayadi 5) tomir urushu tiklanadi  6) yurak urushi tezlashadi.",
+                                                                     "options":  [
+                                                                                     "2, 3, 6",
+                                                                                     "2, 3, 5",
+                                                                                     "1, 2, 5",
+                                                                                     "1, 4, 6"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 },
+                                                                 {
+                                                                     "id":  67,
+                                                                     "question":  "Quyidagi rasmdan pulpa(a)va dentin(b)tasvirlangan raqamlarni tanlang?",
+                                                                     "options":  [
+                                                                                     "a-1  b-2",
+                                                                                     "a-2  b-3",
+                                                                                     "a-3  b-2",
+                                                                                     "a-3  b-4"
+                                                                                 ],
+                                                                     "correct_option_id":  0,
+                                                                     "explanation":  "8-sinf: Anatomiya kasalliklari, profilaktika va birinchi tibbiy yordam bo\u0027yicha to\u0027g\u0027ri javob."
+                                                                 }
+                                                             ],
+                                                   "Count":  67
+                                               }
                              }
                          ]
           },
