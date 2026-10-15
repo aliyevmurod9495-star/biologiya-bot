@@ -108,53 +108,165 @@ async def handle_start(message: Message):
 
 
 # ==========================================
-# 1. MAVZULAR (MA'RUZALAR) BO'LIMI
+# 1. MAVZULAR (MA'RUZALAR) BO'LIMI VA SAHIFALASH
 # ==========================================
-@dp.message(F.text == "📖 Mavzular")
-async def show_topics_menu(message: Message):
-    """Tanlangan sinf bo'yicha mavzular ma'ruzasini ko'rsatish"""
-    user_id = message.from_user.id
-    grade = await database.get_user_grade(user_id)
+TOPICS_PER_PAGE = 10
+
+
+def build_topics_keyboard(grade: str, page: int = 1) -> tuple[str, Optional[InlineKeyboardMarkup]]:
+    """Mavzular ro'yxatini 10 tadan sahifalab inline klaviatura tuzish"""
     grade_name = GRADE_NAMES.get(grade, f"{grade}-sinf")
 
     lectures = materials.TOPICS_CONTENT.get(grade, [])
     grade_data = QUESTIONS_DATA.get(grade, {})
     topics_from_q = grade_data.get("topics", [])
 
-    buttons = []
+    topic_items = []
     if lectures:
         for lec in lectures:
-            buttons.append([
-                InlineKeyboardButton(
-                    text=f"📖 {lec['title']}",
-                    callback_data=f"read_topic_{grade}_{lec['id']}"
-                )
-            ])
+            topic_items.append({"id": str(lec["id"]), "title": lec["title"]})
     elif topics_from_q:
         for t in topics_from_q:
-            buttons.append([
-                InlineKeyboardButton(
-                    text=f"📖 {t['title']}",
-                    callback_data=f"read_topic_{grade}_{t['id']}"
-                )
-            ])
-    else:
-        await message.answer(
+            topic_items.append({"id": str(t["id"]), "title": t["title"]})
+
+    total_topics = len(topic_items)
+    if total_topics == 0:
+        return (
             f"⚠️ <b>{grade_name}</b> bo'yicha hozircha ma'ruzalar tayyorlanmoqda.\n"
             "Boshqa sinfni tanlash uchun <b>\"🔄 Sinfni almashtirish\"</b> tugmasini bosing.",
-            reply_markup=MAIN_KEYBOARD
+            None
         )
-        return
+
+    total_pages = max(1, (total_topics + TOPICS_PER_PAGE - 1) // TOPICS_PER_PAGE)
+    page = max(1, min(page, total_pages))
+
+    start_idx = (page - 1) * TOPICS_PER_PAGE
+    end_idx = min(start_idx + TOPICS_PER_PAGE, total_topics)
+    page_items = topic_items[start_idx:end_idx]
+
+    buttons = []
+    for item in page_items:
+        buttons.append([
+            InlineKeyboardButton(
+                text=f"📖 {item['title']}",
+                callback_data=f"read_topic_{grade}_{item['id']}_{page}"
+            )
+        ])
+
+    # Sahifalar o'rtasida o'tish tugmalari
+    if total_pages > 1:
+        nav_row = []
+        if page > 1:
+            nav_row.append(InlineKeyboardButton(text="⬅️ Oldingi", callback_data=f"topics_page_{grade}_{page - 1}"))
+        nav_row.append(InlineKeyboardButton(text=f"📄 {page}/{total_pages}", callback_data=f"page_info_{page}_{total_pages}"))
+        if page < total_pages:
+            nav_row.append(InlineKeyboardButton(text="Keyingi ➡️", callback_data=f"topics_page_{grade}_{page + 1}"))
+        buttons.append(nav_row)
 
     buttons.append([
         InlineKeyboardButton(text="🔄 Boshqa sinfni tanlash", callback_data="switch_grade_prompt")
     ])
 
-    await message.answer(
-        f"📚 <b>{grade_name} — Mavzular va Ma'ruzalar</b>\n\n"
-        "O'rganmoqchi bo'lgan mavzungizni tanlang:",
-        reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons)
+    text = (
+        f"📚 <b>{grade_name} — Mavzular va Ma'ruzalar</b>\n"
+        f"<i>(Jami: {total_topics} ta mavzu, {page}/{total_pages}-sahifa)</i>\n\n"
+        "O'rganmoqchi bo'lgan mavzungizni tanlang:"
     )
+    return text, InlineKeyboardMarkup(inline_keyboard=buttons)
+
+
+def build_tests_keyboard(grade: str, page: int = 1) -> tuple[str, Optional[InlineKeyboardMarkup]]:
+    """Testlar ro'yxatini 10 tadan sahifalab inline klaviatura tuzish"""
+    grade_name = GRADE_NAMES.get(grade, f"{grade}-sinf")
+    grade_data = QUESTIONS_DATA.get(grade, {})
+    topics = grade_data.get("topics", [])
+
+    if not topics:
+        return (
+            f"⚠️ <b>{grade_name}</b> bo'yicha testlar kiritilmoqda.\n"
+            "Boshqa sinfni tanlash uchun <b>\"🔄 Sinfni almashtirish\"</b> tugmasini bosing.",
+            None
+        )
+
+    total_topics = len(topics)
+    total_q = sum(len(t.get("questions", [])) for t in topics)
+    total_pages = max(1, (total_topics + TOPICS_PER_PAGE - 1) // TOPICS_PER_PAGE)
+    page = max(1, min(page, total_pages))
+
+    start_idx = (page - 1) * TOPICS_PER_PAGE
+    end_idx = min(start_idx + TOPICS_PER_PAGE, total_topics)
+    page_items = topics[start_idx:end_idx]
+
+    buttons = []
+    for t in page_items:
+        q_count = len(t.get("questions", []))
+        buttons.append([
+            InlineKeyboardButton(
+                text=f"📝 {t['title']} ({q_count} ta)",
+                callback_data=f"tquiz_choose_{grade}_{t['id']}_{page}"
+            )
+        ])
+
+    if total_pages > 1:
+        nav_row = []
+        if page > 1:
+            nav_row.append(InlineKeyboardButton(text="⬅️ Oldingi", callback_data=f"tests_page_{grade}_{page - 1}"))
+        nav_row.append(InlineKeyboardButton(text=f"📄 {page}/{total_pages}", callback_data=f"page_info_{page}_{total_pages}"))
+        if page < total_pages:
+            nav_row.append(InlineKeyboardButton(text="Keyingi ➡️", callback_data=f"tests_page_{grade}_{page + 1}"))
+        buttons.append(nav_row)
+
+    buttons.append([
+        InlineKeyboardButton(
+            text=f"🎲 Barcha mavzulardan aralash test ({total_q} ta)",
+            callback_data=f"tquiz_choose_{grade}_all_{page}"
+        )
+    ])
+    buttons.append([
+        InlineKeyboardButton(text="🔄 Boshqa sinf testlari", callback_data="switch_grade_prompt")
+    ])
+
+    text = (
+        f"📝 <b>{grade_name} — Mavzulashtirilgan testlar</b>\n"
+        f"<i>(Jami: {total_topics} ta mavzu, {total_q} ta savol, {page}/{total_pages}-sahifa)</i>\n\n"
+        "Qaysi mavzudan test topshirmoqchisiz? Tanlang:"
+    )
+    return text, InlineKeyboardMarkup(inline_keyboard=buttons)
+
+
+@dp.message(F.text == "📖 Mavzular")
+async def show_topics_menu(message: Message):
+    """Tanlangan sinf bo'yicha mavzular ma'ruzasini ko'rsatish"""
+    user_id = message.from_user.id
+    grade = await database.get_user_grade(user_id)
+    text, markup = build_topics_keyboard(grade, page=1)
+    if markup is None:
+        await message.answer(text, reply_markup=MAIN_KEYBOARD)
+        return
+    await message.answer(text, reply_markup=markup)
+
+
+@dp.callback_query(F.data.startswith("topics_page_"))
+async def paginate_topics_callback(callback: CallbackQuery):
+    """Mavzular sahifasini almashtirish (10 tadan)"""
+    await callback.answer()
+    parts = callback.data.split("_")
+    grade = parts[2]
+    page = int(parts[3])
+    text, markup = build_topics_keyboard(grade, page)
+    try:
+        await callback.message.edit_text(text, reply_markup=markup)
+    except Exception:
+        await callback.message.answer(text, reply_markup=markup)
+
+
+@dp.callback_query(F.data.startswith("page_info_"))
+async def page_info_callback(callback: CallbackQuery):
+    """Hozirgi sahifa raqami axboroti"""
+    parts = callback.data.split("_")
+    page = parts[2]
+    total = parts[3]
+    await callback.answer(f"📄 Hozirgi sahifa: {page} dan {total} gacha", show_alert=False)
 
 
 @dp.callback_query(F.data.startswith("read_topic_") | F.data.startswith("thub_"))
@@ -162,16 +274,21 @@ async def read_topic_content(callback: CallbackQuery):
     """Mavzu Boshqaruv Markazi (Topic Hub) — Ma'ruza, Qo'llanma, Video va Testlar"""
     await callback.answer()
     parts = callback.data.split("_")
-    grade = parts[2] if parts[0] == "read" else parts[1]
-    topic_id = parts[3] if parts[0] == "read" else parts[2]
-    user_id = callback.from_user.id
+    if parts[0] == "read":
+        grade = parts[2]
+        topic_id = parts[3]
+        page = int(parts[4]) if len(parts) > 4 else 1
+    else:
+        grade = parts[1]
+        topic_id = parts[2]
+        page = int(parts[3]) if len(parts) > 3 else 1
 
     lectures = materials.TOPICS_CONTENT.get(grade, [])
     lec = next((l for l in lectures if str(l["id"]) == str(topic_id)), None)
 
     grade_data = QUESTIONS_DATA.get(grade, {})
     topic_info = next((t for t in grade_data.get("topics", []) if str(t["id"]) == str(topic_id)), None)
-    
+
     title = lec["title"] if lec else (topic_info["title"] if topic_info else f"{topic_id}-mavzu")
     q_count = len(topic_info.get("questions", [])) if topic_info else 0
 
@@ -187,12 +304,12 @@ async def read_topic_content(callback: CallbackQuery):
     )
 
     buttons = [
-        [InlineKeyboardButton(text="📖 Ma'ruza matni (Konspekt)", callback_data=f"tlec_{grade}_{topic_id}")],
-        [InlineKeyboardButton(text="📘 Qisqa qo'llanma (Faktlar)", callback_data=f"tgui_{grade}_{topic_id}")],
-        [InlineKeyboardButton(text="🎥 Video dars va 3D Animatsiya", callback_data=f"tmed_{grade}_{topic_id}")],
-        [InlineKeyboardButton(text=f"📝 Test ishlash ({q_count} ta savol)", callback_data=f"tquiz_choose_{grade}_{topic_id}")],
-        [InlineKeyboardButton(text="📊 Mening ushbu mavzudagi natijam", callback_data=f"tstat_{grade}_{topic_id}")],
-        [InlineKeyboardButton(text="⬅️ Barcha mavzular ro'yxati", callback_data=f"back_to_topics_{grade}")]
+        [InlineKeyboardButton(text="📖 Ma'ruza matni (Konspekt)", callback_data=f"tlec_{grade}_{topic_id}_{page}")],
+        [InlineKeyboardButton(text="📘 Qisqa qo'llanma (Faktlar)", callback_data=f"tgui_{grade}_{topic_id}_{page}")],
+        [InlineKeyboardButton(text="🎥 Video dars va 3D Animatsiya", callback_data=f"tmed_{grade}_{topic_id}_{page}")],
+        [InlineKeyboardButton(text=f"📝 Test ishlash ({q_count} ta savol)", callback_data=f"tquiz_choose_{grade}_{topic_id}_{page}")],
+        [InlineKeyboardButton(text="📊 Mening ushbu mavzudagi natijam", callback_data=f"tstat_{grade}_{topic_id}_{page}")],
+        [InlineKeyboardButton(text="⬅️ Barcha mavzular ro'yxati", callback_data=f"back_to_topics_{grade}_{page}")]
     ]
 
     await callback.message.answer(
@@ -208,6 +325,7 @@ async def show_topic_lecture(callback: CallbackQuery):
     parts = callback.data.split("_")
     grade = parts[1]
     topic_id = parts[2]
+    page = int(parts[3]) if len(parts) > 3 else 1
 
     lectures = materials.TOPICS_CONTENT.get(grade, [])
     lec = next((l for l in lectures if str(l["id"]) == str(topic_id)), None)
@@ -218,9 +336,9 @@ async def show_topic_lecture(callback: CallbackQuery):
         text = lec["text"]
 
     buttons = [
-        [InlineKeyboardButton(text="📘 Qisqa qo'llanma", callback_data=f"tgui_{grade}_{topic_id}"),
-         InlineKeyboardButton(text="📝 Test ishlash", callback_data=f"tquiz_choose_{grade}_{topic_id}")],
-        [InlineKeyboardButton(text="⬅️ Mavzu bosh menyusi", callback_data=f"thub_{grade}_{topic_id}")]
+        [InlineKeyboardButton(text="📘 Qisqa qo'llanma", callback_data=f"tgui_{grade}_{topic_id}_{page}"),
+         InlineKeyboardButton(text="📝 Test ishlash", callback_data=f"tquiz_choose_{grade}_{topic_id}_{page}")],
+        [InlineKeyboardButton(text="⬅️ Mavzu bosh menyusi", callback_data=f"thub_{grade}_{topic_id}_{page}")]
     ]
     await callback.message.answer(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
 
@@ -232,6 +350,7 @@ async def show_topic_guide(callback: CallbackQuery):
     parts = callback.data.split("_")
     grade = parts[1]
     topic_id = parts[2]
+    page = int(parts[3]) if len(parts) > 3 else 1
 
     lectures = materials.TOPICS_CONTENT.get(grade, [])
     lec = next((l for l in lectures if str(l["id"]) == str(topic_id)), None)
@@ -242,9 +361,9 @@ async def show_topic_guide(callback: CallbackQuery):
     )
 
     buttons = [
-        [InlineKeyboardButton(text="📖 Ma'ruza matni", callback_data=f"tlec_{grade}_{topic_id}"),
-         InlineKeyboardButton(text="📝 Test ishlash", callback_data=f"tquiz_choose_{grade}_{topic_id}")],
-        [InlineKeyboardButton(text="⬅️ Mavzu bosh menyusi", callback_data=f"thub_{grade}_{topic_id}")]
+        [InlineKeyboardButton(text="📖 Ma'ruza matni", callback_data=f"tlec_{grade}_{topic_id}_{page}"),
+         InlineKeyboardButton(text="📝 Test ishlash", callback_data=f"tquiz_choose_{grade}_{topic_id}_{page}")],
+        [InlineKeyboardButton(text="⬅️ Mavzu bosh menyusi", callback_data=f"thub_{grade}_{topic_id}_{page}")]
     ]
     await callback.message.answer(guide_text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
 
@@ -256,6 +375,7 @@ async def show_topic_media(callback: CallbackQuery):
     parts = callback.data.split("_")
     grade = parts[1]
     topic_id = parts[2]
+    page = int(parts[3]) if len(parts) > 3 else 1
 
     lectures = materials.TOPICS_CONTENT.get(grade, [])
     lec = next((l for l in lectures if str(l["id"]) == str(topic_id)), None)
@@ -266,8 +386,8 @@ async def show_topic_media(callback: CallbackQuery):
     )
 
     buttons = [
-        [InlineKeyboardButton(text="📝 Test ishlash", callback_data=f"tquiz_choose_{grade}_{topic_id}")],
-        [InlineKeyboardButton(text="⬅️ Mavzu bosh menyusi", callback_data=f"thub_{grade}_{topic_id}")]
+        [InlineKeyboardButton(text="📝 Test ishlash", callback_data=f"tquiz_choose_{grade}_{topic_id}_{page}")],
+        [InlineKeyboardButton(text="⬅️ Mavzu bosh menyusi", callback_data=f"thub_{grade}_{topic_id}_{page}")]
     ]
     await callback.message.answer(media_text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
 
@@ -279,6 +399,7 @@ async def show_topic_user_stats(callback: CallbackQuery):
     parts = callback.data.split("_")
     grade = parts[1]
     topic_id = parts[2]
+    page = int(parts[3]) if len(parts) > 3 else 1
     user_id = callback.from_user.id
 
     grade_data = QUESTIONS_DATA.get(grade, {})
@@ -307,34 +428,25 @@ async def show_topic_user_stats(callback: CallbackQuery):
         )
 
     buttons = [
-        [InlineKeyboardButton(text="📝 Test topshirish", callback_data=f"tquiz_choose_{grade}_{topic_id}")],
-        [InlineKeyboardButton(text="⬅️ Mavzu bosh menyusi", callback_data=f"thub_{grade}_{topic_id}")]
+        [InlineKeyboardButton(text="📝 Test topshirish", callback_data=f"tquiz_choose_{grade}_{topic_id}_{page}")],
+        [InlineKeyboardButton(text="⬅️ Mavzu bosh menyusi", callback_data=f"thub_{grade}_{topic_id}_{page}")]
     ]
     await callback.message.answer(stat_text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
 
 
 @dp.callback_query(F.data.startswith("back_to_topics_"))
 async def back_to_topics_callback(callback: CallbackQuery):
-    """Mavzular ro'yxatiga qaytish"""
+    """Mavzular ro'yxatiga qaytish (sahifani saqlagan holda)"""
     await callback.answer()
-    grade = callback.data.split("_")[3]
-    grade_name = GRADE_NAMES.get(grade, f"{grade}-sinf")
+    parts = callback.data.split("_")
+    grade = parts[3]
+    page = int(parts[4]) if len(parts) > 4 else 1
     
-    grade_data = QUESTIONS_DATA.get(grade, {})
-    topics = grade_data.get("topics", [])
-
-    buttons = []
-    for t in topics:
-        buttons.append([
-            InlineKeyboardButton(text=f"📖 {t['title']}", callback_data=f"thub_{grade}_{t['id']}")
-        ])
-    buttons.append([InlineKeyboardButton(text="🔄 Sinfni almashtirish", callback_data="switch_grade_prompt")])
-
-    await callback.message.answer(
-        f"📚 <b>{grade_name} — Mavzular ro'yxati:</b>\n\n"
-        "O'rganmoqchi bo'lgan mavzungizni tanlang:",
-        reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons)
-    )
+    text, markup = build_topics_keyboard(grade, page)
+    try:
+        await callback.message.edit_text(text, reply_markup=markup)
+    except Exception:
+        await callback.message.answer(text, reply_markup=markup)
 
 
 # ==========================================
@@ -342,49 +454,28 @@ async def back_to_topics_callback(callback: CallbackQuery):
 # ==========================================
 @dp.message(F.text == "📝 Testlar")
 async def show_tests_menu(message: Message):
-    """Mavzulashtirilgan testlar ro'yxatini chiqarish"""
+    """Mavzulashtirilgan testlar ro'yxatini chiqarish (sahifalash bilan)"""
     user_id = message.from_user.id
     grade = await database.get_user_grade(user_id)
-    grade_name = GRADE_NAMES.get(grade, f"{grade}-sinf")
-
-    grade_data = QUESTIONS_DATA.get(grade, {})
-    topics = grade_data.get("topics", [])
-
-    if not topics:
-        await message.answer(
-            f"⚠️ <b>{grade_name}</b> bo'yicha testlar kiritilmoqda.\n"
-            "Boshqa sinfni tanlash uchun <b>\"🔄 Sinfni almashtirish\"</b> tugmasini bosing.",
-            reply_markup=MAIN_KEYBOARD
-        )
+    text, markup = build_tests_keyboard(grade, page=1)
+    if markup is None:
+        await message.answer(text, reply_markup=MAIN_KEYBOARD)
         return
+    await message.answer(text, reply_markup=markup)
 
-    buttons = []
-    total_q = 0
-    for t in topics:
-        q_count = len(t.get("questions", []))
-        total_q += q_count
-        buttons.append([
-            InlineKeyboardButton(
-                text=f"📝 {t['title']} ({q_count} ta)",
-                callback_data=f"tquiz_choose_{grade}_{t['id']}"
-            )
-        ])
 
-    buttons.append([
-        InlineKeyboardButton(
-            text=f"🎲 Barcha mavzulardan aralash test ({total_q} ta)",
-            callback_data=f"tquiz_choose_{grade}_all"
-        )
-    ])
-    buttons.append([
-        InlineKeyboardButton(text="🔄 Boshqa sinf testlari", callback_data="switch_grade_prompt")
-    ])
-
-    await message.answer(
-        f"📝 <b>{grade_name} — Mavzulashtirilgan testlar</b>\n\n"
-        "Qaysi mavzudan test topshirmoqchisiz? Tanlang:",
-        reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons)
-    )
+@dp.callback_query(F.data.startswith("tests_page_"))
+async def paginate_tests_callback(callback: CallbackQuery):
+    """Testlar sahifasini almashtirish (10 tadan)"""
+    await callback.answer()
+    parts = callback.data.split("_")
+    grade = parts[2]
+    page = int(parts[3])
+    text, markup = build_tests_keyboard(grade, page)
+    try:
+        await callback.message.edit_text(text, reply_markup=markup)
+    except Exception:
+        await callback.message.answer(text, reply_markup=markup)
 
 
 @dp.callback_query(F.data.startswith("tquiz_choose_") | F.data.startswith("topic_"))
@@ -392,9 +483,15 @@ async def choose_quiz_mode(callback: CallbackQuery):
     """Test hajmiga qarab tanlov berish (1-variant: 10 ta, 20 ta yoki Barchasi)"""
     await callback.answer()
     parts = callback.data.split("_")
-    # Callback either: tquiz_choose_{grade}_{topic_id} or topic_{grade}_{topic_id}
-    grade = parts[2] if parts[0] == "tquiz" else parts[1]
-    topic_id = parts[3] if parts[0] == "tquiz" else parts[2]
+    # Callback either: tquiz_choose_{grade}_{topic_id}_{page} or topic_{grade}_{topic_id}_{page}
+    if parts[0] == "tquiz":
+        grade = parts[2]
+        topic_id = parts[3]
+        page = int(parts[4]) if len(parts) > 4 else 1
+    else:
+        grade = parts[1]
+        topic_id = parts[2]
+        page = int(parts[3]) if len(parts) > 3 else 1
 
     grade_data = QUESTIONS_DATA.get(grade, {})
     topics = grade_data.get("topics", [])
@@ -410,7 +507,7 @@ async def choose_quiz_mode(callback: CallbackQuery):
         buttons = [
             [InlineKeyboardButton(text="⚡️ Tezkor aralash test (15 ta savol)", callback_data=f"quizstart_{grade}_all_15")],
             [InlineKeyboardButton(text="📝 Standart DTM bloki (30 ta savol)", callback_data=f"quizstart_{grade}_all_30")],
-            [InlineKeyboardButton(text="⬅️ Ortga", callback_data=f"back_to_topics_{grade}")]
+            [InlineKeyboardButton(text="⬅️ Ortga", callback_data=f"tests_page_{grade}_{page}")]
         ]
     else:
         topic = next((t for t in topics if str(t["id"]) == str(topic_id)), None)
@@ -428,7 +525,7 @@ async def choose_quiz_mode(callback: CallbackQuery):
             [InlineKeyboardButton(text="⚡️ Tezkor test (10 ta savol)", callback_data=f"quizstart_{grade}_{topic_id}_10")],
             [InlineKeyboardButton(text="📝 Standart test (20 ta savol)", callback_data=f"quizstart_{grade}_{topic_id}_20")],
             [InlineKeyboardButton(text=f"🏆 To'liq test (Barcha {total_q} ta)", callback_data=f"quizstart_{grade}_{topic_id}_all")],
-            [InlineKeyboardButton(text="⬅️ Mavzu bosh menyusi", callback_data=f"thub_{grade}_{topic_id}")]
+            [InlineKeyboardButton(text="⬅️ Mavzu bosh menyusi", callback_data=f"thub_{grade}_{topic_id}_{page}")]
         ]
 
     await callback.message.answer(
