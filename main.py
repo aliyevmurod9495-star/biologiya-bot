@@ -2,9 +2,9 @@ import json
 import logging
 import asyncio
 import random
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, Callable, Awaitable
 
-from aiogram import Bot, Dispatcher, F
+from aiogram import Bot, Dispatcher, F, BaseMiddleware
 from aiogram.filters import CommandStart, Command
 from aiogram.client.default import DefaultBotProperties
 from aiogram.types import (
@@ -15,7 +15,8 @@ from aiogram.types import (
     KeyboardButton,
     InlineKeyboardMarkup,
     InlineKeyboardButton,
-    InputPollOption
+    InputPollOption,
+    TelegramObject
 )
 
 import config
@@ -28,6 +29,91 @@ logging.basicConfig(level=logging.INFO)
 # Bot va Dispetcher obyektlari
 bot = Bot(token=config.BOT_TOKEN, default=DefaultBotProperties(parse_mode="HTML"))
 dp = Dispatcher()
+
+
+class AuthMiddleware(BaseMiddleware):
+    """Foydalanuvchilarning admin tomonidan tasdiqlanganligini tekshirish middleware"""
+    async def __call__(
+        self,
+        handler: Callable[[TelegramObject, Dict[str, Any]], Awaitable[Any]],
+        event: TelegramObject,
+        data: Dict[str, Any]
+    ) -> Any:
+        user = data.get("event_from_user")
+        if not user:
+            return await handler(event, data)
+
+        # 1. Admin har doim barcha huquqlarga ega
+        if user.id in config.ADMIN_IDS or await database.is_admin(user.id):
+            return await handler(event, data)
+
+        # 2. Agar callback adminlar tomonidan bosilayotgan auth_ tugmasi bo'lsa
+        if isinstance(event, CallbackQuery) and event.data and event.data.startswith("auth_"):
+            return await handler(event, data)
+
+        # 3. Foydalanuvchiga ruxsat berilganligini tekshirish
+        if await database.is_user_allowed(user.id):
+            return await handler(event, data)
+
+        # 4. Agar ruxsat berilmagan bo'lsa
+        if isinstance(event, Message):
+            if event.text and event.text.startswith("/start"):
+                # Ro'yxatga olish (kutilmoqda holatida)
+                await database.add_or_update_user(
+                    user_id=user.id,
+                    full_name=user.full_name or "Noma'lum",
+                    username=user.username or "",
+                    default_allowed=0
+                )
+
+                # Foydalanuvchiga bildirishnoma
+                waiting_msg = (
+                    f"🔒 <b>Assalomu alaykum, {user.first_name}!</b>\n\n"
+                    "Ushbu biologiya ta'lim boti yopiq tizim hisoblanadi.\n"
+                    "Botdan to‘liq foydalanish uchun <b>administrator ruxsati</b> talab qilinadi.\n\n"
+                    "⏳ <i>Sizning so‘rovingiz adminga yuborildi. Administrator tasdiqlagach, bot to‘liq ochiladi va sizga xabar beriladi.</i>"
+                )
+                await event.answer(waiting_msg)
+
+                # Adminga ruxsat so'rovi yuborish
+                admin_kb = InlineKeyboardMarkup(inline_keyboard=[
+                    [
+                        InlineKeyboardButton(text="✅ Ruxsat berish", callback_data=f"auth_approve_{user.id}"),
+                        InlineKeyboardButton(text="❌ Rad etish", callback_data=f"auth_reject_{user.id}")
+                    ]
+                ])
+                admin_text = (
+                    "🔔 <b>Yangi foydalanuvchi ruxsat so'ramoqda!</b>\n\n"
+                    f"👤 <b>F.I.SH:</b> {user.full_name}\n"
+                    f"🆔 <b>Telegram ID:</b> <code>{user.id}</code>\n"
+                    f"🔗 <b>Username:</b> @{user.username or 'yo‘q'}\n\n"
+                    "Ushbu foydalanuvchiga botdan foydalanishga ruxsat berasizmi?"
+                )
+                for admin_id in await database.get_all_admins():
+                    try:
+                        await bot.send_message(admin_id, admin_text, reply_markup=admin_kb)
+                    except Exception as e:
+                        logging.warning(f"Adminga so'rov yuborishda xatolik ({admin_id}): {e}")
+                return
+
+            else:
+                await event.answer(
+                    "🔒 <b>Botdan foydalanish cheklangan!</b>\n\n"
+                    "Sizga hali administrator tomonidan ruxsat berilmagan.\n"
+                    "Iltimos, administrator tasdiqlashini kuting."
+                )
+                return
+
+        elif isinstance(event, CallbackQuery):
+            await event.answer("🔒 Botdan foydalanish uchun administrator ruxsati kerak!", show_alert=True)
+            return
+
+        return None
+
+
+dp.message.middleware(AuthMiddleware())
+dp.callback_query.middleware(AuthMiddleware())
+
 
 # Savollarni yuklash (BOM bilan ham, BOM siz ham xatosiz yuklash)
 try:
@@ -82,16 +168,21 @@ def get_grades_inline_keyboard() -> InlineKeyboardMarkup:
 async def handle_start(message: Message):
     """Start komandasi berilganda"""
     user = message.from_user
+    is_adm = await database.is_admin(user.id) or user.id in config.ADMIN_IDS
     await database.add_or_update_user(
         user_id=user.id,
         full_name=user.full_name or "Noma'lum",
-        username=user.username or ""
+        username=user.username or "",
+        default_allowed=1 if is_adm else 0
     )
     grade = await database.get_user_grade(user.id)
     grade_name = GRADE_NAMES.get(grade, f"{grade}-sinf")
 
+    admin_note = "👑 <b>Siz administratorsiz</b> <i>(Boshqaruv paneli: /admin)</i>\n\n" if is_adm else ""
+
     welcome_text = (
         f"Assalomu alaykum, <b>{user.first_name}</b>!\n\n"
+        f"{admin_note}"
         "🧬 <b>Biologiya ta'lim va test botiga xush kelibsiz!</b>\n\n"
         f"📌 Joriy faol sinf: <b>{grade_name}</b>\n\n"
         "Quyidagi menyudan kerakli bo'limni tanlang:\n"
@@ -105,6 +196,272 @@ async def handle_start(message: Message):
         "• 👨‍🏫 <b>O'qituvchi</b> — Ustoz bilan bog'lanish"
     )
     await message.answer(welcome_text, reply_markup=MAIN_KEYBOARD)
+
+
+# ==========================================
+# ADMINISTRATOR BOSHQARUVI VA RUXSAT BERISH TIZIMI
+# ==========================================
+
+@dp.callback_query(F.data.startswith("auth_approve_"))
+async def handle_auth_approve(callback: CallbackQuery):
+    """Adminga foydalanuvchiga ruxsat berish tugmasi"""
+    if not (await database.is_admin(callback.from_user.id) or callback.from_user.id in config.ADMIN_IDS):
+        await callback.answer("Faqat adminlar uchun!", show_alert=True)
+        return
+
+    target_user_id = int(callback.data.split("_")[2])
+    await database.set_user_allowed(target_user_id, 1)
+
+    await callback.message.edit_text(
+        f"{callback.message.html_text}\n\n"
+        f"✅ <b>Ruxsat berildi!</b>\n"
+        f"👮 Tasdiqlagan admin: <b>{callback.from_user.first_name}</b>"
+    )
+    await callback.answer("✅ Foydalanuvchiga ruxsat berildi!")
+
+    try:
+        grade = await database.get_user_grade(target_user_id)
+        grade_name = GRADE_NAMES.get(grade, f"{grade}-sinf")
+        welcome_approved = (
+            "🎉 <b>Tabriklaymiz! Administrator sizga botdan foydalanish uchun ruxsat berdi!</b>\n\n"
+            f"📌 Joriy faol sinf: <b>{grade_name}</b>\n\n"
+            "Quyidagi menyudan kerakli bo'limni tanlab darslik va testlarni boshlashingiz mumkin:"
+        )
+        await bot.send_message(target_user_id, welcome_approved, reply_markup=MAIN_KEYBOARD)
+    except Exception as e:
+        logging.warning(f"Foydalanuvchiga tasdiq xabari bormadi ({target_user_id}): {e}")
+
+
+@dp.callback_query(F.data.startswith("auth_reject_"))
+async def handle_auth_reject(callback: CallbackQuery):
+    """Adminga foydalanuvchi so'rovini rad etish tugmasi"""
+    if not (await database.is_admin(callback.from_user.id) or callback.from_user.id in config.ADMIN_IDS):
+        await callback.answer("Faqat adminlar uchun!", show_alert=True)
+        return
+
+    target_user_id = int(callback.data.split("_")[2])
+    await database.set_user_allowed(target_user_id, 0)
+
+    await callback.message.edit_text(
+        f"{callback.message.html_text}\n\n"
+        f"❌ <b>Rad etildi!</b>\n"
+        f"👮 Rad qilgan admin: <b>{callback.from_user.first_name}</b>"
+    )
+    await callback.answer("❌ So'rov rad etildi.")
+
+    try:
+        await bot.send_message(
+            target_user_id,
+            "❌ <b>Afsuski, administrator sizning botdan foydalanish so'rovingizni rad etdi.</b>"
+        )
+    except Exception:
+        pass
+
+
+@dp.message(Command("admin", "panel"))
+async def handle_admin_panel(message: Message):
+    """Admin boshqaruv paneli"""
+    if not (await database.is_admin(message.from_user.id) or message.from_user.id in config.ADMIN_IDS):
+        await message.answer("⚠️ Bu buyruq faqat bot administratorlari uchun!")
+        return
+
+    counts = await database.get_user_counts()
+    admin_kb = InlineKeyboardMarkup(inline_keyboard=[
+        [
+            InlineKeyboardButton(text=f"👥 Ruxsat berilganlar ({counts['allowed']})", callback_data="admin_list_allowed"),
+            InlineKeyboardButton(text=f"⏳ Kutilayotganlar ({counts['pending']})", callback_data="admin_list_pending")
+        ],
+        [
+            InlineKeyboardButton(text=f"👑 Adminlar ({counts['admins']})", callback_data="admin_list_admins"),
+            InlineKeyboardButton(text="🔄 Yangilash", callback_data="admin_refresh")
+        ]
+    ])
+
+    panel_text = (
+        "👮 <b>ADMINISTRATOR BOSHQARUV PANELI</b>\n\n"
+        f"👥 <b>Jami foydalanuvchilar:</b> {counts['total']} ta\n"
+        f"✅ <b>Ruxsat berilganlar:</b> {counts['allowed']} ta\n"
+        f"⏳ <b>Tasdiq kutayotganlar:</b> {counts['pending']} ta\n"
+        f"👑 <b>Adminlar:</b> {counts['admins']} ta\n\n"
+        "<b>Boshqaruv buyruqlari:</b>\n"
+        "• <code>/allow &lt;ID&gt;</code> — Foydalanuvchiga to'g'ridan-to'g'ri ruxsat berish\n"
+        "• <code>/block &lt;ID&gt;</code> — Foydalanuvchini bloklash (ruxsatini bekor qilish)\n"
+        "• <code>/add_admin &lt;ID&gt;</code> — Yangi admin qo'shish\n"
+        "• <code>/admins</code> — Barcha adminlar ro'yxati"
+    )
+    await message.answer(panel_text, reply_markup=admin_kb)
+
+
+@dp.callback_query(F.data == "admin_refresh")
+async def handle_admin_refresh(callback: CallbackQuery):
+    if not (await database.is_admin(callback.from_user.id) or callback.from_user.id in config.ADMIN_IDS):
+        return
+    counts = await database.get_user_counts()
+    admin_kb = InlineKeyboardMarkup(inline_keyboard=[
+        [
+            InlineKeyboardButton(text=f"👥 Ruxsat berilganlar ({counts['allowed']})", callback_data="admin_list_allowed"),
+            InlineKeyboardButton(text=f"⏳ Kutilayotganlar ({counts['pending']})", callback_data="admin_list_pending")
+        ],
+        [
+            InlineKeyboardButton(text=f"👑 Adminlar ({counts['admins']})", callback_data="admin_list_admins"),
+            InlineKeyboardButton(text="🔄 Yangilash", callback_data="admin_refresh")
+        ]
+    ])
+    panel_text = (
+        "👮 <b>ADMINISTRATOR BOSHQARUV PANELI</b>\n\n"
+        f"👥 <b>Jami foydalanuvchilar:</b> {counts['total']} ta\n"
+        f"✅ <b>Ruxsat berilganlar:</b> {counts['allowed']} ta\n"
+        f"⏳ <b>Tasdiq kutayotganlar:</b> {counts['pending']} ta\n"
+        f"👑 <b>Adminlar:</b> {counts['admins']} ta\n\n"
+        "<b>Boshqaruv buyruqlari:</b>\n"
+        "• <code>/allow &lt;ID&gt;</code> — Foydalanuvchiga to'g'ridan-to'g'ri ruxsat berish\n"
+        "• <code>/block &lt;ID&gt;</code> — Foydalanuvchini bloklash (ruxsatini bekor qilish)\n"
+        "• <code>/add_admin &lt;ID&gt;</code> — Yangi admin qo'shish\n"
+        "• <code>/admins</code> — Barcha adminlar ro'yxati"
+    )
+    try:
+        await callback.message.edit_text(panel_text, reply_markup=admin_kb)
+        await callback.answer("Yangilandi!")
+    except Exception:
+        await callback.answer()
+
+
+@dp.callback_query(F.data == "admin_list_pending")
+async def handle_admin_list_pending(callback: CallbackQuery):
+    if not (await database.is_admin(callback.from_user.id) or callback.from_user.id in config.ADMIN_IDS):
+        return
+    pending = await database.get_users_list(is_allowed=0, limit=15)
+    if not pending:
+        await callback.answer("Kutilayotgan yangi so'rovlar yo'q!", show_alert=True)
+        return
+
+    text = "⏳ <b>Tasdiq kutayotgan foydalanuvchilar (oxirgi 15 ta):</b>\n\n"
+    buttons = []
+    for u in pending:
+        u_name = u['full_name'] or 'Noma\'lum'
+        u_id = u['user_id']
+        u_handle = f"@{u['username']}" if u['username'] else "username yo'q"
+        text += f"• <b>{u_name}</b> ({u_handle}) — <code>{u_id}</code>\n"
+        buttons.append([
+            InlineKeyboardButton(text=f"✅ {u_name[:15]} ga ruxsat", callback_data=f"auth_approve_{u_id}"),
+            InlineKeyboardButton(text="❌ Rad", callback_data=f"auth_reject_{u_id}")
+        ])
+
+    buttons.append([InlineKeyboardButton(text="◀️ Ortga", callback_data="admin_refresh")])
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+
+@dp.callback_query(F.data == "admin_list_allowed")
+async def handle_admin_list_allowed(callback: CallbackQuery):
+    if not (await database.is_admin(callback.from_user.id) or callback.from_user.id in config.ADMIN_IDS):
+        return
+    allowed = await database.get_users_list(is_allowed=1, limit=15)
+    if not allowed:
+        await callback.answer("Hozircha ruxsat berilgan foydalanuvchilar yo'q!", show_alert=True)
+        return
+
+    text = "✅ <b>Ruxsat berilgan foydalanuvchilar (oxirgi 15 ta):</b>\n\n"
+    buttons = []
+    for u in allowed:
+        u_name = u['full_name'] or 'Noma\'lum'
+        u_id = u['user_id']
+        u_handle = f"@{u['username']}" if u['username'] else "username yo'q"
+        text += f"• <b>{u_name}</b> ({u_handle}) — <code>{u_id}</code>\n"
+        buttons.append([
+            InlineKeyboardButton(text=f"🚫 {u_name[:15]} ni bloklash", callback_data=f"auth_reject_{u_id}")
+        ])
+
+    buttons.append([InlineKeyboardButton(text="◀️ Ortga", callback_data="admin_refresh")])
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+
+@dp.callback_query(F.data == "admin_list_admins")
+async def handle_admin_list_admins(callback: CallbackQuery):
+    if not (await database.is_admin(callback.from_user.id) or callback.from_user.id in config.ADMIN_IDS):
+        return
+    admins = await database.get_all_admins()
+    text = "👑 <b>Bot administratorlari ro'yxati:</b>\n\n"
+    for a in admins:
+        text += f"• Telegram ID: <code>{a}</code>\n"
+    text += "\n<i>Yangi admin qo'shish uchun: <code>/add_admin &lt;ID&gt;</code></i>"
+    buttons = [[InlineKeyboardButton(text="◀️ Ortga", callback_data="admin_refresh")]]
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+
+@dp.message(Command("allow"))
+async def handle_cmd_allow(message: Message):
+    if not (await database.is_admin(message.from_user.id) or message.from_user.id in config.ADMIN_IDS):
+        return
+    args = message.text.split()
+    if len(args) < 2 or not args[1].isdigit():
+        await message.answer("⚠️ Foydalanish: <code>/allow 123456789</code>")
+        return
+    target_id = int(args[1])
+    await database.set_user_allowed(target_id, 1)
+    await message.answer(f"✅ <b>{target_id}</b> raqamli foydalanuvchiga ruxsat berildi!")
+    try:
+        await bot.send_message(
+            target_id,
+            "🎉 <b>Administrator sizga botdan foydalanish uchun ruxsat berdi!</b>\n\n"
+            "Quyidagi <b>/start</b> tugmasini bosing:",
+            reply_markup=MAIN_KEYBOARD
+        )
+    except Exception:
+        pass
+
+
+@dp.message(Command("block"))
+async def handle_cmd_block(message: Message):
+    if not (await database.is_admin(message.from_user.id) or message.from_user.id in config.ADMIN_IDS):
+        return
+    args = message.text.split()
+    if len(args) < 2 or not args[1].isdigit():
+        await message.answer("⚠️ Foydalanish: <code>/block 123456789</code>")
+        return
+    target_id = int(args[1])
+    if target_id in config.ADMIN_IDS:
+        await message.answer("❌ Asosiy adminni bloklab bo'lmaydi!")
+        return
+    await database.set_user_allowed(target_id, 0)
+    await message.answer(f"🚫 <b>{target_id}</b> raqamli foydalanuvchi bloklandi (ruxsati bekor qilindi)!")
+    try:
+        await bot.send_message(target_id, "🔒 <b>Sizning botdan foydalanish ruxsatingiz bekor qilindi.</b>")
+    except Exception:
+        pass
+
+
+@dp.message(Command("add_admin"))
+async def handle_cmd_add_admin(message: Message):
+    if not (await database.is_admin(message.from_user.id) or message.from_user.id in config.ADMIN_IDS):
+        return
+    args = message.text.split()
+    if len(args) < 2 or not args[1].isdigit():
+        await message.answer("⚠️ Foydalanish: <code>/add_admin 123456789</code>")
+        return
+    new_admin_id = int(args[1])
+    await database.add_admin(new_admin_id)
+    await message.answer(f"👑 <b>{new_admin_id}</b> muvaffaqiyatli adminlar ro'yxatiga qo'shildi!")
+    try:
+        await bot.send_message(
+            new_admin_id,
+            "👑 <b>Siz biologiya boti administratori etib tayinlandingiz!</b>\n"
+            "Boshqaruv paneli uchun <b>/admin</b> buyrug'ini bosing.",
+            reply_markup=MAIN_KEYBOARD
+        )
+    except Exception:
+        pass
+
+
+@dp.message(Command("admins"))
+async def handle_cmd_admins(message: Message):
+    if not (await database.is_admin(message.from_user.id) or message.from_user.id in config.ADMIN_IDS):
+        return
+    admins = await database.get_all_admins()
+    text = "👑 <b>Barcha bot adminlari:</b>\n\n"
+    for a in admins:
+        text += f"• <code>{a}</code>\n"
+    await message.answer(text)
+
 
 
 # ==========================================
