@@ -22,6 +22,7 @@ from aiogram.types import (
 import config
 import database
 import materials
+import problems
 
 # Loglarni sozlash
 logging.basicConfig(level=logging.INFO)
@@ -29,6 +30,7 @@ logging.basicConfig(level=logging.INFO)
 # Bot va Dispetcher obyektlari
 bot = Bot(token=config.BOT_TOKEN, default=DefaultBotProperties(parse_mode="HTML"))
 dp = Dispatcher()
+
 
 
 class AuthMiddleware(BaseMiddleware):
@@ -127,14 +129,14 @@ except Exception as e:
 active_sessions: Dict[int, Dict[str, Any]] = {}
 poll_to_user: Dict[str, int] = {}
 
-# Asosiy menyu klaviaturasi (Aynan rasmdagidek)
+# Asosiy menyu klaviaturasi (Aynan rasmdagidek va yangi bo'limlar bilan)
 MAIN_KEYBOARD = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text="📖 Mavzular"), KeyboardButton(text="📝 Testlar")],
+        [KeyboardButton(text="📅 Haftalik Test"), KeyboardButton(text="📐 Masalalar")],
         [KeyboardButton(text="🎥 Video darslar"), KeyboardButton(text="🧬 Animatsiyalar")],
         [KeyboardButton(text="🏆 Reyting"), KeyboardButton(text="📊 Natijalar")],
-        [KeyboardButton(text="💳 Premium"), KeyboardButton(text="👨‍🏫 O'qituvchi")],
-        [KeyboardButton(text="🤖 AI Biologiya")],
+        [KeyboardButton(text="🤖 AI Biologiya"), KeyboardButton(text="👨‍🏫 O'qituvchi")],
         [KeyboardButton(text="🔄 Sinfni almashtirish")]
     ],
     resize_keyboard=True
@@ -188,14 +190,17 @@ async def handle_start(message: Message):
         "Quyidagi menyudan kerakli bo'limni tanlang:\n"
         "• 📖 <b>Mavzular</b> — Darslik ma'ruzalari va konspektlar\n"
         "• 📝 <b>Testlar</b> — Mavzulashtirilgan viktorina testlari\n"
+        "• 📅 <b>Haftalik Test</b> — O'zlashtirish darajasini aniqlovchi nazorat\n"
+        "• 📐 <b>Masalalar</b> — DNK, oqsil, ATF va genetika masalalari\n"
         "• 🎥 <b>Video darslar</b> — Mavzuga oid videoroliklar\n"
         "• 🧬 <b>Animatsiyalar</b> — 3D biologik animatsiyalar\n"
-        "• 📊 <b>Natijalar</b> — Sizning test natijalaringiz\n"
+        "• 📊 <b>Natijalar</b> — Sizning o'zlashtirish ko'rsatkichingiz\n"
         "• 🏆 <b>Reyting</b> — Eng iqtidorli o'quvchilar ro'yxati\n"
-        "• 🤖 <b>AI Biologiya</b> — Sun'iy Intellektdan javob olish\n"
+        "• 🤖 <b>AI Biologiya</b> — Darslik asosidagi Sun'iy Intellekt\n"
         "• 👨‍🏫 <b>O'qituvchi</b> — Ustoz bilan bog'lanish"
     )
     await message.answer(welcome_text, reply_markup=MAIN_KEYBOARD)
+
 
 
 # ==========================================
@@ -272,6 +277,10 @@ async def handle_admin_panel(message: Message):
             InlineKeyboardButton(text=f"⏳ Kutilayotganlar ({counts['pending']})", callback_data="admin_list_pending")
         ],
         [
+            InlineKeyboardButton(text="📑 O'quvchilar hisoboti", callback_data="admin_students_report"),
+            InlineKeyboardButton(text="❓ AI savollari tarixi", callback_data="admin_ai_questions_history")
+        ],
+        [
             InlineKeyboardButton(text=f"👑 Adminlar ({counts['admins']})", callback_data="admin_list_admins"),
             InlineKeyboardButton(text="🔄 Yangilash", callback_data="admin_refresh")
         ]
@@ -284,7 +293,10 @@ async def handle_admin_panel(message: Message):
         f"⏳ <b>Tasdiq kutayotganlar:</b> {counts['pending']} ta\n"
         f"👑 <b>Adminlar:</b> {counts['admins']} ta\n\n"
         "<b>Boshqaruv buyruqlari:</b>\n"
-        "• <code>/allow &lt;ID&gt;</code> — Foydalanuvchiga to'g'ridan-to'g'ri ruxsat berish\n"
+        "• <code>/report</code> — O'quvchilarning umumiy o'zlashtirish hisoboti\n"
+        "• <code>/report &lt;ID&gt;</code> — Muayyan o'quvchi bo'yicha batafsil hisobot\n"
+        "• <code>/questions</code> — O'quvchilar AI ga bergan oxirgi savollar\n"
+        "• <code>/allow &lt;ID&gt;</code> — Foydalanuvchiga ruxsat berish\n"
         "• <code>/block &lt;ID&gt;</code> — Foydalanuvchini bloklash (ruxsatini bekor qilish)\n"
         "• <code>/add_admin &lt;ID&gt;</code> — Yangi admin qo'shish\n"
         "• <code>/admins</code> — Barcha adminlar ro'yxati"
@@ -303,6 +315,10 @@ async def handle_admin_refresh(callback: CallbackQuery):
             InlineKeyboardButton(text=f"⏳ Kutilayotganlar ({counts['pending']})", callback_data="admin_list_pending")
         ],
         [
+            InlineKeyboardButton(text="📑 O'quvchilar hisoboti", callback_data="admin_students_report"),
+            InlineKeyboardButton(text="❓ AI savollari tarixi", callback_data="admin_ai_questions_history")
+        ],
+        [
             InlineKeyboardButton(text=f"👑 Adminlar ({counts['admins']})", callback_data="admin_list_admins"),
             InlineKeyboardButton(text="🔄 Yangilash", callback_data="admin_refresh")
         ]
@@ -314,8 +330,11 @@ async def handle_admin_refresh(callback: CallbackQuery):
         f"⏳ <b>Tasdiq kutayotganlar:</b> {counts['pending']} ta\n"
         f"👑 <b>Adminlar:</b> {counts['admins']} ta\n\n"
         "<b>Boshqaruv buyruqlari:</b>\n"
-        "• <code>/allow &lt;ID&gt;</code> — Foydalanuvchiga to'g'ridan-to'g'ri ruxsat berish\n"
-        "• <code>/block &lt;ID&gt;</code> — Foydalanuvchini bloklash (ruxsatini bekor qilish)\n"
+        "• <code>/report</code> — O'quvchilarning umumiy o'zlashtirish hisoboti\n"
+        "• <code>/report &lt;ID&gt;</code> — Muayyan o'quvchi bo'yicha batafsil hisobot\n"
+        "• <code>/questions</code> — O'quvchilar AI ga bergan oxirgi savollar\n"
+        "• <code>/allow &lt;ID&gt;</code> — Foydalanuvchiga ruxsat berish\n"
+        "• <code>/block &lt;ID&gt;</code> — Foydalanuvchini bloklash\n"
         "• <code>/add_admin &lt;ID&gt;</code> — Yangi admin qo'shish\n"
         "• <code>/admins</code> — Barcha adminlar ro'yxati"
     )
@@ -324,6 +343,173 @@ async def handle_admin_refresh(callback: CallbackQuery):
         await callback.answer("Yangilandi!")
     except Exception:
         await callback.answer()
+
+
+@dp.callback_query(F.data == "admin_students_report")
+async def handle_admin_students_report(callback: CallbackQuery):
+    """Admin uchun o'quvchilar ro'yxati va ularning o'zlashtirish ko'rsatkichlari"""
+    if not (await database.is_admin(callback.from_user.id) or callback.from_user.id in config.ADMIN_IDS):
+        return
+    await callback.answer()
+    summary = await database.get_all_students_mastery_summary()
+    if not summary:
+        await callback.message.edit_text(
+            "📊 <b>Hozircha o'quvchilar mavjud emas yoki faoliyat boshlanmagan.</b>",
+            reply_markup=InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text="◀️ Ortga", callback_data="admin_refresh")]])
+        )
+        return
+
+    text = f"📑 <b>O'QUVCHILARNING O'ZLASHTIRISH VA SAVOLLAR HISOBOTI:</b>\n<i>(Jami o'quvchilar: {len(summary)} nafar)</i>\n\n"
+    buttons = []
+    for s in summary[:10]:
+        u_name = s['full_name']
+        u_id = s['user_id']
+        u_pct = s['overall_mastery']
+        badge_short = s['mastery_badge'].split()[0]
+        text += f"• <b>{u_name}</b> (<code>{u_id}</code>): <b>{u_pct}%</b> {badge_short}\n"
+        buttons.append([InlineKeyboardButton(text=f"🔍 {u_name[:18]} batafsil", callback_data=f"admin_std_rep_{u_id}")])
+
+    buttons.append([InlineKeyboardButton(text="◀️ Ortga", callback_data="admin_refresh")])
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+
+@dp.callback_query(F.data.startswith("admin_std_rep_"))
+async def handle_admin_std_rep_detail(callback: CallbackQuery):
+    """Bitta o'quvchi bo'yicha to'liq pedagogik tahlil"""
+    if not (await database.is_admin(callback.from_user.id) or callback.from_user.id in config.ADMIN_IDS):
+        return
+    await callback.answer()
+    target_id = int(callback.data.replace("admin_std_rep_", ""))
+    report = await database.get_student_comprehensive_report(target_id)
+    if not report:
+        await callback.answer("O'quvchi topilmadi!", show_alert=True)
+        return
+
+    text = (
+        f"📑 <b>O'QUVCHINING SHAXSIY PEDAGOGIK HISOBOTI</b>\n\n"
+        f"👤 <b>F.I.SH:</b> {report['full_name']} (@{report['username'] or 'yo‘q'})\n"
+        f"🆔 <b>Telegram ID:</b> <code>{report['user_id']}</code>\n"
+        f"📚 <b>Faol sinfi:</b> {report['current_grade']}-sinf\n"
+        f"🏆 <b>O'ZLASHTIRISH DARAJASI:</b>\n"
+        f"<b>{report['mastery_badge']} ({report['overall_mastery']}%)</b>\n\n"
+        f"📝 <b>Mavzuviy testlar:</b> {report['test_correct']}/{report['test_total']} ta ({report['test_percent']}%)\n"
+    )
+    if report['last_weekly']:
+        lw = report['last_weekly']
+        text += f"📅 <b>Oxirgi haftalik nazorat:</b> {lw['score']}/{lw['total']} ({lw['mastery_percent']}%) — {lw['status']}\n"
+    else:
+        text += "📅 <b>Haftalik nazorat:</b> <i>Hali topshirilmagan</i>\n"
+
+    ps = report['problem_stats']
+    text += f"📐 <b>Ishlangan masalalar:</b> {ps['correct']}/{ps['total']} ta to'g'ri ({ps['percent']}%)\n\n"
+
+    if report['ai_questions']:
+        text += "❓ <b>O'quvchi AI ga bergan oxirgi savollari:</b>\n"
+        for q in report['ai_questions'][:5]:
+            text += f"• <i>«{q['question'][:75]}»</i>\n"
+    else:
+        text += "❓ <i>O'quvchi hali AI ga savol bermagan.</i>\n"
+
+    buttons = [
+        [InlineKeyboardButton(text="◀️ Ro'yxatga qaytish", callback_data="admin_students_report")],
+        [InlineKeyboardButton(text="🏠 Admin panel", callback_data="admin_refresh")]
+    ]
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+
+@dp.callback_query(F.data == "admin_ai_questions_history")
+async def handle_admin_ai_questions_history(callback: CallbackQuery):
+    """O'quvchilar AI ga bergan savollar tarixi"""
+    if not (await database.is_admin(callback.from_user.id) or callback.from_user.id in config.ADMIN_IDS):
+        return
+    await callback.answer()
+    questions = await database.get_all_recent_ai_questions(limit=12)
+    if not questions:
+        await callback.message.edit_text(
+            "❓ <b>Hozircha o'quvchilar tomonidan AI ga savol berilmagan.</b>",
+            reply_markup=InlineKeyboardMarkup(inline_keyboard=[[InlineKeyboardButton(text="◀️ Ortga", callback_data="admin_refresh")]])
+        )
+        return
+
+    text = "❓ <b>O'QUVCHILARNING AI GA BERGAN OXIRGI SAVOLLARI:</b>\n\n"
+    for q in questions:
+        text += f"👤 <b>{q['full_name']}</b> ({q['grade']}-sinf):\n<i>«{q['question'][:90]}»</i>\n\n"
+
+    buttons = [[InlineKeyboardButton(text="◀️ Ortga", callback_data="admin_refresh")]]
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+
+@dp.message(Command("report"))
+async def handle_cmd_report(message: Message):
+    """Admin uchun /report komandasi"""
+    if not (await database.is_admin(message.from_user.id) or message.from_user.id in config.ADMIN_IDS):
+        return
+
+    args = message.text.split()
+    if len(args) > 1 and args[1].isdigit():
+        target_id = int(args[1])
+        report = await database.get_student_comprehensive_report(target_id)
+        if not report:
+            await message.answer(f"⚠️ {target_id} raqamli o'quvchi topilmadi.")
+            return
+
+        text = (
+            f"📑 <b>O'QUVCHINING SHAXSIY HISOBOTI</b>\n\n"
+            f"👤 <b>F.I.SH:</b> {report['full_name']} (@{report['username'] or 'yo‘q'})\n"
+            f"🆔 <b>ID:</b> <code>{report['user_id']}</code>\n"
+            f"📚 <b>Sinf:</b> {report['current_grade']}-sinf\n"
+            f"🏆 <b>O'ZLASHTIRISH DARAJASI:</b>\n"
+            f"<b>{report['mastery_badge']} ({report['overall_mastery']}%)</b>\n\n"
+            f"📝 <b>Testlar:</b> {report['test_correct']}/{report['test_total']} ta ({report['test_percent']}%)\n"
+        )
+        if report['last_weekly']:
+            lw = report['last_weekly']
+            text += f"📅 <b>Haftalik nazorat:</b> {lw['score']}/{lw['total']} ({lw['mastery_percent']}%) — {lw['status']}\n"
+        ps = report['problem_stats']
+        text += f"📐 <b>Masalalar:</b> {ps['correct']}/{ps['total']} ta ({ps['percent']}%)\n\n"
+
+        if report['ai_questions']:
+            text += "❓ <b>AI ga bergan oxirgi savollari:</b>\n"
+            for q in report['ai_questions'][:5]:
+                text += f"• <i>«{q['question'][:70]}»</i>\n"
+        await message.answer(text)
+        return
+
+    summary = await database.get_all_students_mastery_summary()
+    if not summary:
+        await message.answer("📊 Hozircha tasdiqlangan o'quvchilar mavjud emas.")
+        return
+
+    text = f"📑 <b>O'QUVCHILAR O'ZLASHTIRISH HISOBOTI:</b>\n<i>(Jami: {len(summary)} nafar)</i>\n\n"
+    for i, s in enumerate(summary[:12], 1):
+        text += (
+            f"<b>{i}. {s['full_name']}</b> (<code>{s['user_id']}</code>):\n"
+            f"   • O'zlashtirish: <b>{s['overall_mastery']}%</b> {s['mastery_badge'].split()[0]}\n"
+            f"   • Testlar: {s['test_correct']}/{s['test_total']} ta | Masalalar: {s['problem_stats']['correct']}/{s['problem_stats']['total']} ta\n"
+        )
+        if s['ai_questions']:
+            text += f"   • Oxirgi savoli: <i>«{s['ai_questions'][0]['question'][:40]}...»</i>\n"
+        text += "\n"
+
+    text += "💡 <i>Bitta o'quvchi bo'yicha batafsil ko'rish uchun: <code>/report &lt;ID&gt;</code> buyrug'ini yuboring.</i>"
+    await message.answer(text)
+
+
+@dp.message(Command("questions"))
+async def handle_cmd_questions(message: Message):
+    """Admin uchun /questions komandasi"""
+    if not (await database.is_admin(message.from_user.id) or message.from_user.id in config.ADMIN_IDS):
+        return
+    questions = await database.get_all_recent_ai_questions(limit=15)
+    if not questions:
+        await message.answer("❓ Hozircha o'quvchilar tomonidan AI ga savol berilmagan.")
+        return
+
+    text = "❓ <b>O'QUVCHILARNING AI GA BERGAN OXIRGI SAVOLLARI:</b>\n\n"
+    for q in questions:
+        text += f"👤 <b>{q['full_name']}</b> ({q['grade']}-sinf):\n<i>«{q['question'][:100]}»</i>\n\n"
+    await message.answer(text)
+
 
 
 @dp.callback_query(F.data == "admin_list_pending")
@@ -1036,9 +1222,62 @@ async def finish_quiz(user_id: int):
 
     total = len(session["questions"])
     score = session["score"]
-    percent = round((score / total) * 100, 1)
+    percent = round((score / total) * 100, 1) if total > 0 else 0
     grade = session.get("grade", "8")
     session_title = session["grade_name"]
+
+    # Agar haftalik nazorat testi bo'lsa
+    if session.get("is_weekly"):
+        user_info = await database.get_user_info(user_id)
+        full_name = user_info.get("full_name", "Noma'lum") if user_info else "O'quvchi"
+        username = user_info.get("username", "") if user_info else ""
+
+        w_res = await database.record_weekly_test_result(
+            user_id=user_id,
+            full_name=full_name,
+            grade=grade,
+            score=score,
+            total=total
+        )
+        status_text = w_res["status"]
+
+        summary_text = (
+            "🏁 <b>Haftalik Nazorat Testi yakunlandi!</b>\n\n"
+            f"👤 O'quvchi: <b>{full_name}</b>\n"
+            f"📚 Sinf: <b>{grade}-sinf</b>\n"
+            f"📝 Jami nazorat savollari: <b>{total} ta</b>\n"
+            f"✅ To'g'ri javoblar: <b>{score} ta</b>\n"
+            f"❌ Xato javoblar: <b>{total - score} ta</b>\n"
+            f"🎯 O'zlashtirish ko'rsatkichi: <b>{percent}%</b>\n\n"
+            f"📊 <b>O'zlashtirish darajangiz:</b>\n<b>{status_text}</b>\n\n"
+            "<i>Ushbu natija o'qituvchingiz hisobotida aks etadi va profilingizda qayd etildi.</i>"
+        )
+
+        finish_keyboard = InlineKeyboardMarkup(
+            inline_keyboard=[
+                [InlineKeyboardButton(text="📊 Mening o'zlashtirishim", callback_data="show_my_stats_cb")],
+                [InlineKeyboardButton(text="📐 Masalalar bo'limi", callback_data="prob_menu")],
+                [InlineKeyboardButton(text="📝 Boshqa test ishlash", callback_data="show_tests_cb")]
+            ]
+        )
+
+        await bot.send_message(user_id, summary_text, reply_markup=finish_keyboard)
+
+        # Adminga / O'qituvchiga natijani xabar qilish
+        admin_alert = (
+            "📢 <b>Yangi Haftalik Nazorat Testi topshirildi!</b>\n\n"
+            f"👤 <b>O'quvchi:</b> {full_name} (@{username or 'yo‘q'})\n"
+            f"🆔 <b>ID:</b> <code>{user_id}</code>\n"
+            f"📚 <b>Sinf:</b> {grade}-sinf\n"
+            f"🎯 <b>Natija:</b> {score}/{total} ta ({percent}%)\n"
+            f"📊 <b>Baholash:</b> {status_text}"
+        )
+        for adm_id in await database.get_all_admins():
+            try:
+                await bot.send_message(adm_id, admin_alert)
+            except Exception:
+                pass
+        return
 
     await database.record_test_result(
         user_id=user_id,
@@ -1213,44 +1452,57 @@ async def show_leaderboard(message: Message):
 # ==========================================
 @dp.message(F.text == "📊 Natijalar")
 async def show_my_stats(message: Message):
-    """O'quvchining shaxsiy natijalari va test hisoboti"""
+    """O'quvchining shaxsiy natijalari va to'liq o'zlashtirish hisoboti"""
     user_id = message.from_user.id
-    stats = await database.get_user_stats(user_id)
-    if not stats or stats["total"] == 0:
+    report = await database.get_student_comprehensive_report(user_id)
+    if not report or (report["test_total"] == 0 and not report["last_weekly"] and report["problem_stats"]["total"] == 0):
         await message.answer(
-            "📊 <b>Siz hali birorta ham test ishlamagansiz.</b>\n\n"
-            "Bilimlaringizni sinash uchun <b>\"📝 Testlar\"</b> tugmasini bosing!",
+            "📊 <b>Siz hali birorta ham test yoki masala ishlamagansiz.</b>\n\n"
+            "Bilimlaringizni sinash uchun <b>\"📝 Testlar\"</b> yoki <b>\"📅 Haftalik Test\"</b> tugmasini bosing!",
             reply_markup=MAIN_KEYBOARD
         )
         return
 
-    total = stats["total"]
-    correct = stats["correct"]
-    percent = round((correct / total) * 100, 1)
-    grade = stats.get("current_grade", "8")
+    grade = report.get("current_grade", "8")
     grade_name = GRADE_NAMES.get(grade, f"{grade}-sinf")
+    total = report["test_total"]
+    correct = report["test_correct"]
+    percent = report["test_percent"]
+    ps = report["problem_stats"]
+    lw = report["last_weekly"]
 
-    recent_tests = await database.get_user_recent_results(user_id, limit=5)
+    recent_tests = await database.get_user_recent_results(user_id, limit=3)
 
     text = (
-        f"📊 <b>Sizning shaxsiy natijalaringiz:</b>\n\n"
+        f"📊 <b>SIZNING SHAXSIY PEDAGOGIK HISOBOTINGIZ:</b>\n\n"
         f"👤 O'quvchi: <b>{message.from_user.full_name}</b>\n"
         f"📚 Joriy tanlangan sinf: <b>{grade_name}</b>\n"
-        f"🔹 Jami ishlangan savollar: <b>{total} ta</b>\n"
-        f"✅ To'g'ri javoblar: <b>{correct} ta</b>\n"
-        f"❌ Noto'g'ri javoblar: <b>{total - correct} ta</b>\n"
-        f"🎯 O'rtacha aniqlik: <b>{percent}%</b>\n\n"
-        "📋 <b>Oxirgi topshirilgan testlaringiz:</b>\n"
+        f"🏆 <b>O'ZLASHTIRISH DARAJANGIZ:</b>\n"
+        f"<b>{report['mastery_badge']} ({report['overall_mastery']}%)</b>\n\n"
+        f"📝 <b>Mavzuviy testlar:</b> {correct}/{total} ta ({percent}%)\n"
     )
 
+    if lw:
+        text += f"📅 <b>Oxirgi haftalik nazorat:</b> {lw['score']}/{lw['total']} ({lw['mastery_percent']}%) — {lw['status']}\n"
+    else:
+        text += "📅 <b>Haftalik nazorat:</b> <i>Hali topshirilmagan (Boshlash: «📅 Haftalik Test»)</i>\n"
+
+    text += f"📐 <b>Masalalar va topshiriqlar:</b> {ps['correct']}/{ps['total']} ta ({ps['percent']}%)\n\n"
+
     if recent_tests:
+        text += "📋 <b>Oxirgi ishlagan testlaringiz:</b>\n"
         for r in recent_tests:
             r_pct = round((r['score'] / r['total']) * 100, 1) if r['total'] > 0 else 0
             text += f"• <b>{r['topic_title']}</b>: {r['score']}/{r['total']} ta ({r_pct}%)\n"
-    else:
-        text += "<i>Hozircha saqlangan testlar yo'q.</i>\n"
 
-    await message.answer(text, reply_markup=MAIN_KEYBOARD)
+    text += "\n💡 <i>Muntazam test va masalalar ishlab, o'zlashtirish darajangizni 90%+ ga yetkazing!</i>"
+
+    buttons = [
+        [InlineKeyboardButton(text="📅 Haftalik Test topshirish", callback_data="start_weekly_cb")],
+        [InlineKeyboardButton(text="📐 Masalalar yechish", callback_data="prob_menu")],
+        [InlineKeyboardButton(text="📝 Testlar bo'limi", callback_data="show_tests_cb")]
+    ]
+    await message.answer(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
 
 
 @dp.callback_query(F.data == "show_my_stats_cb")
@@ -1263,6 +1515,310 @@ async def show_my_stats_callback(callback: CallbackQuery):
 async def show_tests_callback(callback: CallbackQuery):
     await callback.answer()
     await show_tests_menu(callback.message)
+
+
+# ==========================================
+# HAFTALIK NAZORAT TESTI
+# ==========================================
+@dp.message(F.text == "📅 Haftalik Test")
+async def start_weekly_test(message: Message):
+    """O'quvchining joriy sinfi bo'yicha haftalik o'zlashtirish darajasini aniqlovchi nazorat testi"""
+    user_id = message.from_user.id
+    grade = await database.get_user_grade(user_id)
+    grade_name = GRADE_NAMES.get(grade, f"{grade}-sinf")
+
+    grade_data = materials.QUESTIONS_DATA.get(grade, {})
+    topics = grade_data.get("topics", [])
+
+    all_questions = []
+    for t in topics:
+        all_questions.extend(t.get("questions", []))
+
+    if not all_questions:
+        await message.answer(
+            f"⚠️ <b>{grade_name}</b> bo'yicha haftalik nazorat testlari shakllantirilmoqda.\n"
+            "Boshqa sinfni tanlash uchun <b>«🔄 Sinfni almashtirish»</b> tugmasini bosing.",
+            reply_markup=MAIN_KEYBOARD
+        )
+        return
+
+    # Haftalik test uchun mavzular bo'ylab 15 ta saralangan savol
+    shuffled_questions = all_questions[:]
+    random.shuffle(shuffled_questions)
+    weekly_questions = shuffled_questions[:15]
+
+    active_sessions[user_id] = {
+        "grade": grade,
+        "grade_name": f"{grade}-sinf Haftalik Nazorat Testi",
+        "questions": weekly_questions,
+        "index": 0,
+        "score": 0,
+        "last_poll_id": None,
+        "is_weekly": True
+    }
+
+    start_text = (
+        f"📅 <b>HAFTALIK NAZORAT TESTI ({grade_name})</b>\n\n"
+        "Ushbu test siz o'tgan darslik mavzularini qay darajada o'zlashtirganingizni aniqlash uchun tuzilgan.\n\n"
+        f"📝 <b>Savollar soni:</b> 15 ta\n"
+        "⏱ <b>Vaqt chegarasi yo'q</b> — savollarni diqqat bilan o'qib javob bering.\n"
+        "📊 Test yakunlangach, o'zlashtirish foizingiz hisoblanadi va o'qituvchingizga hisobot taqdim etiladi.\n\n"
+        "<i>Boshlaymiz! Omad!</i>"
+    )
+    await message.answer(start_text)
+    await send_next_question(user_id)
+
+
+@dp.callback_query(F.data == "start_weekly_cb")
+async def start_weekly_cb(callback: CallbackQuery):
+    await callback.answer()
+    await start_weekly_test(callback.message)
+
+
+# ==========================================
+# BIOLOGIYA MASALALARI VA TOPSHIRIQLAR
+# ==========================================
+@dp.message(F.text == "📐 Masalalar")
+async def show_problems_main_menu(message: Message):
+    """Biologiya masalalari va amaliy topshiriqlar asosiy menyusi"""
+    text = (
+        "📐 <b>BIOLOGIYA MASALALARI VA AMALIY TOPSHIRIQLAR</b>\n\n"
+        "Ushbu bo'limda siz darslikdagi masalalarni yechish qoidalari, formulalari bilan tanishishingiz, "
+        "namunaviy masalalarni bosqichma-bosqich o'rganishingiz va topshiriqlarni bajarishingiz mumkin:\n\n"
+        "🔹 <b>Qoidalar va formulalar:</b> DNK, oqsil, ATF, mitoz/meyoz va genetika formulalari\n"
+        "🔹 <b>Namunaviy masalalar:</b> Batafsil yechimlari bilan tushuntirilgan masalalar\n"
+        "🔹 <b>Uyga vazifalar:</b> O'zlashtirishni tekshiruvchi maxsus masalalar to'plami\n"
+        "🔹 <b>Mening natijalarim:</b> Masalalar bo'yicha shaxsiy ko'rsatkichlaringiz"
+    )
+    kb = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="📖 Yechish qoidalari va formulalari", callback_data="prob_rules_list")],
+        [InlineKeyboardButton(text="✍️ Namunaviy masalalar (Yechimlari bilan)", callback_data="prob_practice_list")],
+        [InlineKeyboardButton(text="📋 Uyga vazifalar (Topshiriqlar)", callback_data="prob_hw_list")],
+        [InlineKeyboardButton(text="📊 Masalalar bo'yicha ko'rsatkichim", callback_data="prob_my_stats")]
+    ])
+    await message.answer(text, reply_markup=kb)
+
+
+@dp.callback_query(F.data == "prob_menu")
+async def prob_menu_cb(callback: CallbackQuery):
+    await callback.answer()
+    text = (
+        "📐 <b>BIOLOGIYA MASALALARI VA AMALIY TOPSHIRIQLAR</b>\n\n"
+        "Kerakli bo'limni tanlang:"
+    )
+    kb = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="📖 Yechish qoidalari va formulalari", callback_data="prob_rules_list")],
+        [InlineKeyboardButton(text="✍️ Namunaviy masalalar (Yechimlari bilan)", callback_data="prob_practice_list")],
+        [InlineKeyboardButton(text="📋 Uyga vazifalar (Topshiriqlar)", callback_data="prob_hw_list")],
+        [InlineKeyboardButton(text="📊 Masalalar bo'yicha ko'rsatkichim", callback_data="prob_my_stats")]
+    ])
+    try:
+        await callback.message.edit_text(text, reply_markup=kb)
+    except Exception:
+        await callback.message.answer(text, reply_markup=kb)
+
+
+@dp.callback_query(F.data == "prob_rules_list")
+async def prob_rules_list_cb(callback: CallbackQuery):
+    await callback.answer()
+    buttons = []
+    for cat_key, guide in problems.PROBLEM_GUIDES.items():
+        buttons.append([InlineKeyboardButton(text=guide["title"], callback_data=f"view_formula_{cat_key}")])
+    buttons.append([InlineKeyboardButton(text="◀️ Masalalar bosh menyusi", callback_data="prob_menu")])
+    text = (
+        "📖 <b>MASALALARNI YECHISH QOIDALARI VA FORMULALARI</b>\n\n"
+        "Qaysi mavzudagi masalalar formulalari va qoidalarini o'rganmoqchisiz? Tanlang:"
+    )
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+
+@dp.callback_query(F.data.startswith("view_formula_"))
+async def view_formula_cb(callback: CallbackQuery):
+    await callback.answer()
+    cat_key = callback.data.replace("view_formula_", "")
+    guide = problems.PROBLEM_GUIDES.get(cat_key)
+    if not guide:
+        await callback.answer("Ma'lumot topilmadi!", show_alert=True)
+        return
+    text = (
+        f"{guide['title']}\n"
+        f"<i>{guide['description']}</i>\n\n"
+        f"{guide['rules']}"
+    )
+    kb = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="✍️ Ushbu mavzudan mashq ishlash", callback_data="prob_practice_list")],
+        [InlineKeyboardButton(text="◀️ Qoidalar ro'yxati", callback_data="prob_rules_list")],
+        [InlineKeyboardButton(text="🏠 Masalalar menyusi", callback_data="prob_menu")]
+    ])
+    await callback.message.edit_text(text, reply_markup=kb)
+
+
+@dp.callback_query(F.data == "prob_practice_list")
+async def prob_practice_list_cb(callback: CallbackQuery):
+    await callback.answer()
+    buttons = []
+    for p in problems.PRACTICE_PROBLEMS:
+        buttons.append([InlineKeyboardButton(text=f"🔹 {p['title']}", callback_data=f"solve_prob_{p['id']}")])
+    buttons.append([InlineKeyboardButton(text="◀️ Masalalar menyusi", callback_data="prob_menu")])
+    text = (
+        "✍️ <b>NAMUNAVIY MASALALAR VA BOSQICHMA-BOSQICH YECHIMLAR</b>\n\n"
+        "O'zingiz qiziqqan masalani tanlang, uning berilishi va to'liq yechilish usulini o'rganing:"
+    )
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+
+@dp.callback_query(F.data.startswith("solve_prob_"))
+async def solve_prob_cb(callback: CallbackQuery):
+    await callback.answer()
+    prob_id = callback.data.replace("solve_prob_", "")
+    prob = next((p for p in problems.PRACTICE_PROBLEMS if p["id"] == prob_id), None)
+    if not prob:
+        await callback.answer("Masala topilmadi!", show_alert=True)
+        return
+
+    text = f"{prob['task']}\n\nJavob variantlaridan birini tanlang yoki to'liq yechimni ko'ring:"
+    buttons = []
+    for i, opt in enumerate(prob["options"]):
+        buttons.append([InlineKeyboardButton(text=f"{chr(65+i)}) {opt}", callback_data=f"ans_prob_{prob_id}_{i}")])
+    buttons.append([InlineKeyboardButton(text="💡 To'g'ridan-to'g'ri yechimni ko'rish", callback_data=f"ans_prob_{prob_id}_expl")])
+    buttons.append([InlineKeyboardButton(text="◀️ Masalalar ro'yxati", callback_data="prob_practice_list")])
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+
+@dp.callback_query(F.data.startswith("ans_prob_"))
+async def ans_prob_cb(callback: CallbackQuery):
+    await callback.answer()
+    parts = callback.data.split("_")
+    prob_id = parts[2]
+    choice = parts[3]
+    prob = next((p for p in problems.PRACTICE_PROBLEMS if p["id"] == prob_id), None)
+    if not prob:
+        return
+
+    if choice == "expl":
+        result_header = "💡 <b>NAMUNAVIY MASALANING TO'LIQ YECHILISH USULI:</b>\n\n"
+    else:
+        chosen_idx = int(choice)
+        is_corr = (chosen_idx == prob["correct_option_id"])
+        if is_corr:
+            result_header = "✅ <b>Juda to'g'ri! Barakalla!</b>\n\n"
+        else:
+            correct_chr = chr(65 + prob["correct_option_id"])
+            result_header = f"❌ <b>Noto'g'ri tanlandi. To'g'ri javob: {correct_chr} varianti edi.</b>\n\n"
+
+    text = (
+        f"{result_header}"
+        f"<b>Masala sharti:</b>\n{prob['task']}\n\n"
+        f"📝 <b>Bosqichma-bosqich yechilishi:</b>\n"
+        f"{prob['explanation']}"
+    )
+    kb = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="✍️ Boshqa masala ishlash", callback_data="prob_practice_list")],
+        [InlineKeyboardButton(text="📋 Uyga vazifalar", callback_data="prob_hw_list")],
+        [InlineKeyboardButton(text="🏠 Masalalar menyusi", callback_data="prob_menu")]
+    ])
+    await callback.message.edit_text(text, reply_markup=kb)
+
+
+@dp.callback_query(F.data == "prob_hw_list")
+async def prob_hw_list_cb(callback: CallbackQuery):
+    await callback.answer()
+    buttons = []
+    for hw in problems.HOMEWORK_TASKS:
+        buttons.append([InlineKeyboardButton(text=f"📋 {hw['title']}", callback_data=f"view_hw_{hw['id']}")])
+    buttons.append([InlineKeyboardButton(text="◀️ Masalalar menyusi", callback_data="prob_menu")])
+    text = (
+        "📋 <b>UYGA VAZIFALAR VA MUSTAQIL ISHLAR</b>\n\n"
+        "Mavzular bo'yicha bilimlaringizni sinash uchun berilgan topshiriqni tanlang va yeching.\n"
+        "Natijalaringiz avtomatik hisoblanib profilingizga yoziladi:"
+    )
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+
+@dp.callback_query(F.data.startswith("view_hw_"))
+async def view_hw_cb(callback: CallbackQuery):
+    await callback.answer()
+    hw_id = callback.data.replace("view_hw_", "")
+    hw = next((h for h in problems.HOMEWORK_TASKS if h["id"] == hw_id), None)
+    if not hw:
+        await callback.answer("Vazifa topilmadi!", show_alert=True)
+        return
+
+    text = f"{hw['task']}\n\nTo'g'ri javobni belgilang:"
+    buttons = []
+    for i, opt in enumerate(hw["options"]):
+        buttons.append([InlineKeyboardButton(text=f"{chr(65+i)}) {opt}", callback_data=f"ans_hw_{hw_id}_{i}")])
+    buttons.append([InlineKeyboardButton(text="◀️ Vazifalar ro'yxati", callback_data="prob_hw_list")])
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+
+@dp.callback_query(F.data.startswith("ans_hw_"))
+async def ans_hw_cb(callback: CallbackQuery):
+    await callback.answer()
+    parts = callback.data.split("_")
+    hw_id = parts[2]
+    chosen_idx = int(parts[3])
+    user_id = callback.from_user.id
+    grade = await database.get_user_grade(user_id)
+
+    hw = next((h for h in problems.HOMEWORK_TASKS if h["id"] == hw_id), None)
+    if not hw:
+        return
+
+    is_correct = (chosen_idx == hw["correct_option_id"])
+    user_ans_text = hw["options"][chosen_idx] if chosen_idx < len(hw["options"]) else str(chosen_idx)
+
+    # Natijani bazaga saqlash
+    await database.record_problem_submission(
+        user_id=user_id,
+        grade=grade,
+        category=hw.get("topic", "Genetika"),
+        problem_title=hw["title"],
+        user_answer=user_ans_text,
+        is_correct=is_correct
+    )
+
+    if is_correct:
+        status_msg = "✅ <b>Ajoyib! Javobingiz to'g'ri!</b>\n\n"
+    else:
+        correct_chr = chr(65 + hw["correct_option_id"])
+        status_msg = f"❌ <b>Javobingiz xato. To'g'ri javob: {correct_chr} varianti edi.</b>\n\n"
+
+    text = (
+        f"{status_msg}"
+        f"<b>Vazifa:</b> {hw['title']}\n\n"
+        f"📝 <b>Masalaning to'liq yechilishi:</b>\n"
+        f"{hw['explanation']}\n\n"
+        "<i>Topshiriq natijasi sizning o'zlashtirish hisobotingizga qo'shildi.</i>"
+    )
+    kb = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="📋 Boshqa vazifa ishlash", callback_data="prob_hw_list")],
+        [InlineKeyboardButton(text="📊 O'zlashtirish ko'rsatkichim", callback_data="prob_my_stats")],
+        [InlineKeyboardButton(text="🏠 Masalalar menyusi", callback_data="prob_menu")]
+    ])
+    await callback.message.edit_text(text, reply_markup=kb)
+
+
+@dp.callback_query(F.data == "prob_my_stats")
+async def prob_my_stats_cb(callback: CallbackQuery):
+    await callback.answer()
+    user_id = callback.from_user.id
+    p_stats = await database.get_user_problem_stats(user_id)
+    text = (
+        "📊 <b>SIZNING MASALALAR BO'YICHA O'ZLASHTIRISHINGIZ:</b>\n\n"
+        f"👤 O'quvchi: <b>{callback.from_user.full_name}</b>\n"
+        f"🔹 Jami topshirilgan masalalar: <b>{p_stats['total']} ta</b>\n"
+        f"✅ To'g'ri yechilgan: <b>{p_stats['correct']} ta</b>\n"
+        f"❌ Xato yechilgan: <b>{p_stats['total'] - p_stats['correct']} ta</b>\n"
+        f"🎯 Aniqlik ko'rsatkichi: <b>{p_stats['percent']}%</b>\n\n"
+        "💡 <i>Muntazam masalalar yechish orqali natijalaringizni oshirib boring!</i>"
+    )
+    kb = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="✍️ Masala ishlash", callback_data="prob_practice_list")],
+        [InlineKeyboardButton(text="📋 Uyga vazifalar", callback_data="prob_hw_list")],
+        [InlineKeyboardButton(text="◀️ Masalalar menyusi", callback_data="prob_menu")]
+    ])
+    await callback.message.edit_text(text, reply_markup=kb)
 
 
 # ==========================================
@@ -1305,28 +1861,148 @@ async def show_teacher_info(message: Message):
 # ==========================================
 # 9. AI BIOLOGIYA (GEMINI AI)
 # ==========================================
-async def ask_gemini_ai(prompt: str) -> str:
-    """Google Gemini AI orqali biologik savolga javob olish"""
+import re
+import html
+
+def find_relevant_textbook_context(prompt: str, grade: str = "8") -> str:
+    """O'quvchi savoliga mos maktab darslik mavzulari, formulalar va qoidalarni qidirish"""
+    p_lower = prompt.lower()
+    context_chunks = []
+
+    # 1. Masala formulalari va qoidalari tekshiruvi (problems.PROBLEM_GUIDES)
+    keywords_map = {
+        "dnk": ["dnk", "rnk", "nukleotid", "chargaff", "vodorod", "komplementar", "adenin", "timin", "guanin", "sitozin", "pirimidin", "purin"],
+        "protein": ["oqsil", "aminokislota", "triplet", "kodon", "antikodon", "translyatsiya", "polipeptid", "irnk", "trnk"],
+        "atf": ["atf", "glikoliz", "energetik", "parchalanish", "glyukoza", "mitoxondriya", "sut kislota", "kaloriya"],
+        "mitoz": ["mitoz", "meyoz", "xromosoma", "xromatida", "interfaza", "profaza", "metafaza", "anafaza", "telofaza", "reduksion"],
+        "genetika": ["genetika", "mendel", "genotip", "fenotip", "dominant", "retsessiv", "duragay", "digeterozigota", "chatishtirish", "allell"]
+    }
+
+    for cat_key, words in keywords_map.items():
+        if any(w in p_lower for w in words):
+            guide = problems.PROBLEM_GUIDES.get(cat_key)
+            if guide:
+                clean_rules = re.sub(r'<[^>]+>', '', guide["rules"])
+                context_chunks.append(f"[Mavzu qoidalari va formulasi: {guide['title']}]\n{clean_rules}")
+
+    # 2. Darslik ma'ruzalari va konspektlaridan qidirish (materials.TOPICS_CONTENT)
+    raw_words = re.findall(r'[a-zA-Zа-яА-Яo‘O‘g‘G‘o\'O\'g\'G\']+', p_lower)
+    search_terms = [w for w in raw_words if len(w) >= 3 and w not in ["uchun", "haqida", "qanday", "nima", "qaysi", "bilan", "emas", "kerak"]]
+
+    matched_topics = []
+    grades_to_check = [grade] + [g for g in materials.TOPICS_CONTENT.keys() if g != grade]
+
+    for g in grades_to_check:
+        t_list = materials.TOPICS_CONTENT.get(g, [])
+        for topic in t_list:
+            score = 0
+            t_title = topic.get("title", "").lower()
+            t_guide = topic.get("guide", "").lower()
+            t_text = topic.get("text", "").lower()
+
+            for term in search_terms:
+                if term in t_title:
+                    score += 5
+                if term in t_guide:
+                    score += 3
+                if term in t_text:
+                    score += 1
+
+            if score > 0:
+                matched_topics.append((score, g, topic))
+
+    matched_topics.sort(key=lambda x: x[0], reverse=True)
+    for score, g, t in matched_topics[:2]:
+        t_title = t.get("title", "")
+        clean_guide = re.sub(r'<[^>]+>', '', t.get("guide", ""))
+        clean_text = re.sub(r'<[^>]+>', '', t.get("text", ""))[:800]
+        context_chunks.append(f"[{g}-sinf Darslik mavzusi: {t_title}]\n{clean_guide}\n{clean_text}...")
+
+    # 3. Darslik test savollaridan qidirish (materials.QUESTIONS_DATA)
+    g_data = materials.QUESTIONS_DATA.get(grade, {})
+    for t in g_data.get("topics", []):
+        for q in t.get("questions", []):
+            q_text = q.get("question", "").lower()
+            if any(term in q_text for term in search_terms if len(term) >= 4):
+                corr_opt = q["options"][q["correct_option_id"]] if q["correct_option_id"] < len(q["options"]) else ""
+                context_chunks.append(f"[Darslik testi namunasi: {q['question']}] To'g'ri javob: {corr_opt}. Izoh: {q.get('explanation', '')}")
+                break
+        if len(context_chunks) >= 4:
+            break
+
+    return "\n\n".join(context_chunks)
+
+
+def format_gemini_markdown_to_telegram_html(text: str) -> str:
+    """Gemini qaytargan matnni xavfsiz Telegram HTML formatiga aylantirish"""
+    code_blocks = []
+    def code_repl(m):
+        code_blocks.append(html.escape(m.group(1)))
+        return f"__CODE_BLOCK_{len(code_blocks)-1}__"
+
+    text = re.sub(r'```(?:[a-zA-Z0-9_]+)?\n?(.*?)```', code_repl, text, flags=re.DOTALL)
+
+    inline_codes = []
+    def inline_repl(m):
+        inline_codes.append(html.escape(m.group(1)))
+        return f"__INLINE_CODE_{len(inline_codes)-1}__"
+    text = re.sub(r'`([^`]+)`', inline_repl, text)
+
+    text = html.escape(text)
+
+    # **matn** -> <b>matn</b>
+    text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text)
+    # *matn* -> <i>matn</i>
+    text = re.sub(r'(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)', r'<i>\1</i>', text)
+    # Sarlavhalar #, ##, ### Sarlavha -> <b>Sarlavha</b>
+    text = re.sub(r'^(?:#{1,6})\s*(.+)$', r'<b>\1</b>', text, flags=re.MULTILINE)
+
+    for i, code in enumerate(code_blocks):
+        text = text.replace(f"__CODE_BLOCK_{i}__", f"<pre><code>{code}</code></pre>")
+    for i, code in enumerate(inline_codes):
+        text = text.replace(f"__INLINE_CODE_{i}__", f"<code>{code}</code>")
+
+    return text
+
+
+async def ask_gemini_ai(prompt: str, grade: str = "8") -> str:
+    """Google Gemini AI orqali maktab biologiya darsliklari asosida savolga javob olish"""
     if not config.GEMINI_API_KEY:
         return (
             "⚠️ <b>Sun'iy intellekt (AI) API kaliti ulanmagan.</b>\n\n"
             "Admin tomonidan Google Gemini API kaliti sozlanishi kerak."
         )
 
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key={config.GEMINI_API_KEY}"
+    context = find_relevant_textbook_context(prompt, grade)
 
     system_prompt = (
-        "Siz o'zbek tilida so'zlashuvchi biologiya fani bo'yicha yuqori malakali o'qituvchi va repetitorsiz (AI Ustoz). "
-        "O'quvchining savoliga o'zbek tilida aniq, tushunarli, darslikka asoslangan va ilmiy to'g'ri javob bering. "
-        "Agar biologiya yoki genetika masalasi bo'lsa, uni bosqichma-bosqich formulasi, yechimi va javobi bilan tushuntiring. "
-        "Javobni Telegram HTML formatida chiroyli sarlavha va qalin matnlar bilan bezating."
+        "Siz O'zbekiston Respublikasi umumiy o'rta ta'lim maktablarining biologiya fani darsliklari "
+        "(5-, 6-, 7-, 8-, 9-, 10-, 11-sinf Botanika, Zoologiya, Odam va uning salomatligi, Sitologiya va Umumiy biologiya) "
+        "bo'yicha rasmiy AI ustozisiz.\n\n"
+        "QAT'IY QOIDALAR:\n"
+        "1. Faqat va faqat O'zbekiston maktab biologiya darsliklari dasturidagi rasmiy ilmiy ma'lumotlar, formulalar, "
+        "jadvallar, rasmlar mazmuni va darslik qoidalari asosida javob bering.\n"
+        "2. Darslikdan tashqari boshqa fanlar yoki mavzular (siyosat, iqtisod, filmlar, IT, boshqa sohalar va hokazo) so'ralsa, "
+        "yoki savol maktab biologiya dasturiga kiritilmagan bo'lsa, QAT'IY RAVISHDA quyidagicha javob bering:\n"
+        "\"Kechirasiz, bu ma'lumot maktab biologiya darsligi dasturiga kiritilmagan. Men faqat O'zbekiston maktab biologiya darsliklari (6-, 8-, 9-sinf) asosida savollarga javob beraman.\"\n"
+        "3. Javoblarni aniq, ilmiy va o'quvchiga tushunarli tilda bering.\n"
+        "4. Agar biologik masala (DNK, oqsil, ATF, mitoz, meyoz, genetika) berilsa, uni bosqichma-bosqich: "
+        "1) Berilgani, 2) Formulalar va qoidalar, 3) Yechish jarayoni, 4) Aniq javob ko'rinishida yozib bering.\n"
+        "5. O'zbek tilida bexato va chiroyli tartibda yozing."
     )
+
+    full_user_content = f"{system_prompt}\n\n"
+    if context:
+        full_user_content += f"--- DARSLIKDAN OSHIRILGAN MANBA VA KONTEKST ---\n{context}\n------------------------------------------\n\n"
+    full_user_content += f"O'quvchi savoli / topshirig'i: {prompt}"
+
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key={config.GEMINI_API_KEY}"
 
     payload = {
         "contents": [
             {
                 "parts": [
-                    {"text": f"{system_prompt}\n\nO'quvchi savoli: {prompt}"}
+                    {"text": full_user_content}
                 ]
             }
         ]
@@ -1356,11 +2032,12 @@ async def start_ai_mode(message: Message):
     """AI biologiya rejimi haqida ma'lumot"""
     text = (
         "🤖 <b>AI Biologiya — Sun'iy Intellekt Ustozingiz</b>\n\n"
+        "Ushbu sun'iy intellekt faqat O'zbekiston maktab biologiya darsliklari (6-, 8-, 9-sinf) asosida ishlaydi.\n\n"
         "Menga biologiyadan istalgan savolingizni yoki masalangizni yozib yuboring:\n"
         "• <i>«Fotosintezning yorug'lik va qorong'ulik bosqichlari qanday farqlanadi?»</i>\n"
         "• <i>«Odamda qon bosimi qanday boshqariladi?»</i>\n"
-        "• <i>Genetika masalalari matni (DNK, mitoz, Mendel qonunlari)</i>\n\n"
-        "✍️ <b>Savolingizni pastga yozib yuboring, men darhol tushuntirib beraman:</b>"
+        "• <i>Genetika masalalari matni (DNK, oqsil, ATF, mitoz, Mendel qonunlari)</i>\n\n"
+        "✍️ <b>Savolingizni pastga yozib yuboring, men darslik asosida darhol tushuntirib beraman:</b>"
     )
     await message.answer(text, reply_markup=MAIN_KEYBOARD)
 
@@ -1410,32 +2087,56 @@ async def set_active_grade(callback: CallbackQuery):
 # ERKIN SAVOLLAR (AI JAVOBI)
 # ==========================================
 KNOWN_BUTTONS = [
-    "📖 Mavzular", "📝 Testlar", "🎥 Video darslar", "🧬 Animatsiyalar",
-    "🏆 Reyting", "📊 Natijalar", "💳 Premium", "👨‍🏫 O'qituvchi",
-    "🤖 AI Biologiya", "🔄 Sinfni almashtirish"
+    "📖 Mavzular", "📝 Testlar", "📅 Haftalik Test", "📐 Masalalar",
+    "🎥 Video darslar", "🧬 Animatsiyalar", "🏆 Reyting", "📊 Natijalar",
+    "💳 Premium", "👨‍🏫 O'qituvchi", "🤖 AI Biologiya", "🔄 Sinfni almashtirish"
 ]
 
 @dp.message(F.text & ~F.text.startswith("/") & ~F.text.in_(KNOWN_BUTTONS))
 async def handle_user_free_text(message: Message):
     """Foydalanuvchi erkin savol yozganda AI orqali javob berish"""
+    user = message.from_user
+    user_id = user.id
+    grade = await database.get_user_grade(user_id)
+
     await bot.send_chat_action(chat_id=message.chat.id, action="typing")
-    loading_msg = await message.answer("🤔 <i>Sun'iy intellekt javob tayyorlamoqda...</i>")
+    loading_msg = await message.answer("🤔 <i>Sun'iy intellekt darsliklar asosida javob tayyorlamoqda...</i>")
 
-    answer = await ask_gemini_ai(message.text)
+    raw_answer = await ask_gemini_ai(message.text, grade=grade)
 
-    if len(answer) > 4000:
+    # Savol va javobni bazaga yozib borish (o'qituvchi hisoboti uchun)
+    try:
+        await database.record_ai_question(
+            user_id=user_id,
+            full_name=user.full_name or "Noma'lum",
+            grade=grade,
+            question=message.text,
+            answer=raw_answer
+        )
+    except Exception as e:
+        logging.error(f"AI savolini bazaga yozishda xatolik: {e}")
+
+    formatted_answer = format_gemini_markdown_to_telegram_html(raw_answer)
+
+    # Telegram xabari chegarasi (4096 belgi)
+    if len(formatted_answer) > 4000:
         await loading_msg.delete()
-        for i in range(0, len(answer), 4000):
-            chunk = answer[i:i+4000]
+        for i in range(0, len(formatted_answer), 4000):
+            chunk = formatted_answer[i:i+4000]
             try:
                 await message.answer(chunk, parse_mode="HTML")
             except Exception:
-                await message.answer(chunk)
+                await message.answer(chunk, parse_mode=None)
     else:
         try:
-            await loading_msg.edit_text(answer, parse_mode="HTML")
-        except Exception:
-            await loading_msg.edit_text(answer)
+            await loading_msg.edit_text(formatted_answer, parse_mode="HTML")
+        except Exception as e:
+            logging.warning(f"HTML formatlash xatoligi, parse_mode=None orqali yuborilmoqda: {e}")
+            try:
+                await loading_msg.edit_text(raw_answer, parse_mode=None)
+            except Exception as e2:
+                logging.error(f"Xabarni tahrirlashda xatolik: {e2}")
+                await message.answer(raw_answer, parse_mode=None)
 
 
 # ==========================================

@@ -21,13 +21,12 @@ async def init_db():
             )
         """)
         
-        # current_grade ustuni mavjud bo'lmasa qo'shish
+        # Ustunlar mavjud bo'lmasa qo'shish
         try:
             await db.execute("ALTER TABLE users ADD COLUMN current_grade TEXT DEFAULT '8'")
         except Exception:
             pass
 
-        # is_allowed ustuni mavjud bo'lmasa qo'shish
         try:
             await db.execute("ALTER TABLE users ADD COLUMN is_allowed INTEGER DEFAULT 0")
         except Exception:
@@ -50,6 +49,7 @@ async def init_db():
                 ON CONFLICT(user_id) DO UPDATE SET is_allowed = 1
             """, (a_id,))
 
+        # Test natijalari jadvali
         await db.execute("""
             CREATE TABLE IF NOT EXISTS test_results (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -67,6 +67,48 @@ async def init_db():
             await db.execute("ALTER TABLE test_results ADD COLUMN topic_title TEXT")
         except Exception:
             pass
+
+        # 1. AI ga berilgan savollar jadvali (O'qituvchi hisoboti uchun)
+        await db.execute("""
+            CREATE TABLE IF NOT EXISTS ai_questions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER,
+                full_name TEXT,
+                grade TEXT,
+                question TEXT,
+                answer TEXT,
+                asked_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+
+        # 2. Haftalik nazorat testlari jadvali (O'zlashtirish monitoringi)
+        await db.execute("""
+            CREATE TABLE IF NOT EXISTS weekly_tests (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER,
+                full_name TEXT,
+                grade TEXT,
+                score INTEGER,
+                total INTEGER,
+                mastery_percent REAL,
+                status TEXT,
+                taken_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+
+        # 3. Masalalar va vazifalar topshirilishi jadvali
+        await db.execute("""
+            CREATE TABLE IF NOT EXISTS problem_submissions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER,
+                grade TEXT,
+                category TEXT,
+                problem_title TEXT,
+                user_answer TEXT,
+                is_correct INTEGER,
+                submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
 
         await db.commit()
 
@@ -300,3 +342,198 @@ async def get_user_topic_result(user_id: int, grade: str, topic_id_or_title: str
                     "finished_at": row[2]
                 }
             return None
+
+
+# ==========================================
+# 4. AI SAVOLLARI VA O'QITUVCHI HISOBOTI FUNKSIYALARI
+# ==========================================
+
+async def record_ai_question(user_id: int, full_name: str, grade: str, question: str, answer: str):
+    """O'quvchi AI ga bergan savol va javobini bazada saqlash"""
+    async with aiosqlite.connect(DB_PATH) as db:
+        await db.execute("""
+            INSERT INTO ai_questions (user_id, full_name, grade, question, answer)
+            VALUES (?, ?, ?, ?, ?)
+        """, (user_id, full_name, grade, question, answer))
+        await db.commit()
+
+
+async def get_student_ai_questions(user_id: int, limit: int = 10) -> List[Dict[str, Any]]:
+    """Muayyan o'quvchi AI ga bergan oxirgi savollari"""
+    async with aiosqlite.connect(DB_PATH) as db:
+        db.row_factory = aiosqlite.Row
+        async with db.execute("""
+            SELECT question, answer, grade, asked_at
+            FROM ai_questions
+            WHERE user_id = ?
+            ORDER BY asked_at DESC
+            LIMIT ?
+        """, (user_id, limit)) as cur:
+            rows = await cur.fetchall()
+            return [dict(r) for r in rows]
+
+
+async def get_all_recent_ai_questions(limit: int = 30) -> List[Dict[str, Any]]:
+    """Barcha o'quvchilar tomonidan berilgan so'nggi savollar"""
+    async with aiosqlite.connect(DB_PATH) as db:
+        db.row_factory = aiosqlite.Row
+        async with db.execute("""
+            SELECT user_id, full_name, grade, question, asked_at
+            FROM ai_questions
+            ORDER BY asked_at DESC
+            LIMIT ?
+        """, (limit,)) as cur:
+            rows = await cur.fetchall()
+            return [dict(r) for r in rows]
+
+
+# ==========================================
+# 5. HAFTALIK TEST VA O'ZLASHTIRISH MONITORINGI
+# ==========================================
+
+async def record_weekly_test_result(user_id: int, full_name: str, grade: str, score: int, total: int) -> Dict[str, Any]:
+    """Haftalik nazorat testi natijasini saqlash va o'zlashtirish darajasini hisoblash"""
+    percent = round((score / total) * 100, 1) if total > 0 else 0
+    if percent >= 90:
+        status = "🟢 A'lo (Darslik to'liq o'zlashtirilgan)"
+    elif percent >= 75:
+        status = "🟡 Yaxshi (Mavzular yaxshi o'zlashtirilgan)"
+    elif percent >= 60:
+        status = "🟠 Qoniqarli (Ayrim mavzularni takrorlash kerak)"
+    else:
+        status = "🔴 Sust (Mavzularni qayta o'qish tavsiya etiladi)"
+
+    async with aiosqlite.connect(DB_PATH) as db:
+        await db.execute("""
+            INSERT INTO weekly_tests (user_id, full_name, grade, score, total, mastery_percent, status)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (user_id, full_name, grade, score, total, percent, status))
+        await db.commit()
+
+    return {
+        "score": score,
+        "total": total,
+        "percent": percent,
+        "status": status
+    }
+
+
+async def get_user_weekly_results(user_id: int, limit: int = 5) -> List[Dict[str, Any]]:
+    """O'quvchining haftalik testlari tarixi"""
+    async with aiosqlite.connect(DB_PATH) as db:
+        db.row_factory = aiosqlite.Row
+        async with db.execute("""
+            SELECT grade, score, total, mastery_percent, status, taken_at
+            FROM weekly_tests
+            WHERE user_id = ?
+            ORDER BY taken_at DESC
+            LIMIT ?
+        """, (user_id, limit)) as cur:
+            rows = await cur.fetchall()
+            return [dict(r) for r in rows]
+
+
+# ==========================================
+# 6. MASALALAR VA VAZIFALAR TOPWSHIRILISHI
+# ==========================================
+
+async def record_problem_submission(user_id: int, grade: str, category: str, problem_title: str, user_answer: str, is_correct: bool):
+    """O'quvchining masala vazifasi yechimini saqlash"""
+    async with aiosqlite.connect(DB_PATH) as db:
+        await db.execute("""
+            INSERT INTO problem_submissions (user_id, grade, category, problem_title, user_answer, is_correct)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """, (user_id, grade, category, problem_title, user_answer, 1 if is_correct else 0))
+        await db.commit()
+
+
+async def get_user_problem_stats(user_id: int) -> Dict[str, Any]:
+    """O'quvchining masala yechish ko'rsatkichlari"""
+    async with aiosqlite.connect(DB_PATH) as db:
+        async with db.execute("SELECT COUNT(*) FROM problem_submissions WHERE user_id = ?", (user_id,)) as cur:
+            total = (await cur.fetchone())[0]
+        async with db.execute("SELECT COUNT(*) FROM problem_submissions WHERE user_id = ? AND is_correct = 1", (user_id,)) as cur:
+            correct = (await cur.fetchone())[0]
+        percent = round((correct / total) * 100, 1) if total > 0 else 0
+        return {"total": total, "correct": correct, "percent": percent}
+
+
+# ==========================================
+# 7. O'QITUVCHI UCHUN YAGONA O'ZLASHTIRISH HISOBOTI
+# ==========================================
+
+async def get_student_comprehensive_report(user_id: int) -> Optional[Dict[str, Any]]:
+    """Bitta o'quvchi bo'yicha to'liq pedagogik tahliliy hisobot"""
+    user = await get_user_info(user_id)
+    if not user:
+        return None
+
+    user_stats = await get_user_stats(user_id) or {"total": 0, "correct": 0, "current_grade": "8"}
+    problem_stats = await get_user_problem_stats(user_id)
+    weekly_history = await get_user_weekly_results(user_id, limit=3)
+    ai_questions = await get_student_ai_questions(user_id, limit=5)
+
+    test_total = user_stats["total"]
+    test_correct = user_stats["correct"]
+    test_percent = round((test_correct / test_total) * 100, 1) if test_total > 0 else 0
+
+    # Integral o'zlashtirish darajasini hisoblash (Vaznli formula)
+    # 50% oddiy testlar + 35% haftalik testlar + 15% masalalar
+    last_weekly = weekly_history[0] if weekly_history else None
+    weekly_pct = last_weekly["mastery_percent"] if last_weekly else test_percent
+    prob_pct = problem_stats["percent"] if problem_stats["total"] > 0 else test_percent
+
+    if test_total == 0 and not last_weekly and problem_stats["total"] == 0:
+        overall_mastery = 0.0
+        mastery_badge = "⚪️ Hali test va topshiriqlar boshlanmagan"
+    else:
+        overall_mastery = round(0.50 * test_percent + 0.35 * weekly_pct + 0.15 * prob_pct, 1)
+        if overall_mastery >= 88:
+            mastery_badge = "🟢 A'lo daraja (90-100%)"
+        elif overall_mastery >= 72:
+            mastery_badge = "🟡 Yaxshi daraja (75-88%)"
+        elif overall_mastery >= 55:
+            mastery_badge = "🟠 Qoniqarli daraja (55-71%)"
+        else:
+            mastery_badge = "🔴 Past daraja — Qayta o'qitish zarur (<55%)"
+
+    return {
+        "user_id": user_id,
+        "full_name": user.get("full_name", "Noma'lum"),
+        "username": user.get("username", ""),
+        "current_grade": user_stats["current_grade"],
+        "joined_at": user.get("joined_at", ""),
+        "test_total": test_total,
+        "test_correct": test_correct,
+        "test_percent": test_percent,
+        "last_weekly": last_weekly,
+        "problem_stats": problem_stats,
+        "ai_questions": ai_questions,
+        "overall_mastery": overall_mastery,
+        "mastery_badge": mastery_badge
+    }
+
+
+async def get_all_students_mastery_summary() -> List[Dict[str, Any]]:
+    """Barcha ruxsat berilgan o'quvchilar bo'yicha umumiy reyting va o'zlashtirish hisoboti"""
+    async with aiosqlite.connect(DB_PATH) as db:
+        db.row_factory = aiosqlite.Row
+        async with db.execute("""
+            SELECT user_id, full_name, username, current_grade, total_tests, correct_answers
+            FROM users
+            WHERE is_allowed = 1
+            ORDER BY correct_answers DESC
+        """) as cur:
+            rows = await cur.fetchall()
+
+    summary = []
+    for r in rows:
+        u_dict = dict(r)
+        u_id = u_dict["user_id"]
+        # Skip admins from student list
+        if await is_admin(u_id):
+            continue
+        report = await get_student_comprehensive_report(u_id)
+        if report:
+            summary.append(report)
+    return summary
