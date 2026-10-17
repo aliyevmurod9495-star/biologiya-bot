@@ -1996,8 +1996,7 @@ async def ask_gemini_ai(prompt: str, grade: str = "8") -> str:
         full_user_content += f"--- DARSLIKDAN OSHIRILGAN MANBA VA KONTEKST ---\n{context}\n------------------------------------------\n\n"
     full_user_content += f"O'quvchi savoli / topshirig'i: {prompt}"
 
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key={config.GEMINI_API_KEY}"
-
+    import aiohttp
     payload = {
         "contents": [
             {
@@ -2005,26 +2004,51 @@ async def ask_gemini_ai(prompt: str, grade: str = "8") -> str:
                     {"text": full_user_content}
                 ]
             }
-        ]
+        ],
+        "generationConfig": {
+            "thinkingConfig": {
+                "thinkingLevel": "low"
+            },
+            "maxOutputTokens": 2048,
+            "temperature": 0.4
+        }
     }
 
-    import aiohttp
-    try:
-        async with aiohttp.ClientSession() as session:
-            async with session.post(url, json=payload, timeout=aiohttp.ClientTimeout(total=40)) as resp:
-                if resp.status == 200:
-                    data = await resp.json()
-                    candidates = data.get("candidates", [])
-                    if candidates and "content" in candidates[0]:
-                        parts = candidates[0]["content"].get("parts", [])
-                        if parts:
-                            return parts[0].get("text", "Kechirasiz, javob olishda xatolik yuz berdi.")
-                    return "Kechirasiz, sun'iy intellektdan javob kelmadi."
-                else:
-                    return f"⚠️ Sun'iy intellekt serverida xatolik yuz berdi (Status: {resp.status})."
-    except Exception as e:
-        logging.error(f"Gemini API xatoligi: {e}")
-        return "⚠️ Sun'iy intellekt bilan bog'lanishda vaqt tugadi. Iltimos qaytadan urinib ko'ring."
+    # Eng tezkor va faol yangi modellar (javob berish vaqti 1-3 soniya)
+    models_to_try = ["gemini-3.5-flash", "gemini-3.8-flash", "gemini-3.5-flash-lite"]
+    last_error = ""
+
+    for model_name in models_to_try:
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={config.GEMINI_API_KEY}"
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.post(
+                    url, 
+                    json=payload, 
+                    headers={"Content-Type": "application/json"},
+                    timeout=aiohttp.ClientTimeout(total=20, connect=8, sock_read=20)
+                ) as resp:
+                    if resp.status == 200:
+                        data = await resp.json()
+                        candidates = data.get("candidates", [])
+                        if candidates and "content" in candidates[0]:
+                            parts = candidates[0]["content"].get("parts", [])
+                            # Fikrlash (thought) qismlarini chetlab o'tib, asosiy javob matnini olish
+                            text_parts = [p.get("text", "") for p in parts if not p.get("thought", False) and p.get("text")]
+                            if text_parts:
+                                return "\n".join(text_parts).strip()
+                            elif parts and parts[-1].get("text"):
+                                return parts[-1].get("text").strip()
+                        return "Kechirasiz, sun'iy intellektdan javob kelmadi."
+                    else:
+                        resp_text = await resp.text()
+                        logging.warning(f"Gemini {model_name} xatolik berdi ({resp.status}): {resp_text[:120]}")
+                        last_error = f"Status: {resp.status}"
+        except Exception as e:
+            logging.error(f"Gemini {model_name} ulanish xatoligi: {e}")
+            last_error = str(e)
+
+    return f"⚠️ Sun'iy intellekt bilan bog'lanishda vaqt tugadi ({last_error}). Iltimos qaytadan urinib ko'ring."
 
 
 @dp.message(F.text == "🤖 AI Biologiya")
@@ -2102,41 +2126,57 @@ async def handle_user_free_text(message: Message):
     await bot.send_chat_action(chat_id=message.chat.id, action="typing")
     loading_msg = await message.answer("🤔 <i>Sun'iy intellekt darsliklar asosida javob tayyorlamoqda...</i>")
 
-    raw_answer = await ask_gemini_ai(message.text, grade=grade)
-
-    # Savol va javobni bazaga yozib borish (o'qituvchi hisoboti uchun)
     try:
-        await database.record_ai_question(
-            user_id=user_id,
-            full_name=user.full_name or "Noma'lum",
-            grade=grade,
-            question=message.text,
-            answer=raw_answer
-        )
-    except Exception as e:
-        logging.error(f"AI savolini bazaga yozishda xatolik: {e}")
+        raw_answer = await ask_gemini_ai(message.text, grade=grade)
 
-    formatted_answer = format_gemini_markdown_to_telegram_html(raw_answer)
-
-    # Telegram xabari chegarasi (4096 belgi)
-    if len(formatted_answer) > 4000:
-        await loading_msg.delete()
-        for i in range(0, len(formatted_answer), 4000):
-            chunk = formatted_answer[i:i+4000]
-            try:
-                await message.answer(chunk, parse_mode="HTML")
-            except Exception:
-                await message.answer(chunk, parse_mode=None)
-    else:
+        # Savol va javobni bazaga yozib borish (o'qituvchi hisoboti uchun)
         try:
-            await loading_msg.edit_text(formatted_answer, parse_mode="HTML")
+            await database.record_ai_question(
+                user_id=user_id,
+                full_name=user.full_name or "Noma'lum",
+                grade=grade,
+                question=message.text,
+                answer=raw_answer
+            )
         except Exception as e:
-            logging.warning(f"HTML formatlash xatoligi, parse_mode=None orqali yuborilmoqda: {e}")
+            logging.error(f"AI savolini bazaga yozishda xatolik: {e}")
+
+        formatted_answer = format_gemini_markdown_to_telegram_html(raw_answer)
+
+        # Telegram xabari chegarasi (4096 belgi)
+        if len(formatted_answer) > 4000:
             try:
-                await loading_msg.edit_text(raw_answer, parse_mode=None)
-            except Exception as e2:
-                logging.error(f"Xabarni tahrirlashda xatolik: {e2}")
-                await message.answer(raw_answer, parse_mode=None)
+                await loading_msg.delete()
+            except Exception:
+                pass
+            for i in range(0, len(formatted_answer), 4000):
+                chunk = formatted_answer[i:i+4000]
+                try:
+                    await message.answer(chunk, parse_mode="HTML")
+                except Exception:
+                    await message.answer(chunk, parse_mode=None)
+        else:
+            try:
+                await loading_msg.edit_text(formatted_answer, parse_mode="HTML")
+            except Exception as e:
+                logging.warning(f"HTML formatlash xatoligi, parse_mode=None orqali yuborilmoqda: {e}")
+                try:
+                    await loading_msg.edit_text(raw_answer, parse_mode=None)
+                except Exception as e2:
+                    logging.error(f"Xabarni tahrirlashda xatolik: {e2}")
+                    await message.answer(raw_answer, parse_mode=None)
+    except Exception as e:
+        logging.error(f"handle_user_free_text kutilmagan xatolik: {e}")
+        try:
+            await loading_msg.edit_text(
+                "⚠️ Kechirasiz, javob tayyorlashda xatolik yuz berdi. Iltimos, savolingizni qaytadan yuboring.",
+                parse_mode=None
+            )
+        except Exception:
+            await message.answer(
+                "⚠️ Kechirasiz, javob tayyorlashda xatolik yuz berdi. Iltimos, savolingizni qaytadan yuboring.",
+                parse_mode=None
+            )
 
 
 # ==========================================
