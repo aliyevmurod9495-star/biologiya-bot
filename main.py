@@ -1527,7 +1527,7 @@ async def start_weekly_test(message: Message):
     grade = await database.get_user_grade(user_id)
     grade_name = GRADE_NAMES.get(grade, f"{grade}-sinf")
 
-    grade_data = materials.QUESTIONS_DATA.get(grade, {})
+    grade_data = QUESTIONS_DATA.get(grade, {})
     topics = grade_data.get("topics", [])
 
     all_questions = []
@@ -1866,103 +1866,111 @@ import html
 
 def find_relevant_textbook_context(prompt: str, grade: str = "8") -> str:
     """O'quvchi savoliga mos maktab darslik mavzulari, formulalar va qoidalarni qidirish"""
-    p_lower = prompt.lower()
-    context_chunks = []
+    try:
+        p_lower = prompt.lower()
+        context_chunks = []
 
-    # 1. Masala formulalari va qoidalari tekshiruvi (problems.PROBLEM_GUIDES)
-    keywords_map = {
-        "dnk": ["dnk", "rnk", "nukleotid", "chargaff", "vodorod", "komplementar", "adenin", "timin", "guanin", "sitozin", "pirimidin", "purin"],
-        "protein": ["oqsil", "aminokislota", "triplet", "kodon", "antikodon", "translyatsiya", "polipeptid", "irnk", "trnk"],
-        "atf": ["atf", "glikoliz", "energetik", "parchalanish", "glyukoza", "mitoxondriya", "sut kislota", "kaloriya"],
-        "mitoz": ["mitoz", "meyoz", "xromosoma", "xromatida", "interfaza", "profaza", "metafaza", "anafaza", "telofaza", "reduksion"],
-        "genetika": ["genetika", "mendel", "genotip", "fenotip", "dominant", "retsessiv", "duragay", "digeterozigota", "chatishtirish", "allell"]
-    }
+        # 1. Masala formulalari va qoidalari tekshiruvi (problems.PROBLEM_GUIDES)
+        keywords_map = {
+            "dnk": ["dnk", "rnk", "nukleotid", "chargaff", "vodorod", "komplementar", "adenin", "timin", "guanin", "sitozin", "pirimidin", "purin"],
+            "protein": ["oqsil", "aminokislota", "triplet", "kodon", "antikodon", "translyatsiya", "polipeptid", "irnk", "trnk"],
+            "atf": ["atf", "glikoliz", "energetik", "parchalanish", "glyukoza", "mitoxondriya", "sut kislota", "kaloriya"],
+            "mitoz": ["mitoz", "meyoz", "xromosoma", "xromatida", "interfaza", "profaza", "metafaza", "anafaza", "telofaza", "reduksion"],
+            "genetika": ["genetika", "mendel", "genotip", "fenotip", "dominant", "retsessiv", "duragay", "digeterozigota", "chatishtirish", "allell"]
+        }
 
-    for cat_key, words in keywords_map.items():
-        if any(w in p_lower for w in words):
-            guide = problems.PROBLEM_GUIDES.get(cat_key)
-            if guide:
-                clean_rules = re.sub(r'<[^>]+>', '', guide["rules"])
-                context_chunks.append(f"[Mavzu qoidalari va formulasi: {guide['title']}]\n{clean_rules}")
+        for cat_key, words in keywords_map.items():
+            if any(w in p_lower for w in words):
+                guide = problems.PROBLEM_GUIDES.get(cat_key)
+                if guide:
+                    clean_rules = re.sub(r'<[^>]+>', '', guide["rules"])
+                    context_chunks.append(f"[Mavzu qoidalari va formulasi: {guide['title']}]\n{clean_rules}")
 
-    # 2. Darslik ma'ruzalari va konspektlaridan qidirish (materials.TOPICS_CONTENT)
-    raw_words = re.findall(r'[a-zA-Zа-яА-Яo‘O‘g‘G‘o\'O\'g\'G\']+', p_lower)
-    search_terms = [w for w in raw_words if len(w) >= 3 and w not in ["uchun", "haqida", "qanday", "nima", "qaysi", "bilan", "emas", "kerak"]]
+        # 2. Darslik ma'ruzalari va konspektlaridan qidirish (materials.TOPICS_CONTENT)
+        raw_words = re.findall(r'[a-zA-Zа-яА-Яo‘O‘g‘G‘o\'O\'g\'G\']+', p_lower)
+        search_terms = [w for w in raw_words if len(w) >= 3 and w not in ["uchun", "haqida", "qanday", "nima", "qaysi", "bilan", "emas", "kerak"]]
 
-    matched_topics = []
-    grades_to_check = [grade] + [g for g in materials.TOPICS_CONTENT.keys() if g != grade]
+        matched_topics = []
+        grades_to_check = [grade] + [g for g in materials.TOPICS_CONTENT.keys() if g != grade]
 
-    for g in grades_to_check:
-        t_list = materials.TOPICS_CONTENT.get(g, [])
-        for topic in t_list:
-            score = 0
-            t_title = topic.get("title", "").lower()
-            t_guide = topic.get("guide", "").lower()
-            t_text = topic.get("text", "").lower()
+        for g in grades_to_check:
+            t_list = materials.TOPICS_CONTENT.get(g, [])
+            for topic in t_list:
+                score = 0
+                t_title = topic.get("title", "").lower()
+                t_guide = topic.get("guide", "").lower()
+                t_text = topic.get("text", "").lower()
 
-            for term in search_terms:
-                if term in t_title:
-                    score += 5
-                if term in t_guide:
-                    score += 3
-                if term in t_text:
-                    score += 1
+                for term in search_terms:
+                    if term in t_title:
+                        score += 5
+                    if term in t_guide:
+                        score += 3
+                    if term in t_text:
+                        score += 1
 
-            if score > 0:
-                matched_topics.append((score, g, topic))
+                if score > 0:
+                    matched_topics.append((score, g, topic))
 
-    matched_topics.sort(key=lambda x: x[0], reverse=True)
-    for score, g, t in matched_topics[:2]:
-        t_title = t.get("title", "")
-        clean_guide = re.sub(r'<[^>]+>', '', t.get("guide", ""))
-        clean_text = re.sub(r'<[^>]+>', '', t.get("text", ""))[:800]
-        context_chunks.append(f"[{g}-sinf Darslik mavzusi: {t_title}]\n{clean_guide}\n{clean_text}...")
+        matched_topics.sort(key=lambda x: x[0], reverse=True)
+        for score, g, t in matched_topics[:2]:
+            t_title = t.get("title", "")
+            clean_guide = re.sub(r'<[^>]+>', '', t.get("guide", ""))
+            clean_text = re.sub(r'<[^>]+>', '', t.get("text", ""))[:800]
+            context_chunks.append(f"[{g}-sinf Darslik mavzusi: {t_title}]\n{clean_guide}\n{clean_text}...")
 
-    # 3. Darslik test savollaridan qidirish (materials.QUESTIONS_DATA)
-    g_data = materials.QUESTIONS_DATA.get(grade, {})
-    for t in g_data.get("topics", []):
-        for q in t.get("questions", []):
-            q_text = q.get("question", "").lower()
-            if any(term in q_text for term in search_terms if len(term) >= 4):
-                corr_opt = q["options"][q["correct_option_id"]] if q["correct_option_id"] < len(q["options"]) else ""
-                context_chunks.append(f"[Darslik testi namunasi: {q['question']}] To'g'ri javob: {corr_opt}. Izoh: {q.get('explanation', '')}")
+        # 3. Darslik test savollaridan qidirish (QUESTIONS_DATA)
+        g_data = QUESTIONS_DATA.get(grade, {})
+        for t in g_data.get("topics", []):
+            for q in t.get("questions", []):
+                q_text = q.get("question", "").lower()
+                if any(term in q_text for term in search_terms if len(term) >= 4):
+                    corr_opt = q["options"][q["correct_option_id"]] if q["correct_option_id"] < len(q["options"]) else ""
+                    context_chunks.append(f"[Darslik testi namunasi: {q['question']}] To'g'ri javob: {corr_opt}. Izoh: {q.get('explanation', '')}")
+                    break
+            if len(context_chunks) >= 4:
                 break
-        if len(context_chunks) >= 4:
-            break
 
-    return "\n\n".join(context_chunks)
+        return "\n\n".join(context_chunks)
+    except Exception as e:
+        logging.warning(f"find_relevant_textbook_context xatolik: {e}")
+        return ""
 
 
 def format_gemini_markdown_to_telegram_html(text: str) -> str:
     """Gemini qaytargan matnni xavfsiz Telegram HTML formatiga aylantirish"""
-    code_blocks = []
-    def code_repl(m):
-        code_blocks.append(html.escape(m.group(1)))
-        return f"__CODE_BLOCK_{len(code_blocks)-1}__"
+    try:
+        code_blocks = []
+        def code_repl(m):
+            code_blocks.append(html.escape(m.group(1)))
+            return f"__CODE_BLOCK_{len(code_blocks)-1}__"
 
-    text = re.sub(r'```(?:[a-zA-Z0-9_]+)?\n?(.*?)```', code_repl, text, flags=re.DOTALL)
+        text = re.sub(r'```(?:[a-zA-Z0-9_]+)?\n?(.*?)```', code_repl, text, flags=re.DOTALL)
 
-    inline_codes = []
-    def inline_repl(m):
-        inline_codes.append(html.escape(m.group(1)))
-        return f"__INLINE_CODE_{len(inline_codes)-1}__"
-    text = re.sub(r'`([^`]+)`', inline_repl, text)
+        inline_codes = []
+        def inline_repl(m):
+            inline_codes.append(html.escape(m.group(1)))
+            return f"__INLINE_CODE_{len(inline_codes)-1}__"
+        text = re.sub(r'`([^`]+)`', inline_repl, text)
 
-    text = html.escape(text)
+        text = html.escape(text)
 
-    # **matn** -> <b>matn</b>
-    text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text)
-    # *matn* -> <i>matn</i>
-    text = re.sub(r'(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)', r'<i>\1</i>', text)
-    # Sarlavhalar #, ##, ### Sarlavha -> <b>Sarlavha</b>
-    text = re.sub(r'^(?:#{1,6})\s*(.+)$', r'<b>\1</b>', text, flags=re.MULTILINE)
+        # **matn** -> <b>matn</b>
+        text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text)
+        # *matn* -> <i>matn</i>
+        text = re.sub(r'(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)', r'<i>\1</i>', text)
+        # Sarlavhalar #, ##, ### Sarlavha -> <b>Sarlavha</b>
+        text = re.sub(r'^(?:#{1,6})\s*(.+)$', r'<b>\1</b>', text, flags=re.MULTILINE)
 
-    for i, code in enumerate(code_blocks):
-        text = text.replace(f"__CODE_BLOCK_{i}__", f"<pre><code>{code}</code></pre>")
-    for i, code in enumerate(inline_codes):
-        text = text.replace(f"__INLINE_CODE_{i}__", f"<code>{code}</code>")
+        for i, code in enumerate(code_blocks):
+            text = text.replace(f"__CODE_BLOCK_{i}__", f"<pre><code>{code}</code></pre>")
+        for i, code in enumerate(inline_codes):
+            text = text.replace(f"__INLINE_CODE_{i}__", f"<code>{code}</code>")
 
-    return text
+        return text
+    except Exception as e:
+        logging.warning(f"format_gemini_markdown_to_telegram_html xatolik: {e}")
+        return html.escape(text)
 
 
 async def ask_gemini_ai(prompt: str, grade: str = "8") -> str:
