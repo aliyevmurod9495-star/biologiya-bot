@@ -1,4 +1,4 @@
-{
+﻿{
     "5":  {
               "name":  "5-sinf (Botanika)",
               "topics":  [
@@ -41062,35 +41062,1853 @@
                           ]
            },
     "11":  {
-               "name":  "11-sinf (Ekologiya)",
+               "name":  "11-sinf (Ekologiya va filogenez)",
                "topics":  [
                               {
                                   "id":  "1",
-                                  "title":  "1-mavzu: Ekologiya va biosfera",
+                                  "title":  "1-§. Biologik tizimlar. Ekologiya — biologik tizimlar haqidagi fan",
                                   "questions":  [
                                                     {
-                                                        "id":  19,
-                                                        "question":  "Tirik organizmlar va ularning atrof-muhit bilan o\u0027zaro munosabatlarini o\u0027rganuvchi fan nima?",
+                                                        "id":  11001,
+                                                        "question":  "«Ekologiya» atamasini fanga birinchi bo\u0027lib qaysi olim va qachon kiritgan?",
                                                         "options":  [
-                                                                        "Ekologiya",
-                                                                        "Sitologiya",
-                                                                        "Embriologiya",
-                                                                        "Gistologiya"
+                                                                        "Ernst Gekkel (1866-yil)",
+                                                                        "Charlz Darvin (1859-yil)",
+                                                                        "Karl Linney (1735-yil)",
+                                                                        "Aleksandr Gumboldt (1805-yil)"
                                                                     ],
                                                         "correct_option_id":  0,
-                                                        "explanation":  "Ekologiya — organizmlarning muhit va bir-biri bilan o\u0027zaro ta\u0027sirini o\u0027rganadi (E.Gekkel kiritgan)."
+                                                        "explanation":  "Ekologiya atamasini 1866-yilda nemis biologi Ernst Gekkel fanga kiritgan («oikos» — uy, «logos» — ta\u0027limot)."
                                                     },
                                                     {
-                                                        "id":  20,
-                                                        "question":  "Evolyutsiya nazariyasining harakatlantiruvchi asosiy kuchi nima?",
+                                                        "id":  11002,
+                                                        "question":  "Tirik materiyaning eng quyi kimyoviy tashkiliy darajasi qaysi?",
                                                         "options":  [
-                                                                        "Modifikatsion o\u0027zgaruvchanlik",
-                                                                        "Tabiiy tanlanish",
-                                                                        "Sun\u0027iy tanlanish",
-                                                                        "O\u0027z-o\u0027zidan paydo bo\u0027lish"
+                                                                        "Hujayra darajasi",
+                                                                        "Molekula darajasi",
+                                                                        "Organizm darajasi",
+                                                                        "Populyatsiya darajasi"
                                                                     ],
                                                         "correct_option_id":  1,
-                                                        "explanation":  "Darvin ta\u0027limotiga ko\u0027ra, tabiiy tanlanish yashash uchun kurash natijasida sodir bo\u0027ladi."
+                                                        "explanation":  "Tirik materiyaning eng quyi darajasi molekula (DNK, RNK, oqsillar, ATF) darajasidir."
+                                                    },
+                                                    {
+                                                        "id":  11003,
+                                                        "question":  "Tirik tabiatning biosfera darajasidan oldingi, undan bir pog\u0027ona quyi turuvchi darajasi nima?",
+                                                        "options":  [
+                                                                        "Populyatsiya-tur darajasi",
+                                                                        "Biogeotsenoz (Ekotizim) darajasi",
+                                                                        "Organizm darajasi",
+                                                                        "To\u0027qima darajasi"
+                                                                    ],
+                                                        "correct_option_id":  1,
+                                                        "explanation":  "Tiriklik iyerarxiyasida: Organizm -\u003e Populyatsiya-tur -\u003e Biogeotsenoz -\u003e Biosfera."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "2",
+                                  "title":  "2-§. Ekologiyaning rivojlanishi, bo\u0027limlari va metodlari",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11004,
+                                                        "question":  "Alohida olingan turning yashash muhiti bilan munosabatlarini o\u0027rganuvchi ekologiya bo\u0027limi nima deb ataladi?",
+                                                        "options":  [
+                                                                        "Sinekologiya",
+                                                                        "Demekologiya",
+                                                                        "Autekologiya",
+                                                                        "Biogeotsenologiya"
+                                                                    ],
+                                                        "correct_option_id":  2,
+                                                        "explanation":  "Autekologiya — ayrim olingan turning tashqi muhit omillari bilan aloqalarini tadqiq etadi."
+                                                    },
+                                                    {
+                                                        "id":  11005,
+                                                        "question":  "Populyatsiyalarning soni, zichligi, yosh va jins tarkibini tadqiq etuvchi ekologiya sohasi qaysi?",
+                                                        "options":  [
+                                                                        "Demekologiya",
+                                                                        "Autekologiya",
+                                                                        "Paleoekologiya",
+                                                                        "Sinekologiya"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Demekologiya (populyatsiyalar ekologiyasi) — populyatsiyalar dinamikasi va tuzilishini o\u0027rganadi."
+                                                    },
+                                                    {
+                                                        "id":  11006,
+                                                        "question":  "O\u0027zaro bog\u0027liq turlar jamoalari (biotsenozlar)ning tuzilishi va qonuniyatlarini o\u0027rganuvchi bo\u0027lim nima?",
+                                                        "options":  [
+                                                                        "Autekologiya",
+                                                                        "Sinekologiya",
+                                                                        "Evolutsion ekologiya",
+                                                                        "Genetika"
+                                                                    ],
+                                                        "correct_option_id":  1,
+                                                        "explanation":  "Sinekologiya (jamoalar ekologiyasi) — turli turlardan iborat jamoalarning tuzilishini o\u0027rganadi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "3",
+                                  "title":  "3-§. Hayotning ekotizim darajasi xususiyatlari",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11007,
+                                                        "question":  "«Ekotizim» (ekosistema) atamasini 1935-yilda fanga kim kiritgan?",
+                                                        "options":  [
+                                                                        "Artur Tensli",
+                                                                        "Vladimir Sukachyov",
+                                                                        "Ernst Gekkel",
+                                                                        "Charlz Elton"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Ingliz botanigi Artur Tensli 1935-yilda ekotizim atamasini fanga kiritgan."
+                                                    },
+                                                    {
+                                                        "id":  11008,
+                                                        "question":  "«Biogeotsenoz» atamasini fanga kiritgan va uning nazariyasini ishlab chiqqan olim kim?",
+                                                        "options":  [
+                                                                        "V.N. Sukachyov",
+                                                                        "V.I. Vernadskiy",
+                                                                        "A. Tensli",
+                                                                        "K.A. Timiryazev"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Akademik V.N. Sukachyov 1942-yilda biogeotsenoz ta\u0027limotiga asos solgan."
+                                                    },
+                                                    {
+                                                        "id":  11009,
+                                                        "question":  "Ekotizimda turg\u0027unlikni va o\u0027z-o\u0027zini boshqarishni ta\u0027minlovchi asosiy biologik mexanizm nima?",
+                                                        "options":  [
+                                                                        "Gomeostaz va teskari aloqalar tizimi",
+                                                                        "Mutatsiyalar sonining ortishi",
+                                                                        "Faqat yirtqichlarning ko\u0027payishi",
+                                                                        "Anorganik moddalarning kamayishi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Ekotizimlar gomeostaz (ichki muvozanat) va manfiy teskari aloqalar orqali o\u0027z tarkibini me\u0027yorda saqlaydi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "4",
+                                  "title":  "4-§. Ekotizimlarning tarkibiy qismlari va turlari",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11010,
+                                                        "question":  "Ekotizimda noorganik moddalardan organik moddalar sintezlovchi avtotrof organizmlar guruhi nima?",
+                                                        "options":  [
+                                                                        "Produsentlar",
+                                                                        "Konsumentlar",
+                                                                        "Redutsentlar",
+                                                                        "Detritofaglar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Produsentlar (yashil o\u0027simliklar, xemosintezlovchilar) — birlamchi organik modda hosil qiluvchilardir."
+                                                    },
+                                                    {
+                                                        "id":  11011,
+                                                        "question":  "Tayyor organik moddalar bilan oziqlanuvchi geterotrof hayvonlar qaysi funksional guruhni tashkil etadi?",
+                                                        "options":  [
+                                                                        "Konsumentlar",
+                                                                        "Produsentlar",
+                                                                        "Redutsentlar",
+                                                                        "Avtotroflar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Konsumentlar — iste\u0027molchilar bo\u0027lib, o\u0027txo\u0027r va yirtqich hayvonlarni o\u0027z ichiga oladi."
+                                                    },
+                                                    {
+                                                        "id":  11012,
+                                                        "question":  "O\u0027lik organik qoldiqlarni noorganik minerallargacha parchalovchi bakteriya va zamburug\u0027lar nima deyiladi?",
+                                                        "options":  [
+                                                                        "Redutsentlar (destruktorlar)",
+                                                                        "Birlamchi konsumentlar",
+                                                                        "Produsentlar",
+                                                                        "Fitofaglar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Redutsentlar — organik qoldiqlarni minerallashtirib, o\u0027simliklar o\u0027zlashtira oladigan holga keltiradi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "5",
+                                  "title":  "5-§. Hayot muhitlari. Suv muhiti va unda yashovchi organizmlarning moslashuvlari",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11013,
+                                                        "question":  "Suv muhitida faol suzuvchi, oqimga qarshi harakatlana oladigan yirik organizmlar (baliqlar, kitlar) qanday guruhga kiradi?",
+                                                        "options":  [
+                                                                        "Nekton",
+                                                                        "Plankton",
+                                                                        "Bentos",
+                                                                        "Neyston"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Nekton — suv qatlamida faol suzuvchi organizmlardir (baliqlar, delfinlar, kalmarlar)."
+                                                    },
+                                                    {
+                                                        "id":  11014,
+                                                        "question":  "Suv oqimi bilan passiv suzib yuruvchi mikroskopik suvo\u0027tlar va mayda qisqichbaqasimonlar guruhi nima?",
+                                                        "options":  [
+                                                                        "Plankton",
+                                                                        "Nekton",
+                                                                        "Bentos",
+                                                                        "Perifiton"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Plankton — suv oqimiga qarshilik ko\u0027rsata olmaydigan passiv organizmlardir (fitoplankton, zooplankton)."
+                                                    },
+                                                    {
+                                                        "id":  11015,
+                                                        "question":  "Suv havzalarining tubida yashovchi organizmlar (mollyuskalar, chuvalchanglar) nima deyiladi?",
+                                                        "options":  [
+                                                                        "Bentos",
+                                                                        "Nekton",
+                                                                        "Plankton",
+                                                                        "Neyston"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Bentos — suv tubida loy yoki toshlarga birikib yoki ko\u0027milib yashovchi tub organizmlaridir."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "6",
+                                  "title":  "6-§. Quruqlik-havo, tuproq va tirik organizmlar hayot muhiti",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11016,
+                                                        "question":  "Quruqlik-havo muhitining organizmlar hayoti uchun xarakterli bo\u0027lgan asosiy omillari qaysilar?",
+                                                        "options":  [
+                                                                        "Kislorodning mo\u0027lligi, past zichlik va haroratning keskin tebranishi",
+                                                                        "Doimiy yuqori bosim va yorug\u0027lik yetishmasligi",
+                                                                        "Namlikning doimo 100% bo\u0027lishi",
+                                                                        "Kislorodning yetishmasligi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Quruqlik-havo muhiti kislorodga boy, zichligi past va harorat kunlik hamda mavsumiy keskin o\u0027zgaruvchandir."
+                                                    },
+                                                    {
+                                                        "id":  11017,
+                                                        "question":  "Tuproqda yashovchi barcha tirik organizmlar guruhi nima deb ataladi?",
+                                                        "options":  [
+                                                                        "Edafobiontlar (pedobiontlar)",
+                                                                        "Gidrobiontlar",
+                                                                        "Aerobiontlar",
+                                                                        "Epifitlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Tuproq muhitida yashovchi barcha tirik mavjudotlar edafobiontlar deyiladi."
+                                                    },
+                                                    {
+                                                        "id":  11018,
+                                                        "question":  "Boshqa organizm tanasida yashovchi ichki parazitlar (masalan, jigar qurti, askarida) qaysi guruhga kiradi?",
+                                                        "options":  [
+                                                                        "Endobiontlar (endoparazitlar)",
+                                                                        "Ektoparazitlar",
+                                                                        "Simbiontlar",
+                                                                        "Kommensallar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Boshqa organizm tanasining ichida yashovchi parazitlar endobiontlar deb ataladi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "7",
+                                  "title":  "7-§. Muhit omillari va ularning tasnifi",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11019,
+                                                        "question":  "Tirik organizmlarga ta\u0027sir etuvchi jonsiz tabiat komponentlari (yorug\u0027lik, harorat, namlik) qanday omillar deyiladi?",
+                                                        "options":  [
+                                                                        "Abiotik omillar",
+                                                                        "Biotik omillar",
+                                                                        "Antropogen omillar",
+                                                                        "Limitlovchi omillar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Jonsiz tabiat ta\u0027sirlari abiotik omillar deb ataladi."
+                                                    },
+                                                    {
+                                                        "id":  11020,
+                                                        "question":  "«Minimum qoidasi» (cheklovchi omil qonuni)ni 1840-yilda qaysi olim kashf etgan?",
+                                                        "options":  [
+                                                                        "Yustus Libix",
+                                                                        "Viktor Shelford",
+                                                                        "Ernst Gekkel",
+                                                                        "Lui Paster"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Nemis kimyogari Yustus Libix o\u0027simlik hosildorligi yetishmayotgan (minimumdagi) mineral elementga bog\u0027liqligini isbotladi."
+                                                    },
+                                                    {
+                                                        "id":  11021,
+                                                        "question":  "Organizmning yashashi va ko\u0027payishi uchun eng qulay bo\u0027lgan omil miqdori nima deb ataladi?",
+                                                        "options":  [
+                                                                        "Optimum zona",
+                                                                        "Pessimum zona",
+                                                                        "Kritik nuqta",
+                                                                        "Limitlovchi nuqta"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Har qanday ekologik omilning organizm hayoti uchun eng maqbul darajasi optimum zona deyiladi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "8",
+                                  "title":  "8-§. Yorug\u0027lik — muhitning ekologik omili sifatida",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11022,
+                                                        "question":  "Quyosh nuri yaxshi tushadigan ochiq maydonlarda o\u0027suvchi yorug\u0027sevar o\u0027simliklar nima deyiladi?",
+                                                        "options":  [
+                                                                        "Geliofitlar",
+                                                                        "Ssiofitlar",
+                                                                        "Gigrofitlar",
+                                                                        "Kserofitlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Geliofitlar (yorug\u0027sevarlar) — paxta, kungaboqar, shuvoq, saksovul kabi o\u0027simliklardir."
+                                                    },
+                                                    {
+                                                        "id":  11023,
+                                                        "question":  "Faqat soya joylarda, o\u0027rmon soyabonida o\u0027sadigan soyasevar o\u0027simliklar guruhi qaysi?",
+                                                        "options":  [
+                                                                        "Ssiofitlar",
+                                                                        "Geliofitlar",
+                                                                        "Gigrofitlar",
+                                                                        "Halofitlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Ssiofitlar (soyasevarlar) — moxlar, qirqquloqlar, marvaridgul kabi doimiy soyada yaxshi rivojlanuvchilardir."
+                                                    },
+                                                    {
+                                                        "id":  11024,
+                                                        "question":  "Kun va tun uzunligining nisbatiga organizmlarning fiziologik javob reaksiyasi nima deb ataladi?",
+                                                        "options":  [
+                                                                        "Fotoperiodizm",
+                                                                        "Fotosintez",
+                                                                        "Fototaksis",
+                                                                        "Fototropizm"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Fotoperiodizm — kun uzunligining o\u0027zgarishiga qarab o\u0027simliklarning gullashi va hayvonlarning mavsumiy faolligidir."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "9",
+                                  "title":  "9-§. Harorat — muhitning abiotik omili sifatida",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11025,
+                                                        "question":  "Tana harorati tashqi muhit haroratiga bog\u0027liq bo\u0027lgan sovuqqonli hayvonlar nima deyiladi?",
+                                                        "options":  [
+                                                                        "Poykiloterm organizmlar",
+                                                                        "Gomoyoterm organizmlar",
+                                                                        "Geteroterm organizmlar",
+                                                                        "Endoterm organizmlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Poykiloterm (sovuqqonli) hayvonlarga umurtqasizlar, baliqlar, amfibiyalar va sudralib yuruvchilar kiradi."
+                                                    },
+                                                    {
+                                                        "id":  11026,
+                                                        "question":  "Tana harorati doimiy va tashqi muhitga bog\u0027liq bo\u0027lmagan issiqqonli hayvonlar guruhi qaysi?",
+                                                        "options":  [
+                                                                        "Gomoyoterm organizmlar (qushlar va sutemizuvchilar)",
+                                                                        "Poykiloterm organizmlar",
+                                                                        "Stenobiontlar",
+                                                                        "Anabiozlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Gomoyoterm (issiqqonli) hayvonlar tana haroratini faol termoregulyatsiya orqali doimiy saqlaydi."
+                                                    },
+                                                    {
+                                                        "id":  11027,
+                                                        "question":  "Sovuq iqlimda yashovchi sutemizuvchilarning tana o\u0027lchamlari issiq iqlimdagi turlarnikidan yirikroq bo\u0027lishi qaysi qoidaga mos?",
+                                                        "options":  [
+                                                                        "Bergmann qoidasi",
+                                                                        "Allen qoidasi",
+                                                                        "Libix qoidasi",
+                                                                        "Shelford qoidasi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Bergmann qoidasi: sovuq hududlarda issiqlikni saqlash uchun gavda hajmi nisbatan kattalashadi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "10",
+                                  "title":  "10-§. Namlik ekologik omil sifatida",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11028,
+                                                        "question":  "Suvda to\u0027liq yoki qisman botgan holda yashovchi suv o\u0027simliklari guruhi nima deyiladi?",
+                                                        "options":  [
+                                                                        "Gidrofitlar",
+                                                                        "Gigrofitlar",
+                                                                        "Mezofitlar",
+                                                                        "Kserofitlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Gidrofitlar — nilufar, qamish, elodeya kabi suvda yashovchi o\u0027simliklardir."
+                                                    },
+                                                    {
+                                                        "id":  11029,
+                                                        "question":  "O\u0027rtacha namlikdagi sharoitlarda (o\u0027tloq, bog\u0027, o\u0027rmon) o\u0027suvchi o\u0027simliklar nima deb ataladi?",
+                                                        "options":  [
+                                                                        "Mezofitlar",
+                                                                        "Kserofitlar",
+                                                                        "Halofitlar",
+                                                                        "Gidrofitlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Mezofitlar — o\u0027rtacha namlikka moslashgan o\u0027simliklar (beda, olma, bug\u0027doy, eman)."
+                                                    },
+                                                    {
+                                                        "id":  11030,
+                                                        "question":  "Tanasida va barglarida ko\u0027p miqdorda suv to\u0027playdigan etli o\u0027simliklar (kaktus, aloe, semizo\u0027t) nima deyiladi?",
+                                                        "options":  [
+                                                                        "Sukkulentlar",
+                                                                        "Sklerofitlar",
+                                                                        "Mezofitlar",
+                                                                        "Gigrofitlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Sukkulentlar (lotincha «succulentus» — shirali) — tanasida suv to\u0027plovchi kserofitlardir."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "11",
+                                  "title":  "11-§. Tuproq va topografik omillar",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11031,
+                                                        "question":  "Sho\u0027rlangan tuproqlarda o\u0027sishga moslashgan o\u0027simliklar guruhi nima deb ataladi?",
+                                                        "options":  [
+                                                                        "Halofitlar",
+                                                                        "Gidrofitlar",
+                                                                        "Psammofitlar",
+                                                                        "Litofitlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Halofitlar — sho\u0027r tuproqlarda osmotik bosimni oshirib o\u0027suvchi o\u0027simliklar (shohsho\u0027ra, qorabaroq)."
+                                                    },
+                                                    {
+                                                        "id":  11032,
+                                                        "question":  "Ko\u0027chma qumlarda o\u0027suvchi va kuchli ildiz tizimiga ega o\u0027simliklar nima deyiladi?",
+                                                        "options":  [
+                                                                        "Psammofitlar",
+                                                                        "Litofitlar",
+                                                                        "Kserofitlar",
+                                                                        "Oksilofitlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Psammofitlar — qumda o\u0027suvchi o\u0027simliklar (saksovul, juzg\u0027un, qandim)."
+                                                    },
+                                                    {
+                                                        "id":  11033,
+                                                        "question":  "Tosh va qoyalarda yashovchi o\u0027simliklar va lishayniklar nima deyiladi?",
+                                                        "options":  [
+                                                                        "Litofitlar",
+                                                                        "Psammofitlar",
+                                                                        "Halofitlar",
+                                                                        "Mezofitlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Litofitlar — tosh va qoyali substratda yashashga moslashgan organizmlardir."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "12",
+                                  "title":  "12-§. Biotik omillar va ularning tasnifi",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11034,
+                                                        "question":  "Bir xil turga mansub individlar orasidagi munosabatlar nima deb ataladi?",
+                                                        "options":  [
+                                                                        "Tur ichidagi munosabatlar",
+                                                                        "Turlararo munosabatlar",
+                                                                        "Antropogen munosabatlar",
+                                                                        "Simbioz"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Bitta tur individlari orasidagi aloqalar (oilaviy, to\u0027da, ichki raqobat) tur ichidagi munosabatlardir."
+                                                    },
+                                                    {
+                                                        "id":  11035,
+                                                        "question":  "Turli turlarga mansub organizmlar o\u0027rtasidagi o\u0027zaro ta\u0027sirlar qanday nomlanadi?",
+                                                        "options":  [
+                                                                        "Turlararo munosabatlar",
+                                                                        "Tur ichidagi munosabatlar",
+                                                                        "Abiotik munosabatlar",
+                                                                        "Gomeostaz"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Har xil turga mansub tirik mavjudotlarning bir-biriga ta\u0027siri turlararo munosabatlar deyiladi."
+                                                    },
+                                                    {
+                                                        "id":  11036,
+                                                        "question":  "Birgalikda yashash ikkala tur uchun ham foydali bo\u0027lgan munosabat qaysi toifaga kiradi?",
+                                                        "options":  [
+                                                                        "Simbioz (+/+)",
+                                                                        "Antibioz (-/-)",
+                                                                        "Neytralizm (0/0)",
+                                                                        "Amensalizm (0/-)"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Ikkala tomon uchun ham o\u0027zaro manfaatli munosabat simbioz (mutualizm) deb ataladi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "13",
+                                  "title":  "13-§. Simbioz munosabatlar: mutualizm, kommensalizm va parazitizm",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11037,
+                                                        "question":  "Ikkala tur uchun majburiy va o\u0027zaro manfaatli bo\u0027lgan hamkorlik (masalan, lishaynik) nima deyiladi?",
+                                                        "options":  [
+                                                                        "Mutualizm",
+                                                                        "Kommensalizm",
+                                                                        "Parazitizm",
+                                                                        "Neytralizm"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Mutualizm — bir-biri hisobiga ajralmas yashovchi simbioz shaklidir (zamburug\u0027 va suvo\u0027t birikmasi — lishaynik)."
+                                                    },
+                                                    {
+                                                        "id":  11038,
+                                                        "question":  "Bir tur foyda ko\u0027rib, ikkinchi turga hech qanday zarar ham, foyda ham yetkazmaydigan munosabat nima?",
+                                                        "options":  [
+                                                                        "Kommensalizm (+/0)",
+                                                                        "Mutualizm (+/+)",
+                                                                        "Parazitizm (+/-)",
+                                                                        "Raqobat (-/-)"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Kommensalizm — bir turning boshqasi hisobiga (zararsiz) oziqlanishi yoki boshpana topishidir."
+                                                    },
+                                                    {
+                                                        "id":  11039,
+                                                        "question":  "Bir organizm boshqa organizm hisobiga yashab, unga sezilarli zarar yetkazadigan munosabat qaysi?",
+                                                        "options":  [
+                                                                        "Parazitizm (+/-)",
+                                                                        "Mutualizm (+/+)",
+                                                                        "Kommensalizm (+/0)",
+                                                                        "Neytralizm (0/0)"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Parazit xo\u0027jayin hisobiga oziqlanadi, uning tanasida yashaydi va unga patogen zarar yetkazadi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "14",
+                                  "title":  "14-§. Antibioz munosabatlar: yirtqichlik, raqobat va amensalizm",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11040,
+                                                        "question":  "Bir organizm ikkinchisini tutib, o\u0027ldirib oziqlanadigan munosabat shakli nima?",
+                                                        "options":  [
+                                                                        "Yirtqichlik",
+                                                                        "Parazitizm",
+                                                                        "Raqobat",
+                                                                        "Amensalizm"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Yirtqich o\u0027ljani tutadi, o\u0027ldiradi va iste\u0027mol qiladi (bo\u0027ri — quyon, burgut — sug\u0027ur)."
+                                                    },
+                                                    {
+                                                        "id":  11041,
+                                                        "question":  "O\u0027xshash ekologik talablarga ega bo\u0027lgan turlarning bitta resurs (oziq, hudud) uchun kurashi nima deyiladi?",
+                                                        "options":  [
+                                                                        "Raqobat",
+                                                                        "Mutualizm",
+                                                                        "Kommensalizm",
+                                                                        "Neytralizm"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Raqobat — cheklangan resurslar uchun kurash bo\u0027lib, har ikkala raqobatchi turga salbiy (-/-) ta\u0027sir qiladi."
+                                                    },
+                                                    {
+                                                        "id":  11042,
+                                                        "question":  "«Bitta ekologik tokchada ikkita bir xil talabga ega tur birga uzoq yashay olmaydi» qoidasi kimga tegishli?",
+                                                        "options":  [
+                                                                        "G.F. Gause (Gauze qoidasi)",
+                                                                        "E. Gekkel",
+                                                                        "V. Shelford",
+                                                                        "Yu. Libix"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Gauze qoidasi (raqobatli chiqarib yuborish): raqobatchi turlardan biri ikkinchisini siqib chiqaradi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "15",
+                                  "title":  "15-§. Neytralizm va bevosita biotik munosabatlar",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11043,
+                                                        "question":  "Bir hududda yashovchi turlarning bir-biriga bevosita ijobiy ham, salbiy ham ta\u0027sir ko\u0027rsatmasligi nima deyiladi?",
+                                                        "options":  [
+                                                                        "Neytralizm (0/0)",
+                                                                        "Mutualizm (+/+)",
+                                                                        "Amensalizm (0/-)",
+                                                                        "Raqobat (-/-)"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Neytralizm — bir o\u0027rmonda yashovchi olmaxon va bug\u0027uning bir-biriga bevosita ta\u0027siri bo\u0027lmasligidir."
+                                                    },
+                                                    {
+                                                        "id":  11044,
+                                                        "question":  "Neytralizm munosabatiga quyidagilardan qaysi biri to\u0027g\u0027ri misol bo\u0027ladi?",
+                                                        "options":  [
+                                                                        "Bir o\u0027rmondagi olmaxon va kiyik",
+                                                                        "Bo\u0027ri va quyon",
+                                                                        "Askarida va odam",
+                                                                        "Zamburug\u0027 va daraxt ildizi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Olmaxon yong\u0027oq va po\u0027stloq bilan, kiyik esa pastki o\u0027t-o\u0027lan bilan oziqlanib, bir-biriga ta\u0027sir qilmaydi."
+                                                    },
+                                                    {
+                                                        "id":  11045,
+                                                        "question":  "Ekotizimda turlar xilma-xilligining ortishi biotik munosabatlarga qanday ta\u0027sir qiladi?",
+                                                        "options":  [
+                                                                        "Oziq to\u0027rlarini murakkablashtiradi va tizim barqarorligini oshiradi",
+                                                                        "Ekotizimni darhol yemiradi",
+                                                                        "Barcha turlarning qirilib ketishiga olib keladi",
+                                                                        "Tizimni beqaror qilib qo\u0027yadi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Turlar qancha ko\u0027p bo\u0027lsa, oziq aloqalari shuncha ko\u0027p tarmoqlanadi va ekotizim gomeostazi mustahkam bo\u0027ladi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "16",
+                                  "title":  "16-§. Ekotizimda oziq zanjirlari va to\u0027rlari",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11046,
+                                                        "question":  "Yashil o\u0027simliklardan boshlanib o\u0027txo\u0027r va yirtqich hayvonlarga o\u0027tuvchi zanjir nima deyiladi?",
+                                                        "options":  [
+                                                                        "Yaylov (iste\u0027mol) oziq zanjiri",
+                                                                        "Detrit (chirindi) oziq zanjiri",
+                                                                        "Mineral zanjir",
+                                                                        "Parazitar zanjir"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Yaylov zanjiri doimo yashil o\u0027simlik (produsent)dan boshlanadi: O\u0027simlik -\u003e Hasharot -\u003e Qush -\u003e Yirtqich."
+                                                    },
+                                                    {
+                                                        "id":  11047,
+                                                        "question":  "O\u0027lik organik modda (xazon, o\u0027laksalar)dan boshlanuvchi oziq zanjiri qanday ataladi?",
+                                                        "options":  [
+                                                                        "Detrit (chirindi) oziq zanjiri",
+                                                                        "Yaylov zanjiri",
+                                                                        "Birlamchi zanjir",
+                                                                        "Fototrofik zanjir"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Detrit zanjiri: Xazon -\u003e Yomg\u0027ir chuvalchangi -\u003e Qoraqush/Bakteriya."
+                                                    },
+                                                    {
+                                                        "id":  11048,
+                                                        "question":  "O\u0027txo\u0027r hayvonlar (quyon, kiyik, qo\u0027ziqorin) oziq zanjirida qaysi trofik darajani egallaydi?",
+                                                        "options":  [
+                                                                        "2-trofik daraja (1-tartib konsumentlar)",
+                                                                        "1-trofik daraja (produsentlar)",
+                                                                        "3-trofik daraja (yirtqichlar)",
+                                                                        "Redutsentlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "1-daraja — produsentlar (o\u0027simlik), 2-daraja — 1-tartib konsumentlar (o\u0027txo\u0027rlar)."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "17",
+                                  "title":  "17-§. Ekotizimlarning ekologik piramidalari",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11049,
+                                                        "question":  "Ekologik piramidalar qonuniyatini fanga kiritgan olim kim?",
+                                                        "options":  [
+                                                                        "Charlz Elton (1927-yil)",
+                                                                        "Artur Tensli",
+                                                                        "Ernst Gekkel",
+                                                                        "Gregor Mendel"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Ingliz zoologi Charlz Elton ekologik piramidalar (sonlar, biomassa, energiya) qoidasini fanga kiritgan."
+                                                    },
+                                                    {
+                                                        "id":  11050,
+                                                        "question":  "Har bir keyingi trofik pog\u0027onaga energiyaning taxminan qancha qismi o\u0027tadi (10% qoidasi)?",
+                                                        "options":  [
+                                                                        "10% ga yaqini",
+                                                                        "50% qismi",
+                                                                        "90% qismi",
+                                                                        "100% to\u0027liq"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Lindeman qoidasi: olingan energiyaning taxminan 90%i issiqlik bo\u0027lib tarqaladi, faqat 10%i keyingi pog\u0027onaga o\u0027tadi."
+                                                    },
+                                                    {
+                                                        "id":  11051,
+                                                        "question":  "Qaysi ekologik piramida HECH QACHON to\u0027ntarilgan (teskari) bo\u0027lmaydi?",
+                                                        "options":  [
+                                                                        "Energiya piramidasi",
+                                                                        "Sonlar piramidasi",
+                                                                        "Biomassa piramidasi",
+                                                                        "Hajm piramidasi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Termodinamika qonunlariga ko\u0027ra, energiya piramidasi har doim pastdan yuqoriga torayib boradi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "18",
+                                  "title":  "18-§. Ekotizimlarning mahsuldorligi va biomassasi",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11052,
+                                                        "question":  "Ekotizimda vaqt birligida yashil o\u0027simliklar sintezlagan jami organik modda miqdori nima?",
+                                                        "options":  [
+                                                                        "Birlamchi mahsuldorlik",
+                                                                        "Ikkilamchi mahsuldorlik",
+                                                                        "Tirik modda",
+                                                                        "Sof biomassaning yo\u0027qolishi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Birlamchi mahsuldorlik — fotosintezlovchi avtotroflar yaratgan organik moddadir."
+                                                    },
+                                                    {
+                                                        "id":  11053,
+                                                        "question":  "Geterotrof organizmlar (konsumentlar va redutsentlar) hisobiga to\u0027plangan biomassa nima deyiladi?",
+                                                        "options":  [
+                                                                        "Ikkilamchi mahsuldorlik",
+                                                                        "Birlamchi mahsuldorlik",
+                                                                        "Yalpi mahsulot",
+                                                                        "Sof mahsulot"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Ikkilamchi mahsulot — konsumentlarning o\u0027sishi va ko\u0027payishi hisobiga yaratilgan organik moddadir."
+                                                    },
+                                                    {
+                                                        "id":  11054,
+                                                        "question":  "Quruqlikdagi eng yuqori birlamchi mahsuldorlikka ega bo\u0027lgan ekotizim qaysi?",
+                                                        "options":  [
+                                                                        "Nam tropik o\u0027rmonlar",
+                                                                        "Tundra ekotizimi",
+                                                                        "Cho\u0027llar",
+                                                                        "Muzliklar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Nam tropik o\u0027rmonlarda issiqlik va namlik mo\u0027l bo\u0027lgani uchun yillik organik modda sintezi eng yuqori bo\u0027ladi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "19",
+                                  "title":  "19-§. Ekotizimlarning dinamikasi va suksessiya",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11055,
+                                                        "question":  "Muayyan hududda biotsenozlarning qonuniy ravishda bir-birini izchil almashtirishi nima deyiladi?",
+                                                        "options":  [
+                                                                        "Suksessiya",
+                                                                        "Fluktuatsiya",
+                                                                        "Evolutsiya",
+                                                                        "Adaptatsiya"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Suksessiya (lotincha «successio» — vorislik) — ekotizimlarning ketma-ket almashinish jarayonidir."
+                                                    },
+                                                    {
+                                                        "id":  11056,
+                                                        "question":  "Ilgari hayot bo\u0027lmagan yalang\u0027och tosh, qum yoki lava ustida boshlanadigan suksessiya nima?",
+                                                        "options":  [
+                                                                        "Birlamchi suksessiya",
+                                                                        "Ikkilamchi suksessiya",
+                                                                        "Gidrofil suksessiya",
+                                                                        "Klimaks"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Birlamchi suksessiya tuproqsiz toza substratda (masalan, tosh ustida lishayniklar paydo bo\u0027lishidan) boshlanadi."
+                                                    },
+                                                    {
+                                                        "id":  11057,
+                                                        "question":  "Suksessiya natijasida shakllanadigan yakuniy, eng barqaror va muvozanatli jamoa nima deyiladi?",
+                                                        "options":  [
+                                                                        "Klimaks jamoa",
+                                                                        "Pioner jamoa",
+                                                                        "Vaqtinchalik jamoa",
+                                                                        "Monokultura"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Klimaks (yakuniy) jamoa — tashqi sharoit o\u0027zgarmasa, uzoq asrlar o\u0027zini saqlab turadigan barqaror tizimdir."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "20",
+                                  "title":  "20-§. Agroekotizimlar (agrotsenozlar) va ularning xususiyatlari",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11058,
+                                                        "question":  "Agrotsenozlarning tabiiy biogeotsenozlardan asosiy farqi nimada?",
+                                                        "options":  [
+                                                                        "Turlar xilma-xilligining kamligi, sun\u0027iy tanlash va tashqi energiya (inson mehnati)ga bog\u0027liqligi",
+                                                                        "O\u0027z-o\u0027zini mustaqil boshqara olishi",
+                                                                        "Mutlaq barqarorligi va yuzlab yillar o\u0027zgarmasligi",
+                                                                        "Konsumentlar va redutsentlarning bo\u0027lmasligi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Agrotsenozlar bir tur (monokultura) ustunligiga asoslangan, beqaror va inson aralashuvisiz yashay olmaydigan tizimlardir."
+                                                    },
+                                                    {
+                                                        "id":  11059,
+                                                        "question":  "Inson agrotsenozlardan qishloq xo\u0027jalik mahsulotlarini yig\u0027ishtirib olishi natijasida nima sodir bo\u0027ladi?",
+                                                        "options":  [
+                                                                        "Biologik moddalar aylanmasi uziladi va tuproqqa o\u0027g\u0027it solish talab etiladi",
+                                                                        "Tuproq o\u0027z-o\u0027zidan yanada unumdorlashadi",
+                                                                        "Moddalar aylanmasi butunlay yopiq bo\u0027ladi",
+                                                                        "Turlar soni o\u0027z-o\u0027zidan keskin ortadi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Hosil bilan birga elementlar olib chiqib ketiladi, shuning uchun mineral va organik o\u0027g\u0027it kiritilishi shart."
+                                                    },
+                                                    {
+                                                        "id":  11060,
+                                                        "question":  "Agrotsenozlarga inson aralashuvi to\u0027xtatilsa, ularda qanday jarayon kechadi?",
+                                                        "options":  [
+                                                                        "Suksessiya sodir bo\u0027lib, tabiiy jamoa tiklanadi",
+                                                                        "Abadiy cho\u0027lga aylanadi",
+                                                                        "Madaniy o\u0027simliklar o\u0027rmon hosil qiladi",
+                                                                        "Hech qanday o\u0027zgarish bo\u0027lmaydi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Begona o\u0027tlar va yovvoyi o\u0027simliklar madaniy navlarni siqib chiqaradi va tabiiy o\u0027tloq yoki butazorga aylanadi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "21",
+                                  "title":  "21-§. Biosfera — Yerning global ekotizimi va uning chegaralari",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11061,
+                                                        "question":  "«Biosfera» atamasini 1875-yilda birinchi bo\u0027lib fanga kiritgan geolog olim kim?",
+                                                        "options":  [
+                                                                        "Eduard Zyuss",
+                                                                        "V.I. Vernadskiy",
+                                                                        "J.B. Lamark",
+                                                                        "Ch. Darvin"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Avstriyalik geolog Eduard Zyuss 1875-yilda Yerning hayot qobig\u0027i ma\u0027nosida «biosfera» atamasini kiritgan."
+                                                    },
+                                                    {
+                                                        "id":  11062,
+                                                        "question":  "Biosferaning yaxlit ta\u0027limotini yaratgan va uning biogeokimyoviy qonuniyatlarini ochgan buyuk olim kim?",
+                                                        "options":  [
+                                                                        "V.I. Vernadskiy (1926-yil)",
+                                                                        "E. Zyuss",
+                                                                        "E. Gekkel",
+                                                                        "A. Tensli"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Akademik V.I. Vernadskiy 1926-yilda o\u0027zining mashhur «Biosfera» asari bilan biosfera ta\u0027limotiga asos soldi."
+                                                    },
+                                                    {
+                                                        "id":  11063,
+                                                        "question":  "Biosferaning atmosferadagi yuqori chegarasini nima belgilaydi?",
+                                                        "options":  [
+                                                                        "Ozon ekrani (20-25 km balandlik)",
+                                                                        "Bulutlar qatlami",
+                                                                        "Kislorodning tugashi",
+                                                                        "Termosfera harorati"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Quyoshning halokatli qisqa to\u0027lqinli ultrabinafsha nurlarini tutib qoluvchi ozon qatlami hayotning yuqori chegarasidir."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "22",
+                                  "title":  "22-§. Biosferaning tarkibi va V.I. Vernadskiy ta\u0027limoti",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11064,
+                                                        "question":  "Vernadskiy tasnifiga ko\u0027ra, biosferadagi barcha tirik organizmlar yig\u0027indisi nima deyiladi?",
+                                                        "options":  [
+                                                                        "Tirik modda",
+                                                                        "Biogen modda",
+                                                                        "Kos modda",
+                                                                        "Bio-kos modda"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Tirik modda — Yer yuzidagi barcha tirik mavjudotlarning son va sifat jihatdan umumiy yig\u0027indisidir."
+                                                    },
+                                                    {
+                                                        "id":  11065,
+                                                        "question":  "Tirik organizmlarning hayot faoliyati natijasida hosil bo\u0027lgan jonsiz moddalar (ko\u0027mir, neft, ohaktosh) qanday ataladi?",
+                                                        "options":  [
+                                                                        "Biogen modda",
+                                                                        "Kos modda",
+                                                                        "Bio-kos modda",
+                                                                        "Radioaktiv modda"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Biogen modda — o\u0027tmishdagi tirik organizmlar tomonidan yaratilgan va to\u0027plangan geologik jinslardir."
+                                                    },
+                                                    {
+                                                        "id":  11066,
+                                                        "question":  "Tirik organizmlar va anorganik tabiatning birgalikdagi ta\u0027siri mahsuli bo\u0027lgan tuproq va loyqa nima deyiladi?",
+                                                        "options":  [
+                                                                        "Bio-kos modda",
+                                                                        "Biogen modda",
+                                                                        "Kos modda",
+                                                                        "Magma"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Bio-kos modda — tirik organizmlar va o\u0027lik minerallarning o\u0027zaro ta\u0027siridan hosil bo\u0027ladi (tuproq, daryo loyi)."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "23",
+                                  "title":  "23-§. Biosferada tirik moddaning funksiyalari",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11067,
+                                                        "question":  "Atmosferaning hozirgi kislorodli va karbonat angidridli tarkibini shakllantirgan tirik modda funksiyasi qaysi?",
+                                                        "options":  [
+                                                                        "Gaz funksiyasi",
+                                                                        "Konsentratsion funksiya",
+                                                                        "Oksidlanish-qaytarilish funksiyasi",
+                                                                        "Destruktiv funksiya"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Gaz funksiyasi — fotosintez (O2 ajralishi) va nafas olish (CO2 hosil bo\u0027lishi) orqali gazlar balansini ta\u0027minlaydi."
+                                                    },
+                                                    {
+                                                        "id":  11068,
+                                                        "question":  "Organizmlarning tashqi muhitdan kimyoviy elementlarni tanlab to\u0027plashi (kremniy, kalsiy, yod) qaysi funksiya?",
+                                                        "options":  [
+                                                                        "Konsentratsion funksiya",
+                                                                        "Gaz funksiyasi",
+                                                                        "Mexanik funksiya",
+                                                                        "Termoregulyatsiya"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Konsentratsion funksiya — diatom suvo\u0027tlar kremniy, mollyuskalar kalsiy, laminariya yod to\u0027playdi."
+                                                    },
+                                                    {
+                                                        "id":  11069,
+                                                        "question":  "O\u0027lik organik moddalarni noorganik minerallargacha parchalash funksiyasi nima deb ataladi?",
+                                                        "options":  [
+                                                                        "Destruktiv (parchalovchi) funksiya",
+                                                                        "Konsentratsion funksiya",
+                                                                        "Kosmik funksiya",
+                                                                        "Energetik funksiya"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Destruktiv funksiya — redutsentlar orqali o\u0027lik biomassa minerallashadi va davriy aylanmaga qaytadi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "24",
+                                  "title":  "24-§. Biosferada moddalar va energiya aylanmasi",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11070,
+                                                        "question":  "Biosferadagi barcha hayotiy jarayonlar va moddalar harakatining birlamchi quvvat manbai nima?",
+                                                        "options":  [
+                                                                        "Quyoshning nur energiyasi",
+                                                                        "Yerning ichki geotermal issiqligi",
+                                                                        "Okean to\u0027lqinlari",
+                                                                        "Vulqonlar energiyasi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Biosferada fotosintez orqali Quyosh energiyasi organik birikmalarning kimyoviy bog\u0027lar energiyasiga aylanadi."
+                                                    },
+                                                    {
+                                                        "id":  11071,
+                                                        "question":  "Biosferada moddalar harakati va energiya oqimining tub farqi nimada?",
+                                                        "options":  [
+                                                                        "Moddalar doiraviy davriy aylanadi, energiya esa bir tomonlama oqib tarqaladi",
+                                                                        "Energiya doiraviy aylanadi, moddalar esa yo\u0027qoladi",
+                                                                        "Ikkalasi ham cheksiz aylanadi",
+                                                                        "Hech biri aylanmaydi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Moddalar biosferada ko\u0027p marta aylanadi (siklik), energiya esa trofik zanjirda issiqlik bo\u0027lib tarqaladi (bir tomonlama)."
+                                                    },
+                                                    {
+                                                        "id":  11072,
+                                                        "question":  "Yashil o\u0027simliklar o\u0027zlashtiradigan Quyosh nurining umumiy tushayotgan miqdoriga nisbatan ulushi qancha?",
+                                                        "options":  [
+                                                                        "Taxminan 1-2%",
+                                                                        "100%",
+                                                                        "50%",
+                                                                        "25%"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Yerga tushayotgan Quyosh nurining atigi 1-2 foizi fotosintezda organik modda sinteziga sarflanadi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "25",
+                                  "title":  "25-§. Biosferada geokimyoviy davriy aylanishlar: suv, uglerod va azot sikllari",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11073,
+                                                        "question":  "Atmosferadagi molekulyar azotni (N2) o\u0027zlashtirib, o\u0027simliklar foydalana oladigan birikmaga aylantiruvchi organizmlar qaysi?",
+                                                        "options":  [
+                                                                        "Azotfiksatsiyalovchi va tugunak bakteriyalari",
+                                                                        "Nitrifikatsiyalovchi bakteriyalar",
+                                                                        "Zamburug\u0027lar",
+                                                                        "Barcha yashil o\u0027simliklar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Atmosfera gazsimon azotini faqat prokariotlar (azotfiksator bakteriyalar va sianobakteriyalar) fiksatsiya qila oladi."
+                                                    },
+                                                    {
+                                                        "id":  11074,
+                                                        "question":  "Uglerod siklida atmosferadan CO2 gazini yutuvchi asosiy global jarayon qaysi?",
+                                                        "options":  [
+                                                                        "O\u0027simliklar va fitoplankton fotosintezi",
+                                                                        "Hayvonlarning nafas olishi",
+                                                                        "Vulqonlar otilishi",
+                                                                        "O\u0027rmon yong\u0027inlari"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Fotosintez jarayoni atmosferadan gigant miqdorda karbonat angidridni yutib, organik moddaga aylantiradi."
+                                                    },
+                                                    {
+                                                        "id":  11075,
+                                                        "question":  "Organik moddalar chirishi natijasida hosil bo\u0027lgan ammiakni nitratlargacha oksidlovchi bakteriyalar nima?",
+                                                        "options":  [
+                                                                        "Nitrifikatsiyalovchi bakteriyalar",
+                                                                        "Denitrifikatsiyalovchi bakteriyalar",
+                                                                        "Bijg\u0027ituvchi bakteriyalar",
+                                                                        "Parazitlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Nitrifikatsiya bakteriyalari (Nitrosomonas, Nitrobacter) ammiakni nitratlarga aylantiradi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "26",
+                                  "title":  "26-§. Noosfera — biosferaning yangi rivojlanish bosqichi",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11076,
+                                                        "question":  "«Noosfera» (aql-idrok qobig\u0027i) atamasini fanga kiritgan faylasuf olimlar kimlar?",
+                                                        "options":  [
+                                                                        "Eduard Le Rua va Pyer Teyyar de Sharden",
+                                                                        "V.I. Vernadskiy",
+                                                                        "E. Gekkel",
+                                                                        "Ch. Darvin"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "1927-yilda fransuz olimlari E. Le Rua va Teyyar de Sharden noosfera tushunchasini taklif etganlar."
+                                                    },
+                                                    {
+                                                        "id":  11077,
+                                                        "question":  "Noosfera tushunchasini biosferaning inson ongi boshqaradigan yangi evolutsion bosqichi sifatida rivojlantirgan olim kim?",
+                                                        "options":  [
+                                                                        "V.I. Vernadskiy",
+                                                                        "E. Zyuss",
+                                                                        "N.I. Vavilov",
+                                                                        "K.A. Timiryazev"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Vernadskiy noosferani inson faoliyati sayyoraviy geologik kuchga aylanadigan oliy biosfera bosqichi deb ta\u0027riflagan."
+                                                    },
+                                                    {
+                                                        "id":  11078,
+                                                        "question":  "Noosferaning asosiy tamoyillaridan biri nima?",
+                                                        "options":  [
+                                                                        "Tabiat va jamiyat o\u0027rtasidagi uyg\u0027unlik, ilmiy asoslangan barqaror rivojlanish",
+                                                                        "Tabiat boyliklarini to\u0027xtovsiz talon-taroj qilish",
+                                                                        "Barcha o\u0027rmonlarni yo\u0027qotish",
+                                                                        "Yadro urushlarini olib borish"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Noosferada inson tafakkuri tabiatni asrash, tiklash va muvozanatli rivojlantirishga xizmat qiladi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "27",
+                                  "title":  "27-§. Insonning biosferaga antropogen ta\u0027siri",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11079,
+                                                        "question":  "Insonning xo\u0027jalik faoliyati natijasida tabiiy muhitga ko\u0027rsatadigan barcha ta\u0027sirlari nima deyiladi?",
+                                                        "options":  [
+                                                                        "Antropogen omillar",
+                                                                        "Abiotik omillar",
+                                                                        "Biotik omillar",
+                                                                        "Kosmik omillar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Antropogen omillar (yunoncha «anthropos» — inson) — inson faoliyati bilan bog\u0027liq ta\u0027sirlardir."
+                                                    },
+                                                    {
+                                                        "id":  11080,
+                                                        "question":  "Antropogen ta\u0027sirning bilvosita ko\u0027rinishiga nima misol bo\u0027ladi?",
+                                                        "options":  [
+                                                                        "Iqlim o\u0027zgarishi natijasida cho\u0027llanish va o\u0027rmon maydonlarining qisqarishi",
+                                                                        "Daraxtni to\u0027g\u0027ridan-to\u0027g\u0027ri kesish",
+                                                                        "Yovvoyi hayvonni bevosita ovlash",
+                                                                        "Baliqni to\u0027r bilan tutish"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Bilvosita ta\u0027sirda inson muhit sharoitini o\u0027zgartirishi oqibatida boshqa biologik turlar zararlanadi."
+                                                    },
+                                                    {
+                                                        "id":  11081,
+                                                        "question":  "Barqaror rivojlanish (Sustainable Development) konsepsiyasining mohiyati nimada?",
+                                                        "options":  [
+                                                                        "Bugungi ehtiyojlarni kelajak avlodlar imkoniyatiga zarar yetkazmagan holda qondirish",
+                                                                        "Barcha tabiiy resurslarni tezroq ishlatib tugatish",
+                                                                        "Sanoatni butunlay to\u0027xtatish",
+                                                                        "Faqat shaharlarni kengaytirish"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Barqaror rivojlanish — iqtisodiy o\u0027sish va tabiat muhofazasini muvozanatli olib borishdir."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "28",
+                                  "title":  "28-§. Atmosferaning ifloslanishi va uni muhofaza qilish",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11082,
+                                                        "question":  "Sanoat korxonalari va transport chiqargan tutun, chang va tuman aralashmasi nima deb ataladi?",
+                                                        "options":  [
+                                                                        "Smog (zaharli tuman)",
+                                                                        "Tuman",
+                                                                        "Bulut",
+                                                                        "Kondensat"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Smog — havoning zararli gazlar va aerozollar bilan xavfli darajada tutashishi natijasida hosil bo\u0027ladi."
+                                                    },
+                                                    {
+                                                        "id":  11083,
+                                                        "question":  "Atmosferada issiqlikni ushlab qolib global harorat ko\u0027tarilishiga sabab bo\u0027luvchi asosiy gaz qaysi?",
+                                                        "options":  [
+                                                                        "Karbonat angidrid (CO2) va Metan (CH4)",
+                                                                        "Kislorod (O2)",
+                                                                        "Azot (N2)",
+                                                                        "Argon (Ar)"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "CO2 va CH4 issiqxona gazlari bo\u0027lib, infraqizil nurlarni yutib, Yer yuzasida haroratni oshiradi."
+                                                    },
+                                                    {
+                                                        "id":  11084,
+                                                        "question":  "Shaharlarda havoni tozalash va kislorod bilan boyitishning eng samarali biologik usuli nima?",
+                                                        "options":  [
+                                                                        "Yashil belbog\u0027lar va daraxtzorlar barpo etish",
+                                                                        "Ko\u0027chalarni asfaltlash",
+                                                                        "Binolarni baland qurish",
+                                                                        "Suv sepish"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Daraxtlar changni tutadi, shovqinni pasaytiradi, fotosintez orqali kislorod ajratadi va fitonsidlar tarqatadi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "29",
+                                  "title":  "29-§. Gidrosferaning ifloslanishi va suv resurslarini muhofaza qilish",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11085,
+                                                        "question":  "Suv havzalariga fosfor va azot birikmalari oqishi natijasida suvo\u0027tlarning yalpi ko\u0027payib ketishi nima?",
+                                                        "options":  [
+                                                                        "Evtrofikatsiya («suvning gullashi»)",
+                                                                        "Distrofikatsiya",
+                                                                        "Oligotrofizatsiya",
+                                                                        "Mineralizatsiya"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Evtrofikatsiya — suvda oziq elementlari ko\u0027payib, suvo\u0027tlar haddan ziyod ko\u0027payishi va kislorod tanqisligi kelib chiqishidir."
+                                                    },
+                                                    {
+                                                        "id":  11086,
+                                                        "question":  "Suv yuzasiga to\u0027kilgan neft mahsulotlarining asosiy ekologik xavfi nimada?",
+                                                        "options":  [
+                                                                        "Yupqa parda hosil qilib atmosfera bilan gaz almashinuvini to\u0027sishi va qushlar patini zararlashi",
+                                                                        "Suvni juda chuchuk qilib qo\u0027yishi",
+                                                                        "Suv haroratini muzlatishi",
+                                                                        "Bentosni ko\u0027paytirishi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Neft pardasi suvga kislorod erishini to\u0027xtatadi va qanotli qushlar hamda baliqlarni nobud qiladi."
+                                                    },
+                                                    {
+                                                        "id":  11087,
+                                                        "question":  "Oqova suvlarni tozalashning biologik usuli nimaga asoslangan?",
+                                                        "options":  [
+                                                                        "Maxsus mikroorganizmlar (faol loyqa) yordamida organik moddalarni parchalash",
+                                                                        "Faqat xlorlash",
+                                                                        "Faqat qum orqali suzish",
+                                                                        "Suvni qaynatish"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Biologik tozalash inshootlarida aerob va anaerob bakteriyalar organik chiqindilarni yeb zararsizlantiradi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "30",
+                                  "title":  "30-§. Litosferaning ifloslanishi va tuproqni muhofaza qilish",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11088,
+                                                        "question":  "Tuproqning unumdor ustki qatlamining shamol yoki suv oqimi ta\u0027sirida yuvilib yemirilishi nima deyiladi?",
+                                                        "options":  [
+                                                                        "Tuproq eroziyasi",
+                                                                        "Suksessiya",
+                                                                        "Melioratsiya",
+                                                                        "Rekultivatsiya"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Tuproq eroziyasi (lotincha «erosio» — yemirilish) — shamol (deflyatsiya) va suv eroziyasiga bo\u0027linadi."
+                                                    },
+                                                    {
+                                                        "id":  11089,
+                                                        "question":  "Buzilgan yerlarni (masalan, ochiq konlar, karyerlar) qayta tiklash va ekin ekishga yaroqli qilish jarayoni nima?",
+                                                        "options":  [
+                                                                        "Rekultivatsiya",
+                                                                        "Degradatsiya",
+                                                                        "Urbanizatsiya",
+                                                                        "Melioratsiya"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Rekultivatsiya — foydali qazilmalar qazib olingan maydonlarni tekislash, unumdor tuproq to\u0027kib ko\u0027kalamzorlashtirishdir."
+                                                    },
+                                                    {
+                                                        "id":  11090,
+                                                        "question":  "Qishloq xo\u0027jaligida zararli hasharotlarga qarshi kimyoviy vositalar o\u0027rniga nima qo\u0027llash tavsiya etiladi?",
+                                                        "options":  [
+                                                                        "Biologik kurash usuli (tabiiy kushandalar va entomofaglar)",
+                                                                        "Ko\u0027proq kimyoviy dori sepish",
+                                                                        "Barcha hasharotlarni yoqish",
+                                                                        "Gerbitsidlarni oshirish"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Biologik usulda xonqizi qo\u0027ng\u0027izi, trixogramma, brakon kabi foydali kushandalar qo\u0027llaniladi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "31",
+                                  "title":  "31-§. Radioaktiv ifloslanish va uning oqibatlari",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11091,
+                                                        "question":  "Radioaktiv nurlanishning tirik organizm hujayralariga eng xavfli ta\u0027siri nimada?",
+                                                        "options":  [
+                                                                        "DNK molekulasini shikastlab kuchli gen va xromosoma mutatsiyalarini keltirib chiqarishi",
+                                                                        "Faqat terini qoraytirishi",
+                                                                        "Tana haroratini sovutishi",
+                                                                        "Fotosintezni tezlashtirishi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Ionlashtiruvchi radiatsiya suv radiolizini keltirib chiqaradi, erkin radikallar DNKni uzib, xavfli o\u0027smalar paydo qiladi."
+                                                    },
+                                                    {
+                                                        "id":  11092,
+                                                        "question":  "Radioaktiv stronsiy (Sr-90) kimyoviy xossasiga ko\u0027ra qaysi elementga o\u0027xshash bo\u0027lib suyakda to\u0027planadi?",
+                                                        "options":  [
+                                                                        "Kalsiy (Ca)",
+                                                                        "Kaliy (K)",
+                                                                        "Natriy (Na)",
+                                                                        "Temir (Fe)"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Stronsiy-90 kalsiy analogi bo\u0027lib, suyak to\u0027qimasiga o\u0027tirib, ilikda leykemiya (qon saratoni) chaqiradi."
+                                                    },
+                                                    {
+                                                        "id":  11093,
+                                                        "question":  "Radioaktiv yod (I-131) izotopi insonning qaysi a\u0027zosida eng ko\u0027p to\u0027planadi?",
+                                                        "options":  [
+                                                                        "Qalqonsimon bezda",
+                                                                        "Buyraklarda",
+                                                                        "Yurakda",
+                                                                        "O\u0027pkada"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Qalqonsimon bez tiroksin gormoni uchun yodni faol to\u0027playdi, shu sababli I-131 bez to\u0027qimasini nurlantiradi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "32",
+                                  "title":  "32-§. Global ekologik muammolar: issiqxona effekti, ozon teshigi va kislotali yomg\u0027irlar",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11094,
+                                                        "question":  "Ozon qatlamining yemirilishiga asosiy sabab bo\u0027lgan texnogen moddalar nima?",
+                                                        "options":  [
+                                                                        "Xlorftoruglerodlar (freonlar)",
+                                                                        "Karbonat angidrid",
+                                                                        "Kislorod",
+                                                                        "Argon"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Sovutkichlar va aerozol balonlaridagi freonlar stratosferaga ko\u0027tarilib, ajralgan xlor ozonni (O3) parchalaydi."
+                                                    },
+                                                    {
+                                                        "id":  11095,
+                                                        "question":  "Kislotali yomg\u0027irlarning hosil bo\u0027lishiga atmosferadagi qaysi gazlarning chiqishi sabab bo\u0027ladi?",
+                                                        "options":  [
+                                                                        "Oltingugurt dioksidi (SO2) va azot oksidlari (NOx)",
+                                                                        "Sof kislorod va geliy",
+                                                                        "Argon va neon",
+                                                                        "Vodorod va metan"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "SO2 va NOx havodagi suv bug\u0027i bilan birikib, sulfat va nitrat kislotalarini hosil qiladi."
+                                                    },
+                                                    {
+                                                        "id":  11096,
+                                                        "question":  "Issiqxona effekti natijasida yuzaga keladigan eng xavfli global oqibat nima?",
+                                                        "options":  [
+                                                                        "Qutb muzliklarining erishi va Dunyo okeani sathining ko\u0027tarilishi",
+                                                                        "Yerning butunlay muzlab qolishi",
+                                                                        "Atmosfera bosimining nolga tushishi",
+                                                                        "Quyosh nurlarining to\u0027xtashi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Global isish abadiy muzliklarni eritib, qirg\u0027oqbo\u0027yi hududlarini suv bosishiga va qurg\u0027oqchilikka olib keladi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "33",
+                                  "title":  "33-§. O\u0027zbekistonning ekologik muammolari. Orol dengizi fojiasi",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11097,
+                                                        "question":  "Orol dengizining qurishiga olib kelgan asosiy sabab nima?",
+                                                        "options":  [
+                                                                        "Amudaryo va Sirdaryo suvlarining sug\u0027orishga me\u0027yordan ortiq olinishi",
+                                                                        "Iqlimning tabiiy sovishi",
+                                                                        "Suvning yer ostiga singib ketishi",
+                                                                        "Dengiz tubidagi vulqon"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "XX asrning 60-yillaridan boshlab asosiy ikki daryo oqimi sug\u0027orishga burilishi oqibatida Orol fojiasi yuzaga keldi."
+                                                    },
+                                                    {
+                                                        "id":  11098,
+                                                        "question":  "Orol dengizining qurigan tubida hosil bo\u0027lgan yangi qum-tuz cho\u0027li nima deb ataladi?",
+                                                        "options":  [
+                                                                        "Orolqum",
+                                                                        "Qizilqum",
+                                                                        "Qoraqum",
+                                                                        "Ustyurt"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Orolqum — dengizning qurigan 5 million gektardan ortiq maydonida yuzaga kelgan sho\u0027r qum cho\u0027lidir."
+                                                    },
+                                                    {
+                                                        "id":  11099,
+                                                        "question":  "Orolqum tubida chang va tuz ko\u0027chishini to\u0027xtatish uchun qanday o\u0027simliklar ommaviy ekilmoqda?",
+                                                        "options":  [
+                                                                        "Qora saksovul, qandim va cherkez",
+                                                                        "Archa va eman",
+                                                                        "Olma va o\u0027rik",
+                                                                        "Qamish va nilufar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Cho\u0027l o\u0027simliklari — saksovul va qandim kuchli ildiz tizimi bilan qumni ushlab qoladi va fitomelioratsiya vazifasini bajaradi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "34",
+                                  "title":  "34-§. O\u0027simlik va hayvonot dunyosini muhofaza qilish. Qizil kitob va qo\u0027riqxonalar",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11100,
+                                                        "question":  "O\u0027zbekiston Respublikasining «Qizil kitobi» birinchi marta nechanchi yilda nashr etilgan?",
+                                                        "options":  [
+                                                                        "1979-yil (1-jildi)",
+                                                                        "1991-yil",
+                                                                        "2000-yil",
+                                                                        "1960-yil"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "O\u0027zbekiston Qizil kitobining birinchi nashri 1979-yilda chop etilgan bo\u0027lib, unga noyob turlar kiritilgan."
+                                                    },
+                                                    {
+                                                        "id":  11101,
+                                                        "question":  "Tabiiy landshaftlar va turlarni asl holicha qat\u0027iy saqlab qoladigan eng yuqori rejimdagi hudud nima?",
+                                                        "options":  [
+                                                                        "Davlat qo\u0027riqxonasi",
+                                                                        "Buyurtmabog\u0027 (zakaznik)",
+                                                                        "Milliy bog\u0027",
+                                                                        "Dam olish oromgohi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Davlat qo\u0027riqxonalari tabiatni muhofaza qilishning eng yuqori qat\u0027iy rejimiga ega bo\u0027lgan ilmiy-tadqiqot maskanlaridir."
+                                                    },
+                                                    {
+                                                        "id":  11102,
+                                                        "question":  "Zomin davlat tog\u0027-archa qo\u0027riqxonasi qaysi tog\u0027 tizmasida joylashgan?",
+                                                        "options":  [
+                                                                        "Turkiston tog\u0027 tizmasi",
+                                                                        "Chotqol tog\u0027i",
+                                                                        "Hisor tog\u0027i",
+                                                                        "Nurota tog\u0027i"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Zomin qo\u0027riqxonasi Turkiston tog\u0027 tizmasining shimoliy yonbag\u0027irlarida noyob tog\u0027 archazorlarini asrash uchun tashkil etilgan."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "35",
+                                  "title":  "35-§. Organik olam filogenezining umumiy tavsifi va dalillari",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11103,
+                                                        "question":  "«Filogenez» atamasini tirik organizmlarning tarixiy rivojlanish jarayonini ifodalash uchun fanga kim kiritgan?",
+                                                        "options":  [
+                                                                        "Ernst Gekkel (1866-yil)",
+                                                                        "Charlz Darvin",
+                                                                        "Jan Batist Lamark",
+                                                                        "Karl Linney"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Filogenez atamasini E. Gekkel kiritgan («phylon» — urug\u0027, «genesis» — kelib chiqish)."
+                                                    },
+                                                    {
+                                                        "id":  11104,
+                                                        "question":  "Kelib chiqishi bir xil bo\u0027lib, turli funksiyalarni bajarishga moslashgan a\u0027zolar (odam qo\u0027li, qush qanoti, kit suzgichi) nima deyiladi?",
+                                                        "options":  [
+                                                                        "Gomologik a\u0027zolar",
+                                                                        "Analogik a\u0027zolar",
+                                                                        "Rudimentlar",
+                                                                        "Atavizmlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Gomologik a\u0027zolar umumiy embrional kelib chiqishga ega bo\u0027lib, divergensiya natijasida har xil shaklga kirgan."
+                                                    },
+                                                    {
+                                                        "id":  11105,
+                                                        "question":  "Kelib chiqishi har xil bo\u0027lib, bir xil vazifani bajaruvchi a\u0027zolar (kapalak qanoti va qush qanoti) qanday ataladi?",
+                                                        "options":  [
+                                                                        "Analogik a\u0027zolar",
+                                                                        "Gomologik a\u0027zolar",
+                                                                        "Rudimentlar",
+                                                                        "Atavizmlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Analogik a\u0027zolar konvergensiya natijasida o\u0027xshash vazifani bajarishga moslashgan har xil tuzilmalardir."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "36",
+                                  "title":  "36-§. O\u0027simliklar filogenezi. Yuksak o\u0027simliklar vegetativ organlarining kelib chiqishi",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11106,
+                                                        "question":  "Quruqlikka chiqqan eng qadimgi yuksak spora o\u0027simliklar — riniofitlar (psilofitlar) qaysi davrda paydo bo\u0027lgan?",
+                                                        "options":  [
+                                                                        "Silur davrining oxiri va Devon davrida",
+                                                                        "Kembriy davrida",
+                                                                        "Bo\u0027r davrida",
+                                                                        "Neogen davrida"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Paleozoy erasining Silur davri oxirida suvo\u0027tlardan dastlabki quruqlik o\u0027simliklari — riniofitlar kelib chiqqan."
+                                                    },
+                                                    {
+                                                        "id":  11107,
+                                                        "question":  "Yuksak o\u0027simliklarning poya, barg va ildiz kabi organlari riniofitlarning shoxlaridan kelib chiqqanini ta\u0027riflovchi nazariya nima?",
+                                                        "options":  [
+                                                                        "Telom nazariyasi (V. Simmerman)",
+                                                                        "Hujayra nazariyasi",
+                                                                        "Biogenetik nazariya",
+                                                                        "Xromosoma nazariyasi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Valter Simmerman yaratgan telom nazariyasiga ko\u0027ra, murakkab organlar telomlarning tekislanishi va birikishidan hosil bo\u0027lgan."
+                                                    },
+                                                    {
+                                                        "id":  11108,
+                                                        "question":  "Moxsimonlar evolutsiyasining o\u0027ziga xosligi nimada?",
+                                                        "options":  [
+                                                                        "Hayotiy siklida gametofit (jinsiy bo\u0027g\u0027in) ustunlik qiladi",
+                                                                        "Ularda haqiqiy gullar bo\u0027ladi",
+                                                                        "Sporofit mustaqil daraxt hosil qiladi",
+                                                                        "Ildiz tizimi nihoyatda kuchli"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Barcha boshqa yuksak o\u0027simliklarda sporofit ustun, faqat moxlarda yashil o\u0027simlik gametofit hisoblanadi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "37",
+                                  "title":  "37-§. O\u0027simliklar generativ organlarining evolutsiyasi",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11109,
+                                                        "question":  "O\u0027simliklar evolutsiyasida urug\u0027 bilan ko\u0027payishning spora orqali ko\u0027payishdan asosiy afzalligi nimada?",
+                                                        "options":  [
+                                                                        "Urug\u0027lanish jarayoni suvli muhitga bog\u0027liq bo\u0027lmay qoldi va murtak zaxira oziqqa ega bo\u0027ldi",
+                                                                        "Urug\u0027lar faqat suvda unib chiqadi",
+                                                                        "Urug\u0027da xromosomalar kamroq bo\u0027ladi",
+                                                                        "Urug\u0027 faqat shamolda uchadi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Urug\u0027li o\u0027simliklarda changlanish va urug\u0027lanish suv tomchisiz sodir bo\u0027ladi, bu ularga quruqlikni keng egallash imkonini berdi."
+                                                    },
+                                                    {
+                                                        "id":  11110,
+                                                        "question":  "Yopiq urug\u0027li (gulli) o\u0027simliklarda qo\u0027sh urug\u0027lanish hodisasini 1898-yilda kim kashf etgan?",
+                                                        "options":  [
+                                                                        "S.G. Navashin",
+                                                                        "V.I. Vernadskiy",
+                                                                        "G. Mendel",
+                                                                        "Ch. Darvin"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Rus olimi S.G. Navashin gulli o\u0027simliklarda qo\u0027sh urug\u0027lanishni kashf etgan."
+                                                    },
+                                                    {
+                                                        "id":  11111,
+                                                        "question":  "Qo\u0027sh urug\u0027lanishda 2-spermiy markaziy hujayra bilan qo\u0027shilib qanday to\u0027qima hosil qiladi?",
+                                                        "options":  [
+                                                                        "Triploid (3n) endosperm",
+                                                                        "Diploid (2n) murtak",
+                                                                        "Urug\u0027 po\u0027sti",
+                                                                        "Gulo\u0027rni"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "2-spermiy markaziy hujayra bilan qo\u0027shilib, 3n (triploid) zaxira oziq to\u0027qimasi — endospermni hosil qiladi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "38",
+                                  "title":  "38-§. Hayvonot dunyosidagi asosiy evolutsion o\u0027zgarishlar (aromorfozlar)",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11112,
+                                                        "question":  "Tashkilotlanish darajasini tubdan ko\u0027tarib, yangi yashash muhitlarini egallashga imkon beruvchi yirik evolutsion o\u0027zgarish nima?",
+                                                        "options":  [
+                                                                        "Aromorfoz",
+                                                                        "Idioadaptatsiya",
+                                                                        "Umumiy degeneratsiya",
+                                                                        "Modifikatsiya"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "A.N. Severtsov ta\u0027limotiga ko\u0027ra, aromorfoz morfofiziologik yuksalish bo\u0027lib, yirik sinf va tiplarni vujudga keltiradi."
+                                                    },
+                                                    {
+                                                        "id":  11113,
+                                                        "question":  "Umurtqali hayvonlarning quruqlikda yashashga to\u0027liq o\u0027tishini ta\u0027minlagan sudralib yuruvchilardagi asosiy aromorfoz qaysi?",
+                                                        "options":  [
+                                                                        "Ichki urug\u0027lanish va qobiqli (murtak pardalari — amnionli) tuxum qo\u0027yish",
+                                                                        "Suvda ko\u0027payish",
+                                                                        "Ikki kamerali yurak",
+                                                                        "Tashqi jabralar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Amniota (sudralib yuruvchilar, qushlar, sutemizuvchilar) quruqlikda ko\u0027payish imkonini beruvchi amnion pardali tuxum hosil qildi."
+                                                    },
+                                                    {
+                                                        "id":  11114,
+                                                        "question":  "Qushlar va sutemizuvchilarda tana haroratining doimiyligini (gomoyotermlikni) ta\u0027minlagan yirik aromorfoz nima?",
+                                                        "options":  [
+                                                                        "Yurakning 4 kamerali bo\u0027lishi va arterial-venoz qonning butunlay ajralishi",
+                                                                        "Tashqi skeletning paydo bo\u0027lishi",
+                                                                        "Tishlarning yo\u0027qolishi",
+                                                                        "Bosh miyaning kichrayishi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "4 kamerali yurak to\u0027qimalarga sof kislorodga to\u0027yingan qon yetkazib, intensiv moddalar almashinuvini ta\u0027minladi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "39",
+                                  "title":  "39-§. Tirik organizmlarda o\u0027z-o\u0027zini idora etish: gumoral va nerv sistemasi evolutsiyasi",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11115,
+                                                        "question":  "Nerv sistemasining eng sodda va qadimgi tipi qaysi hayvonlarda (bo\u0027shliqichlilarda) uchraydi?",
+                                                        "options":  [
+                                                                        "Diffuz (to\u0027rsimon) nerv sistemasi (gidra)",
+                                                                        "Narvonsimon nerv sistemasi",
+                                                                        "Tugunli nerv sistemasi",
+                                                                        "Naysimon nerv sistemasi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Gidra tanasida yulduzsimon neyronlar o\u0027zaro to\u0027r hosil qilib, diffuz nerv sistemasini tashkil etadi."
+                                                    },
+                                                    {
+                                                        "id":  11116,
+                                                        "question":  "Xordali hayvonlarga xos bo\u0027lgan, ektodermadan rivojlanuvchi nerv sistemasi tipi qaysi?",
+                                                        "options":  [
+                                                                        "Naysimon nerv sistemasi",
+                                                                        "Tugunli qorin nerv zanjiri",
+                                                                        "Diffuz nerv sistemasi",
+                                                                        "Halqali sistema"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Xordalilarda xorda ustida nerv nayi joylashadi, keyinchalik u bosh va orqa miyaga differensiyalanadi."
+                                                    },
+                                                    {
+                                                        "id":  11117,
+                                                        "question":  "Bosh miya katta yarimsharlarida burmalar va yangi po\u0027stloq (neokorteks) qaysi sinfda eng yuksak rivojlanishga erishgan?",
+                                                        "options":  [
+                                                                        "Sutemizuvchilar sinfida",
+                                                                        "Baliqlar sinfida",
+                                                                        "Amfibiyalar sinfida",
+                                                                        "Qushlar sinfida"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Sutemizuvchilarda bosh miya po\u0027stlog\u0027ining burmalanishi oliy asab faoliyati va xulq-atvorning asosi hisoblanadi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "40",
+                                  "title":  "40-§. Hayvonlarning tana qoplami va tayanch-harakat sistemasi evolutsiyasi",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11118,
+                                                        "question":  "Bo\u0027g\u0027imoyoqlilar (hasharotlar, qisqichbaqasimonlar) tana qoplami qaysi organik moddadan iborat tashqi skelet hosil qiladi?",
+                                                        "options":  [
+                                                                        "Xitin",
+                                                                        "Sellyuloza",
+                                                                        "Kollagen",
+                                                                        "Keratin"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Bo\u0027g\u0027imoyoqlilar tashqi skeleti xitinlashgan kutikuladan iborat bo\u0027lib, himoya va tayanch beradi."
+                                                    },
+                                                    {
+                                                        "id":  11119,
+                                                        "question":  "Umurtqali hayvonlarning tana qoplami (terisi) qanday qavatlardan iborat?",
+                                                        "options":  [
+                                                                        "Epiderma (ko\u0027p qavatli) va Derma (chin teri)",
+                                                                        "Faqat bir qavatli epiteliy",
+                                                                        "Xitin va po\u0027kak",
+                                                                        "Gipoderma va kletchatka"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Umurtqalilar terisi ko\u0027p qavatli epiderma va uning ostidagi biriktiruvchi to\u0027qimali chin teri (derma)dan iborat."
+                                                    },
+                                                    {
+                                                        "id":  11120,
+                                                        "question":  "Quruqlikda yurishga moslashgan besh barmoqli erkin oyoqlar birinchi marta qaysi sinfda paydo bo\u0027lgan?",
+                                                        "options":  [
+                                                                        "Suvda ham quruqlikda yashovchilar (Amfibiyalar)",
+                                                                        "Baliqlar",
+                                                                        "Sudralib yuruvchilar",
+                                                                        "Qushlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Devon davri oxirida panjaqanotli baliqlardan dastlabki quruqlik umurtqalilari — stego捍fallar (amfibiyalar) kelib chiqqan."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "41",
+                                  "title":  "41-§. Hayvonlarning nafas olish sistemasi evolutsiyasi",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11121,
+                                                        "question":  "Hasharotlarning havoda nafas olish a\u0027zosi bo\u0027lib, kislorodni bevosita to\u0027qimalarga yetkazuvchi naychalar nima deyiladi?",
+                                                        "options":  [
+                                                                        "Traxeyalar",
+                                                                        "Jabralar",
+                                                                        "Kitobsifat o\u0027pka",
+                                                                        "Alveolalar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Hasharotlarda tana bo\u0027ylab tarmoqlangan traxeyalar kislorodni to\u0027g\u0027ridan-to\u0027g\u0027ri hujayralarga yetkazadi."
+                                                    },
+                                                    {
+                                                        "id":  11122,
+                                                        "question":  "Qushlarning uchish paytida nafas olish samaradorligini ta\u0027minlovchi «qo\u0027sh nafas olish» mexanizmi nimaga asoslangan?",
+                                                        "options":  [
+                                                                        "O\u0027pka bilan birga havo xaltalarining mavjudligi va nafas olganda ham, chiqarganda ham gaz almashinuvi",
+                                                                        "Faqat terisi orqali nafas olishga",
+                                                                        "Jabralarning ishlashiga",
+                                                                        "Traxeyaning kengayishiga"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Qushlarda havo xaltalari tufayli toza havo o\u0027pka orqali ikki marta (yutilganda va haydalganda) o\u0027tib, qonni kislorodga to\u0027yintiradi."
+                                                    },
+                                                    {
+                                                        "id":  11123,
+                                                        "question":  "Sutemizuvchilar o\u0027pkasining gaz almashinuvchi mikroskopik pufakchasimon eng mayda anatomik birligi nima?",
+                                                        "options":  [
+                                                                        "Alveolalar",
+                                                                        "Bronxiolalar",
+                                                                        "Parabronxlar",
+                                                                        "Traxeolalar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Sutemizuvchilar o\u0027pkasi yuz millionlab kapillyar to\u0027ri bilan o\u0027ralgan alveolalardan iborat."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "42",
+                                  "title":  "42-§. Hayvonlarning qon aylanish sistemasi evolutsiyasi",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11124,
+                                                        "question":  "Suyakli baliqlarning yuragi necha kamerali va unda qanday qon oqadi?",
+                                                        "options":  [
+                                                                        "2 kamerali (1 bo\u0027lmacha, 1 qorincha) va faqat venoz qon",
+                                                                        "3 kamerali va aralash qon",
+                                                                        "4 kamerali va arterial qon",
+                                                                        "1 kamerali"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Baliqlar yuragi 2 kamerali bo\u0027lib, u orqali faqat karbonat angidridga to\u0027yingan venoz qon o\u0027tadi."
+                                                    },
+                                                    {
+                                                        "id":  11125,
+                                                        "question":  "Kichik (o\u0027pka) qon aylanish doirasi birinchi marta qaysi sinf hayvonlarida paydo bo\u0027lgan?",
+                                                        "options":  [
+                                                                        "Suvda ham quruqlikda yashovchilar (Amfibiyalar)",
+                                                                        "Baliqlar",
+                                                                        "Sudralib yuruvchilar",
+                                                                        "Qushlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Amfibiyalarda quruqlikka chiqish va o\u0027pka nafasining paydo bo\u0027lishi bilan ikkinchi — o\u0027pka qon aylanish doirasi shakllandi."
+                                                    },
+                                                    {
+                                                        "id":  11126,
+                                                        "question":  "Sudralib yuruvchilarning qaysi vakilida yurak qorinchasida to\u0027liq to\u0027siq bo\u0027lib, yuragi 4 kamerali hisoblanadi?",
+                                                        "options":  [
+                                                                        "Timsohlar",
+                                                                        "Kaltakesaklar",
+                                                                        "Ilonlar",
+                                                                        "Toshbaqalar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Timsohlarda qorincha to\u0027liq to\u0027siq bilan ajralgan va yuragi 4 kameralidir."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "43",
+                                  "title":  "43-§. Hayvonlarning hazm qilish sistemasi evolutsiyasi",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11127,
+                                                        "question":  "Orqa chiqaruv teshigi (anal teshigi) va o\u0027tkinchi ichak birinchi marta qaysi chuvalchanglar tipida paydo bo\u0027lgan?",
+                                                        "options":  [
+                                                                        "To\u0027garak chuvalchanglar (nematodalar)",
+                                                                        "Yassi chuvalchanglar",
+                                                                        "Bo\u0027shliqichlilar",
+                                                                        "Sodda hayvonlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Yassi chuvalchanglarda ichak tuyiq, to\u0027garak chuvalchanglarda esa anal teshikli o\u0027tkinchi ichak birinchi bor shakllangan."
+                                                    },
+                                                    {
+                                                        "id":  11128,
+                                                        "question":  "Tishlarning vazifasiga ko\u0027ra turlarga (kurak, qoziq, oziq tishlar) differensiallanishi qaysi sinfga xos?",
+                                                        "options":  [
+                                                                        "Sutemizuvchilar",
+                                                                        "Sudralib yuruvchilar",
+                                                                        "Amfibiyalar",
+                                                                        "Baliqlar"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Faqat sutemizuvchilarda tishlar ixtisoslashgan bo\u0027lib, oziqni maydalash samaradorligini oshiradi."
+                                                    },
+                                                    {
+                                                        "id":  11129,
+                                                        "question":  "Qushlarning hazm sistemasida oziqni maydalovchi tishlar yo\u0027qligi qaysi maxsus a\u0027zo bilan kompensatsiya qilinadi?",
+                                                        "options":  [
+                                                                        "Muskulli me\u0027da va undagi mayda toshchalar (gastrolitlar)",
+                                                                        "Bezli me\u0027da",
+                                                                        "Qizilo\u0027ngach kengaytmasi",
+                                                                        "Kloaka"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Qushlarda muskulli me\u0027daning qalin devorlari va yutilgan mayda toshlar oziqni tish kabi maydalaydi."
+                                                    }
+                                                ]
+                              },
+                              {
+                                  "id":  "44",
+                                  "title":  "44-§. Hayvonlarning ayirish va ko\u0027payish organlari evolutsiyasi",
+                                  "questions":  [
+                                                    {
+                                                        "id":  11130,
+                                                        "question":  "Yassi chuvalchanglarning (oq planariya) ayirish organi nima deb ataladi?",
+                                                        "options":  [
+                                                                        "Protonefridiylar (kiprikli yulduzsimon hujayralar)",
+                                                                        "Metanefridiylar",
+                                                                        "Malpigi naychalari",
+                                                                        "Tana buyragi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Protonefridiylar — ichida hilpillovchi kipriklar tutami bo\u0027lgan yulduzsimon ayirish hujayralaridir."
+                                                    },
+                                                    {
+                                                        "id":  11131,
+                                                        "question":  "Halqali chuvalchanglarga (yomg\u0027ir chuvalchangi) xos bo\u0027lgan, voronkasimon kiprikli ayirish a\u0027zosi nima?",
+                                                        "options":  [
+                                                                        "Metanefridiylar",
+                                                                        "Protonefridiylar",
+                                                                        "Buyrak jomi",
+                                                                        "Nefron"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Metanefridiylar har bir tana bo\u0027g\u0027imida juft bo\u0027lib, voronka bilan selom suyuqligini filtrlaydi."
+                                                    },
+                                                    {
+                                                        "id":  11132,
+                                                        "question":  "Yuksak umurtqali hayvonlarda (sudralib yuruvchilar, qushlar, sutemizuvchilar) qanday buyrak tipi shakllangan?",
+                                                        "options":  [
+                                                                        "Chanoq buyragi (metanefros)",
+                                                                        "Boshlang\u0027ich buyrak (pronefros)",
+                                                                        "Tana buyragi (mezonefros)",
+                                                                        "Malpigi naychasi"
+                                                                    ],
+                                                        "correct_option_id":  0,
+                                                        "explanation":  "Amniotlarda chanoq buyragi rivojlangan bo\u0027lib, Genle halqasi orqali suvni maksimal qayta so\u0027rib oladi."
                                                     }
                                                 ]
                               }

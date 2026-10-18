@@ -149,7 +149,7 @@ GRADE_NAMES = {
     "8": "🫀 8-sinf (Odam anatomiyasi)",
     "9": "🔬 9-sinf (Sitologiya)",
     "10": "🧬 10-sinf (Genetika)",
-    "11": "🌍 11-sinf (Ekologiya)"
+    "11": "🌍 11-sinf (Ekologiya va filogenez)"
 }
 
 def get_grades_inline_keyboard() -> InlineKeyboardMarkup:
@@ -161,7 +161,7 @@ def get_grades_inline_keyboard() -> InlineKeyboardMarkup:
          InlineKeyboardButton(text="🫀 8-sinf (Anatomiya)", callback_data="setgrade_8")],
         [InlineKeyboardButton(text="🔬 9-sinf (Biologiya)", callback_data="setgrade_9"),
          InlineKeyboardButton(text="🧬 10-sinf (Genetika)", callback_data="setgrade_10")],
-        [InlineKeyboardButton(text="🌍 11-sinf (Ekologiya)", callback_data="setgrade_11")]
+        [InlineKeyboardButton(text="🌍 11-sinf (Ekologiya va filogenez)", callback_data="setgrade_11")]
     ]
     return InlineKeyboardMarkup(inline_keyboard=buttons)
 
@@ -1992,7 +1992,7 @@ async def ask_gemini_ai(prompt: str, grade: str = "8") -> str:
         "jadvallar, rasmlar mazmuni va darslik qoidalari asosida javob bering.\n"
         "2. Darslikdan tashqari boshqa fanlar yoki mavzular (siyosat, iqtisod, filmlar, IT, boshqa sohalar va hokazo) so'ralsa, "
         "yoki savol maktab biologiya dasturiga kiritilmagan bo'lsa, QAT'IY RAVISHDA quyidagicha javob bering:\n"
-        "\"Kechirasiz, bu ma'lumot maktab biologiya darsligi dasturiga kiritilmagan. Men faqat O'zbekiston maktab biologiya darsliklari (6-, 8-, 9-sinf) asosida savollarga javob beraman.\"\n"
+        "\"Kechirasiz, bu ma'lumot maktab biologiya darsligi dasturiga kiritilmagan. Men faqat O'zbekiston maktab biologiya darsliklari (6-, 8-, 9-, 11-sinf) asosida savollarga javob beraman.\"\n"
         "3. Javoblarni aniq, ilmiy va o'quvchiga tushunarli tilda bering.\n"
         "4. Agar biologik masala (DNK, oqsil, ATF, mitoz, meyoz, genetika) berilsa, uni bosqichma-bosqich: "
         "1) Berilgani, 2) Formulalar va qoidalar, 3) Yechish jarayoni, 4) Aniq javob ko'rinishida yozib bering.\n"

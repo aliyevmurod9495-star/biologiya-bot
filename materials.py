@@ -802,3 +802,12 @@ ANIMATIONS_3D: Dict[str, List[Dict[str, str]]] = {
         }
     ]
 }
+
+# 11-sinf materiallarini yuklash (Ekologiya va filogenez — barcha 44 ta mavzu)
+try:
+    from materials_11 import TOPICS_11, VIDEO_LESSONS_11, ANIMATIONS_3D_11
+    TOPICS_CONTENT["11"] = TOPICS_11
+    VIDEO_LESSONS["11"] = VIDEO_LESSONS_11
+    ANIMATIONS_3D["11"] = ANIMATIONS_3D_11
+except ImportError:
+    pass
