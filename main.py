@@ -1,3 +1,4 @@
+import os
 import json
 import logging
 import asyncio
@@ -16,7 +17,8 @@ from aiogram.types import (
     InlineKeyboardMarkup,
     InlineKeyboardButton,
     InputPollOption,
-    TelegramObject
+    TelegramObject,
+    FSInputFile
 )
 
 import config
@@ -1166,6 +1168,20 @@ async def send_next_question(user_id: int):
     expl_text = q.get("explanation", "To'g'ri javob belgilandi!")
     if len(expl_text) > 195:
         expl_text = expl_text[:192] + "..."
+
+    # Rasmli testlar uchun rasmni yuborish
+    img_rel = q.get("image")
+    if img_rel:
+        img_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), img_rel) if not os.path.isabs(img_rel) else img_rel
+        if os.path.exists(img_path):
+            try:
+                await bot.send_photo(
+                    chat_id=user_id,
+                    photo=FSInputFile(img_path),
+                    caption=f"📸 <b>Savol #{index + 1} uchun rasm:</b>"
+                )
+            except Exception as img_err:
+                logging.warning(f"Rasm yuborishda xatolik: {img_err}")
 
     try:
         poll_msg = await bot.send_poll(

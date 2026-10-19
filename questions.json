@@ -1,70 +1,1255 @@
-﻿{
+{
     "5":  {
-              "name":  "5-sinf (Botanika)",
+              "name":  "🌱 5-sinf (Biologiya)",
               "topics":  [
                              {
                                  "id":  "1",
-                                 "title":  "1-mavzu: Botanika faniga kirish",
+                                 "title":  "1-§. Biologiya — hayot haqidagi fan",
                                  "questions":  [
                                                    {
-                                                       "id":  1,
-                                                       "question":  "Botanika fani nimani o\u0027rganadi?",
+                                                       "id":  5001,
+                                                       "question":  "«Biologiya» so\u0027zining ma\u0027nosi nima?",
                                                        "options":  [
-                                                                       "Hayvonlarni",
-                                                                       "O\u0027simliklarni",
-                                                                       "Bakteriyalarni",
-                                                                       "Zamburug\u0027larni"
+                                                                       "«bios» — hayot, «logos» — ta\u0027limot, fan",
+                                                                       "«bios» — o\u0027simlik, «logos» — tabiat",
+                                                                       "«bios» — yer, «logos» — o\u0027lchash",
+                                                                       "«bios» — hayvon, «logos» — qonun"
                                                                    ],
-                                                       "correct_option_id":  1,
-                                                       "explanation":  "Botanika — o\u0027simliklar haqidagi fandir."
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Biologiya yunoncha «bios» — hayot, «logos» — ta\u0027limot yoki fan degan ma\u0027nolarni anglatadi."
                                                    },
                                                    {
-                                                       "id":  2,
-                                                       "question":  "O\u0027simlik hujayrasining po\u0027sti asosan qanday moddadan iborat?",
+                                                       "id":  5002,
+                                                       "question":  "Abu Rayhon Beruniyning 1000 dan ortiq shifobaxsh vositalar haqida yozilgan asari qaysi?",
                                                        "options":  [
-                                                                       "Xitin",
-                                                                       "Glikogen",
-                                                                       "Kletchatka (sellyuloza)",
-                                                                       "Xromatin"
+                                                                       "«Saydana» («Dorivor o\u0027simliklar»)",
+                                                                       "«Tib qonunlari»",
+                                                                       "«Boburnoma»",
+                                                                       "«Kitob ush-shifo»"
                                                                    ],
-                                                       "correct_option_id":  2,
-                                                       "explanation":  "O\u0027simlik hujayra qobig\u0027i sellyulozadan (kletchatkadan) tashkil topgan."
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Abu Rayhon Beruniy o\u0027zining «Saydana» asarida 1000 dan ortiq dorivor o\u0027simliklarni tavsiflagan."
                                                    },
                                                    {
-                                                       "id":  3,
-                                                       "question":  "Fotosintez jarayoni o\u0027simlikning qaysi organoidida kechadi?",
+                                                       "id":  5003,
+                                                       "question":  "Qaysi asarda O\u0027rta Osiyo va Hindistonning o\u0027simlik hamda hayvonot dunyosi batafsil yoritilgan?",
+                                                       "options":  [
+                                                                       "«Boburnoma» (Z.M.Bobur)",
+                                                                       "«Tib qonunlari» (Ibn Sino)",
+                                                                       "«Saydana» (Beruniy)",
+                                                                       "«Devonu lug\u0027otit turk»"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Zahiriddin Muhammad Bobur «Boburnoma» asarida tabiat boyliklari va o\u0027simliklarni tasvirlagan."
+                                                   },
+                                                   {
+                                                       "id":  5004,
+                                                       "question":  "O\u0027simliklar (I), hayvonlar (II) va zamburug\u0027lar (III) dunyosini o\u0027rganuvchi sohalar qaysi?",
+                                                       "options":  [
+                                                                       "I-botanika, II-zoologiya, III-mikologiya",
+                                                                       "I-zoologiya, II-botanika, III-sitologiya",
+                                                                       "I-mikologiya, II-botanika, III-zoologiya",
+                                                                       "I-anatomiya, II-fiziologiya, III-ekologiya"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Botanika — o\u0027simliklarni, zoologiya — hayvonlarni, mikologiya — zamburug\u0027larni o\u0027rganadi."
+                                                   },
+                                                   {
+                                                       "id":  5005,
+                                                       "question":  "📸 [Rasmli test] Rasmda keltirilgan tirik organizmni biologiyaning qaysi sohasi o\u0027rganadi?",
+                                                       "image":  "images_5/doc1_image1.png",
+                                                       "options":  [
+                                                                       "Mikologiya (zamburug\u0027lar fani)",
+                                                                       "Zoologiya (hayvonlar fani)",
+                                                                       "Botanika (o\u0027simliklar fani)",
+                                                                       "Sitologiya (hujayra fani)"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Rasmda qalpoqchali zamburug\u0027 ko\u0027rsatilgan bo\u0027lib, uni mikologiya fani o\u0027rganadi."
+                                                   },
+                                                   {
+                                                       "id":  5006,
+                                                       "question":  "📸 [Rasmli test] Rasmda tasvirlangan tiriklik vakilini biologiyaning qaysi sohasi tadqiq etadi?",
+                                                       "image":  "images_5/doc1_image2.png",
+                                                       "options":  [
+                                                                       "Zoologiya (hayvonot dunyosi)",
+                                                                       "Mikologiya (zamburug\u0027lar)",
+                                                                       "Botanika (o\u0027simliklar)",
+                                                                       "Sistematika (tasniflash)"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Rasmda hayvonot dunyosi vakili aks etgan bo\u0027lib, uni zoologiya fani o\u0027rganadi."
+                                                   }
+                                               ]
+                             },
+                             {
+                                 "id":  "2",
+                                 "title":  "2-§. Tirik organizmlarning xususiyatlari",
+                                 "questions":  [
+                                                   {
+                                                       "id":  5007,
+                                                       "question":  "Quyidagilardan qaysi biri tirik organizmlarning asosiy xususiyatlariga kirmaydi?",
+                                                       "options":  [
+                                                                       "Faqat kristallar hosil qilish",
+                                                                       "Moddalar va energiya almashinuvi",
+                                                                       "Ta\u0027sirlanish va harakatlanish",
+                                                                       "O\u0027sish, rivojlanish va ko\u0027payish"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Kristallanish jonsiz tabiatga xos bo\u0027lib, tirik mavjudotlar almashinuv, o\u0027sish va ko\u0027payish bilan ajraladi."
+                                                   },
+                                                   {
+                                                       "id":  5008,
+                                                       "question":  "Organizmning tashqi va ichki muhit o\u0027zgarishlariga javob qaytarish reaksiyasi nima?",
+                                                       "options":  [
+                                                                       "Ta\u0027sirlanish",
+                                                                       "O\u0027sish",
+                                                                       "Ko\u0027payish",
+                                                                       "Fotosintez"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Tashqi ta\u0027sirlarga nisbatan organizmda hosil bo\u0027ladigan javob reaksiyasi ta\u0027sirlanish deb ataladi."
+                                                   },
+                                                   {
+                                                       "id":  5009,
+                                                       "question":  "Qaysi javobda avtotrof usulda oziqlanuvchi organizm to\u0027g\u0027ri ko\u0027rsatilgan?",
+                                                       "options":  [
+                                                                       "Yashil o\u0027simliklar",
+                                                                       "Yirtqich hayvonlar",
+                                                                       "Mog\u0027or zamburug\u0027lari",
+                                                                       "Chirish bakteriyalari"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Yashil o\u0027simliklar xlorofill yordamida o\u0027ziga kerakli organik moddani o\u0027zi yaratadi (avtotrof)."
+                                                   },
+                                                   {
+                                                       "id":  5010,
+                                                       "question":  "Oziq moddalarning parchalanishi va hayotiy energiya ajralishi qaysi jarayonda kechadi?",
+                                                       "options":  [
+                                                                       "Nafas olish jarayonida",
+                                                                       "Faqat o\u0027sishda",
+                                                                       "Faqat ko\u0027payishda",
+                                                                       "Transpiratsiyada"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Nafas olishda kislorod yordamida organik moddalar parchalanib, hayotiy energiya hosil bo\u0027ladi."
+                                                   },
+                                                   {
+                                                       "id":  5011,
+                                                       "question":  "Tirik organizmlarning o\u0027ziga o\u0027xshash yangi nasl qoldirish xususiyati nima deb ataladi?",
+                                                       "options":  [
+                                                                       "Ko\u0027payish",
+                                                                       "Ta\u0027sirlanish",
+                                                                       "O\u0027sish",
+                                                                       "Oziqlanish"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Ko\u0027payish turning Yer yuzida avlodlar davomiyligini va yashab qolishini ta\u0027minlaydi."
+                                                   }
+                                               ]
+                             },
+                             {
+                                 "id":  "3",
+                                 "title":  "3-§. Biologiyaning o‘rganish usullari",
+                                 "questions":  [
+                                                   {
+                                                       "id":  5012,
+                                                       "question":  "O\u0027rganilayotgan ob\u0027yektning tabiiy sharoitiga aralashmasdan ma\u0027lumot to\u0027plash qaysi usul?",
+                                                       "options":  [
+                                                                       "Kuzatish usuli",
+                                                                       "Tajriba usuli",
+                                                                       "Tarixiy usul",
+                                                                       "Taqqoslash usuli"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Kuzatishda tadqiqotchi ob\u0027yektning tabiiy holatini buzmagan holda ma\u0027lumot yig\u0027adi."
+                                                   },
+                                                   {
+                                                       "id":  5013,
+                                                       "question":  "📸 [Rasmli test] Rasmda 1-raqamda ko\u0027rsatilgan laboratoriya jihozi nomini toping:",
+                                                       "image":  "images_5/doc1_image6.png",
+                                                       "options":  [
+                                                                       "Pinset (qisqich)",
+                                                                       "Probirka",
+                                                                       "Pipetka",
+                                                                       "Skalpel"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Pinset mayda biologik ob\u0027yektlarni ushlab olish va preparat tayyorlashda ishlatiladi."
+                                                   },
+                                                   {
+                                                       "id":  5014,
+                                                       "question":  "📸 [Rasmli test] Rasmda ko\u0027rsatilgan qaysi laboratoriya jihozi bakteriya va zamburug\u0027larni sun\u0027iy o\u0027stirishda qo\u0027llaniladi?",
+                                                       "image":  "images_5/doc1_image11.png",
+                                                       "options":  [
+                                                                       "Petri idishi",
+                                                                       "Probirka",
+                                                                       "Kolba",
+                                                                       "Menzurka"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Petri idishi mikrobiologiyada ozuqa muhitida mikroblarni o\u0027stirish uchun xizmat qiladi."
+                                                   },
+                                                   {
+                                                       "id":  5015,
+                                                       "question":  "📸 [Rasmli test] Rasmda ko\u0027rsatilgan suyuqliklarni tomchilab tomizishda ishlatiladigan asbobni aniqlang:",
+                                                       "image":  "images_5/doc1_image13.png",
+                                                       "options":  [
+                                                                       "Pipetka",
+                                                                       "Pinset",
+                                                                       "Skalpel",
+                                                                       "Buyum oynasi"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Pipetka laboratoriyada suyuqliklarni kichik tomchilar holida tomizish uchun mo\u0027ljallangan."
+                                                   },
+                                                   {
+                                                       "id":  5016,
+                                                       "question":  "📸 [Rasmli test] Rasmda 1-raqam bilan ko\u0027rsatilgan yorug\u0027lik mikroskopining qismini aniqlang:",
+                                                       "image":  "images_5/doc1_image27.png",
+                                                       "options":  [
+                                                                       "Okulyar",
+                                                                       "Obyektiv",
+                                                                       "Tubus",
+                                                                       "Ko\u0027zgu"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "1-raqamda mikroskopning ko\u0027z bilan qarab kuzatiladigan qismi — okulyar ko\u0027rsatilgan."
+                                                   },
+                                                   {
+                                                       "id":  5017,
+                                                       "question":  "Okulyari 10 marta, obyektivi 40 marta kattalashtiruvchi mikroskop necha marta kattalashtiradi?",
+                                                       "options":  [
+                                                                       "400 marta",
+                                                                       "50 marta",
+                                                                       "4 marta",
+                                                                       "1040 marta"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Umumiy kattalashtirish darajasi: Okulyar soni × Obyektiv soni = 10 × 40 = 400 marta."
+                                                   },
+                                                   {
+                                                       "id":  5018,
+                                                       "question":  "Qo\u0027l lupasi ob\u0027yektni necha martagacha kattalashtirib beradi?",
+                                                       "options":  [
+                                                                       "2 martadan 20 martagacha",
+                                                                       "20 dan 40 martagacha",
+                                                                       "100 martagacha",
+                                                                       "1000 martagacha"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Qo\u0027l lupasi narsalarni 2 tadan 20 martagacha kattalashtiradi."
+                                                   }
+                                               ]
+                             },
+                             {
+                                 "id":  "4",
+                                 "title":  "4-§. Hujayra — tiriklikning asosi",
+                                 "questions":  [
+                                                   {
+                                                       "id":  5019,
+                                                       "question":  "Hujayrani ilk bor 1665-yilda kashf etgan ingliz tabiatshunosi kim?",
+                                                       "options":  [
+                                                                       "Robert Guk",
+                                                                       "Antoni van Levenguk",
+                                                                       "Charlz Darvin",
+                                                                       "Karl Linney"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "1665-yilda ingliz olimi Robert Guk po\u0027kak kesmasini mikroskopda ko\u0027rib, hujayrani kashf etgan."
+                                                   },
+                                                   {
+                                                       "id":  5020,
+                                                       "question":  "📸 [Rasmli test] O\u0027simlik hujayrasida hujayra shirasi bilan to\u0027lgan yirik vakuola qaysi raqamda berilgan?",
+                                                       "image":  "images_5/doc1_image35.png",
+                                                       "options":  [
+                                                                       "2-raqamda",
+                                                                       "1-raqamda",
+                                                                       "4-raqamda",
+                                                                       "5-raqamda"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "2-raqamda o\u0027simlik hujayrasiga xos yirik vakuola ko\u0027rsatilgan, u turgor bosimini beradi."
+                                                   },
+                                                   {
+                                                       "id":  5021,
+                                                       "question":  "📸 [Rasmli test] Rasmda hujayraning irsiyat markazi bo\u0027lgan yadro qaysi raqamda keltirilgan?",
+                                                       "image":  "images_5/doc1_image36.png",
+                                                       "options":  [
+                                                                       "2-raqamda",
+                                                                       "1-raqamda",
+                                                                       "3-raqamda",
+                                                                       "4-raqamda"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "2-raqamda xromosomalarni o\u0027zida saqlovchi va bo\u0027linishni boshqaruvchi yadro tasvirlangan."
+                                                   },
+                                                   {
+                                                       "id":  5022,
+                                                       "question":  "📸 [Rasmli test] Rasmda barg og\u0027izchasi qaysi raqamda aks etgan?",
+                                                       "image":  "images_5/doc1_image44.png",
+                                                       "options":  [
+                                                                       "1-raqamda",
+                                                                       "2-raqamda",
+                                                                       "3-raqamda",
+                                                                       "4-raqamda"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "1-raqamda ikkita loviyasimon hujayradan iborat barg og\u0027izchasi aks etgan."
+                                                   },
+                                                   {
+                                                       "id":  5023,
+                                                       "question":  "📸 [Rasmli test] Qonda kislorod tashish vazifasini bajaruvchi ikki tomoni botiq hujayra qaysi?",
+                                                       "image":  "images_5/doc1_image29.png",
+                                                       "options":  [
+                                                                       "Eritrotsitlar",
+                                                                       "Leykotsitlar",
+                                                                       "Trombotsitlar",
+                                                                       "Neyronlar"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Qizil qon tanachalari — eritrotsitlar gemoglobin orqali to\u0027qimalarga kislorod tashiydi."
+                                                   },
+                                                   {
+                                                       "id":  5024,
+                                                       "question":  "O\u0027simlik hujayrasiga yashil rang beruvchi va fotosintez qiluvchi organoid nima?",
                                                        "options":  [
                                                                        "Xloroplast",
-                                                                       "Ribosoma",
-                                                                       "Mitoxondriya",
+                                                                       "Xromoplast",
+                                                                       "Leykoplast",
                                                                        "Vakuola"
                                                                    ],
                                                        "correct_option_id":  0,
-                                                       "explanation":  "Fotosintez yashil plastidalar — xloroplastlarda sodir bo\u0027ladi."
+                                                       "explanation":  "Xloroplastlar tarkibida xlorofill bo\u0027lib, quyosh nurida fotosintez amalga oshiradi."
+                                                   }
+                                               ]
+                             },
+                             {
+                                 "id":  "5",
+                                 "title":  "5-§. Tirik organizmlar haqida umumiy ma‘lumot",
+                                 "questions":  [
+                                                   {
+                                                       "id":  5025,
+                                                       "question":  "Shakllangan yadroga ega bo\u0027lmagan organizmlar nima deb ataladi?",
+                                                       "options":  [
+                                                                       "Prokariotlar",
+                                                                       "Eukariotlar",
+                                                                       "Viruslar",
+                                                                       "Avtotroflar"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Prokariotlar — yadrosi shakllanmagan sodda organizmlardir (masalan, bakteriyalar)."
                                                    },
                                                    {
-                                                       "id":  4,
-                                                       "question":  "Ulotriks qanday tuzilishga ega suvo\u0027t hisoblanadi?",
+                                                       "id":  5026,
+                                                       "question":  "Tiriklikning hujayrasiz shakli bo\u0027lib, faqat tirik hujayra ichida ko\u0027paya oladigan tuzilma nima?",
                                                        "options":  [
-                                                                       "Bir hujayrali",
-                                                                       "Ipimon ko\u0027p hujayrali",
-                                                                       "Tarmoqlangan",
-                                                                       "Qatlamli"
+                                                                       "Viruslar",
+                                                                       "Bakteriyalar",
+                                                                       "Zamburug\u0027lar",
+                                                                       "Suvo\u0027tlar"
                                                                    ],
-                                                       "correct_option_id":  1,
-                                                       "explanation":  "Ulotriks — chuchuk suvlarda yashovchi ipimon ko\u0027p hujayrali yashil suvo\u0027tdir."
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Viruslar hujayrasiz tuzilishga ega bo\u0027lib, faqat xo\u0027jayin hujayrasi ichida tiriklik xususiyatini ko\u0027rsatadi."
                                                    },
                                                    {
-                                                       "id":  5,
-                                                       "question":  "Xlamidomonadaning qizil \u0027ko\u0027zchasi\u0027 nima vazifani bajaradi?",
+                                                       "id":  5027,
+                                                       "question":  "Tirik organizmlarni qo\u0027shaloq (binar) lotincha nomlash tizimini fanga kim kiritgan?",
                                                        "options":  [
-                                                                       "Ko\u0027rish",
-                                                                       "Yorug\u0027likni sezish",
-                                                                       "Harakatlanish",
-                                                                       "Ko\u0027payish"
+                                                                       "Karl Linney",
+                                                                       "Charlz Darvin",
+                                                                       "Jan Batist Lamark",
+                                                                       "Teofrast"
                                                                    ],
-                                                       "correct_option_id":  1,
-                                                       "explanation":  "Qizil ko\u0027zcha (stigma) yorug\u0027likni sezish vazifasini bajaradi."
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Shved tabiatshunosi Karl Linney turlarni urug\u0027 va tur nomi bilan qo\u0027shaloq atashni joriy etgan."
+                                                   },
+                                                   {
+                                                       "id":  5028,
+                                                       "question":  "Tirik organizmlarning to\u0027rtta asosiy dunyosi to\u0027g\u0027ri ko\u0027rsatilgan qatorni toping:",
+                                                       "options":  [
+                                                                       "Bakteriyalar, Zamburug\u0027lar, O\u0027simliklar, Hayvonlar",
+                                                                       "Viruslar, Lishayniklar, Moxlar, Hasharotlar",
+                                                                       "Suvo\u0027tlar, Qirqquloqlar, Qushlar, Sutemizuvchilar",
+                                                                       "Prokariotlar, Eukariotlar, Xordalilar, Umurtqasizlar"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Tirik tabiat 4 ta asosiy dunyoga bo\u0027linadi: Bakteriyalar, Zamburug\u0027lar, O\u0027simliklar va Hayvonlar."
+                                                   },
+                                                   {
+                                                       "id":  5029,
+                                                       "question":  "Bakteriyalarni yemiruvchi va parchalovchi maxsus virus qanday ataladi?",
+                                                       "options":  [
+                                                                       "Bakteriofag",
+                                                                       "Tamaki mozaikasi",
+                                                                       "Quturish virusi",
+                                                                       "Gripp virusi"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Bakteriofag — bakteriya hujayrasiga kirib, uni eritib yuboruvchi virusdir."
+                                                   }
+                                               ]
+                             },
+                             {
+                                 "id":  "6",
+                                 "title":  "6-§. Bakteriyalar dunyosi",
+                                 "questions":  [
+                                                   {
+                                                       "id":  5030,
+                                                       "question":  "Sharsimon shakldagi bakteriyalar nima deb ataladi?",
+                                                       "options":  [
+                                                                       "Kokklar",
+                                                                       "Batsillalar",
+                                                                       "Vibrionlar",
+                                                                       "Spirillalar"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Sharsimon bakteriyalar kokklar, tayoqchasimonlar batsillalar deb ataladi."
+                                                   },
+                                                   {
+                                                       "id":  5031,
+                                                       "question":  "📸 [Rasmli test] Rasmda tayoqchasimon (batsilla) shaklidagi bakteriyalar qaysi harf/raqamda berilgan?",
+                                                       "image":  "images_5/doc1_image58.png",
+                                                       "options":  [
+                                                                       "Batsillalar (tayoqchasimon)",
+                                                                       "Kokklar (sharsimon)",
+                                                                       "Spirillalar (buralgan)",
+                                                                       "Vibrionlar (vergulsimon)"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Tayoqchasimon shakldagi bakteriyalar batsillalar hisoblanadi."
+                                                   },
+                                                   {
+                                                       "id":  5032,
+                                                       "question":  "Noqulay tashqi sharoit boshlanganda bakteriyalar qanday saqlanadi?",
+                                                       "options":  [
+                                                                       "Qalin qobiqli spora hosil qiladi",
+                                                                       "Ikkiga tez bo\u0027linadi",
+                                                                       "Xlorofill hosil qiladi",
+                                                                       "Boshqa bakteriya bilan qo\u0027shiladi"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Bakteriyalar noqulay sharoitda (sovuq, qurg\u0027oqchilik) spora hosil qilib uzoq yillar saqlanadi."
+                                                   },
+                                                   {
+                                                       "id":  5033,
+                                                       "question":  "Dukkakli o\u0027simliklar ildizida yashab, havodagi azotni o\u0027zlashtiruvchi bakteriyalar qaysi?",
+                                                       "options":  [
+                                                                       "Tugunak bakteriyalari",
+                                                                       "Chirish bakteriyalari",
+                                                                       "Sut kislotali bakteriyalar",
+                                                                       "Vabo vibrioni"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Tugunak bakteriyalari havodagi azotni biriktirib tuproqni azotli o\u0027g\u0027it bilan boyitadi."
+                                                   },
+                                                   {
+                                                       "id":  5034,
+                                                       "question":  "Archa va qarag\u0027aydan ajralib, havodagi bakteriyalarni o\u0027ldiruvchi modda nima?",
+                                                       "options":  [
+                                                                       "Fitontsid",
+                                                                       "Gormon",
+                                                                       "Xlorofill",
+                                                                       "Antibiotik"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Fitontsidlar — ignabargli daraxtlar ajratadigan va mikroblarni yo\u0027qotuvchi moddalardir."
+                                                   }
+                                               ]
+                             },
+                             {
+                                 "id":  "7",
+                                 "title":  "7-§. Zamburug‘lar dunyosi",
+                                 "questions":  [
+                                                   {
+                                                       "id":  5035,
+                                                       "question":  "Zamburug\u0027lar hujayra qobig\u0027ida o\u0027simliklardan farqli ravishda qanday modda bo\u0027ladi?",
+                                                       "options":  [
+                                                                       "Xitin",
+                                                                       "Sellyuloza",
+                                                                       "Kraxmal",
+                                                                       "Pektin"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Zamburug\u0027lar qobig\u0027ida bo\u0027g\u0027imoyoqli hayvonlarga o\u0027xshash xitin moddasi mavjud."
+                                                   },
+                                                   {
+                                                       "id":  5036,
+                                                       "question":  "📸 [Rasmli test] Rasmda qizil qalpoqchali, usti oq xolli qaysi zaharli zamburug\u0027 aks etgan?",
+                                                       "image":  "images_5/doc1_image53.png",
+                                                       "options":  [
+                                                                       "Qizil muxomor",
+                                                                       "Shampinion",
+                                                                       "Oq qo\u0027ziqorin",
+                                                                       "Qayinquloq"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Rasmda qizil qalpoqchali xolli zaharli zamburug\u0027 — muxomor tasvirlangan."
+                                                   },
+                                                   {
+                                                       "id":  5037,
+                                                       "question":  "📸 [Rasmli test] Rasmda sun\u0027iy sharoitda yetishtiriladigan qaysi iste\u0027mol qilinadigan zamburug\u0027 ko\u0027rsatilgan?",
+                                                       "image":  "images_5/doc1_image55.png",
+                                                       "options":  [
+                                                                       "Shampinion",
+                                                                       "Oq qurbaqasalla",
+                                                                       "Qizil muxomor",
+                                                                       "Qorakuya"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Shampinion — oziq-ovqatda keng qo\u0027llaniladigan mazali qalpoqchali zamburug\u0027dir."
+                                                   },
+                                                   {
+                                                       "id":  5038,
+                                                       "question":  "1928-yilda A.Fleming qaysi mog\u0027or zamburug\u0027idan penitsillin antibiotigini kashf qilgan?",
+                                                       "options":  [
+                                                                       "Penisill zamburug\u0027idan",
+                                                                       "Mukor zamburug\u0027idan",
+                                                                       "Achitqi zamburug\u0027idan",
+                                                                       "Qorakuya zamburug\u0027idan"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Aleksandr Fleming yashil mog\u0027or — Penisill zamburug\u0027idan penitsillinni olgan."
+                                                   },
+                                                   {
+                                                       "id":  5039,
+                                                       "question":  "Non yopishda xamirni oshirish va ko\u0027pirtirish uchun qaysi bir hujayrali zamburug\u0027 ishlatiladi?",
+                                                       "options":  [
+                                                                       "Achitqi (xamirturush) zamburug\u0027i",
+                                                                       "Mukor mog\u0027ori",
+                                                                       "Shampinion",
+                                                                       "Qorakuya"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Achitqi zamburug\u0027lari kurtaklanib ko\u0027payadi va karbonat angidrid ajratib xamirni ko\u0027pirtiradi."
+                                                   }
+                                               ]
+                             },
+                             {
+                                 "id":  "8",
+                                 "title":  "8-§. O‘simliklar dunyosi",
+                                 "questions":  [
+                                                   {
+                                                       "id":  5040,
+                                                       "question":  "Poyasi yer ustidan bir nechta teng yog\u0027ochlashgan novdalarga shoxlanadigan o\u0027simlik shakli qaysi?",
+                                                       "options":  [
+                                                                       "Buta",
+                                                                       "Daraxt",
+                                                                       "Bir yillik o\u0027t",
+                                                                       "Yarimbuta"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Butalar tubidan bir nechta yog\u0027ochlashgan shoxlarga bo\u0027linadi (masalan, anor, na\u0027matak)."
+                                                   },
+                                                   {
+                                                       "id":  5041,
+                                                       "question":  "Bitta mustahkam yo\u0027g\u0027on yog\u0027ochlashgan tanaga ega bo\u0027lgan ko\u0027p yillik o\u0027simlik nima?",
+                                                       "options":  [
+                                                                       "Daraxt",
+                                                                       "Buta",
+                                                                       "O\u0027t",
+                                                                       "Yarimbuta"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Daraxtlar yagona baland yog\u0027ochlashgan tana va shox-shabbaga ega bo\u0027ladi (chinor, eman)."
+                                                   },
+                                                   {
+                                                       "id":  5042,
+                                                       "question":  "Ikki yillik o\u0027t o\u0027simliklariga qaysilar kiradi?",
+                                                       "options":  [
+                                                                       "Sabzi, lavlagi, sholg\u0027om, karam",
+                                                                       "Bug\u0027doy, makkajo\u0027xori, arpa",
+                                                                       "Beda, ajriq, lola",
+                                                                       "Olma, o\u0027rik, shaftoli"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Sabzi va lavlagi 1-yili barg va ildizmeva, 2-yili gul va urug\u0027 hosil qiladi."
+                                                   },
+                                                   {
+                                                       "id":  5043,
+                                                       "question":  "O\u0027simliklarning quyosh nuri energiyasidan foydalanib organik modda sintezlashi nima?",
+                                                       "options":  [
+                                                                       "Fotosintez",
+                                                                       "Xemosintez",
+                                                                       "Transpiratsiya",
+                                                                       "Gidroliz"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Fotosintez — xloroplastlarda noorganik moddalardan glyukoza hosil qilish jarayonidir."
+                                                   },
+                                                   {
+                                                       "id":  5044,
+                                                       "question":  "Tuban o\u0027simliklarning yuksak o\u0027simliklardan asosiy farqi nimada?",
+                                                       "options":  [
+                                                                       "Tanasi ildiz, poya va barglarga ajralmagan",
+                                                                       "Urug\u0027 orqali ko\u0027payadi",
+                                                                       "Gullari juda yirik bo\u0027ladi",
+                                                                       "Xlorofilli bo\u0027lmaydi"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Tuban o\u0027simliklar (suvo\u0027tlar) organlarga ajralmagan yagona tallom tanaga ega."
+                                                   }
+                                               ]
+                             },
+                             {
+                                 "id":  "9",
+                                 "title":  "9-§. Tuban o‘simliklar",
+                                 "questions":  [
+                                                   {
+                                                       "id":  5045,
+                                                       "question":  "Suvo\u0027tlarning organlarga ajralmagan tanasi nima deyiladi?",
+                                                       "options":  [
+                                                                       "Tallom (qatbatan)",
+                                                                       "Mitseliy",
+                                                                       "Ildizpoya",
+                                                                       "Tugunak"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Suvo\u0027tlar tanasi ildiz, poya va barglarga ajralmagan bo\u0027lib, tallom deb ataladi."
+                                                   },
+                                                   {
+                                                       "id":  5046,
+                                                       "question":  "📸 [Rasmli test] Rasmda 2 ta xivchinga va qizil ko\u0027zchaga ega bir hujayrali yashil suvo\u0027tini aniqlang:",
+                                                       "image":  "images_5/doc1_image78.png",
+                                                       "options":  [
+                                                                       "Xlamidamonada",
+                                                                       "Xlorella",
+                                                                       "Ulotriks",
+                                                                       "Spirogira"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Xlamidamonada 2 xivchini bilan faol suzadi, qizil ko\u0027zchasi bilan yorug\u0027likni sezadi."
+                                                   },
+                                                   {
+                                                       "id":  5047,
+                                                       "question":  "📸 [Rasmli test] Rasmda lentasimon spiral xromatoforli, ko\u0027p hujayrali ipsimon suvo\u0027t qaysi?",
+                                                       "image":  "images_5/doc1_image79.png",
+                                                       "options":  [
+                                                                       "Spirogira",
+                                                                       "Ulotriks",
+                                                                       "Xlorella",
+                                                                       "Laminariya"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Spirogira hujayralarida xromatofor tasma shaklida spiral buralgan bo\u0027ladi."
+                                                   },
+                                                   {
+                                                       "id":  5048,
+                                                       "question":  "📸 [Rasmli test] Rasmda tarkibida yod ko\u0027p bo\u0027lgan «dengiz karami» qaysi qo\u0027ng\u0027ir suvo\u0027t?",
+                                                       "image":  "images_5/doc1_image81.png",
+                                                       "options":  [
+                                                                       "Laminariya",
+                                                                       "Porfira",
+                                                                       "Xlamidamonada",
+                                                                       "Ulotriks"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Laminariya dengizlarda o\u0027suvchi yirik qo\u0027ng\u0027ir suvo\u0027t bo\u0027lib, yodga nihoyatda boydir."
+                                                   },
+                                                   {
+                                                       "id":  5049,
+                                                       "question":  "Xivchini va ko\u0027zchasi bo\u0027lmagan, oqsilga juda boy bir hujayrali yashil suvo\u0027ti qaysi?",
+                                                       "options":  [
+                                                                       "Xlorella",
+                                                                       "Xlamidamonada",
+                                                                       "Spirogira",
+                                                                       "Funariya"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Xlorella harakatsiz sharsimon suvo\u0027t bo\u0027lib, quruq massasining 50% dan ortig\u0027i oqsildir."
+                                                   }
+                                               ]
+                             },
+                             {
+                                 "id":  "10",
+                                 "title":  "10-§. Yuksak o‘simliklar",
+                                 "questions":  [
+                                                   {
+                                                       "id":  5050,
+                                                       "question":  "Yuksak o\u0027simliklar ichida ildizi bo\u0027lmay, o\u0027rniga rizoidlar rivojlangan eng sodda guruh qaysi?",
+                                                       "options":  [
+                                                                       "Yo\u0027sinlar (Moxlar)",
+                                                                       "Qirqquloqlar",
+                                                                       "Ochiq urug\u0027lilar",
+                                                                       "Yopiq urug\u0027lilar"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Yo\u0027sinlarning haqiqiy ildizi yo\u0027q, tuproqqa rizoidlari orqali yopishadi (sfagnum, funariya)."
+                                                   },
+                                                   {
+                                                       "id":  5051,
+                                                       "question":  "Yirik patsimon barglari ostida sporalar to\u0027plami (soruslar) yetiladigan o\u0027simlik qaysi?",
+                                                       "options":  [
+                                                                       "Qirqquloq (Paporotnik)",
+                                                                       "Qarag\u0027ay",
+                                                                       "Archa",
+                                                                       "Bug\u0027doy"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Qirqquloq barglari orqa tomonida jigarrang soruslar bo\u0027lib, ichida sporalar yetiladi."
+                                                   },
+                                                   {
+                                                       "id":  5052,
+                                                       "question":  "Qaysi o\u0027simliklarning urug\u0027i meva ichida emas, qubba tangachalarida ochiq holda yetiladi?",
+                                                       "options":  [
+                                                                       "Ochiq urug\u0027lilar (qarag\u0027ay, archa)",
+                                                                       "Yopiq urug\u0027lilar (olma)",
+                                                                       "Yo\u0027sinlar",
+                                                                       "Suvo\u0027tlar"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Qarag\u0027ay va archa ochiq urug\u0027li bo\u0027lib, guli va mevasi bo\u0027lmaydi, urug\u0027 qubbada yetiladi."
+                                                   },
+                                                   {
+                                                       "id":  5053,
+                                                       "question":  "Qaysi yo\u0027sin suvni juda ko\u0027p shimib oladi va vaqt o\u0027tishi bilan torf qatlamini hosil qiladi?",
+                                                       "options":  [
+                                                                       "Sfagnum yo\u0027sini",
+                                                                       "Funariya yo\u0027sini",
+                                                                       "Ulotriks",
+                                                                       "Laminariya"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Sfagnum o\u0027lik hujayralari orqali o\u0027z vaznidan 20-25 barobar ko\u0027p suv shimib torf beradi."
+                                                   },
+                                                   {
+                                                       "id":  5054,
+                                                       "question":  "O\u0027simliklar olamida gul va meva hosil qiluvchi eng yuksak taraqqiy etgan guruh qaysi?",
+                                                       "options":  [
+                                                                       "Yopiq urug\u0027li (gulli) o\u0027simliklar",
+                                                                       "Ochiq urug\u0027lilar",
+                                                                       "Qirqquloqlar",
+                                                                       "Yo\u0027sinlar"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Gulli o\u0027simliklar gul, meva va yopiq urug\u0027ga ega bo\u0027lib, yer yuzida ustunlik qiladi."
+                                                   }
+                                               ]
+                             },
+                             {
+                                 "id":  "11",
+                                 "title":  "11-§. O‘zbekistonda keng tarqalgan dorivor va zaharli o‘simliklar",
+                                 "questions":  [
+                                                   {
+                                                       "id":  5055,
+                                                       "question":  "📸 [Rasmli test] Rasmda barg va poyasi xushbo\u0027y hidli, mentolga boy bo\u0027lgan qaysi dorivor giyoh ko\u0027rsatilgan?",
+                                                       "image":  "images_5/doc1_image109.png",
+                                                       "options":  [
+                                                                       "Yalpiz",
+                                                                       "Isiriq",
+                                                                       "Zubturum",
+                                                                       "Shirinmiya"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Yalpiz tarkibida mentol va efir moylari bo\u0027lib, tinchlantiruvchi va hazm qiluvchi giyohdir."
+                                                   },
+                                                   {
+                                                       "id":  5056,
+                                                       "question":  "📸 [Rasmli test] Rasmda guli yirik oq voronkasimon, mevasi tikanli ko\u0027sakcha bo\u0027lgan o\u0027ta zaharli o\u0027simlikni aniqlang:",
+                                                       "image":  "images_5/doc1_image111.png",
+                                                       "options":  [
+                                                                       "Bangidevona",
+                                                                       "Mingdevona",
+                                                                       "Kanakunjut",
+                                                                       "Ayiqtovon"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Bangidevona tarkibida zaharli atropin alkaloidi bo\u0027lib, og\u0027ir zaharlanish chaqiradi."
+                                                   },
+                                                   {
+                                                       "id":  5057,
+                                                       "question":  "Tutuni xonalarni mikrob va viruslardan tozalovchi (dezinfeksiyalovchi) dorivor o\u0027simlik qaysi?",
+                                                       "options":  [
+                                                                       "Isiriq",
+                                                                       "Yalpiz",
+                                                                       "Kiyiko\u0027t",
+                                                                       "Na\u0027matak"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Isiriq tutuni qadimdan yuqumli mikroblarni o\u0027ldirish va havoni tozalash uchun tutatiladi."
+                                                   },
+                                                   {
+                                                       "id":  5058,
+                                                       "question":  "Mevasi C vitaminiga juda boy bo\u0027lgan va shamollashda damlab ichiladigan tikanli buta qaysi?",
+                                                       "options":  [
+                                                                       "Na\u0027matak",
+                                                                       "Zirk",
+                                                                       "Do\u0027lana",
+                                                                       "Chilonjiyda"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Na\u0027matak mevasi barcha mevalar ichida C vitaminiga eng boy bo\u0027lib, immunitetni kuchaytiradi."
+                                                   },
+                                                   {
+                                                       "id":  5059,
+                                                       "question":  "Bo\u0027yi 2-3 metr keladigan, yirik panjasimon bargli, urug\u0027ida o\u0027ta xavfli «ritsin» zahari bo\u0027lgan o\u0027simlik qaysi?",
+                                                       "options":  [
+                                                                       "Kanakunjut",
+                                                                       "Bangidevona",
+                                                                       "Mingdevona",
+                                                                       "Ayiqtovon"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Kanakunjut bir yillik yirik o\u0027t bo\u0027lib, urug\u0027ida kuchli zahar — ritsin saqlaydi."
+                                                   }
+                                               ]
+                             },
+                             {
+                                 "id":  "12",
+                                 "title":  "12-§. Hayvonot dunyosi",
+                                 "questions":  [
+                                                   {
+                                                       "id":  5060,
+                                                       "question":  "Hayvonlarning o\u0027simliklardan asosiy farqi nimada?",
+                                                       "options":  [
+                                                                       "Tayyor organik modda bilan oziqlanishi va faol harakatlanishi",
+                                                                       "Fotosintez qilishi",
+                                                                       "Hujayrasida sellyuloza qobiq bo\u0027lishi",
+                                                                       "Cheksiz o\u0027sishi"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Hayvonlar geterotrof oziqlanadi, muskul va nervlari orqali faol harakat qiladi."
+                                                   },
+                                                   {
+                                                       "id":  5061,
+                                                       "question":  "Tanasi ichida tayanch o\u0027qi — umurtqa pog\u0027onasi bo\u0027lmagan hayvonlar qanday ataladi?",
+                                                       "options":  [
+                                                                       "Umurtqasiz hayvonlar",
+                                                                       "Xordalilar",
+                                                                       "Sutemizuvchilar",
+                                                                       "Amfibiyalar"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Umurtqasiz hayvonlar ichki suyakli umurtqaga ega emas (hasharotlar, chuvalchanglar)."
+                                                   },
+                                                   {
+                                                       "id":  5062,
+                                                       "question":  "Sayyoramizdagi barcha hayvon turlarining necha foizini umurtqasizlar tashkil etadi?",
+                                                       "options":  [
+                                                                       "95% dan ortig\u0027ini",
+                                                                       "50% qismini",
+                                                                       "25% qismini",
+                                                                       "10% qismini"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Dunyodagi ma\u0027lum hayvon turlarining 95% dan ziyodi umurtqasizlardir."
+                                                   },
+                                                   {
+                                                       "id":  5063,
+                                                       "question":  "Bir hujayrali hayvonlar (sodda hayvonlar)ga qaysilar kiradi?",
+                                                       "options":  [
+                                                                       "Amyoba, Yashil evglena, Tufelka",
+                                                                       "Gidra, Planariya, Meduza",
+                                                                       "Askarida, Yomg\u0027ir chuvalchangi",
+                                                                       "Qisqichbaqa, Suvarak"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Amyoba, evglena va infuzoriya bir dona hujayradan iborat mustaqil hayvonlardir."
+                                                   },
+                                                   {
+                                                       "id":  5064,
+                                                       "question":  "Hayvonot olamining ilmiy nomlanishi nima?",
+                                                       "options":  [
+                                                                       "Fauna",
+                                                                       "Flora",
+                                                                       "Biosfera",
+                                                                       "Biogeotsenoz"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Hayvonot dunyosi «Fauna», o\u0027simliklar olami esa «Flora» deb ataladi."
+                                                   }
+                                               ]
+                             },
+                             {
+                                 "id":  "13",
+                                 "title":  "13-§. Umurtqasiz hayvonlar",
+                                 "questions":  [
+                                                   {
+                                                       "id":  5065,
+                                                       "question":  "📸 [Rasmli test] Rasmda soxta oyoqlari orqali harakatlanuvchi bir hujayrali hayvon qaysi?",
+                                                       "image":  "images_5/doc1_image122.png",
+                                                       "options":  [
+                                                                       "Oddiy amyoba",
+                                                                       "Yashil evglena",
+                                                                       "Infuzoriya tufelka",
+                                                                       "Gidra"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Oddiy amyoba soxta oyoqlari yordamida oziqni qamrab oladi va sekin siljiydi."
+                                                   },
+                                                   {
+                                                       "id":  5066,
+                                                       "question":  "📸 [Rasmli test] Rasmda nurli simmetriyaga ega, otuvchi hujayrali bo\u0027shliqichli hayvon qaysi?",
+                                                       "image":  "images_5/doc1_image124.png",
+                                                       "options":  [
+                                                                       "Chuchuk suv gidrasi",
+                                                                       "Oq planariya",
+                                                                       "Meduza",
+                                                                       "Aktiniya"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Gidra chuchuk suvda o\u0027simliklarga yopishib yashaydi, paypaslagichlarida otuvchi hujayralar bor."
+                                                   },
+                                                   {
+                                                       "id":  5067,
+                                                       "question":  "📸 [Rasmli test] Rasmda suvarakning qaysi rivojlanish bosqichi aks etgan?",
+                                                       "image":  "images_5/doc1_image143.png",
+                                                       "options":  [
+                                                                       "Lichinkalik bosqichi",
+                                                                       "Tuxumlik davri",
+                                                                       "G\u0027umbaklik davri",
+                                                                       "Voyaga yetgan zot"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Suvaraklar chala o\u0027zgarish bilan rivojlanadi, tuxumdan chiqqan yosh zot lichinka deyiladi."
+                                                   },
+                                                   {
+                                                       "id":  5068,
+                                                       "question":  "Hasharotlarning tanasi nechta qismdan iborat va nechta oyog\u0027i bo\u0027ladi?",
+                                                       "options":  [
+                                                                       "3 qism (bosh, ko\u0027krak, qorin) va 6 ta oyoq",
+                                                                       "2 qism va 8 ta oyoq",
+                                                                       "Ko\u0027p bo\u0027g\u0027im va 10 ta oyoq",
+                                                                       "Bo\u0027linmagan va oyoqsiz"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Hasharotlar tanasi bosh, ko\u0027krak va qorindan iborat bo\u0027lib, 3 juft (6 ta) oyog\u0027i bo\u0027ladi."
+                                                   },
+                                                   {
+                                                       "id":  5069,
+                                                       "question":  "Tuproqni yumshatib, chirindi bilan boyitib unumdorligini oshiruvchi foydali halqali chuvalchang qaysi?",
+                                                       "options":  [
+                                                                       "Yomg\u0027ir chuvalchangi",
+                                                                       "Odam askaridasi",
+                                                                       "Jigar qurti",
+                                                                       "Bolalar gijjasi"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Yomg\u0027ir chuvalchangi tuproqni kovlab organik moddalarni o\u0027zlashtiradi va tuproqni boyitadi."
+                                                   }
+                                               ]
+                             },
+                             {
+                                 "id":  "14",
+                                 "title":  "14-§. Umurtqali hayvonlar",
+                                 "questions":  [
+                                                   {
+                                                       "id":  5070,
+                                                       "question":  "📸 [Rasmli test] Rasmda yuragi 2 kamerali, bitta qon aylanish doirasiga ega hayvonlar guruhi qaysi?",
+                                                       "image":  "images_5/doc1_image149.png",
+                                                       "options":  [
+                                                                       "Baliqlar sinfi",
+                                                                       "Amfibiyalar",
+                                                                       "Sudralib yuruvchilar",
+                                                                       "Qushlar"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Baliqlar yuragi 2 kamerali (bo\u0027lmacha va qorincha) bo\u0027lib, jabra orqali nafas oladi."
+                                                   },
+                                                   {
+                                                       "id":  5071,
+                                                       "question":  "📸 [Rasmli test] Rasmda dumi va tashqi jabralari bilan baliqqa o\u0027xshash suvda yashovchi lichinka qaysi?",
+                                                       "image":  "images_5/doc1_image153.png",
+                                                       "options":  [
+                                                                       "Baqa lichinkasi (itbaliq)",
+                                                                       "Kaltakesak bolasi",
+                                                                       "Ilon embrioni",
+                                                                       "Triton tuxumi"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Baqaning suvda rivojlanuvchi dumi va jabrali lichinkasi itbaliq deb ataladi."
+                                                   },
+                                                   {
+                                                       "id":  5072,
+                                                       "question":  "Qaysi hayvonlar sinfi faqat o\u0027pka orqali nafas oladi va quruq muguz tangachali teriga ega?",
+                                                       "options":  [
+                                                                       "Sudralib yuruvchilar (Reptiliyalar)",
+                                                                       "Amfibiyalar",
+                                                                       "Baliqlar",
+                                                                       "Halqali chuvalchanglar"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Kaltakesak va ilonlar tanasi quruq muguz tangachali bo\u0027lib, suv bug\u0027lanishidan asraydi."
+                                                   },
+                                                   {
+                                                       "id":  5073,
+                                                       "question":  "Suyaklari pnevmatik (havoli), yuragi 4 kamerali va tanasi pat bilan qoplangan issiqqonli hayvonlar qaysi?",
+                                                       "options":  [
+                                                                       "Qushlar",
+                                                                       "Sudralib yuruvchilar",
+                                                                       "Amfibiyalar",
+                                                                       "Baliqlar"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Qushlar uchishga moslashgan bo\u0027lib, havo xaltachalari orqali qo\u0027shaloq nafas oladi."
+                                                   },
+                                                   {
+                                                       "id":  5074,
+                                                       "question":  "Bolalarini tirik tug\u0027ib sut bilan boquvchi, yuksak rivojlangan bosh miyaga ega hayvonlar sinfi qaysi?",
+                                                       "options":  [
+                                                                       "Sutemizuvchilar",
+                                                                       "Qushlar",
+                                                                       "Sudralib yuruvchilar",
+                                                                       "Amfibiyalar"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Sutemizuvchilar terisida sut bezlari bo\u0027lib, naslini ona suti bilan boqadi."
+                                                   }
+                                               ]
+                             },
+                             {
+                                 "id":  "15",
+                                 "title":  "15-§. Odam organlari sistemasi",
+                                 "questions":  [
+                                                   {
+                                                       "id":  5075,
+                                                       "question":  "📸 [Rasmli test] Rasmda qo\u0027l tirsakdan bukilganda qisqargan holatda bo\u0027ladigan muskul qaysi?",
+                                                       "image":  "images_5/doc1_image156.png",
+                                                       "options":  [
+                                                                       "Yelkaning ikki boshli muskuli (biceps)",
+                                                                       "Yelkaning uch boshli muskuli (triceps)",
+                                                                       "Bilak muskuli",
+                                                                       "Trapeziyasimon muskul"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Qo\u0027lni bukishda ikki boshli muskul (biceps) qisqaradi, uch boshli muskul esa bo\u0027shashadi."
+                                                   },
+                                                   {
+                                                       "id":  5076,
+                                                       "question":  "📸 [Rasmli test] Rasmda qonni to\u0027xtovsiz tomirlarga haydab beruvchi to\u0027rt kamerali muskul a\u0027zosi qaysi?",
+                                                       "image":  "images_5/doc1_image157.png",
+                                                       "options":  [
+                                                                       "Yurak",
+                                                                       "O\u0027pka",
+                                                                       "Jigar",
+                                                                       "Buyrak"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Yurak nasos vazifasini bajarib, katta va kichik qon aylanish doiralariga qon haydaydi."
+                                                   },
+                                                   {
+                                                       "id":  5077,
+                                                       "question":  "Moddalar almashinuvining suyuq zararli qoldiqlarini qondan filtrlab siydik hosil qiluvchi a\u0027zo qaysi?",
+                                                       "options":  [
+                                                                       "Buyraklar",
+                                                                       "O\u0027pka",
+                                                                       "Oshqozon",
+                                                                       "Taloq"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Buyraklar juft loviyasimon a\u0027zo bo\u0027lib, qonni tozalaydi va ayirishni ta\u0027minlaydi."
+                                                   },
+                                                   {
+                                                       "id":  5078,
+                                                       "question":  "Gaz almashinuvi sodir bo\u0027ladigan, havoni qabul qiluvchi nafas a\u0027zosi nima?",
+                                                       "options":  [
+                                                                       "O\u0027pka (alveolalar)",
+                                                                       "Yurak",
+                                                                       "Qizilo\u0027ngach",
+                                                                       "Buyrak"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "O\u0027pka pufakchalari (alveolalar)da kapillarlar orqali qonga kislorod o\u0027tadi va CO2 chiqariladi."
+                                                   },
+                                                   {
+                                                       "id":  5079,
+                                                       "question":  "Butun tana a\u0027zolari faoliyatini boshqaruvchi va tartibga soluvchi asosiy sistema qaysi?",
+                                                       "options":  [
+                                                                       "Nerv sistemasi",
+                                                                       "Hazm qilish sistemasi",
+                                                                       "Tayanch sistemasi",
+                                                                       "Ayirish sistemasi"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Markaziy va periferik nerv sistemasi barcha a\u0027zolar uyg\u0027unligini boshqaradi."
+                                                   }
+                                               ]
+                             },
+                             {
+                                 "id":  "16",
+                                 "title":  "16-§. Ekologik omillar",
+                                 "questions":  [
+                                                   {
+                                                       "id":  5080,
+                                                       "question":  "Quyosh nuri, harorat, namlik va tuproq tarkibi qaysi ekologik omillarga kiradi?",
+                                                       "options":  [
+                                                                       "Abiotik omillar",
+                                                                       "Biotik omillar",
+                                                                       "Antropogen omillar",
+                                                                       "Genetik omillar"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Abiotik omillar — organizmga ta\u0027sir qiluvchi jonsiz tabiat shart-sharoitlaridir."
+                                                   },
+                                                   {
+                                                       "id":  5081,
+                                                       "question":  "Insonning tabiatga, tirik organizmlar va ularning yashash joylariga ta\u0027siri qanday ataladi?",
+                                                       "options":  [
+                                                                       "Antropogen omillar",
+                                                                       "Abiotik omillar",
+                                                                       "Biotik omillar",
+                                                                       "Kosmik omillar"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Inson faoliyati bilan bog\u0027liq barcha ta\u0027sirlar antropogen omillar deyiladi."
+                                                   },
+                                                   {
+                                                       "id":  5082,
+                                                       "question":  "📸 [Rasmli test] Rasmda oziqa zanjirining 1-pog\u0027onasida turuvchi organik modda hosil qiluvchi organizmlar qanday ataladi?",
+                                                       "image":  "images_5/doc1_image160.png",
+                                                       "options":  [
+                                                                       "Produtsentlar (yashil o\u0027simliklar)",
+                                                                       "Konsumentlar (hayvonlar)",
+                                                                       "Redutsentlar (zamburug\u0027lar)",
+                                                                       "Yirtqichlar"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Yashil o\u0027simliklar quyosh nuridan organik modda yaratuvchi produtsentlar hisoblanadi."
+                                                   },
+                                                   {
+                                                       "id":  5083,
+                                                       "question":  "📸 [Rasmli test] Rasmda keltirilgan ozuqa zanjirida yirtqich burgut qaysi tartibdagi konsument hisoblanadi?",
+                                                       "image":  "images_5/doc1_image162.png",
+                                                       "options":  [
+                                                                       "3-tartib konsumenti",
+                                                                       "1-tartib konsumenti",
+                                                                       "Produtsent",
+                                                                       "Redutsent"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "O\u0027simlik (produtsent) -\u003e Sichqon (1-konsument) -\u003e Ilon (2-konsument) -\u003e Burgut (3-konsument)."
+                                                   },
+                                                   {
+                                                       "id":  5084,
+                                                       "question":  "O\u0027lik organik qoldiqlarni minerallarga qadar parchalovchi bakteriya va zamburug\u0027lar nima deyiladi?",
+                                                       "options":  [
+                                                                       "Redutsentlar",
+                                                                       "Produtsentlar",
+                                                                       "Konsumentlar",
+                                                                       "Parazitlar"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Redutsentlar o\u0027lik to\u0027qimalarni parchalab noorganik moddalarga aylantiradi."
+                                                   }
+                                               ]
+                             },
+                             {
+                                 "id":  "17",
+                                 "title":  "17-§. Inson va tabiat",
+                                 "questions":  [
+                                                   {
+                                                       "id":  5085,
+                                                       "question":  "Qayta tiklanmaydigan tabiiy resurslarga qaysilar kiradi?",
+                                                       "options":  [
+                                                                       "Neft, tabiiy gaz, ko\u0027mir, foydali qazilmalar",
+                                                                       "O\u0027simliklar va hayvonlar",
+                                                                       "Toza chuchuk suv",
+                                                                       "Tuproq unumdorligi"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Qazilma boyliklar sarflangan sari kamayadi va qayta tiklanmaydi."
+                                                   },
+                                                   {
+                                                       "id":  5086,
+                                                       "question":  "Orol dengizining qurishi va ekologik inqirozga uchrashining asosiy sababi nima?",
+                                                       "options":  [
+                                                                       "Amudaryo va Sirdaryo suvlarining me\u0027yordan ortiq sug\u0027orishga olinishi",
+                                                                       "Iqlimning birdan isib ketishi",
+                                                                       "Dengiz tubining yorilishi",
+                                                                       "O\u0027simliklarning ko\u0027payishi"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Daryolar suvining sug\u0027orishga ko\u0027p sarflanishi oqibatida Orolga suv yetib bormay qurib qoldi."
+                                                   },
+                                                   {
+                                                       "id":  5087,
+                                                       "question":  "Zavod va transport vositalaridan zaharli gazlarning havoga ko\u0027p chiqarilishi qanday xavf tug\u0027diradi?",
+                                                       "options":  [
+                                                                       "Atmosferaning ifloslanishi va issiqxona effektini",
+                                                                       "Suvlarning tozalanishini",
+                                                                       "Muzliklarning ko\u0027payishini",
+                                                                       "Bakteriyalarning yo\u0027qolishini"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Havoga chiqarilgan gazlar havoni ifloslantirib, global iqlim isishini keltirib chiqaradi."
+                                                   },
+                                                   {
+                                                       "id":  5088,
+                                                       "question":  "Qayta tiklanadigan tabiiy resurslarga qaysilar kiradi?",
+                                                       "options":  [
+                                                                       "O\u0027simliklar, hayvonlar, o\u0027rmonlar, toza suv",
+                                                                       "Neft va tabiiy gaz",
+                                                                       "Toshko\u0027mir va uran",
+                                                                       "Oltin va temir ma\u0027danlari"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Tirik tabiat va suv zaxiralari oqilona foydalanilsa o\u0027z-o\u0027zini qayta tiklay oladi."
+                                                   }
+                                               ]
+                             },
+                             {
+                                 "id":  "18",
+                                 "title":  "18-§. Tabiatni muhofaza qilish",
+                                 "questions":  [
+                                                   {
+                                                       "id":  5089,
+                                                       "question":  "Yo\u0027qolib borayotgan va kamyob o\u0027simlik hamda hayvonlar ro\u0027yxati keltirilgan rasmiy davlat kitobi nima?",
+                                                       "options":  [
+                                                                       "«Qizil kitob»",
+                                                                       "«Yashil kitob»",
+                                                                       "«Tabiat qomusi»",
+                                                                       "«Boburnoma»"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Qizil kitob kamyob va yo\u0027qolish arafasidagi turlarni davlat muhofazasiga oluvchi rasmiy hujjatdir."
+                                                   },
+                                                   {
+                                                       "id":  5090,
+                                                       "question":  "Qaysi hayvon to\u0027qaylarning qisqarishi va brakonyerlik oqibatida kamayib, O\u0027zbekiston Qizil kitobiga kiritilgan?",
+                                                       "options":  [
+                                                                       "Xongul (Buxoro bug\u0027usi)",
+                                                                       "Bo\u0027ri",
+                                                                       "Chiyabo\u0027ri",
+                                                                       "Qobon"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Xongul (Buxoro bug\u0027usi) to\u0027qaylarning kamayishi tufayli qattiq muhofazaga olingan."
+                                                   },
+                                                   {
+                                                       "id":  5091,
+                                                       "question":  "Tabiat butun boyligi bilan asl holicha saqlanadigan, har qanday xo\u0027jalik faoliyati qat\u0027iyan man etilgan hudud nima?",
+                                                       "options":  [
+                                                                       "Qo\u0027riqxona",
+                                                                       "Milliy bog\u0027",
+                                                                       "Buyurtmaxona",
+                                                                       "Botanika bog\u0027i"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Qo\u0027riqxonalarda insonning har qanday xo\u0027jalik va ov faoliyati qat\u0027iyan taqiqlangan."
+                                                   },
+                                                   {
+                                                       "id":  5092,
+                                                       "question":  "O\u0027zbekiston Qizil kitobiga kiritilgan 15-20 metrli baland bo\u0027yli nodir daraxt qaysi?",
+                                                       "options":  [
+                                                                       "Safsan xurmosi",
+                                                                       "Tol",
+                                                                       "Terak",
+                                                                       "Yong\u0027oq"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Safsan xurmosi Qizil kitobga kiritilgan nodir yovvoyi mevali daraxtdir."
+                                                   },
+                                                   {
+                                                       "id":  5093,
+                                                       "question":  "Cho\u0027l va adirlarda yashaydigan, tuxumini yerga qo\u0027yadigan Qizil kitobdagi qush qaysi?",
+                                                       "options":  [
+                                                                       "Yo\u0027rg\u0027a tuvaloq",
+                                                                       "Oq laylak",
+                                                                       "Qaldirg\u0027och",
+                                                                       "Musicha"
+                                                                   ],
+                                                       "correct_option_id":  0,
+                                                       "explanation":  "Yo\u0027rg\u0027a tuvaloq cho\u0027llarda yashovchi kamyob qush bo\u0027lib, qat\u0027iy muhofaza qilinadi."
                                                    }
                                                ]
                              }
