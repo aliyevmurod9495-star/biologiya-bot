@@ -820,3 +820,12 @@ try:
     ANIMATIONS_3D["5"] = ANIMATIONS_3D_5
 except ImportError:
     pass
+
+# 7-sinf materiallarini yuklash (Zoologiya — barcha 59 ta mavzu)
+try:
+    from materials_7 import TOPICS_7, VIDEO_LESSONS_7, ANIMATIONS_3D_7
+    TOPICS_CONTENT["7"] = TOPICS_7
+    VIDEO_LESSONS["7"] = VIDEO_LESSONS_7
+    ANIMATIONS_3D["7"] = ANIMATIONS_3D_7
+except ImportError:
+    pass
