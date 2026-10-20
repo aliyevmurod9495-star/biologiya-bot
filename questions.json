@@ -44648,35 +44648,2441 @@
     ]
   },
   "10": {
-    "name": "10-sinf (Genetika)",
+    "name": "10-sinf (Biologiya)",
     "topics": [
       {
         "id": "1",
-        "title": "1-mavzu: Genetika va irsiyat qonunlari",
+        "title": "1-§. Biologiya – hayot haqidagi fan",
         "questions": [
           {
-            "id": 17,
-            "question": "Genetika fanining asoschisi kim?",
+            "id": 10001,
+            "question": "Biologik hodisa va obyektlarni sun'iy o'zgartirilgan laboratoriya sharoitida o'rganish qaysi usulga kiradi?",
             "options": [
-              "Charlz Darvin",
-              "Gregor Mendel",
-              "Tomas Morgan",
-              "Lui Paster"
+              "Eksperimental (tajriba) usuli",
+              "Kuzatish usuli",
+              "Tarixiy usul",
+              "Taqqosiy usul"
             ],
-            "correct_option_id": 1,
-            "explanation": "Gregor Mendel no'xat ustida o'tkazgan tajribalari bilan irsiyat qonunlarini ochgan."
+            "correct_option_id": 0,
+            "explanation": "Eksperimental usulda tadqiqotchi sun'iy sharoit yaratib, omillarning organizmga ta'sirini o'rganadi."
           },
           {
-            "id": 18,
-            "question": "Mitoz bo'linish necha fazadan iborat?",
+            "id": 10002,
+            "question": "Organik olamning vaqt davomidagi tarixiy rivojlanishini o'rganuvchi biologik tadqiqot usuli qaysi?",
             "options": [
-              "2 ta",
-              "3 ta",
-              "4 ta (Profaza, Metafaza, Anafaza, Telofaza)",
-              "6 ta"
+              "Tarixiy usul",
+              "Kuzatish usuli",
+              "Modellashtirish usuli",
+              "Eksperimental usul"
             ],
-            "correct_option_id": 2,
-            "explanation": "Mitoz 4 ta asosiy fazadan iborat: profaza, metafaza, anafaza va telofaza."
+            "correct_option_id": 0,
+            "explanation": "Tarixiy usul tirik mavjudotlarning kelib chiqishi va evolutsion shakllanish qonuniyatlarini tahlil qiladi."
+          },
+          {
+            "id": 10003,
+            "question": "O'zaro uzviy bog'langan elementlardan tashkil topgan va yaxlit bir butunlikni hosil qiluvchi tirik tuzilma qanday ataladi?",
+            "options": [
+              "Biologik tizim",
+              "Anorganik komponent",
+              "Statik birlik",
+              "Izolyatsiyalangan tuzilma"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Biologik tizim — bir-biri bilan o'zaro ta'sirlashuvchi qismlardan iborat yaxlit tiriklik tuzilmasidir."
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "title": "2-§. Hayot mohiyati va tiriklikning xususiyatlari",
+        "questions": [
+          {
+            "id": 10004,
+            "question": "Tirik organizm ichki muhitining nisbiy doimiyligini saqlash xususiyati qanday ataladi?",
+            "options": [
+              "Gomeostaz",
+              "Ontogenez",
+              "Katabolizm",
+              "Fotoperiodizm"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Gomeostaz — organizmning ichki muhiti (harorat, bosim, pH, tuzlar) ko'rsatkichlarini doimiy saqlab turish xususiyatidir."
+          },
+          {
+            "id": 10005,
+            "question": "Tirik organizmlar massasining asosiy qismini (98% ini) tashkil etuvchi to'rtta asosiy biogen element qaysi?",
+            "options": [
+              "Uglerod (C), kislorod (O), vodorod (H), azot (N)",
+              "Kalsiy (Ca), fosfor (P), kaliy (K), temir (Fe)",
+              "Oltingugurt (S), magniy (Mg), natriy (Na), xlor (Cl)",
+              "Yod (I), ftor (F), rux (Zn), mis (Cu)"
+            ],
+            "correct_option_id": 0,
+            "explanation": "C, O, H, N elementlari organik moddalarning asosini tashkil qiluvchi eng muhim biogen makroelementlardir."
+          },
+          {
+            "id": 10006,
+            "question": "Organizmlarda kechadigan biologik jarayonlarning vaqt bo'yicha davriy takrorlanishi nima deyiladi?",
+            "options": [
+              "Ritmiylik",
+              "Qo'zg'aluvchanlik",
+              "Regeneratsiya",
+              "Divergensiya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Ritmiylik — hayotiy jarayonlarning sutkalik, oylik yoki mavsumiy davriylikka muvofiq takrorlanishidir."
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "title": "3-§. Hayotning molekula darajasi va uning o‘ziga xos jihatlari",
+        "questions": [
+          {
+            "id": 10007,
+            "question": "Quyidagi jarayonlardan qaysi biri hayotning bevosita molekula darajasiga mansub elementar hodisa hisoblanadi?",
+            "options": [
+              "DNK replikatsiyasi va oqsil biosintezi",
+              "To'qimalarning hosil bo'lishi",
+              "Organizmlarning o'zaro raqobati",
+              "Biogeotsenozda moddalar davranyishi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "DNK replikatsiyasi, transkripsiya va translatsiya molekulyar darajadagi matritsali jarayonlardir."
+          },
+          {
+            "id": 10008,
+            "question": "Biologik tizimlarda universal energiya manbai sifatida xizmat qiluvchi makroergik molekula qaysi?",
+            "options": [
+              "Adenozintrifosfat (ATF)",
+              "Glyukoza",
+              "Xolesterin",
+              "Gimoglobin"
+            ],
+            "correct_option_id": 0,
+            "explanation": "ATF makroergik fosfat bog'larida energiya to'plab, barcha hujayraviy jarayonlarga energiya yetkazib beradi."
+          },
+          {
+            "id": 10009,
+            "question": "Kimyoviy reaksiyalarni minglab va millionlab marta tezlashtiruvchi oqsil tabiatli biologik katalizatorlar qanday ataladi?",
+            "options": [
+              "Fermentlar (enzimlar)",
+              "Gormonlar",
+              "Antigenlar",
+              "Vitaminlar"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Fermentlar spetsifik biologik katalizatorlar bo'lib, hujayradagi barcha kimyoviy jarayonlarni boshqaradi."
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "title": "4-§. Tirik organizmlarning kimyoviy tarkibi va uning doimiyligi",
+        "questions": [
+          {
+            "id": 10010,
+            "question": "Qalqonsimon bez gormoni tiroksin tarkibiga kiruvchi muhim mikroelement qaysi?",
+            "options": [
+              "Yod (I)",
+              "Temir (Fe)",
+              "Kobalt (Co)",
+              "Rux (Zn)"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Yod qalqonsimon bezning tiroksin va triyodtironin gormonlari sintezi uchun zarur bo'lgan mikroelementdir."
+          },
+          {
+            "id": 10011,
+            "question": "Oshqozon osti bezi gormoni — insulin tarkibiga kiruvchi mikroelement qaysi?",
+            "options": [
+              "Rux (Zn)",
+              "Mis (Cu)",
+              "Ftor (F)",
+              "Marganes (Mn)"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Rux (Zn) moddasi insulin gormoni tarkibida bo'lib, uning faolligini ta'minlaydi."
+          },
+          {
+            "id": 10012,
+            "question": "Xlorofill pigmenti markazida qaysi element ioni joylashgan?",
+            "options": [
+              "Magniy (Mg)",
+              "Temir (Fe)",
+              "Kalsiy (Ca)",
+              "Kaliy (K)"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Xlorofill porfirin halqasining markazida magniy (Mg2+) ioni joylashgan."
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "title": "5-§. Uglevodlar va lipidlar",
+        "questions": [
+          {
+            "id": 10013,
+            "question": "1 gramm uglevod to'liq oksidlanganda qancha energiya (kJ) ajralib chiqadi?",
+            "options": [
+              "17,6 kJ",
+              "38,9 kJ",
+              "22,4 kJ",
+              "9,3 kJ"
+            ],
+            "correct_option_id": 0,
+            "explanation": "1 g uglevod parchalanganda 17,6 kJ energiya hosil bo'ladi. (1 g yog' parchalanganda esa 38,9 kJ)."
+          },
+          {
+            "id": 10014,
+            "question": "O'simliklar hujayra qobig'ining asosiy tayanch polisaxaridi nima?",
+            "options": [
+              "Sellyuloza (kletchatka)",
+              "Xitin",
+              "Glikogen",
+              "Kraxmal"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Sellyuloza o'simlik hujayrasi devorini tashkil etuvchi mustahkam tolasimon polimerdir."
+          },
+          {
+            "id": 10015,
+            "question": "Tuyalar uzoq vaqt suvsiz yashaganda o'rkachidagi yog'ning oksidlanishidan hosil bo'ladigan suv qanday ataladi?",
+            "options": [
+              "Endogen suv",
+              "Gidrotermal suv",
+              "Tashqi erkin suv",
+              "Og'ir suv"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Yog'lar parchalanganda ajraladigan ichki metabolik suv endogen suv deb ataladi (1 kg yog'dan 1,1 litr)."
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "title": "6-§. Oqsillar va nuklein kislotalar",
+        "questions": [
+          {
+            "id": 10016,
+            "question": "DNK molekulasida Guanin va Sitozin nukleotidlari o'rtasida nechta vodorod bog'i hosil bo'ladi?",
+            "options": [
+              "3 ta",
+              "2 ta",
+              "1 ta",
+              "4 ta"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Komplementarlik qoidasiga ko'ra, Guanin va Sitozin orasida 3 ta, Adenin va Timin orasida 2 ta vodorod bog'i bo'ladi."
+          },
+          {
+            "id": 10017,
+            "question": "Oqsillarning birlamchi zanjirida aminokislotalarni o'zaro biriktiruvchi kimyoviy bog' qanday ataladi?",
+            "options": [
+              "Peptid bog'",
+              "Disulfid bog'",
+              "Vodorod bog'",
+              "Glikozid bog'"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Birlamchi tuzilish aminokislotalarning amin guruhi va karboksil guruhi o'rtasidagi kovalent peptid bog' (-CO-NH-) orqali yuzaga keladi."
+          },
+          {
+            "id": 10018,
+            "question": "DNK molekulasida adenin 30% bo'lsa, sitozin nukleotidining foiz miqdorini aniqlang.",
+            "options": [
+              "20%",
+              "30%",
+              "40%",
+              "25%"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Chargaff qoidasi bo'yicha: A=T=30% (jami 60%). Qolgan 40% G va S ga teng taqsimlanadi: G=S=20%."
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "title": "7-§. Hayotning hujayra darajasi va uning o‘ziga xos jihatlari",
+        "questions": [
+          {
+            "id": 10019,
+            "question": "«Hujayra faqat hujayradan hosil bo'ladi» degan muhim qoidani hujayra nazariyasiga kim kiritgan?",
+            "options": [
+              "Rudolf Virxov",
+              "Teodor Shvann",
+              "Matias Shleyden",
+              "Robert Guk"
+            ],
+            "correct_option_id": 0,
+            "explanation": "1858-yilda R.Virxov har qanday hujayra oldin mavjud bo'lgan hujayraning bo'linishi natijasida hosil bo'lishini isbotladi."
+          },
+          {
+            "id": 10020,
+            "question": "Birinchi marta po'kak kesmasida «hujayra» (cell) atamasini fanga kiritgan olim kim?",
+            "options": [
+              "Robert Guk (1665)",
+              "Antoni van Levenguk",
+              "Robert Broun",
+              "Karl Ber"
+            ],
+            "correct_option_id": 0,
+            "explanation": "1665-yilda ingliz fizigi Robert Guk mikroskopda o'simlik po'kagidagi katakchalarni ko'rib, ularni «hujayra» deb atagan."
+          },
+          {
+            "id": 10021,
+            "question": "Hujayraning qaysi qismi barcha organoidlarni o'zaro bog'lovchi ichki yarim suyuq kolloid muhit hisoblanadi?",
+            "options": [
+              "Sitoplazma (sitozol)",
+              "Xromosoma",
+              "Glikokaliks",
+              "Sentrosoma"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Sitozol (hialoplazma) — sitoplazmaning eruvchan asosiy suyuq muhiti bo'lib, metabolik reaksiyalarni bog'laydi."
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "title": "8-§. Moddalar almashinuvi – hujayra hayotiy faoliyatining asosi",
+        "questions": [
+          {
+            "id": 10022,
+            "question": "1 molekula glyukoza hujayrada to'liq (kislorodli bosqich bilan) parchalanganda jami nechta ATF hosil bo'ladi?",
+            "options": [
+              "38 ta ATF",
+              "36 ta ATF",
+              "2 ta ATF",
+              "40 ta ATF"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Glikolizda 2 ta ATF va mitoxondriyadagi kislorodli bosqichda 36 ta ATF, jami 38 ta ATF molekulasi sintezlanadi."
+          },
+          {
+            "id": 10023,
+            "question": "Kislorodsiz bosqichda (glikoliz) 4 molekula glyukoza chala parchalanganda qancha sut kislotasi va ATF hosil bo'ladi?",
+            "options": [
+              "8 ta sut kislotasi va 8 ta ATF",
+              "4 ta sut kislotasi va 4 ta ATF",
+              "8 ta sut kislotasi va 144 ta ATF",
+              "16 ta sut kislotasi va 8 ta ATF"
+            ],
+            "correct_option_id": 0,
+            "explanation": "1 ta glyukozadan 2 ta sut kislotasi va 2 ta ATF hosil bo'ladi. Demak, 4 ta glyukozadan 8 ta sut kislotasi va 8 ta ATF olinadi."
+          },
+          {
+            "id": 10024,
+            "question": "Hujayrada energetik almashinuvning uchinchi (kislorodli aerob) bosqichi qaysi organoidda amalga oshadi?",
+            "options": [
+              "Mitoxondriyada",
+              "Lizosomada",
+              "Ribosomada",
+              "Golji majmuasida"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Aerob bosqich (Krebs sikli va oksidlovchi fosforillanish) mitoxondriya matriksi va kristalarida kechadi."
+          }
+        ]
+      },
+      {
+        "id": "9",
+        "title": "9-§. Plastik almashinuv. Fotosintez, xemosintez",
+        "questions": [
+          {
+            "id": 10025,
+            "question": "Fotosintez jarayonida ajralib chiqadigan erkin kislorod (O2) qaysi moddaning fotolizidan hosil bo'ladi?",
+            "options": [
+              "Suv (H2O)",
+              "Karbonat angidrid (CO2)",
+              "Glyukoza (C6H12O6)",
+              "Fosfat kislota"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Yorug'lik fazasida suv fotolizga uchrab H+ protonlari va erkin O2 molekulasini hosil qiladi."
+          },
+          {
+            "id": 10026,
+            "question": "Xemosintez hodisasini birinchi bo'lib 1887-yilda kashf etgan rus mikrobiologi kim?",
+            "options": [
+              "S.N. Vinogradskiy",
+              "K.A. Timiryazev",
+              "I.I. Mechnikov",
+              "D.I. Ivanovskiy"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Sergey Nikolaevich Vinogradskiy 1887-yilda xemosintezlovchi oltingugurt va temir bakteriyalarini kashf etgan."
+          },
+          {
+            "id": 10027,
+            "question": "Fotosintezning qorong'ilik fazasi xloroplastning qaysi qismida kechadi?",
+            "options": [
+              "Xloroplast stromasida",
+              "Tilakoid membranasida",
+              "Tashqi membranada",
+              "Grana oralig'ida"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Kalvin sikli fermentlari xloroplastning ichki suyuq stromasida joylashgan."
+          }
+        ]
+      },
+      {
+        "id": "10",
+        "title": "10-§. Hujayra – tiriklikning irsiy birligi",
+        "questions": [
+          {
+            "id": 10028,
+            "question": "Sog'lom odamning somatik hujayrasi kariotipida nechta xromosoma mavjud?",
+            "options": [
+              "46 ta (23 juft)",
+              "48 ta (24 juft)",
+              "23 ta (toq)",
+              "44 ta"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Odamning diploid (2n) to'plami 46 ta xromosomadan iborat (22 juft autosoma va 1 juft jinsiy xromosoma)."
+          },
+          {
+            "id": 10029,
+            "question": "Xromatin tarkibida DNK ipi o'raladigan asos xarakterli oqsillar guruhi qanday ataladi?",
+            "options": [
+              "Giston oqsillari",
+              "Globulinlar",
+              "Fibrinogenlar",
+              "Albuminlar"
+            ],
+            "correct_option_id": 0,
+            "explanation": "DNK molekulasi 8 ta giston oqsili atrofida o'ralib nukleosoma tuzilmasini hosil qiladi."
+          },
+          {
+            "id": 10030,
+            "question": "Yadrochada qaysi biopolimerlar sintezlanadi va yig'iladi?",
+            "options": [
+              "r-RNK va ribosoma subbirliklari",
+              "DNK va polipeptid gormonlar",
+              "Lipidlar va polisaxaridlar",
+              "Faqat t-RNK molekulalari"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Yadrochada ribosoma RNKsi sintezlanadi va ribosomaning katta hamda kichik subbirliklari shakllanadi."
+          }
+        ]
+      },
+      {
+        "id": "11",
+        "title": "11-§. Hujayraning hayot sikli",
+        "questions": [
+          {
+            "id": 10031,
+            "question": "Hujayra hayot siklida DNK molekulalari ikki hissa ortishi (replikatsiya) qaysi davrda amalga oshadi?",
+            "options": [
+              "Interfazaning sintetik (S) davrida",
+              "Interfazaning postsintetik (G2) davrida",
+              "Mitozning profaza bosqichida",
+              "Mitozning anafaza bosqichida"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Interfazaning S (sintetik) davrida DNK matritsali usulda ikkilanadi va 2n2c holatdan 2n4c holatga o'tadi."
+          },
+          {
+            "id": 10032,
+            "question": "Mitoz bo'linishning qaysi fazasida xromosomalar ekvator tekisligida joylashib, metafaza plastinkasini hosil qiladi?",
+            "options": [
+              "Metafaza",
+              "Profaza",
+              "Anafaza",
+              "Telofaza"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Metafaza bosqichida xromosomalar to'liq spirallashib ekvatorda bir qator bo'lib tiziladi."
+          },
+          {
+            "id": 10033,
+            "question": "Mitozning anafaza fazasida xromatidalar qutblarga tarqalganda hujayraning xromosoma va DNK formulasi qanday bo'ladi?",
+            "options": [
+              "4n4c",
+              "2n4c",
+              "2n2c",
+              "1n1c"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Anafazada har bir xromatida mustaqil xromosomaga aylangani sababli xromosoma soni ikki barobar oshib 4n4c bo'ladi."
+          }
+        ]
+      },
+      {
+        "id": "12",
+        "title": "12-§. Hayotning organizm darajasi va uning o‘ziga xos jihatlari",
+        "questions": [
+          {
+            "id": 10034,
+            "question": "Hayotning organizm darajasining elementar birligi nima hisoblanadi?",
+            "options": [
+              "Alohida individ (organizm)",
+              "Hujayra va uning organoidlari",
+              "Populatsiya",
+              "Biogeotsenoz"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Organizm darajasining elementar strukturaviy birligi mustaqil yashovchi alohida individdir."
+          },
+          {
+            "id": 10035,
+            "question": "Organizmning urug'langan tuxum hujayra (zigota)dan boshlab to umrining oxirigacha bo'lgan individual rivojlanish jarayoni nima deyiladi?",
+            "options": [
+              "Ontogenez",
+              "Filogenez",
+              "Simbioz",
+              "Metamorfoz"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Ontogenez — har bir alohida organizmning individual hayotiy rivojlanish siklidir."
+          },
+          {
+            "id": 10036,
+            "question": "Organizmning barcha tashqi va ichki belgilari hamda xususiyatlari yig'indisi qanday nomlanadi?",
+            "options": [
+              "Fenotip",
+              "Genotip",
+              "Genom",
+              "Kariotip"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Fenotip — genotipning ma'lum muhit sharoitida namoyon bo'lgan barcha belgilari majmuasidir."
+          }
+        ]
+      },
+      {
+        "id": "13",
+        "title": "13-§. Tirik organizmlarning oziqlanishga ko‘ra turlari",
+        "questions": [
+          {
+            "id": 10037,
+            "question": "Yorug'likda fotosintez qiluvchi, qorong'ida esa tayyor organik moddalarni so'rib oluvchi miksotrof organizm qaysi?",
+            "options": [
+              "Yashil evglena",
+              "Oddiy amyoba",
+              "Achitqi zamburug'i",
+              "Odam askaridasi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Yashil evglena aralash (miksotrof) oziqlanuvchi bir hujayrali organizmdir."
+          },
+          {
+            "id": 10038,
+            "question": "O'lik organik moddalar va chirindilar bilan oziqlanuvchi geterotroflar qanday ataladi?",
+            "options": [
+              "Saprotroflar",
+              "Parazitlar",
+              "Fototroflar",
+              "Xemotroflar"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Saprotroflar nobud bo'lgan o'simlik va hayvon qoldiqlari hisobiga oziqlanadi (masalan, mog'or zamburug'lari)."
+          },
+          {
+            "id": 10039,
+            "question": "Quyidagi o'simliklardan qaysi biri xlorofillga ega bo'lmagan to'liq geterotrof parazit hisoblanadi?",
+            "options": [
+              "Zarpechak (devpechak)",
+              "Lola",
+              "Buxoro teragi",
+              "Sebarga"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Zarpechak (devpechak) ildiz va barglarini yo'qotgan, so'rg'ichlari bilan boshqa o'simlikda parazitlik qiluvchi geterotrofdir."
+          }
+        ]
+      },
+      {
+        "id": "14",
+        "title": "14-§. Organizmlarning ko‘payishi. Jinssiz ko‘payish",
+        "questions": [
+          {
+            "id": 10040,
+            "question": "Bezgak plazmodiysining eritrotsitlarda ko'p bo'linish yo'li bilan ko'payishi qanday nomlanadi?",
+            "options": [
+              "Shizogoniya",
+              "Kurtaklanish",
+              "Konyugatsiya",
+              "Kopulyatsiya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Shizogoniya — ko'p marta bo'linish bo'lib, bitta parazitdan bir vaqtning o'zida 12-24 ta yangi merozoitlar hosil bo'ladi."
+          },
+          {
+            "id": 10041,
+            "question": "Chuchuk suv gidrasi va achitqi zamburug'ining jinssiz ko'payish usuli qaysi?",
+            "options": [
+              "Kurtaklanish",
+              "Sporalanish",
+              "Shizogoniya",
+              "Partenogenez"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Kurtaklanishda ona tanasida hosil bo'lgan bo'rtma kattalashib yangi individga aylanadi."
+          },
+          {
+            "id": 10042,
+            "question": "Jinssiz ko'payish natijasida hosil bo'lgan nasl qanday genetik xususiyatga ega bo'ladi?",
+            "options": [
+              "Ona organizmning aynan o'xshash genetik nusxasi (klon) bo'ladi",
+              "Ota-ona belgilarining yangi kombinatsiyasiga ega bo'ladi",
+              "Xromosoma to'plami har doim gaploid bo'ladi",
+              "Mutatsion o'zgaruvchanlik qat'iy uchramaydi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Jinssiz ko'payish mitoz asosida kechgani sababli avlod ona organizmning genetik jihatdan to'liq nusxasi bo'ladi."
+          }
+        ]
+      },
+      {
+        "id": "15",
+        "title": "15-§. Organizmlarning jinsiy ko‘payishi",
+        "questions": [
+          {
+            "id": 10043,
+            "question": "Gomologik xromosomalarning o'zaro chatishib, qismlari (genlari) bilan almashinishi jarayoni nima deyiladi?",
+            "options": [
+              "Krossingover",
+              "Konyugatsiya",
+              "Translokatsiya",
+              "Replikatsiya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Krossingover — Meyoz I ning profazasida gomologik xromosomalar gomologik sohalarining almashinishidir."
+          },
+          {
+            "id": 10044,
+            "question": "Ovogenez jarayonida bitta birlamchi jinsiy hujayraning yetilish davri natijasida nechta tuxumhujayra hosil bo'ladi?",
+            "options": [
+              "1 ta yetuk tuxumhujayra va 3 ta yo'naltiruvchi tanacha",
+              "4 ta teng qimmatli tuxumhujayra",
+              "2 ta tuxumhujayra va 2 ta yo'naltiruvchi tanacha",
+              "Faqat 1 ta hujayra, qolganlari nobud bo'lmaydi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Ovogenezda sitoplazma tengsiz bo'linib, 1 ta yirik oziqli tuxumhujayra va 3 ta mayda yo'naltiruvchi tanacha shakllanadi."
+          },
+          {
+            "id": 10045,
+            "question": "Asalarilar oilasida urug'lanmagan tuxumhujayradan (partenogenetik yo'l bilan) qanday individlar rivojlanadi?",
+            "options": [
+              "Erkak asalarilar (trutenlar)",
+              "Ishchi asalarilar",
+              "Ona ari (matka)",
+              "Barcha turdagi asalarilar"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Asalarilarda erkak arilar (trutenlar) urug'lanmagan tuxumdan gaploid (1n) to'plam bilan partenogenez orqali rivojlanadi."
+          }
+        ]
+      },
+      {
+        "id": "16",
+        "title": "16-§. Ontogenez – tirik organizmlarning individual rivojlanishi",
+        "questions": [
+          {
+            "id": 10046,
+            "question": "Umurtqali hayvonlar embrionida nerv sistemasi va teri epidermisi qaysi murtak varag'idan rivojlanadi?",
+            "options": [
+              "Ektodermadan",
+              "Mezodermadan",
+              "Endodermadan",
+              "Blastotseldan"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Ektoderma (tashqi varaq)dan nerv nayi, bosh va orqa miya, sezgi a'zolari hamda teri epidermisi shakllanadi."
+          },
+          {
+            "id": 10047,
+            "question": "Embrional rivojlanish jarayonida qon aylanish sistemasi (yurak, tomirlar) va skelet qaysi qavatdan hosil bo'ladi?",
+            "options": [
+              "Mezodermadan",
+              "Ektodermadan",
+              "Endodermadan",
+              "Gastrulaning birlamchi og'zidan"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Mezoderma (o'rta qavat)dan suyak, tog'ay, muskullar, yurak, qon tomirlari va buyraklar hosil bo'ladi."
+          },
+          {
+            "id": 10048,
+            "question": "«Ontogenez — filogenezning qisqa va tez takrorlanishidir» degan biogenetik qonunni qaysi olimlar kashf etgan?",
+            "options": [
+              "E. Gekkel va F. Myuller",
+              "Ch. Darvin va A. Uolles",
+              "K. Ber va J. Kyuve",
+              "G. Mendel va T. Morgan"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Biogenetik qonun 1866-yilda Ernst Gekkel va Frits Myuller tomonidan ta'riflangan."
+          }
+        ]
+      },
+      {
+        "id": "17",
+        "title": "17-§. Irsiyatning umumiy qonuniyatlari. G. Mendelning irsiyat qonunlari va ularning mohiyati",
+        "questions": [
+          {
+            "id": 10049,
+            "question": "Monoduragay chatishtirishda F1 geterozigotalari (Aa x Aa) o'zaro chatishtirilganda F2 da fenotip bo'yicha ajralish nisbati qanday bo'ladi?",
+            "options": [
+              "3 : 1",
+              "1 : 2 : 1",
+              "9 : 3 : 3 : 1",
+              "1 : 1"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Mendelning 2-qonuniga ko'ra, to'liq dominantlikda fenotip bo'yicha ajralish 3:1 (75% dominant, 25% retsessiv) bo'ladi."
+          },
+          {
+            "id": 10050,
+            "question": "Gregor Mendel o'zining genetik tajribalarida asosiy tadqiqot obyekti sifatida qaysi o'simlikdan foydalangan?",
+            "options": [
+              "Ekma no'xat (Pisum sativum)",
+              "Pomidor",
+              "Makkajo'xori",
+              "Drozofila pashshasi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Mendel o'z-o'zidan changlanadigan, oson yetishtiriladigan va muqobil belgilari yaqqol bo'lgan ekma no'xatdan foydalangan."
+          },
+          {
+            "id": 10051,
+            "question": "Genotip bo'yicha gomozigota retsessiv organizm qanday ifodalanadi?",
+            "options": [
+              "aa",
+              "Aa",
+              "AA",
+              "AB"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Gomozigota retsessiv organizm bir xil retsessiv allellarga ega bo'lib, «aa» ko'rinishida belgilanadi."
+          }
+        ]
+      },
+      {
+        "id": "18",
+        "title": "18-§. Diduragay va poliduragay chatishtirish. G. Mendelning uchinchi qonuni",
+        "questions": [
+          {
+            "id": 10052,
+            "question": "Diduragay chatishtirishda (AaBb x AaBb) F2 avlodda fenotip bo'yicha ajralish nisbati qanday bo'ladi?",
+            "options": [
+              "9 : 3 : 3 : 1",
+              "3 : 1",
+              "1 : 2 : 1",
+              "1 : 1 : 1 : 1"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Diduragay chatishtirishda to'liq dominantlik sharoitida F2 fenotipik nisbati 9:3:3:1 bo'ladi."
+          },
+          {
+            "id": 10053,
+            "question": "Genotipi AaBb bo'lgan digeterozigota organizm meyoz jarayonida necha xil gameta hosil qiladi?",
+            "options": [
+              "4 xil (AB, Ab, aB, ab)",
+              "2 xil (AB, ab)",
+              "3 xil",
+              "8 xil"
+            ],
+            "correct_option_id": 0,
+            "explanation": "2^n formulasi bo'yicha: n=2 (ikkita geterozigota juft), demak 2^2 = 4 xil gameta (AB, Ab, aB, ab) hosil bo'ladi."
+          },
+          {
+            "id": 10054,
+            "question": "Mendelning 3-qonuni qanday holatda to'liq amal qiladi?",
+            "options": [
+              "Belgilarni belgilovchi genlar turli xil (nogomologik) xromosomalarda joylashgan bo'lsa",
+              "Genlar bitta xromosomada yonma-yon birikkan bo'lsa",
+              "Faqat jinsiy xromosomalarda joylashgan bo'lsa",
+              "Barcha genlar oraliq irsiylanishga ega bo'lsa"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Mendelning mustaqil taqsimlanish qonuni genlar no-gomologik alohida xromosomalarda bo'lgandagina o'rinlidir."
+          }
+        ]
+      },
+      {
+        "id": "19",
+        "title": "19-§. Irsiyatning xromosoma nazariyasi",
+        "questions": [
+          {
+            "id": 10055,
+            "question": "Irsiyatning xromosoma nazariyasini ishlab chiqqan va Nobel mukofotiga sazovor bo'lgan olim kim?",
+            "options": [
+              "Tomas Hant Morgan",
+              "Gregor Mendel",
+              "Gugo de Friz",
+              "Uilyam Betson"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Tomas Morgan drozofila pashshasida genlarning birikkan holda irsiylanishini kashf etib, xromosoma nazariyasini yaratdi."
+          },
+          {
+            "id": 10056,
+            "question": "Sog'lom odam hujayralarida jami nechta genlarning birikish guruhi mavjud?",
+            "options": [
+              "23 ta",
+              "46 ta",
+              "44 ta",
+              "2 ta"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Birikish guruhlari soni gaploid (1n) to'plamga teng bo'ladi. Odamda n=23 bo'lgani uchun 23 ta birikish guruhi bor."
+          },
+          {
+            "id": 10057,
+            "question": "Genetik xaritalarda xromosomadagi genlar orasidagi masofa qanday o'lchov birligida ifodalanadi?",
+            "options": [
+              "Santimorganida (morganida)",
+              "Nanometr",
+              "Angstrem",
+              "Nukleotid jufti"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Genlar orasidagi masofa 1% krossingoverga teng bo'lgan morganida (santimorganida) birligida o'lchanadi."
+          }
+        ]
+      },
+      {
+        "id": "20",
+        "title": "20-§. Jins genetikasi",
+        "questions": [
+          {
+            "id": 10058,
+            "question": "Qushlar va kapalaklarda urg'ochi organizm qanday jinsiy xromosomalarga ega bo'ladi?",
+            "options": [
+              "Geterogametali (ZW yoki XY)",
+              "Gomogametali (ZZ yoki XX)",
+              "Faqat bitta X xromosomali (X0)",
+              "Xromosomasiz"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Qushlar, sudralib yuruvchilar va tangachaqanotlilarda urg'ochi jins geterogameta (ZW), erkaklar gomogameta (ZZ) bo'ladi."
+          },
+          {
+            "id": 10059,
+            "question": "Odam organizmida jinsiy xromosomalar soni nechta bo'ladi?",
+            "options": [
+              "2 ta (1 juft)",
+              "44 ta",
+              "23 ta",
+              "4 ta"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Odamning 46 ta xromosomasidan 44 tasi autosoma, 2 tasi (1 juft: XX yoki XY) jinsiy xromosoma hisoblanadi."
+          },
+          {
+            "id": 10060,
+            "question": "Chigirtkalarda erkak jins qanday jinsiy xromosoma formulasiga ega?",
+            "options": [
+              "X0 (bitta X xromosoma)",
+              "XY",
+              "XX",
+              "YY"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Chigirtka va qandalalarda Y xromosoma bo'lmaydi, erkaklari X0, urg'ochilari XX bo'ladi."
+          }
+        ]
+      },
+      {
+        "id": "21",
+        "title": "21-§. Jins bilan bog‘liq holda irsiylanish",
+        "questions": [
+          {
+            "id": 10061,
+            "question": "Odamda faqat Y-xromosomada joylashgan va otadan faqat o'g'il bolalarga o'tadigan belgilar qanday ataladi?",
+            "options": [
+              "Golandrik belgilar",
+              "Autosom belgilar",
+              "Komplementar belgilar",
+              "Poligen belgilar"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Y-xromosoma bilan bog'liq bo'lgan belgilar golandrik belgilar deb ataladi (masalan, quloq suprasidagi gipertrixoz)."
+          },
+          {
+            "id": 10062,
+            "question": "Daltonizm bo'yicha tashuvchi ayol (XDXd) sog'lom erkak (XDY) bilan oila qurganda o'g'il bolalarning necha foizi daltonik bo'lib tug'iladi?",
+            "options": [
+              "50% o'g'illari",
+              "100% o'g'illari",
+              "25% o'g'illari",
+              "Barcha o'g'illari sog'lom bo'ladi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "O'g'illar onadan Xd yoki XD oladi: XDY (50% sog'lom) va XdY (50% daltonik)."
+          },
+          {
+            "id": 10063,
+            "question": "Qonning ivimasligi bilan bog'liq og'ir irsiy kasallik qaysi?",
+            "options": [
+              "Gemofiliya",
+              "Daltonizm",
+              "Anemiya",
+              "Fenilketonuriya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Gemofiliya — qon ivituvchi VIII yoki IX omillarning yetishmovchiligi natijasida qon ivimaslik kasalligidir (X-bog'liq retsessiv)."
+          }
+        ]
+      },
+      {
+        "id": "22",
+        "title": "22-§. Genlarning o‘zaro ta’siri",
+        "questions": [
+          {
+            "id": 10064,
+            "question": "Odamning IV qon guruhi (IAIB) allel genlarning o'zaro ta'sirining qaysi turiga misol bo'ladi?",
+            "options": [
+              "Kodominantlik",
+              "To'liqsiz dominantlik",
+              "Epistaz",
+              "Polimeriya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "IA va IB allellari geterozigotada bir-birini bostirmasdan mustaqil namoyon bo'ladi, bu kodominantlikdir."
+          },
+          {
+            "id": 10065,
+            "question": "Ikki noallel dominant genning birgalikda bo'lishi yangi fenotipik belgini yuzaga chiqarishi qanday ataladi?",
+            "options": [
+              "Komplementarlik",
+              "Epistaz",
+              "Pleyotropiya",
+              "To'liq dominantlik"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Komplementarlik — bir-birini to'ldiruvchi noallel dominant genlarning birgalikdagi yangi belgini hosil qilishidir."
+          },
+          {
+            "id": 10066,
+            "question": "Bitta genning bir vaqtning o'zida bir nechta belgilar rivojlanishiga ta'sir ko'rsatishi hodisasi nima deyiladi?",
+            "options": [
+              "Pleyotropiya",
+              "Polimeriya",
+              "Epistaz",
+              "Krossingover"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Pleyotropiya — bitta genning ko'p tomonlama ta'siridir (masalan, Marfan sindromida ko'z gavhari siljishi, suyaklarning uzunligi va yurak nuqsoni)."
+          }
+        ]
+      },
+      {
+        "id": "23",
+        "title": "23-§. O‘zgaruvchanlikning umumiy qonuniyatlari",
+        "questions": [
+          {
+            "id": 10067,
+            "question": "Tashqi muhit omillari ta'sirida yuzaga keladigan va nasldan naslga o'tmaydigan o'zgaruvchanlik turi qaysi?",
+            "options": [
+              "Modifikatsion (fenotipik) o'zgaruvchanlik",
+              "Gen mutatsiyasi",
+              "Kombinativ o'zgaruvchanlik",
+              "Genom mutatsiyasi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Modifikatsion o'zgaruvchanlikda faqat fenotip o'zgaradi, genotip o'zgarmagani uchun naslga o'tmaydi."
+          },
+          {
+            "id": 10068,
+            "question": "Xromosomaning ma'lum bir bo'lagi uzilib, 180 gradusga teskari buralib qayta ulanishi qanday mutatsiya hisoblanadi?",
+            "options": [
+              "Inversiya",
+              "Deletsiya",
+              "Duplikatsiya",
+              "Translokatsiya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Inversiya — xromosoma strukturasining 180° ga burilib teskari joylashishi bilan kechuvchi xromosoma mutatsiyasidir."
+          },
+          {
+            "id": 10069,
+            "question": "Genotip tomonidan belgilangan modifikatsion o'zgaruvchanlikning chegarasi nima deb ataladi?",
+            "options": [
+              "Reaksiya normasi",
+              "Mutatsiya chastotasi",
+              "Kombinatsiya indeksi",
+              "Krossingover foizi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Reaksiya normasi — tashqi muhit ta'sirida belgining genotip ruxsat etgan o'zgarish chegarasidir."
+          }
+        ]
+      },
+      {
+        "id": "24",
+        "title": "24-§. Genetika va inson salomatligi",
+        "questions": [
+          {
+            "id": 10070,
+            "question": "Odamda xromosoma va genom kasalliklarini aniqlashda mikroskop ostida kariotipni tekshiruvchi usul qaysi?",
+            "options": [
+              "Sitogenetik usul",
+              "Genealogik usul",
+              "Biokimyoviy usul",
+              "Egizaklar usuli"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Sitogenetik usul orqali xromosomalar soni va shakli o'rganilib, Daun, Klaynfelter kabi kasalliklar aniqlanadi."
+          },
+          {
+            "id": 10071,
+            "question": "Monozigota (bir tuxumli) va dizigota egizaklarni taqqoslab, irsiyat va tashqi muhitning belgiga ta'sirini baholovchi usul qaysi?",
+            "options": [
+              "Egizaklar usuli",
+              "Genealogik usul",
+              "Populatsiya usuli",
+              "Sitogenetik usul"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Egizaklar usuli tashqi muhit va genotipning qaysi biri belgining namoyon bo'lishida ustunligini ko'rsatadi."
+          },
+          {
+            "id": 10072,
+            "question": "Xardi-Vaynberg formulasida (p^2 + 2pq + q^2 = 1) geterozigota (Aa) genotiplar uchrash chastotasi qanday belgilanadi?",
+            "options": [
+              "2pq",
+              "p^2",
+              "q^2",
+              "p + q"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Formulada p^2 — dominant gomozigotalar (AA), 2pq — geterozigotalar (Aa), q^2 — retsessiv gomozigotalar (aa) chastotasi."
+          }
+        ]
+      },
+      {
+        "id": "25",
+        "title": "25-§. Odamda uchraydigan irsiy kasalliklar. Reproduktiv salomatlik",
+        "questions": [
+          {
+            "id": 10073,
+            "question": "21-juft autosoma xromosomasida trisomiya (uchta xromosoma) bo'lishi natijasida odamda qanday irsiy sindrom yuzaga keladi?",
+            "options": [
+              "Daun sindromi (47 ta xromosoma)",
+              "Klaynfelter sindromi",
+              "Shereshevskiy-Terner sindromi",
+              "Patau sindromi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Daun sindromi 21-xromosomaning ajralmay qolishi (21-trisomiya) oqibatida 47 ta xromosoma bilan rivojlanadi."
+          },
+          {
+            "id": 10074,
+            "question": "Kariotipi 47, XXY bo'lgan va faqat erkaklarda uchraydigan genom kasalligi qaysi?",
+            "options": [
+              "Klaynfelter sindromi",
+              "Shereshevskiy-Terner sindromi",
+              "Edvards sindromi",
+              "Marfan sindromi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Klaynfelter sindromida ortiqcha X xromosoma (XXY) bo'lib, erkaklarda bepushtlik va ikkilamchi ayollik belgilari yuzaga keladi."
+          },
+          {
+            "id": 10075,
+            "question": "Yaqin qarindoshlar o'rtasidagi nikoh nima sababdan tug'ilajak bolalar salomatligi uchun jiddiy xavf tug'diradi?",
+            "options": [
+              "Zararli retsessiv genlarning gomozigota (aa) holatga o'tish ehtimoli ortadi",
+              "Mutatsiyalar chastotasi to'xtaydi",
+              "Kariotipda xromosomalar soni kamayadi",
+              "Faqat dominant mutatsiyalar yuzaga chiqadi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Yaqin qarindoshlarda umumiy yashirin (retsessiv) nuqsonli genlar ko'p bo'lib, ular bolada gomozigota holga o'tib kasallik keltirib chiqaradi."
+          }
+        ]
+      },
+      {
+        "id": "26",
+        "title": "26-§. Gen muhandisligi tadqiqot obyektlari va rivojlanish tarixi",
+        "questions": [
+          {
+            "id": 10076,
+            "question": "1972-yilda fanda birinchi marta rekombinant (duragay) DNK molekulasini yaratgan amerikalik olim kim?",
+            "options": [
+              "Pol Berg",
+              "G. Mendel",
+              "J. Uotson va F. Krik",
+              "T. Morgan"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Pol Berg 1972-yilda probirkada SV40 virusi va lambda fagi DNKsini birlashtirib, gen muhandisligiga asos soldi."
+          },
+          {
+            "id": 10077,
+            "question": "Bakteriya hujayrasida asosiy nukleoiddan tashqari joylashgan, avtonom ko'payish xususiyatiga ega halqasimon kichik DNK nima deyiladi?",
+            "options": [
+              "Plazmida",
+              "Kapsid",
+              "Prion",
+              "Ribosoma"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Plazmidalar — bakteriyalarning halqasimon xromosomadan tashqari mustaqil DNK molekulalari bo'lib, asosiy vektor hisoblanadi."
+          },
+          {
+            "id": 10078,
+            "question": "O'simliklar hujayrasiga yot genni kiritishda genetik muhandislikda qaysi tuproq bakteriyasining Ti-plazmidasidan foydalaniladi?",
+            "options": [
+              "Agrobacterium tumefaciens",
+              "Escherichia coli",
+              "Bacillus anthracis",
+              "Streptococcus pneumoniae"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Agrobacterium tumefaciens bakteriyasining Ti-plazmidasi o'simlik genomiga genlarni integratsiya qilish uchun tabiiy vektor vazifasini bajaradi."
+          }
+        ]
+      },
+      {
+        "id": "27",
+        "title": "27-§. Hujayraning genetik elementlari",
+        "questions": [
+          {
+            "id": 10079,
+            "question": "Odamda mitoxondrial DNK orqali boshqariladigan belgilar avlodlarga qaysi ota-ona orqali uzatiladi?",
+            "options": [
+              "Faqat ona orqali (tuxumhujayra sitoplazmasi orqali)",
+              "Faqat ota orqali",
+              "Ota va onadan teng",
+              "Faqat o'g'il bolalarga otadan"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Spermatozoid zigotaga faqat yadrosini beradi, sitoplazma va mitoxondriyalar esa faqat tuxumhujayra (onadan) o'tadi."
+          },
+          {
+            "id": 10080,
+            "question": "Genom bo'ylab bir joydan ikkinchi joyga ko'chib o'tish qobiliyatiga ega bo'lgan «sakrovchi genlar» qanday ataladi?",
+            "options": [
+              "Transpozonlar",
+              "Operonlar",
+              "Ekzonlar",
+              "Intronlar"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Transpozonlar — harakatchan genetik elementlar bo'lib, ular genlar ifodalanishini o'zgartira oladi."
+          },
+          {
+            "id": 10081,
+            "question": "Bakteriyalarning antibiotiklarga nisbatan chidamliligini ta'minlovchi genlar asosan qayerda joylashgan?",
+            "options": [
+              "R-plazmidalarda",
+              "Yadrochada",
+              "Mezosomalarda",
+              "Hujayra devorida"
+            ],
+            "correct_option_id": 0,
+            "explanation": "R-plazmidalar (resistance) bakteriyalarga turli antibiotiklarni parchalovchi fermentlar genini beradi."
+          }
+        ]
+      },
+      {
+        "id": "28",
+        "title": "28-§. Hujayra irsiyatining o‘zgarishiga olib keladigan jarayonlar",
+        "questions": [
+          {
+            "id": 10082,
+            "question": "Bakteriofaglar (viruslar) vositasida bir bakteriya genetik materialining boshqasiga o'tkazilishi jarayoni nima deyiladi?",
+            "options": [
+              "Transduksiya",
+              "Transformatsiya",
+              "Konyugatsiya",
+              "Translyatsiya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Transduksiya — bakteriofag zarrachalari orqali bakteriya genlarining tashilishi jarayonidir."
+          },
+          {
+            "id": 10083,
+            "question": "1928-yilda F.Griffit tomonidan pnevmokokklarda kashf etilgan va erkin DNK bo'laklarining yutilishi bilan boradigan hodisa qaysi?",
+            "options": [
+              "Transformatsiya",
+              "Transduksiya",
+              "Konyugatsiya",
+              "Transkripsiya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Griffit tajribasida zararsiz R-shtamm qizdirib o'ldirilgan S-shtamm DNKsini yutib kapsulali virulent shtammga aylangan (transformatsiya)."
+          },
+          {
+            "id": 10084,
+            "question": "Bakteriya genomiga qo'shilib olgan va hujayrani parchalab yubormaydigan nofaol fag DNKsi nima deb ataladi?",
+            "options": [
+              "Profag",
+              "Virion",
+              "Prion",
+              "Vektor"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Bakteriya xromosomasiga integratsiyalashgan fanning DNKsi profag deb ataladi, bu hodisa esa lizogeniya deyiladi."
+          }
+        ]
+      },
+      {
+        "id": "29",
+        "title": "29-§. Gen muhandisligida qo‘llaniladigan fermentlar",
+        "questions": [
+          {
+            "id": 10085,
+            "question": "Gen muhandisligida DNK zanjirini qat'iy ma'lum nukleotidlar ketma-ketligidan kesuvchi «molekulyar qaychilar» qaysi fermentlar?",
+            "options": [
+              "Restriktazalar (endonukleazalar)",
+              "Ligazalar",
+              "Polimerazalar",
+              "Proteazalar"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Restriktazalar (masalan, EcoRI) DNKning spetsifik restriksiya saytlarini tanib kesadi."
+          },
+          {
+            "id": 10086,
+            "question": "Alohida DNK bo'laklarining «yopishqoq uchlari»ni fosfodiefir bog'lari orqali tikuvchi ferment qanday nomlanadi?",
+            "options": [
+              "DNK-ligaza",
+              "DNK-polimeraza",
+              "Restriktaza",
+              "Helikaza"
+            ],
+            "correct_option_id": 0,
+            "explanation": "DNK-ligaza fermenti DNK bo'laklarining uchlarini birlashtirib rekombinant molekulani hosil qiladi."
+          },
+          {
+            "id": 10087,
+            "question": "i-RNK molekulasi asosida komplementar DNK (k-DNK) sintezini amalga oshiruvchi ferment qaysi?",
+            "options": [
+              "Revertaza (teskari transkriptaza)",
+              "Amilaza",
+              "Topoizomeraza",
+              "Ribonukleaza"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Revertaza (teskari transkriptaza) RNK matritsasida komplementar DNK zanjirini sintezlaydi."
+          }
+        ]
+      },
+      {
+        "id": "30",
+        "title": "30-§. Rekombinant DNK olish",
+        "questions": [
+          {
+            "id": 10088,
+            "question": "Rekombinant plazmidani qabul qilgan bakteriyalarni saralashda (seleksiyada) qanday marker genlardan foydalaniladi?",
+            "options": [
+              "Antibiotiklarga chidamlilik genlaridan",
+              "Fotosintez genlaridan",
+              "Harakatlanish genlaridan",
+              "Pigment hosil qiluvchi barcha genlardan"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Plazmida tarkibidagi antibiotikka chidamlilik geni tufayli faqat rekombinant plazmidani olgan bakteriyalar omon qoladi."
+          },
+          {
+            "id": 10089,
+            "question": "Gen muhandisligi yo'li bilan olingan birinchi tibbiy preparat qaysi?",
+            "options": [
+              "Inson insulini",
+              "Penitsillin",
+              "Aspirin",
+              "Geparin"
+            ],
+            "correct_option_id": 0,
+            "explanation": "1982-yilda gen muhandisligi orqali sintezlangan inson insulini (xumulin) tibbiyotda qo'llanila boshlandi."
+          },
+          {
+            "id": 10090,
+            "question": "Bakteriyaga begona rekombinant plazmidaning kiritilishi jarayoni nima deb ataladi?",
+            "options": [
+              "Transformatsiya",
+              "Translyatsiya",
+              "Replikatsiya",
+              "Mitoz"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Transformatsiya — bakteriya hujayrasi tomonidan tashqi muhitdagi yot plazmida yoki DNKning qabul qilinishidir."
+          }
+        ]
+      },
+      {
+        "id": "31",
+        "title": "31-§. Gen muhandisligiga asoslanib o‘simlik irsiyatini o‘zgartirish",
+        "questions": [
+          {
+            "id": 10091,
+            "question": "Bt-g'o'za va Bt-makkajo'xori qaysi xususiyatga ega bo'lishi uchun Bacillus thuringiensis bakteriyasi geni bilan boyitilgan?",
+            "options": [
+              "Zararkunanda hasharotlarga (ko'sak qurtiga) chidamlilik",
+              "Sovuqqa chidamlilik",
+              "Meva shaklining kattalashishi",
+              "Ildiz tizimining chuqurlashishi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Bt-geni hasharotlar ichagida toksin hosil qilib, ularni nobud qiladi va pestitsidlar sarfini kamaytiradi."
+          },
+          {
+            "id": 10092,
+            "question": "O'simlik hujayrasiga DNK zanjirini oltin yoki volfram zarrachalari orqali yuqori bosimda otish usuli qanday ataladi?",
+            "options": [
+              "Biolistik usul (gen to'pi)",
+              "Elektroporatsiya",
+              "Konyugatsiya",
+              "Mikroin'yeksiya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Biolistika (gen to'pi) — og'ir metall mikropartikullari yordamida DNKni hujayraga mexanik kiritishdir."
+          },
+          {
+            "id": 10093,
+            "question": "A vitamini yetishmovchiligini kamaytirish maqsadida beta-karotin sintezlovchi genlar kiritilgan transgen ekin qaysi?",
+            "options": [
+              "Oltin guruch",
+              "Bt-makkajo'xori",
+              "Flavr Savr pomidori",
+              "Roundup Ready soya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Oltin guruch (Golden Rice) tarkibida ko'p miqdorda provitamin A (beta-karotin) to'planadi."
+          }
+        ]
+      },
+      {
+        "id": "32",
+        "title": "32-§. Hujayra muhandisligi asosida hayvonlar irsiyatini o‘zgartirish. Gibridoma",
+        "questions": [
+          {
+            "id": 10094,
+            "question": "1996-yilda somatik hujayra yadrosini ko'chirib o'tkazish yo'li bilan klonlangan birinchi sutemizuvchi hayvon qaysi?",
+            "options": [
+              "Dolli qo'zichoq",
+              "Bakteriya",
+              "Drozofila",
+              "Shimpanze"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Shotlandiyalik olim Yan Vilmut katta yoshli qo'yning somatik hujayrasi yadrosidan foydalanib Dolli qo'zichoqni klonlagan."
+          },
+          {
+            "id": 10095,
+            "question": "Gibridoma hujayralari qaysi ikki xil hujayraning sun'iy qo'shilishi (duragaylanishi) natijasida hosil qilinadi?",
+            "options": [
+              "Antitana ishlab chiqaruvchi B-limfotsit va miyeloma (rak) hujayrasi",
+              "Eritrotsit va leykotsit",
+              "Tuxumhujayra va spermatozoid",
+              "Nerv hujayrasi va muskul hujayrasi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "B-limfotsit antitanalar beradi, miyeloma hujayrasi esa oziq muhitida to'xtovsiz bo'linish qobiliyatini beradi."
+          },
+          {
+            "id": 10096,
+            "question": "Gibridoma texnologiyasining asosiy amaliy mahsuloti nima hisoblanadi?",
+            "options": [
+              "Monoklonal antitanalar",
+              "Antibiotiklar",
+              "Vitaminlar",
+              "Kaliy tuzlari"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Gibridomalar faqat bitta turdagi antiteloni cheksiz ishlab chiqaradi, bular monoklonal antitanalardir."
+          }
+        ]
+      },
+      {
+        "id": "33",
+        "title": "33-§. Gen va hujayra muhandisligiga asoslangan biotexnologiya",
+        "questions": [
+          {
+            "id": 10097,
+            "question": "Atrof-muhitni, tuproq va suvlarni ifloslantiruvchi zararli chiqindilardan (neft, og'ir metallar) tirik organizmlar vositasida tozalash nima deyiladi?",
+            "options": [
+              "Bioremediatsiya",
+              "Biodegradatsiya",
+              "Bioakkumulyatsiya",
+              "Transformatsiya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Bioremediatsiya — mikroorganizmlar va o'simliklar yordamida ifloslangan muhitni qayta tiklash va tozalashdir."
+          },
+          {
+            "id": 10098,
+            "question": "O'simlikning apikal meristema hujayralaridan probirkada viruslardan xoli sof ko'chatlar yetishtirish usuli qanday ataladi?",
+            "options": [
+              "Mikroklonal ko'paytirish",
+              "Gibridoma texnologiyasi",
+              "Partenogenez",
+              "Shizogoniya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Mikroklonal ko'paytirish hujayra to'qima kulturasida o'stirilib, o'simlikning virusdan xoli elita ko'chatlarini beradi."
+          },
+          {
+            "id": 10099,
+            "question": "Inson organizmida nuqsonli gen faoliyatini tuzatish yoki sog'lom gen kiritish orqali irsiy kasalliklarni davolash yo'nalishi nima deyiladi?",
+            "options": [
+              "Gen terapiyasi",
+              "Kimyoterapiya",
+              "Fizioterapiya",
+              "Radioterapiya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Gen terapiyasi — kasallikni bevosita genetik darajada, nuqsonli allelni almashtirish orqali bartaraf etish usulidir."
+          }
+        ]
+      },
+      {
+        "id": "34",
+        "title": "34-§. O‘zbekistonda gen muhandisligi va biotexnologiya fani yutuqlari",
+        "questions": [
+          {
+            "id": 10100,
+            "question": "O'zbekiston Genomika va bioinformatika markazi olimlari tomonidan gen-nokaut texnologiyasi asosida yaratilgan g'o'za navlari qanday ataladi?",
+            "options": [
+              "«Porloq» seriyasidagi navlar («Porloq-1», «Porloq-2»)",
+              "«Andijon-35»",
+              "«Sulton» navi",
+              "«Toshkent-1»"
+            ],
+            "correct_option_id": 0,
+            "explanation": "«Porloq» g'o'za navlari gen-nokaut texnologiyasi bilan yaratilgan bo'lib, uzun va pishiq tola beradi."
+          },
+          {
+            "id": 10101,
+            "question": "O'zbekistonda gen muhandisligi va bioinformatika sohasidagi yetakchi ilmiy markaz qaysi?",
+            "options": [
+              "O'zR FA Genomika va bioinformatika markazi",
+              "Botanika bog'i",
+              "Toshkent tibbiyot akademiyasi laboratoriyasi",
+              "Geologiya instituti"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Genomika va bioinformatika markazi O'zbekistonda DNK texnologiyalari va gen muhandisligi bo'yicha bosh ilmiy dargohdir."
+          },
+          {
+            "id": 10102,
+            "question": "O'zbekiston va Xitoy olimlari hamkorligida yaratilgan koronavirusga qarshi rekombinant vaksina qaysi?",
+            "options": [
+              "ZF-UZ-VAC 2001",
+              "Sputnik V",
+              "AstraZeneca",
+              "Pfizer-BioNTech"
+            ],
+            "correct_option_id": 0,
+            "explanation": "ZF-UZ-VAC 2001 vaksinasi O'zbekiston va Xitoy mikrobiologlari hamkorligida ishlab chiqilgan rekombinant oqsil vaksinasidir."
+          }
+        ]
+      },
+      {
+        "id": "35",
+        "title": "35-§. Hayotning tur va populatsiya darajasi. Tur tushunchasi. Tur mezonlari",
+        "questions": [
+          {
+            "id": 10103,
+            "question": "Turning qaysi mezoni eng ishonchli hisoblanib, xromosomalar soni, o'lchami va shaklining o'ziga xosligini ifodalaydi?",
+            "options": [
+              "Genetik (kariologik) mezon",
+              "Morfologik mezon",
+              "Geografik mezon",
+              "Fiziologik mezon"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Genetik mezon (kariotip) har bir tur uchun qat'iy doimiy bo'lib, turlararo reproduktiv to'siqni ta'minlaydi."
+          },
+          {
+            "id": 10104,
+            "question": "Tashqi ko'rinishi bo'yicha bir-biridan mutlaqo farq qilmaydigan, lekin o'zaro chatishtirilganda nasl bermaydigan turlar qanday ataladi?",
+            "options": [
+              "Egizak turlar",
+              "Politipik turlar",
+              "Simbiont turlar",
+              "Relikt turlar"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Egizak turlar (masalan, qora kalamush yoki bezgak chivinlarida) faqat genetik va biokimyoviy mezonlar bilan farqlanadi."
+          },
+          {
+            "id": 10105,
+            "question": "Turning tabiatda egallagan tabiiy tarqalish hududi qanday ataladi?",
+            "options": [
+              "Areal",
+              "Ekologik nisha",
+              "Biogeotsenoz",
+              "Lokus"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Areal — ma'lum tur tarqalgan yer sharining tabiiy geografik maydonidir."
+          }
+        ]
+      },
+      {
+        "id": "36",
+        "title": "36-§. Populatsiya – turning tuzilish va evolutsiyaning boshlang‘ich birligi",
+        "questions": [
+          {
+            "id": 10106,
+            "question": "Evolutsiyaning boshlang'ich elementar birligi nima hisoblanadi?",
+            "options": [
+              "Populatsiya",
+              "Alohida individ",
+              "Butun boshli tur",
+              "Biogeotsenoz"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Alohida individ evolutsiya qilmaydi; evolutsion o'zgarishlar va genlar chastotasi o'zgarishi faqat populatsiyada sodir bo'ladi."
+          },
+          {
+            "id": 10107,
+            "question": "Populatsiyani tashkil etuvchi barcha individlar genlarining yig'indisi qanday nomlanadi?",
+            "options": [
+              "Genofond",
+              "Genotip",
+              "Genom",
+              "Kariotip"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Genofond — populatsiya a'zolari ega bo'lgan barcha genlar va allellarning to'plamidir."
+          },
+          {
+            "id": 10108,
+            "question": "O'suvchi (yashovchan) populatsiyada qaysi yosh guruhiga mansub individlar soni ko'proq bo'ladi?",
+            "options": [
+              "Yosh (reproduksiyagacha bo'lgan) individlar",
+              "Qari (postreproduktiv) individlar",
+              "Faqat erkak individlar",
+              "Faqat o'rta yoshli erkaklar"
+            ],
+            "correct_option_id": 0,
+            "explanation": "O'suvchi populatsiyada yosh individlar soni ko'p bo'lib, uning soni kelgusida ortib borishini ta'minlaydi."
+          }
+        ]
+      },
+      {
+        "id": "37",
+        "title": "37-§. Evolutsion g‘oyalarning paydo bo‘lishi",
+        "questions": [
+          {
+            "id": 10109,
+            "question": "Charlz Darvindan 800 yil oldin tabiatdagi tanlanish va organizmlarning ko'payishidagi raqobatni ekinchining tanlashiga qiyoslagan buyuk Sharq allomasi kim?",
+            "options": [
+              "Abu Rayhon Beruniy",
+              "Abu Ali ibn Sino",
+              "Mirzo Ulug'bek",
+              "Al-Xorazmiy"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Abu Rayhon Beruniy «Hindiston» asarida tabiatdagi tanlanishni ekin ekkan dehqonning eng yaxshisini qoldirib, ortiqchasini yulib tashlashiga qiyoslagan."
+          },
+          {
+            "id": 10110,
+            "question": "Tirik tabiatni oddiy minerallardan boshlab o'simliklar, hayvonlar va odamgacha bo'lgan «tabiat narvoni»ga tizgan qadimgi olim kim?",
+            "options": [
+              "Arastu (Aristotel)",
+              "Teofrast",
+              "Gippokrat",
+              "Platon"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Arastu tirik mavjudotlarni ularning tashqi va ichki tuzilishi murakkablashuviga ko'ra yaxlit zinapoyaga tizgan."
+          },
+          {
+            "id": 10111,
+            "question": "«Evolutsiya» atamasi lotinchadan tarjima qilinganda qanday ma'noni anglatadi?",
+            "options": [
+              "Yoyilish, ochilish, rivojlanish",
+              "Qisqarish, pasayish",
+              "Aralashish, qo'shilish",
+              "To'xtash, turg'unlik"
+            ],
+            "correct_option_id": 0,
+            "explanation": "«Evolutio» so'zi lotincha yoyilish, rivojlanish, ochilish degan ma'nolarni bildiradi."
+          }
+        ]
+      },
+      {
+        "id": "38",
+        "title": "38-§. K. Linney, J.B. Lamarkning ilmiy ishlari, J. Kyuvening evolutsion g‘oyalari",
+        "questions": [
+          {
+            "id": 10112,
+            "question": "Fanga binar (qo'shaloq lotincha) nomenklaturani kiritgan va organizmlarni birinchi marta tizimga solgan shved olimi kim?",
+            "options": [
+              "Karl Linney",
+              "Jan Batist Lamark",
+              "Jorj Kyuve",
+              "Charlz Darvin"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Karl Linney turlarni urug' va tur nomi bilan ifodalovchi qo'shaloq lotincha nomlashni qat'iy standart qilib kiritgan."
+          },
+          {
+            "id": 10113,
+            "question": "1809-yilda «Zoologiya falsafasi» asarini yozib, birinchi bo'lib yaxlit evolutsion nazariyani ilgari surgan olim kim?",
+            "options": [
+              "Jan Batist Lamark",
+              "Karl Linney",
+              "Charlz Darvin",
+              "Tomas Maltus"
+            ],
+            "correct_option_id": 0,
+            "explanation": "J.B. Lamark birinchi bo'lib turlarning tarixiy o'zgaruvchanligini isbotlovchi evolutsiya nazariyasini yaratdi."
+          },
+          {
+            "id": 10114,
+            "question": "A'zolar korrelyatsiyasi qonunini yaratgan va Yer tarixidagi qirilib ketishlarni «halokatlar nazariyasi» bilan izohlagan olim kim?",
+            "options": [
+              "Jorj Kyuve",
+              "J.B. Lamark",
+              "Ch. Layel",
+              "I.V. Gyote"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Jorj Kyuve paleontologiyaga asos solib, geologik qatlamlardagi o'zgarishlarni katastrofalar bilan tushuntirgan."
+          }
+        ]
+      },
+      {
+        "id": "39",
+        "title": "39-§. Ch. Darvinning evolutsion g‘oyalari",
+        "questions": [
+          {
+            "id": 10115,
+            "question": "Charlz Darvin qaysi orollardagi vyurok qushlarining tumshug'i tuzilishini o'rganib, turlarning kelib chiqishi to'g'risida xulosaga keldi?",
+            "options": [
+              "Galapagos orollarida",
+              "Madagaskar orolida",
+              "Kuril orollarida",
+              "Grenlandiyada"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Galapagos orollaridagi vyuroklar turli oziqlanishga moslashib tumshug'i bo'yicha turlarga ajralgan edi."
+          },
+          {
+            "id": 10116,
+            "question": "Charlz Darvinning evolutsion ta'limotiga bag'ishlangan bosh shoh asari «Turlarning kelib chiqishi» qaysi yilda nashr etilgan?",
+            "options": [
+              "1859-yil",
+              "1809-yil",
+              "1865-yil",
+              "1900-yil"
+            ],
+            "correct_option_id": 0,
+            "explanation": "1859-yil 24-noyabrda Darvinning «Tabiiy tanlanish yo'li bilan turlarning kelib chiqishi» asari chop etilgan."
+          },
+          {
+            "id": 10117,
+            "question": "Darvin ta'limotiga ko'ra, bitta umumiy ajdoddan yangi belgilarning ajralib, turli yo'nalishda rivojlanishi nima deyiladi?",
+            "options": [
+              "Divergensiya",
+              "Konvergensiya",
+              "Regeneratsiya",
+              "Degeneratsiya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Divergensiya — belgilarning ajralishi bo'lib, o'xshash turlarning yashash sharoitlariga ko'ra turli yo'nalishga ajralishidir."
+          }
+        ]
+      },
+      {
+        "id": "40",
+        "title": "40-§. Evolutsiyani harakatlantiruvchi kuchlar. Irsiy o‘zgaruvchanlik",
+        "questions": [
+          {
+            "id": 10118,
+            "question": "Darvin ta'riflagan qaysi o'zgaruvchanlik turi tabiiy tanlanish va evolutsiya uchun boshlang'ich material bo'lib xizmat qiladi?",
+            "options": [
+              "Nomuayyan (irsiy) o'zgaruvchanlik",
+              "Muayyan (noirsiy) o'zgaruvchanlik",
+              "Faqat modifikatsion o'zgaruvchanlik",
+              "Mavsumiy o'zgaruvchanlik"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Nomuayyan (irsiy) o'zgaruvchanlik avlodlarga o'tib, tabiiy tanlanish orqali mustahkamlanadi."
+          },
+          {
+            "id": 10119,
+            "question": "Oq rangli, ko'k ko'zli mushuklarning odatda kar bo'lishi qaysi o'zgaruvchanlik shakliga yorqin misol bo'ladi?",
+            "options": [
+              "Korrelativ (o'zaro bog'liq) o'zgaruvchanlik",
+              "Muayyan o'zgaruvchanlik",
+              "Modifikatsiya",
+              "Polimeriya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Korrelyativ o'zgaruvchanlikda bitta organning o'zgarishi ikkinchisining ham bog'liq ravishda o'zgarishiga olib keladi."
+          },
+          {
+            "id": 10120,
+            "question": "Qisqa oyoqli Ankon zotli qo'ylarning paydo bo'lishi qaysi o'zgaruvchanlik natijasidir?",
+            "options": [
+              "Nomuayyan (mutatsion) o'zgaruvchanlik",
+              "Muayyan o'zgaruvchanlik",
+              "Fenotipik moslashuv",
+              "Yashash sharoitining yaxshilanishi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Ankon qo'ylari to'satdan yuzaga kelgan yakka irsiy (nomuayyan) mutatsiya natijasida paydo bo'lgan va saralab olingan."
+          }
+        ]
+      },
+      {
+        "id": "41",
+        "title": "41-§. Yashash uchun kurash va uning turlari",
+        "questions": [
+          {
+            "id": 10121,
+            "question": "Darvin ta'limotiga ko'ra, yashash uchun kurashning qaysi shakli eng keskin va shafqatsiz kechadi?",
+            "options": [
+              "Tur ichidagi kurash",
+              "Turlararo kurash",
+              "Tashqi noqulay muhitga qarshi kurash",
+              "Simbioz munosabatlar"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Bitta tur individlarining oziq, uya va ko'payish ehtiyojlari bir xil bo'lgani uchun tur ichidagi kurash eng keskin kechadi."
+          },
+          {
+            "id": 10122,
+            "question": "Qalin o'rmonda yosh qarag'aylarning yorug'lik va tuproqdagi namlik uchun bir-biri bilan raqobatlashi kurashning qaysi turiga kiradi?",
+            "options": [
+              "Tur ichidagi kurash",
+              "Turlararo kurash",
+              "Abiotik kurash",
+              "Antropogen kurash"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Bir turga mansub qarag'aylar o'rtasidagi raqobat tur ichidagi kurash hisoblanadi."
+          },
+          {
+            "id": 10123,
+            "question": "Cho'l o'simliklarining qurg'oqchilik va jaziramaga moslashib chuqur ildiz otishi kurashning qaysi shakli hisoblanadi?",
+            "options": [
+              "Tashqi noqulay muhit (abiotik) sharoitlariga qarshi kurash",
+              "Turlararo kurash",
+              "Tur ichidagi kurash",
+              "Biologik regress"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Suvsizlik va harorat kabi jonsiz tabiat omillariga qarshi yashab qolish abiotik kurash hisoblanadi."
+          }
+        ]
+      },
+      {
+        "id": "42",
+        "title": "42-§. Tabiiy tanlanish va uning turlari",
+        "questions": [
+          {
+            "id": 10124,
+            "question": "Doimiy tashqi muhit sharoitida normadan chetga chiqqan mutatsiyalarni yo'qotib, o'rtacha belgini saqlab qoluvchi tabiiy tanlanish shakli qaysi?",
+            "options": [
+              "Barqarorlashtiruvchi tanlanish",
+              "Harakatlantiruvchi tanlanish",
+              "Dizruptiv tanlanish",
+              "Jinsiy tanlanish"
+            ],
+            "correct_option_id": 0,
+            "explanation": "I.I.Shmalgauzen asoslagan barqarorlashtiruvchi tanlanish doimiy muhitda o'rtacha fenotipni saqlab qoladi (masalan, relikt Latimeriya)."
+          },
+          {
+            "id": 10125,
+            "question": "Sanoat rivojlanishi tufayli qayin daraxti po'stlog'i qorayganda qora rangli kapalaklarning omon qolishi tanlanishning qaysi turiga misol bo'ladi?",
+            "options": [
+              "Harakatlantiruvchi tanlanish",
+              "Barqarorlashtiruvchi tanlanish",
+              "Dizruptiv tanlanish",
+              "Sun'iy tanlanish"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Muhit o'zgarishi natijasida yangi chetga chiqqan belgi (qora rang) afzallik qozonishi harakatlantiruvchi tanlanishdir."
+          },
+          {
+            "id": 10126,
+            "question": "O'rtacha belgiga ega individlarni siqib chiqarib, birdaniga ikki yoki undan ortiq chekka fenotiplarni saqlab qoluvchi tanlanish turi qaysi?",
+            "options": [
+              "Dizruptiv (yoruvchi) tanlanish",
+              "Barqarorlashtiruvchi tanlanish",
+              "Harakatlantiruvchi tanlanish",
+              "Guruhli tanlanish"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Dizruptiv tanlanish o'rtacha oraliq shakllarni yo'qotib, ekstremal chekka guruhlarni saqlaydi va polimorfizmga olib keladi."
+          }
+        ]
+      },
+      {
+        "id": "43",
+        "title": "43-§. Organik olamdagi moslanishlar – evolutsiya natijasi",
+        "questions": [
+          {
+            "id": 10127,
+            "question": "Himoyalanmagan zararsiz jonivorning zaharli yoki xavfli organizmga tashqi ko'rinish jihatidan taqlid qilishi nima deyiladi?",
+            "options": [
+              "Mimikriya",
+              "Maskirovka",
+              "Atavizm",
+              "Divergensiya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Mimikriya — himoyasiz turning yirtqichlardan saqlanish uchun xavfli turga taqlid qilishidir (masalan, sirfida pashshasining ariga o'xshashi)."
+          },
+          {
+            "id": 10128,
+            "question": "Cho'pchak hasharotning daraxt shoxiga, kallima kapalagining quruq xazon bargiga o'xshab olishi qaysi moslanish turiga kiradi?",
+            "options": [
+              "Maskirovka",
+              "Mimikriya",
+              "Ogohlantiruvchi rang",
+              "Korrelyatsiya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Maskirovka — jonsiz atrof-muhit buyumlari (shox, tosh, xazon) shakli va rangini qabul qilishdir."
+          },
+          {
+            "id": 10129,
+            "question": "Nima sababdan har qanday biologik moslanish mutlaq emas, balki nisbiy hisoblanadi?",
+            "options": [
+              "Chunki moslanish faqat ma'lum bir muhit sharoitidagina foydali bo'lib, muhit o'zgarganda samarasini yo'qotadi",
+              "Chunki barcha hayvonlar doimiy ko'chib yuradi",
+              "Chunki moslanish genotipga bog'liq bo'lmaydi",
+              "Chunki mutatsiyalar moslanishni har kuni yo'q qiladi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Moslanishning nisbiyligi — tashqi sharoit o'zgarganda (masalan, qorsiz qishda oq quyon) ilgari foydali bo'lgan belgi zararli bo'lib qolishidir."
+          }
+        ]
+      },
+      {
+        "id": "44",
+        "title": "44-§. Evolutsiyaning sintetik nazariyasi",
+        "questions": [
+          {
+            "id": 10130,
+            "question": "Evolutsiyaning sintetik nazariyasiga ko'ra, evolutsiyaning yagona yo'naltiruvchi omili nima hisoblanadi?",
+            "options": [
+              "Tabiiy tanlanish",
+              "Mutatsiya jarayoni",
+              "Genlar dreyfi",
+              "Populatsiya to'lqinlari"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Mutatsiya, dreyf va to'lqinlar tasodifiy yo'nalishga ega, faqat tabiiy tanlanishgina evolutsiyani moslanish sari yo'naltiradi."
+          },
+          {
+            "id": 10131,
+            "question": "Son jihatdan kichik populatsiyalarda tasodifiy sabablar tufayli genlar (allellar) chastotasining o'zgarishi nima deyiladi?",
+            "options": [
+              "Genlar dreyfi (genetik-avtomatik jarayon)",
+              "Divergensiya",
+              "Biologik progress",
+              "Aromorfoz"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Genlar dreyfi — kichik populatsiyada tabiiy ofatlar natijasida allellar chastotasining tasodifiy sakrashi."
+          },
+          {
+            "id": 10132,
+            "question": "Evolutsiyaning elementar materiali bo'lib nima xizmat qiladi?",
+            "options": [
+              "Mutatsiyalar va kombinatsiyalar",
+              "Modifikatsiyalar",
+              "Faqat tashqi muhit harorati",
+              "Embrional varaqlar"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Irsiy o'zgaruvchanlik (mutatsion va kombinativ) evolutsiya uchun xomashyo (elementar material) beradi."
+          }
+        ]
+      },
+      {
+        "id": "45",
+        "title": "45-§. Turlarning paydo bo‘lishi",
+        "questions": [
+          {
+            "id": 10133,
+            "question": "Arealning geografik to'siqlar (tog' tizmalari, daryolar, dengizlar) orqali bo'linishi natijasida yangi turlarning paydo bo'lishi qanday ataladi?",
+            "options": [
+              "Geografik (allopatrik) tur hosil bo'lishi",
+              "Ekologik (simpatrik) tur hosil bo'lishi",
+              "Konvergensiya",
+              "Gibridizatsiya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Allopatrik tur hosil bo'lishida hududning bo'linishi yoki kengayishi natijasida fazoviy izolyatsiya yuzaga keladi."
+          },
+          {
+            "id": 10134,
+            "question": "Sevan ko'lidagi xarius balig'ining bitta ko'l ichida turli chuqurlik va muddatlarda urchishi natijasida yangi turlarga ajralishi qaysi yo'lga misol?",
+            "options": [
+              "Ekologik (simpatrik) tur hosil bo'lishi",
+              "Geografik tur hosil bo'lishi",
+              "Allopatrik tur hosil bo'lishi",
+              "Sun'iy tur hosil bo'lishi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Areal bo'linmasdan, bitta hudud ichida ekologik nishalar bo'yicha ajralish simpatrik tur hosil bo'lishidir."
+          },
+          {
+            "id": 10135,
+            "question": "Tur ichida yangi turlarning shakllanishi bilan yakunlanadigan barcha evolutsion jarayonlar majmui nima deyiladi?",
+            "options": [
+              "Mikroevolutsiya",
+              "Makroevolutsiya",
+              "Aromorfoz",
+              "Degeneratsiya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Mikroevolutsiya — populatsiyalar darajasida kechib yangi tur paydo bo'lishi bilan tugaydigan jarayonlardir."
+          }
+        ]
+      },
+      {
+        "id": "46",
+        "title": "46-§. Evolutsiyani isbotlashda molekular biologiya, sitologiya, embriologiya fanlari dalillari",
+        "questions": [
+          {
+            "id": 10136,
+            "question": "Inson embrionining dastlabki bosqichlarida xorda, jabra yoriqlari va dum murtagining bo'lishi qaysi fanning evolutsion dalili hisoblanadi?",
+            "options": [
+              "Embriologiya dalili (K.Ber qonuni)",
+              "Paleontologiya dalili",
+              "Biogeografiya dalili",
+              "Sistematika dalili"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Embriologik dalillar umurtqali hayvonlar murtaklarining boshlang'ich o'xshashligini ochib beradi."
+          },
+          {
+            "id": 10137,
+            "question": "Barcha tirik organizmlarda genetik kodning universal bo'lishi va oqsil sintezining bir xil mexanizmda borishi nimani isbotlaydi?",
+            "options": [
+              "Butun tirik tabiatning yagona kelib chiqishga (umumiy ajdodga) ega ekanligini",
+              "Turlar o'zgarmasligini",
+              "Hujayralar bo'linmasligini",
+              "Organik olamda tanlanish yo'qligini"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Genetik kodning bakteriyadan to odamgacha bir xil qoidada ishlashi butun tiriklikning yagona ildizdan ekanini ko'rsatadi."
+          },
+          {
+            "id": 10138,
+            "question": "1828-yilda barcha umurtqali hayvonlar embrionlarining dastlabki o'xshashlik qonunini yaratgan olim kim?",
+            "options": [
+              "Karl Ber",
+              "Ernst Gekkel",
+              "Frits Myuller",
+              "Robert Guk"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Karl Ber solishtirma embriologiyaga asos solib, murtaklarning o'xshashlik qonuniyatini ta'riflagan."
+          }
+        ]
+      },
+      {
+        "id": "47",
+        "title": "47-§. Evolutsiyani isbotlashda solishtirma anatomiya, paleontologiya fanlari dalillari",
+        "questions": [
+          {
+            "id": 10139,
+            "question": "Kelib chiqishi va ichki anatomik tuzilishi bir xil, lekin bajaradigan vazifasiga ko'ra turlicha bo'lgan organlar qanday ataladi?",
+            "options": [
+              "Gomologik organlar",
+              "Analogik organlar",
+              "Rudiment organlar",
+              "Atavizmlar"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Gomologik organlar (masalan, odam qo'li, kit suzgichi, ko'rshapalak qanoti) umumiy ajdoddan divergensiya yo'li bilan rivojlangan."
+          },
+          {
+            "id": 10140,
+            "question": "Qush qanoti va kapalak qanoti kelib chiqishi har xil, lekin bir xil uchish vazifasini bajarishi qaysi organlarga misol bo'ladi?",
+            "options": [
+              "Analogik organlar",
+              "Gomologik organlar",
+              "Rudimentlar",
+              "Atavistik organlar"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Analogik organlar konvergensiya natijasida bir xil muhitda o'xshash vazifani bajarishga moslashgan, ammo kelib chiqishi har xil bo'ladi."
+          },
+          {
+            "id": 10141,
+            "question": "Sudralib yuruvchilar va qushlar o'rtasidagi oraliq o'tkinchi shakl hisoblangan qazilma qadimgi mavjudot qaysi?",
+            "options": [
+              "Arxeopteriks",
+              "Stegosefal",
+              "Ixtiostega",
+              "Trilobit"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Arxeopteriksda sudralib yuruvchilarga xos tishlar, dum umurtqalari, qanot barmoqlaridagi tirnoqlar va qushlarga xos patlar bo'lgan."
+          }
+        ]
+      },
+      {
+        "id": "48",
+        "title": "48-§. Evolutsiyani isbotlashda biogeografiya fani dalillari",
+        "questions": [
+          {
+            "id": 10142,
+            "question": "Yer yuzidagi qaysi biogeografik viloyat materiklardan eng erta ajralib chiqqanligi sababli unda xaltali va tuxum qo'yuvchi sutemizuvchilar saqlanib qolgan?",
+            "options": [
+              "Avstraliya viloyati",
+              "Palearktik viloyat",
+              "Habashiston viloyati",
+              "Sharqiy (Hind-Malay) viloyati"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Avstraliya mezozoy oxirida ajralib chiqqani sababli u yerda yuksak yo'ldoshli yirtqichlar rivojlanmagan va xaltalilar saqlangan."
+          },
+          {
+            "id": 10143,
+            "question": "Faqat ma'lum bir cheklangan geografik hududda uchraydigan va boshqa joyda tabiiy holda yashamaydigan turlar qanday ataladi?",
+            "options": [
+              "Endemik turlar",
+              "Kosmopolit turlar",
+              "Simbiont turlar",
+              "Dominant turlar"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Endemik turlar — faqat muayyan bitta tog', ko'l yoki orolda yashovchi kamyob turlardir (masalan, Baykal tyuleni)."
+          },
+          {
+            "id": 10144,
+            "question": "Yalqovlar, chumolixo'rlar, sovutlilar (armadillar) va kolibri qushlari qaysi biogeografik viloyatga xos fauna hisoblanadi?",
+            "options": [
+              "Neotropik viloyat",
+              "Neoarktik viloyat",
+              "Palearktik viloyat",
+              "Avstraliya viloyati"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Neotropik viloyat (Janubiy va Markaziy Amerika) o'zining chala tishlilari (yalqov, chumolixo'r) va kolibrilari bilan ajralib turadi."
+          }
+        ]
+      },
+      {
+        "id": "49",
+        "title": "49-§. Evolutsion o‘zgarishlarning tiplari",
+        "questions": [
+          {
+            "id": 10145,
+            "question": "Kelib chiqishi har xil bo'lgan organizmlarning (masalan, akula, ixtiozavr va delfinning) bir xil suv muhitida o'xshash tana shakliga ega bo'lishi evolutsiyaning qaysi tipi?",
+            "options": [
+              "Konvergensiya",
+              "Divergensiya",
+              "Parallelizm",
+              "Degeneratsiya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Konvergensiya — qarindosh bo'lmagan organizmlarning o'xshash yashash sharoitida o'xshash belgilarni (analogik organlarni) hosil qilishidir."
+          },
+          {
+            "id": 10146,
+            "question": "Umumiy bitta ajdoddan kelib chiqqan organizmlarning turlicha yashash sharoitlariga moslashib, belgilarining ajralib ketishi nima deyiladi?",
+            "options": [
+              "Divergensiya",
+              "Konvergensiya",
+              "Atavizm",
+              "Simbioz"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Divergensiya gomologik organlar asosida belgilarning bir-biridan uzoqlashishidir."
+          },
+          {
+            "id": 10147,
+            "question": "Yaqin qarindosh bo'lgan guruhlarning bir xil yashash sharoitida mustaqil ravishda o'xshash belgilarni rivojlantirishi nima deyiladi?",
+            "options": [
+              "Parallelizm",
+              "Konvergensiya",
+              "Divergensiya",
+              "Aromorfoz"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Parallelizm — filogenetik jihatdan yaqin guruhlarda (masalan, kurakoyoqlilarda) belgilarning parallel ravishda shakllanishidir."
+          }
+        ]
+      },
+      {
+        "id": "50",
+        "title": "50-§. Organik olam evolutsiyasining asosiy yo‘nalishlari",
+        "questions": [
+          {
+            "id": 10148,
+            "question": "Tirik organizmlar umumiy tuzilish darajasini va hayotiy faolligini yuqori bosqichga ko'taruvchi yirik evolutsion o'zgarish qanday ataladi?",
+            "options": [
+              "Aromorfoz (arogenez)",
+              "Idioadaptatsiya",
+              "Umumiy degeneratsiya",
+              "Biologik regress"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Aromorfoz — morfofiziologik progress bo'lib, organizmlar tuzilishini tubdan murakkablashtiradi (masalan, 4 kamerali yurak, issiqqonlilik)."
+          },
+          {
+            "id": 10149,
+            "question": "Parazit yassi chuvalchanglarda (masalan, ho'kiz gijjasi) hazm qilish sistemasining butunlay yo'qolib ketishi qaysi evolutsion yo'lga misol?",
+            "options": [
+              "Umumiy degeneratsiya (katagenez)",
+              "Aromorfoz",
+              "Idioadaptatsiya",
+              "Parallelizm"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Umumiy degeneratsiya parazitlik yoki o'troq hayotga o'tish munosabati bilan organlarning reduksiyalanishi va soddalashuvidir."
+          },
+          {
+            "id": 10150,
+            "question": "Umumiy tuzilish darajasini o'zgartirmasdan, muayyan tor muhitga moslashishni ta'minlovchi xususiy moslanishlar nima deyiladi?",
+            "options": [
+              "Idioadaptatsiya (allogenez)",
+              "Aromorfoz",
+              "Umumiy degeneratsiya",
+              "Biologik inqiroz"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Idioadaptatsiya — tuzilish darajasini ko'tarmasdan xususiy moslashuvlarni beradi (masalan, turli qushlarning tumshuq shakllari)."
+          }
+        ]
+      },
+      {
+        "id": "51",
+        "title": "51-§. Yerda hayotning paydo bo‘lishi haqidagi nazariyalar",
+        "questions": [
+          {
+            "id": 10151,
+            "question": "1862-yilda S-simon egri bo'yinli kolbada tajriba o'tkazib, mikroorganizmlarning o'z-o'zidan paydo bo'lmasligini uzil-kesil isbotlagan buyuk fransuz mikrobiologi kim?",
+            "options": [
+              "Lui Paster",
+              "Franchesko Redi",
+              "Robert Kox",
+              "I.I. Mechnikov"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Lui Paster S-simon kolba bilan bulyonda mikroblar faqat havodagi spora tushsagina paydo bo'lishini isbotladi."
+          },
+          {
+            "id": 10152,
+            "question": "Hayot Yerga kosmik fazodan, meteoritlar va kometalar orqali sporalar holida keltirilgan degan nazariya nima deb ataladi?",
+            "options": [
+              "Panspermiya nazariyasi",
+              "Kreatsionizm",
+              "Biogenez",
+              "Katastrofizm"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Panspermiya nazariyasiga ko'ra (S.Arrenius), hayot murtaklari fazodan kosmik nurlar bosimi bilan Yerga tushgan."
+          },
+          {
+            "id": 10153,
+            "question": "Go'sht solingan idish og'zini doka bilan yopib, pashsha qurtlari o'z-o'zidan paydo bo'lmasligini birinchi bo'lib tajribada ko'rsatgan olim kim?",
+            "options": [
+              "Franchesko Redi (1668)",
+              "Lui Paster",
+              "Antoni van Levenguk",
+              "Teofrast"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Franchesko Redi pashshalar tuxum qo'ymasa, chiriyotgan go'shtda qurtlar o'z-o'zidan paydo bo'lmasligini isbotlagan."
+          }
+        ]
+      },
+      {
+        "id": "52",
+        "title": "52-§. Biokimyoviy evolutsiya nazariyasi",
+        "questions": [
+          {
+            "id": 10154,
+            "question": "1953-yilda dastlabki Yer atmosferasi gazlariga (CH4, NH3, H2, H2O) elektr razryadi ta'sir ettirib, laboratoriyada aminokislotalarni abiogen sintez qilgan olim kim?",
+            "options": [
+              "Stenli Miller (va Garold Yuri)",
+              "Aleksandr Oparin",
+              "Jon Xoldeyn",
+              "Tomas Morgan"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Stenli Miller tajribasi anorganik gazlardan organik moddalar paydo bo'lishi mumkinligini amalda isbotlab berdi."
+          },
+          {
+            "id": 10155,
+            "question": "A.I.Oparin nazariyasiga ko'ra, suvli eritmada oqsil va boshqa polimerlarning konsentrlanishidan hosil bo'lgan quyuq tomchilar nima deyiladi?",
+            "options": [
+              "Koatservatlar",
+              "Ribosomalar",
+              "Blastulalar",
+              "Gametalar"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Koatservat tomchilari atrofidagi suv qobig'i bilan chegaralangan dastlabki kolloid tomchilar bo'lib, protobiontlarning asosi bo'lgan."
+          },
+          {
+            "id": 10156,
+            "question": "Yer yuzida paydo bo'lgan eng birinchi ibtidoiy tirik hujayralar oziqlanishi va nafas olishiga ko'ra qanday organizmlar bo'lgan?",
+            "options": [
+              "Anaerob geterotroflar",
+              "Aerob avtotroflar",
+              "Fototroflar",
+              "Parazit eukariotlar"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Atmosferada O2 bo'lmagani va okean organik moddalarga boy bo'lgani uchun ilk organizmlar anaerob geterotroflar bo'lgan."
+          }
+        ]
+      },
+      {
+        "id": "53",
+        "title": "53-§. Arxey, proterozoy eralaridagi hayot",
+        "questions": [
+          {
+            "id": 10157,
+            "question": "Arxey erasida yuz bergan va biosferada erkin kislorod hamda ozon qatlami hosil bo'lishiga olib kelgan eng buyuk aromorfoz qaysi?",
+            "options": [
+              "Fotosintezning paydo bo'lishi",
+              "Jinsiy ko'payish",
+              "Ko'p hujayralilik",
+              "Xordaning paydo bo'lishi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Sianobakteriyalarda fotosintezning paydo bo'lishi atmosferani kislorod bilan boyitib, hayot rivojiga yo'l ochdi."
+          },
+          {
+            "id": 10158,
+            "question": "Ko'p hujayralilik, jinsiy ko'payish va eukariot hujayralar qaysi geologik erada vujudga kelgan?",
+            "options": [
+              "Proterozoy erasida",
+              "Arxey erasida",
+              "Paleozoy erasida",
+              "Mezozoy erasida"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Proterozoyda eukariotik tuzilish, meyoz, jinsiy ko'payish va ko'p hujayrali organizmlar paydo bo'lgan."
+          },
+          {
+            "id": 10159,
+            "question": "Hayvonlarda faol to'g'ri harakatlanish bilan bog'liq ravishda qaysi tana simmetriyasi shakllandi?",
+            "options": [
+              "Ikki tomonlama (bilateral) simmetriya",
+              "Nursimon (radial) simmetriya",
+              "Asimmetriya",
+              "Sferik simmetriya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Bilateral (ikki tomonlama) simmetriya tananing oldi-orqasi, orqa-qorin tomonlarini ajratib, faol yo'naltirilgan harakatni ta'minlaydi."
+          }
+        ]
+      },
+      {
+        "id": "54",
+        "title": "54-§. Paleozoy erasidagi hayot",
+        "questions": [
+          {
+            "id": 10160,
+            "question": "Quruqlikka chiqqan eng dastlabki yuksak o'simliklar qaysi geologik davrda paydo bo'lgan psilofitlar (riniofitlar) hisoblanadi?",
+            "options": [
+              "Silur davrida",
+              "Kembriy davrida",
+              "Devon davrida",
+              "Perm davrida"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Silur davrida ozon qatlami hosil bo'lgach, psilofitlar birinchi bo'lib quruqlikni egallagan."
+          },
+          {
+            "id": 10161,
+            "question": "Devon davrida yashagan qaysi qadimgi baliqlardan dastlabki quruqlik umurtqalilari (stegosefallar) kelib chiqqan?",
+            "options": [
+              "Panjaqanotli baliqlardan",
+              "Akulalardan",
+              "Nursimon qanotli baliqlardan",
+              "Qalqondor jag'sizlardan"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Panjaqanotli suyak-muskulli suzgichlar va o'pka xaltasiga ega baliqlardan dastlabki yer-suv hayvonlari kelib chiqqan."
+          },
+          {
+            "id": 10162,
+            "question": "Toshko'mir (Karbon) davrida ulkan toshko'mir konlarini hosil qilgan o'rmonlar qaysi o'simliklardan iborat bo'lgan?",
+            "options": [
+              "Daraxtsimon qirqquloqlar, qirqbo'g'imlar va plaunlardan",
+              "Yopiq urug'li (gulli) daraxtlardan",
+              "Faqat ignabargli qarag'aylardan",
+              "Suvo'tlardan"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Karbon davrining qalin botqoqli o'rmonlarini 30-40 metrlik daraxtsimon sporali o'simliklar (lepidodendron, sigillyariya, kalamitlar) tashkil etgan."
+          }
+        ]
+      },
+      {
+        "id": "55",
+        "title": "55-§. Mezozoy, kaynazoy eralaridagi hayot",
+        "questions": [
+          {
+            "id": 10163,
+            "question": "Gulli (yopiq urug'li) o'simliklar qaysi geologik davrda paydo bo'lib, ochiq urug'lilarni siqib chiqara boshladi?",
+            "options": [
+              "Bo'r davrida",
+              "Trias davrida",
+              "Silur davrida",
+              "Paleogen davrida"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Mezozoy erasining Bo'r davrida gul va mevaning paydo bo'lishi (aromorfoz) tufayli yopiq urug'lilar hukmron bo'ldi."
+          },
+          {
+            "id": 10164,
+            "question": "Dastlabki ibtidoiy sutemizuvchilar Mezozoy erasining qaysi davrida paydo bo'lgan?",
+            "options": [
+              "Trias davrida",
+              "Yura davrida",
+              "Bo'r davrida",
+              "Neogen davrida"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Trias davrida yirtqich tishli kaltakesaklardan ilk mayda tuxum qo'yuvchi sutemizuvchilar ajralib chiqqan."
+          },
+          {
+            "id": 10165,
+            "question": "Kaynazoy erasining eng so'nggi davri bo'lib, insoniyatning paydo bo'lishi va muzliklar bosishi bilan xarakterlanuvchi davr qaysi?",
+            "options": [
+              "To'rtlamchi davr (Antropogen)",
+              "Neogen davri",
+              "Paleogen davri",
+              "Perm davri"
+            ],
+            "correct_option_id": 0,
+            "explanation": "To'rtlamchi davr (Antropogen) taxminan 2-2,5 million yil oldin boshlangan bo'lib, inson evolutsiyasi davridir."
+          }
+        ]
+      },
+      {
+        "id": "56",
+        "title": "56-§. Antropologiya – odam evolutsiyasi haqidagi fan",
+        "questions": [
+          {
+            "id": 10166,
+            "question": "Odamning embrional rivojlanishida xorda, nerv nayi va halqumida jabra yoriqlarining bo'lishi uning qaysi tipga mansubligini ko'rsatadi?",
+            "options": [
+              "Xordalilar tipi",
+              "Bo'g'imoyoqlilar tipi",
+              "Halqali chuvalchanglar tipi",
+              "Mollyuskalar tipi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Xorda, nerv nayi va jabra yoriqlari barcha xordalilar tipining asosiy embrional belgilaridir."
+          },
+          {
+            "id": 10167,
+            "question": "Hozirgi yashayotgan odamsimon maymunlar ichida odamga genetik va oqsil tuzilishi jihatidan eng yaqin tur qaysi?",
+            "options": [
+              "Shimpanze (98,5% DNK o'xshashligi)",
+              "Gorilla",
+              "Orangutan",
+              "Gibbon"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Shimpanze bilan odam genomlari 98,5% ga o'xshash bo'lib, eng yaqin biologik qardoshlikni isbotlaydi."
+          },
+          {
+            "id": 10168,
+            "question": "Odamning sutemizuvchilar sinfiga mansubligini isbotlovchi anatomik belgilarni toping.",
+            "options": [
+              "7 ta bo'yin umurtqasi, diafragma, sut bezlari, ter bezlari va quloq suprasi",
+              "Bilateral simmetriya va tana bo'shlig'i",
+              "Besh barmoqli erkin harakatlanuvchi qo'l",
+              "Nutq va mavhum tafakkur"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Diafragma, 7 ta bo'yin umurtqasi, sut bezlari, o'rta quloqdagi 3 ta suyakcha sutemizuvchilar sinfining belgisidir."
+          }
+        ]
+      },
+      {
+        "id": "57",
+        "title": "57-§. Odam evolutsiyasining asosiy bosqichlari",
+        "questions": [
+          {
+            "id": 10169,
+            "question": "1938-yilda O'zbekistonning Surxondaryo viloyatidagi Teshiktosh g'oridan qaysi qadimgi odamning skelet qoldiqlari topilgan?",
+            "options": [
+              "Neandertal bola skeleti",
+              "Sinantrop",
+              "Pitekantrop",
+              "Avstralopitek"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Arxeolog A.P.Okladnikov Teshiktosh g'oridan 8-9 yoshli neandertal bola suyagini va uning atrofidagi tog' echkisi shoxlarini topgan."
+          },
+          {
+            "id": 10170,
+            "question": "Mehnat qurollarini toshdan birinchi marta sun'iy ravishda yasay boshlagan eng dastlabki odam turi qaysi?",
+            "options": [
+              "Homo habilis (Epchil odam)",
+              "Avstralopitek",
+              "Driopitek",
+              "Ramapitek"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Homo habilis (epchil odam) o'z qo'li bilan toshlarni yo'nib dastlabki qurollarni yaratgan birinchi odam hisoblanadi."
+          },
+          {
+            "id": 10171,
+            "question": "Kalla suyagida pastki jag'dagi iyak do'ngligi yaxshi rivojlanganligi va ravon nutqqa ega bo'lganligi bilan ajralib turuvchi yangi odam (neoantrop) qaysi?",
+            "options": [
+              "Kromanyon odam (Homo sapiens)",
+              "Pitekantrop",
+              "Geydelberg odami",
+              "Sinantrop"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Kromanyon odamida pastki jag'da iyak do'ngligi bo'lib, bu uning so'zlashuvchi ravon nutqqa ega bo'lganini ko'rsatadi."
+          }
+        ]
+      },
+      {
+        "id": "58",
+        "title": "58-§. Odam evolutsiyasini harakatlantiruvchi kuchlar",
+        "questions": [
+          {
+            "id": 10172,
+            "question": "Odam evolutsiyasida (antropogenezda) hayvonlardan farqli o'laroq qaysi omillar yetakchi o'ringa chiqdi?",
+            "options": [
+              "Ijtimoiy omillar (mehnat, jamoa bo'lib yashash, nutq va tafakkur)",
+              "Faqat tabiiy tanlanish",
+              "Faqat mutatsiya jarayoni",
+              "Geografik izolyatsiya"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Antropogenezning keyingi bosqichlarida ijtimoiy omillar (mehnat, so'z, ta'lim-tarbiya) biologik tanlanishdan ustun keldi."
+          },
+          {
+            "id": 10173,
+            "question": "Negroid irqiga mansub odamlarning terisi to'q rangda bo'lishi va sochlarining jingalak bo'lishi qanday biologik moslanish hisoblanadi?",
+            "options": [
+              "Kuchli quyosh nurlari va qizib ketishdan saqlovchi himoya moslanishi",
+              "Kasallik asorati",
+              "Sun'iy tanlanish natijasi",
+              "Rudiment belgi"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Melanin pigmenti ultrabinafsha nurlardan asraydi, jingalak soch esa havo qatlami hosil qilib boshni issiqdan himoya qiladi."
+          },
+          {
+            "id": 10174,
+            "question": "Hozirgi barcha inson irqlari (yevropoid, mongoloid, negroid) qaysi biologik turga mansub?",
+            "options": [
+              "Barchasi yagona bitta turga — Homo sapiens (Aqliy odam) ga mansub",
+              "Uchta turli xil mustaqil biologik turlar",
+              "Homo erectus turiga",
+              "Neandertal turiga"
+            ],
+            "correct_option_id": 0,
+            "explanation": "Barcha inson irqlari bitta biologik tur hisoblanadi, erkin chatishtirilganda sog'lom, to'laqonli va unumdor nasl beradi."
           }
         ]
       }
