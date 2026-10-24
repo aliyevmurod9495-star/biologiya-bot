@@ -1,5 +1,5 @@
 import aiosqlite
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Optional, List, Dict, Any
 import config
 
@@ -15,6 +15,7 @@ async def init_db():
                 username TEXT,
                 current_grade TEXT DEFAULT '8',
                 is_allowed INTEGER DEFAULT 0,
+                subscription_until TIMESTAMP,
                 total_tests INTEGER DEFAULT 0,
                 correct_answers INTEGER DEFAULT 0,
                 joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -32,6 +33,11 @@ async def init_db():
         except Exception:
             pass
 
+        try:
+            await db.execute("ALTER TABLE users ADD COLUMN subscription_until TIMESTAMP")
+        except Exception:
+            pass
+
         # Admins jadvali
         await db.execute("""
             CREATE TABLE IF NOT EXISTS admins (
@@ -44,9 +50,9 @@ async def init_db():
         for a_id in config.ADMIN_IDS:
             await db.execute("INSERT OR IGNORE INTO admins (user_id) VALUES (?)", (a_id,))
             await db.execute("""
-                INSERT INTO users (user_id, full_name, username, current_grade, is_allowed)
-                VALUES (?, 'Administrator', 'admin', '8', 1)
-                ON CONFLICT(user_id) DO UPDATE SET is_allowed = 1
+                INSERT INTO users (user_id, full_name, username, current_grade, is_allowed, subscription_until)
+                VALUES (?, 'Administrator', 'admin', '8', 1, NULL)
+                ON CONFLICT(user_id) DO UPDATE SET is_allowed = 1, subscription_until = NULL
             """, (a_id,))
 
         # Test natijalari jadvali
@@ -154,23 +160,156 @@ async def get_all_admins() -> List[int]:
     return list(admin_list)
 
 
-async def is_user_allowed(user_id: int) -> bool:
-    """Foydalanuvchiga botdan foydalanishga ruxsat berilganligini tekshirish"""
+def parse_db_datetime(dt_val) -> Optional[datetime]:
+    """Bazadagi sana formatlarini xavfsiz datetime obyektiga o'tkazish"""
+    if not dt_val:
+        return None
+    if isinstance(dt_val, datetime):
+        return dt_val
+    for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d %H:%M:%S.%f", "%Y-%m-%dT%H:%M:%S", "%Y-%m-%d"):
+        try:
+            return datetime.strptime(str(dt_val), fmt)
+        except ValueError:
+            continue
+    return None
+
+
+async def get_user_subscription_info(user_id: int) -> Dict[str, Any]:
+    """Foydalanuvchining obuna holati haqida to'liq ma'lumot"""
     if await is_admin(user_id):
-        return True
+        return {
+            "is_admin": True,
+            "is_allowed": True,
+            "is_active": True,
+            "is_expired": False,
+            "is_lifetime": True,
+            "subscription_until": None,
+            "formatted_date": "Cheksiz (Admin)",
+            "days_left": 9999
+        }
+
     async with aiosqlite.connect(DB_PATH) as db:
-        async with db.execute("SELECT is_allowed FROM users WHERE user_id = ?", (user_id,)) as cur:
+        async with db.execute("SELECT is_allowed, subscription_until FROM users WHERE user_id = ?", (user_id,)) as cur:
             row = await cur.fetchone()
-            if row and row[0] == 1:
-                return True
-    return False
+            if not row:
+                return {
+                    "is_admin": False,
+                    "is_allowed": False,
+                    "is_active": False,
+                    "is_expired": False,
+                    "is_lifetime": False,
+                    "subscription_until": None,
+                    "formatted_date": "Ruxsat berilmagan",
+                    "days_left": 0
+                }
+
+            is_allowed = bool(row[0])
+            sub_dt = parse_db_datetime(row[1])
+            now = datetime.now()
+
+            if not is_allowed:
+                return {
+                    "is_admin": False,
+                    "is_allowed": False,
+                    "is_active": False,
+                    "is_expired": False,
+                    "is_lifetime": False,
+                    "subscription_until": sub_dt,
+                    "formatted_date": "Tasdiqlanmagan",
+                    "days_left": 0
+                }
+
+            # Agar is_allowed = 1 va subscription_until yo'q bo'lsa (doimiy/cheksiz)
+            if sub_dt is None:
+                return {
+                    "is_admin": False,
+                    "is_allowed": True,
+                    "is_active": True,
+                    "is_expired": False,
+                    "is_lifetime": True,
+                    "subscription_until": None,
+                    "formatted_date": "Cheksiz",
+                    "days_left": 9999
+                }
+
+            if sub_dt > now:
+                days_left = max(0, (sub_dt - now).days)
+                return {
+                    "is_admin": False,
+                    "is_allowed": True,
+                    "is_active": True,
+                    "is_expired": False,
+                    "is_lifetime": False,
+                    "subscription_until": sub_dt,
+                    "formatted_date": sub_dt.strftime("%d.%m.%Y %H:%M"),
+                    "days_left": days_left
+                }
+            else:
+                return {
+                    "is_admin": False,
+                    "is_allowed": False,
+                    "is_active": False,
+                    "is_expired": True,
+                    "is_lifetime": False,
+                    "subscription_until": sub_dt,
+                    "formatted_date": sub_dt.strftime("%d.%m.%Y %H:%M"),
+                    "days_left": 0
+                }
 
 
-async def set_user_allowed(user_id: int, is_allowed: int = 1):
-    """Foydalanuvchiga ruxsat berish (1) yoki bekor qilish (0)"""
+async def is_user_allowed(user_id: int) -> bool:
+    """Foydalanuvchiga botdan foydalanishga faol ruxsat borligini tekshirish"""
+    info = await get_user_subscription_info(user_id)
+    return info["is_active"]
+
+
+async def set_user_subscription(user_id: int, days: int = 30) -> Optional[datetime]:
+    """
+    Foydalanuvchi obunasini belgilash yoki uzaytirish.
+    days > 0: joriy muddatga yoki hozirdan boshlab N kun qo'shish (1 oy = 30 kun).
+    days == 0: cheksiz (lifetime) qilib belgilash.
+    """
+    now = datetime.now()
+    if days == 0:
+        new_end = None
+        new_end_str = None
+    else:
+        async with aiosqlite.connect(DB_PATH) as db:
+            async with db.execute("SELECT subscription_until FROM users WHERE user_id = ?", (user_id,)) as cur:
+                row = await cur.fetchone()
+                current_end = parse_db_datetime(row[0]) if row else None
+
+        if current_end and current_end > now:
+            new_end = current_end + timedelta(days=days)
+        else:
+            new_end = now + timedelta(days=days)
+        new_end_str = new_end.strftime("%Y-%m-%d %H:%M:%S")
+
     async with aiosqlite.connect(DB_PATH) as db:
-        await db.execute("UPDATE users SET is_allowed = ? WHERE user_id = ?", (is_allowed, user_id))
+        await db.execute("""
+            UPDATE users 
+            SET is_allowed = 1, subscription_until = ? 
+            WHERE user_id = ?
+        """, (new_end_str, user_id))
         await db.commit()
+    return new_end
+
+
+async def set_user_allowed(user_id: int, is_allowed: int = 1, days: Optional[int] = 30):
+    """Foydalanuvchiga ruxsat berish (1) yoki bekor qilish (0)"""
+    if is_allowed == 1:
+        if days is not None and days > 0:
+            return await set_user_subscription(user_id, days)
+        else:
+            async with aiosqlite.connect(DB_PATH) as db:
+                await db.execute("UPDATE users SET is_allowed = 1, subscription_until = NULL WHERE user_id = ?", (user_id,))
+                await db.commit()
+            return None
+    else:
+        async with aiosqlite.connect(DB_PATH) as db:
+            await db.execute("UPDATE users SET is_allowed = 0 WHERE user_id = ?", (user_id,))
+            await db.commit()
+        return None
 
 
 async def add_or_update_user(user_id: int, full_name: str, username: str, default_allowed: int = 0):
@@ -199,28 +338,70 @@ async def get_user_info(user_id: int) -> Optional[Dict[str, Any]]:
 
 async def get_user_counts() -> Dict[str, int]:
     """Admin panel uchun hisob-kitoblar"""
+    now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     async with aiosqlite.connect(DB_PATH) as db:
         async with db.execute("SELECT COUNT(*) FROM users") as cur:
             total = (await cur.fetchone())[0]
-        async with db.execute("SELECT COUNT(*) FROM users WHERE is_allowed = 1") as cur:
+            
+        async with db.execute("""
+            SELECT COUNT(*) FROM users 
+            WHERE is_allowed = 1 AND (subscription_until IS NULL OR subscription_until > ?)
+        """, (now_str,)) as cur:
             allowed = (await cur.fetchone())[0]
+            
+        async with db.execute("""
+            SELECT COUNT(*) FROM users 
+            WHERE is_allowed = 1 AND subscription_until IS NOT NULL AND subscription_until <= ?
+        """, (now_str,)) as cur:
+            expired = (await cur.fetchone())[0]
+            
         async with db.execute("SELECT COUNT(*) FROM users WHERE is_allowed = 0") as cur:
             pending = (await cur.fetchone())[0]
+            
         admins = len(await get_all_admins())
-        return {"total": total, "allowed": allowed, "pending": pending, "admins": admins}
+        return {
+            "total": total,
+            "allowed": allowed,
+            "expired": expired,
+            "pending": pending,
+            "admins": admins
+        }
 
 
-async def get_users_list(is_allowed: int, limit: int = 20) -> List[Dict[str, Any]]:
-    """Ruxsat berilgan yoki kutilayotgan foydalanuvchilar ro'yxati"""
+async def get_users_list(is_allowed: int = 1, filter_type: str = "allowed", limit: int = 20) -> List[Dict[str, Any]]:
+    """Ruxsat berilgan, muddati tugagan yoki kutilayotgan foydalanuvchilar ro'yxati"""
+    now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     async with aiosqlite.connect(DB_PATH) as db:
         db.row_factory = aiosqlite.Row
-        async with db.execute("""
-            SELECT user_id, full_name, username, joined_at
-            FROM users
-            WHERE is_allowed = ?
-            ORDER BY joined_at DESC
-            LIMIT ?
-        """, (is_allowed, limit)) as cur:
+        if filter_type == "expired":
+            query = """
+                SELECT user_id, full_name, username, joined_at, subscription_until
+                FROM users
+                WHERE is_allowed = 1 AND subscription_until IS NOT NULL AND subscription_until <= ?
+                ORDER BY subscription_until DESC
+                LIMIT ?
+            """
+            params = (now_str, limit)
+        elif filter_type == "pending" or is_allowed == 0:
+            query = """
+                SELECT user_id, full_name, username, joined_at, subscription_until
+                FROM users
+                WHERE is_allowed = 0
+                ORDER BY joined_at DESC
+                LIMIT ?
+            """
+            params = (limit,)
+        else: # active / allowed
+            query = """
+                SELECT user_id, full_name, username, joined_at, subscription_until
+                FROM users
+                WHERE is_allowed = 1 AND (subscription_until IS NULL OR subscription_until > ?)
+                ORDER BY joined_at DESC
+                LIMIT ?
+            """
+            params = (now_str, limit)
+            
+        async with db.execute(query, params) as cur:
             rows = await cur.fetchall()
             return [dict(r) for r in rows]
 

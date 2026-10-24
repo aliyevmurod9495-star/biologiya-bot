@@ -51,15 +51,40 @@ class AuthMiddleware(BaseMiddleware):
         if user.id in config.ADMIN_IDS or await database.is_admin(user.id):
             return await handler(event, data)
 
-        # 2. Agar callback adminlar tomonidan bosilayotgan auth_ tugmasi bo'lsa
-        if isinstance(event, CallbackQuery) and event.data and event.data.startswith("auth_"):
+        # 2. Agar callback adminlar tomonidan bosilayotgan auth_ yoki check_sub_ tugmasi bo'lsa
+        if isinstance(event, CallbackQuery) and event.data and (event.data.startswith("auth_") or event.data.startswith("check_sub_")):
             return await handler(event, data)
 
-        # 3. Foydalanuvchiga ruxsat berilganligini tekshirish
-        if await database.is_user_allowed(user.id):
+        # 3. Foydalanuvchiga ruxsat berilganligini va obuna holatini tekshirish
+        sub_info = await database.get_user_subscription_info(user.id)
+        if sub_info["is_active"]:
             return await handler(event, data)
 
-        # 4. Agar ruxsat berilmagan bo'lsa
+        # 4. Agar foydalanuvchining 1 oylik obuna muddati tugagan bo'lsa
+        if sub_info["is_expired"]:
+            if isinstance(event, Message):
+                expired_msg = (
+                    "⏳ <b>Sizning 1 oylik foydalanish muddatingiz tugadi!</b>\n\n"
+                    f"📅 <b>Yakunlangan sana:</b> <code>{sub_info['formatted_date']}</code>\n\n"
+                    "Botdagi barcha sinflar (5-11) bo'yicha mavzulashtirilgan testlar, konspektlar, "
+                    "video darslar va AI yordamchisidan foydalanishni davom ettirish uchun "
+                    "iltimos, <b>administratorga murojaat qiling</b> va obunangizni uzaytiring.\n\n"
+                    "👨‍🏫 <b>Administrator:</b> @Murod_Aliyev_9495"
+                )
+                kb = InlineKeyboardMarkup(inline_keyboard=[
+                    [InlineKeyboardButton(text="✍️ Adminga bog'lanish", url="https://t.me/Murod_Aliyev_9495")],
+                    [InlineKeyboardButton(text="🔄 Qayta tekshirish", callback_data=f"check_sub_{user.id}")]
+                ])
+                await event.answer(expired_msg, reply_markup=kb)
+                return
+            elif isinstance(event, CallbackQuery):
+                await event.answer(
+                    "⏳ Sizning 1 oylik foydalanish muddatingiz tugagan!\nUzaytirish uchun adminga murojaat qiling.",
+                    show_alert=True
+                )
+                return
+
+        # 5. Agar hali ruxsat berilmagan bo'lsa
         if isinstance(event, Message):
             if event.text and event.text.startswith("/start"):
                 # Ro'yxatga olish (kutilmoqda holatida)
@@ -79,10 +104,13 @@ class AuthMiddleware(BaseMiddleware):
                 )
                 await event.answer(waiting_msg)
 
-                # Adminga ruxsat so'rovi yuborish
+                # Adminga ruxsat so'rovi yuborish (1 oy / cheksiz / rad)
                 admin_kb = InlineKeyboardMarkup(inline_keyboard=[
                     [
-                        InlineKeyboardButton(text="✅ Ruxsat berish", callback_data=f"auth_approve_{user.id}"),
+                        InlineKeyboardButton(text="✅ 1 oylik ruxsat (30 kun)", callback_data=f"auth_app30_{user.id}")
+                    ],
+                    [
+                        InlineKeyboardButton(text="♾ Cheksiz ruxsat", callback_data=f"auth_applife_{user.id}"),
                         InlineKeyboardButton(text="❌ Rad etish", callback_data=f"auth_reject_{user.id}")
                     ]
                 ])
@@ -209,34 +237,113 @@ async def handle_start(message: Message):
 # ADMINISTRATOR BOSHQARUVI VA RUXSAT BERISH TIZIMI
 # ==========================================
 
+@dp.callback_query(F.data.startswith("auth_app30_"))
 @dp.callback_query(F.data.startswith("auth_approve_"))
-async def handle_auth_approve(callback: CallbackQuery):
-    """Adminga foydalanuvchiga ruxsat berish tugmasi"""
+async def handle_auth_app30(callback: CallbackQuery):
+    """Adminga foydalanuvchiga 1 oylik (30 kun) ruxsat berish tugmasi"""
     if not (await database.is_admin(callback.from_user.id) or callback.from_user.id in config.ADMIN_IDS):
         await callback.answer("Faqat adminlar uchun!", show_alert=True)
         return
 
-    target_user_id = int(callback.data.split("_")[2])
-    await database.set_user_allowed(target_user_id, 1)
+    parts = callback.data.split("_")
+    target_user_id = int(parts[-1])
+    end_dt = await database.set_user_subscription(target_user_id, days=30)
+    formatted = end_dt.strftime("%d.%m.%Y") if end_dt else "30 kun"
 
     await callback.message.edit_text(
         f"{callback.message.html_text}\n\n"
-        f"✅ <b>Ruxsat berildi!</b>\n"
+        f"✅ <b>1 oylik (30 kun) ruxsat berildi!</b>\n"
+        f"📅 <b>Amal qilish muddati:</b> <code>{formatted}</code> gacha\n"
         f"👮 Tasdiqlagan admin: <b>{callback.from_user.first_name}</b>"
     )
-    await callback.answer("✅ Foydalanuvchiga ruxsat berildi!")
+    await callback.answer("✅ Foydalanuvchiga 1 oylik ruxsat berildi!")
 
     try:
         grade = await database.get_user_grade(target_user_id)
         grade_name = GRADE_NAMES.get(grade, f"{grade}-sinf")
         welcome_approved = (
-            "🎉 <b>Tabriklaymiz! Administrator sizga botdan foydalanish uchun ruxsat berdi!</b>\n\n"
+            "🎉 <b>Tabriklaymiz! Administrator sizga botdan 1 oy (30 kun) foydalanish uchun ruxsat berdi!</b>\n\n"
+            f"📅 <b>Obuna muddati:</b> <code>{formatted}</code> gacha\n"
             f"📌 Joriy faol sinf: <b>{grade_name}</b>\n\n"
             "Quyidagi menyudan kerakli bo'limni tanlab darslik va testlarni boshlashingiz mumkin:"
         )
         await bot.send_message(target_user_id, welcome_approved, reply_markup=MAIN_KEYBOARD)
     except Exception as e:
         logging.warning(f"Foydalanuvchiga tasdiq xabari bormadi ({target_user_id}): {e}")
+
+
+@dp.callback_query(F.data.startswith("auth_applife_"))
+async def handle_auth_applife(callback: CallbackQuery):
+    """Adminga foydalanuvchiga cheksiz ruxsat berish tugmasi"""
+    if not (await database.is_admin(callback.from_user.id) or callback.from_user.id in config.ADMIN_IDS):
+        await callback.answer("Faqat adminlar uchun!", show_alert=True)
+        return
+
+    target_user_id = int(callback.data.split("_")[2])
+    await database.set_user_subscription(target_user_id, days=0)
+
+    await callback.message.edit_text(
+        f"{callback.message.html_text}\n\n"
+        f"♾ <b>Cheksiz ruxsat berildi!</b>\n"
+        f"👮 Tasdiqlagan admin: <b>{callback.from_user.first_name}</b>"
+    )
+    await callback.answer("♾ Cheksiz ruxsat berildi!")
+
+    try:
+        grade = await database.get_user_grade(target_user_id)
+        grade_name = GRADE_NAMES.get(grade, f"{grade}-sinf")
+        welcome_approved = (
+            "🎉 <b>Tabriklaymiz! Administrator sizga botdan foydalanish uchun cheksiz ruxsat berdi!</b>\n\n"
+            f"📌 Joriy faol sinf: <b>{grade_name}</b>\n\n"
+            "Quyidagi menyudan kerakli bo'limni tanlab darslik va testlarni boshlashingiz mumkin:"
+        )
+        await bot.send_message(target_user_id, welcome_approved, reply_markup=MAIN_KEYBOARD)
+    except Exception as e:
+        logging.warning(f"Foydalanuvchiga tasdiq xabari bormadi ({target_user_id}): {e}")
+
+
+@dp.callback_query(F.data.startswith("auth_ext30_"))
+async def handle_auth_ext30(callback: CallbackQuery):
+    """Adminga foydalanuvchi obunasini 1 oyga uzaytirish tugmasi"""
+    if not (await database.is_admin(callback.from_user.id) or callback.from_user.id in config.ADMIN_IDS):
+        await callback.answer("Faqat adminlar uchun!", show_alert=True)
+        return
+
+    target_user_id = int(callback.data.split("_")[2])
+    new_end = await database.set_user_subscription(target_user_id, days=30)
+    formatted = new_end.strftime("%d.%m.%Y") if new_end else "30 kun"
+
+    await callback.answer(f"✅ Obuna +1 oyga uzaytirildi ({formatted} gacha)!", show_alert=True)
+
+    try:
+        await bot.send_message(
+            target_user_id,
+            f"🎉 <b>Hurmatli o'quvchi! Administrator sizning obunangizni yana 1 oyga uzaytirdi!</b>\n\n"
+            f"📅 <b>Yangi amal qilish muddati:</b> <code>{formatted}</code> gacha.\n\n"
+            "Botdan bemalol foydalanishda davom etishingiz mumkin!",
+            reply_markup=MAIN_KEYBOARD
+        )
+    except Exception as e:
+        logging.warning(f"Foydalanuvchiga uzaytirish xabari bormadi ({target_user_id}): {e}")
+
+
+@dp.callback_query(F.data.startswith("check_sub_"))
+async def handle_check_sub(callback: CallbackQuery):
+    """Foydalanuvchi o'z obunasi holatini qayta tekshirish tugmasi"""
+    user_id = callback.from_user.id
+    sub_info = await database.get_user_subscription_info(user_id)
+    if sub_info["is_active"]:
+        await callback.answer("🎉 Sizning obunangiz faol! Xush kelibsiz!", show_alert=True)
+        try:
+            await callback.message.delete()
+        except Exception:
+            pass
+        await callback.message.answer(
+            f"🎉 <b>Obunangiz faol holatda!</b>\n📅 Amal qilish muddati: <b>{sub_info['formatted_date']}</b> gacha.",
+            reply_markup=MAIN_KEYBOARD
+        )
+    else:
+        await callback.answer("⏳ Obuna muddati hali uzaytirilmadi. Iltimos, adminga murojaat qiling.", show_alert=True)
 
 
 @dp.callback_query(F.data.startswith("auth_reject_"))
@@ -275,15 +382,18 @@ async def handle_admin_panel(message: Message):
     counts = await database.get_user_counts()
     admin_kb = InlineKeyboardMarkup(inline_keyboard=[
         [
-            InlineKeyboardButton(text=f"👥 Ruxsat berilganlar ({counts['allowed']})", callback_data="admin_list_allowed"),
-            InlineKeyboardButton(text=f"⏳ Kutilayotganlar ({counts['pending']})", callback_data="admin_list_pending")
+            InlineKeyboardButton(text=f"🟢 Faol obuna ({counts['allowed']})", callback_data="admin_list_allowed"),
+            InlineKeyboardButton(text=f"🔴 Tugaganlar ({counts.get('expired', 0)})", callback_data="admin_list_expired")
         ],
         [
-            InlineKeyboardButton(text="📑 O'quvchilar hisoboti", callback_data="admin_students_report"),
-            InlineKeyboardButton(text="❓ AI savollari tarixi", callback_data="admin_ai_questions_history")
+            InlineKeyboardButton(text=f"⏳ Kutilayotganlar ({counts['pending']})", callback_data="admin_list_pending"),
+            InlineKeyboardButton(text="📑 O'quvchilar hisoboti", callback_data="admin_students_report")
         ],
         [
-            InlineKeyboardButton(text=f"👑 Adminlar ({counts['admins']})", callback_data="admin_list_admins"),
+            InlineKeyboardButton(text="❓ AI savollari tarixi", callback_data="admin_ai_questions_history"),
+            InlineKeyboardButton(text=f"👑 Adminlar ({counts['admins']})", callback_data="admin_list_admins")
+        ],
+        [
             InlineKeyboardButton(text="🔄 Yangilash", callback_data="admin_refresh")
         ]
     ])
@@ -291,15 +401,17 @@ async def handle_admin_panel(message: Message):
     panel_text = (
         "👮 <b>ADMINISTRATOR BOSHQARUV PANELI</b>\n\n"
         f"👥 <b>Jami foydalanuvchilar:</b> {counts['total']} ta\n"
-        f"✅ <b>Ruxsat berilganlar:</b> {counts['allowed']} ta\n"
+        f"🟢 <b>Faol obunachilar:</b> {counts['allowed']} ta\n"
+        f"🔴 <b>Muddati tugaganlar:</b> {counts.get('expired', 0)} ta\n"
         f"⏳ <b>Tasdiq kutayotganlar:</b> {counts['pending']} ta\n"
         f"👑 <b>Adminlar:</b> {counts['admins']} ta\n\n"
         "<b>Boshqaruv buyruqlari:</b>\n"
+        "• <code>/allow &lt;ID&gt; [kun]</code> — Foydalanuvchiga obuna berish (sukut bo'yicha 30 kun)\n"
+        "• <code>/extend &lt;ID&gt; [kun]</code> — Foydalanuvchi obunasini uzaytirish (sukut bo'yicha +30 kun)\n"
+        "• <code>/block &lt;ID&gt;</code> — Foydalanuvchini bloklash (ruxsatini bekor qilish)\n"
         "• <code>/report</code> — O'quvchilarning umumiy o'zlashtirish hisoboti\n"
         "• <code>/report &lt;ID&gt;</code> — Muayyan o'quvchi bo'yicha batafsil hisobot\n"
         "• <code>/questions</code> — O'quvchilar AI ga bergan oxirgi savollar\n"
-        "• <code>/allow &lt;ID&gt;</code> — Foydalanuvchiga ruxsat berish\n"
-        "• <code>/block &lt;ID&gt;</code> — Foydalanuvchini bloklash (ruxsatini bekor qilish)\n"
         "• <code>/add_admin &lt;ID&gt;</code> — Yangi admin qo'shish\n"
         "• <code>/admins</code> — Barcha adminlar ro'yxati"
     )
@@ -313,30 +425,35 @@ async def handle_admin_refresh(callback: CallbackQuery):
     counts = await database.get_user_counts()
     admin_kb = InlineKeyboardMarkup(inline_keyboard=[
         [
-            InlineKeyboardButton(text=f"👥 Ruxsat berilganlar ({counts['allowed']})", callback_data="admin_list_allowed"),
-            InlineKeyboardButton(text=f"⏳ Kutilayotganlar ({counts['pending']})", callback_data="admin_list_pending")
+            InlineKeyboardButton(text=f"🟢 Faol obuna ({counts['allowed']})", callback_data="admin_list_allowed"),
+            InlineKeyboardButton(text=f"🔴 Tugaganlar ({counts.get('expired', 0)})", callback_data="admin_list_expired")
         ],
         [
-            InlineKeyboardButton(text="📑 O'quvchilar hisoboti", callback_data="admin_students_report"),
-            InlineKeyboardButton(text="❓ AI savollari tarixi", callback_data="admin_ai_questions_history")
+            InlineKeyboardButton(text=f"⏳ Kutilayotganlar ({counts['pending']})", callback_data="admin_list_pending"),
+            InlineKeyboardButton(text="📑 O'quvchilar hisoboti", callback_data="admin_students_report")
         ],
         [
-            InlineKeyboardButton(text=f"👑 Adminlar ({counts['admins']})", callback_data="admin_list_admins"),
+            InlineKeyboardButton(text="❓ AI savollari tarixi", callback_data="admin_ai_questions_history"),
+            InlineKeyboardButton(text=f"👑 Adminlar ({counts['admins']})", callback_data="admin_list_admins")
+        ],
+        [
             InlineKeyboardButton(text="🔄 Yangilash", callback_data="admin_refresh")
         ]
     ])
     panel_text = (
         "👮 <b>ADMINISTRATOR BOSHQARUV PANELI</b>\n\n"
         f"👥 <b>Jami foydalanuvchilar:</b> {counts['total']} ta\n"
-        f"✅ <b>Ruxsat berilganlar:</b> {counts['allowed']} ta\n"
+        f"🟢 <b>Faol obunachilar:</b> {counts['allowed']} ta\n"
+        f"🔴 <b>Muddati tugaganlar:</b> {counts.get('expired', 0)} ta\n"
         f"⏳ <b>Tasdiq kutayotganlar:</b> {counts['pending']} ta\n"
         f"👑 <b>Adminlar:</b> {counts['admins']} ta\n\n"
         "<b>Boshqaruv buyruqlari:</b>\n"
+        "• <code>/allow &lt;ID&gt; [kun]</code> — Foydalanuvchiga obuna berish (sukut bo'yicha 30 kun)\n"
+        "• <code>/extend &lt;ID&gt; [kun]</code> — Foydalanuvchi obunasini uzaytirish (sukut bo'yicha +30 kun)\n"
+        "• <code>/block &lt;ID&gt;</code> — Foydalanuvchini bloklash\n"
         "• <code>/report</code> — O'quvchilarning umumiy o'zlashtirish hisoboti\n"
         "• <code>/report &lt;ID&gt;</code> — Muayyan o'quvchi bo'yicha batafsil hisobot\n"
         "• <code>/questions</code> — O'quvchilar AI ga bergan oxirgi savollar\n"
-        "• <code>/allow &lt;ID&gt;</code> — Foydalanuvchiga ruxsat berish\n"
-        "• <code>/block &lt;ID&gt;</code> — Foydalanuvchini bloklash\n"
         "• <code>/add_admin &lt;ID&gt;</code> — Yangi admin qo'shish\n"
         "• <code>/admins</code> — Barcha adminlar ro'yxati"
     )
@@ -518,7 +635,7 @@ async def handle_cmd_questions(message: Message):
 async def handle_admin_list_pending(callback: CallbackQuery):
     if not (await database.is_admin(callback.from_user.id) or callback.from_user.id in config.ADMIN_IDS):
         return
-    pending = await database.get_users_list(is_allowed=0, limit=15)
+    pending = await database.get_users_list(is_allowed=0, filter_type="pending", limit=15)
     if not pending:
         await callback.answer("Kutilayotgan yangi so'rovlar yo'q!", show_alert=True)
         return
@@ -531,7 +648,8 @@ async def handle_admin_list_pending(callback: CallbackQuery):
         u_handle = f"@{u['username']}" if u['username'] else "username yo'q"
         text += f"• <b>{u_name}</b> ({u_handle}) — <code>{u_id}</code>\n"
         buttons.append([
-            InlineKeyboardButton(text=f"✅ {u_name[:15]} ga ruxsat", callback_data=f"auth_approve_{u_id}"),
+            InlineKeyboardButton(text=f"✅ {u_name[:12]} (1 oy)", callback_data=f"auth_app30_{u_id}"),
+            InlineKeyboardButton(text="♾ Cheksiz", callback_data=f"auth_applife_{u_id}"),
             InlineKeyboardButton(text="❌ Rad", callback_data=f"auth_reject_{u_id}")
         ])
 
@@ -543,20 +661,52 @@ async def handle_admin_list_pending(callback: CallbackQuery):
 async def handle_admin_list_allowed(callback: CallbackQuery):
     if not (await database.is_admin(callback.from_user.id) or callback.from_user.id in config.ADMIN_IDS):
         return
-    allowed = await database.get_users_list(is_allowed=1, limit=15)
+    allowed = await database.get_users_list(is_allowed=1, filter_type="allowed", limit=15)
     if not allowed:
-        await callback.answer("Hozircha ruxsat berilgan foydalanuvchilar yo'q!", show_alert=True)
+        await callback.answer("Hozircha faol obunachilar yo'q!", show_alert=True)
         return
 
-    text = "✅ <b>Ruxsat berilgan foydalanuvchilar (oxirgi 15 ta):</b>\n\n"
+    text = "🟢 <b>Faol obunachilar (oxirgi 15 ta):</b>\n\n"
     buttons = []
     for u in allowed:
         u_name = u['full_name'] or 'Noma\'lum'
         u_id = u['user_id']
         u_handle = f"@{u['username']}" if u['username'] else "username yo'q"
-        text += f"• <b>{u_name}</b> ({u_handle}) — <code>{u_id}</code>\n"
+        u_sub = await database.get_user_subscription_info(u_id)
+        if u_sub['is_lifetime']:
+            sub_lbl = "♾ Cheksiz"
+        else:
+            sub_lbl = f"📅 {u_sub['formatted_date'][:10]} ({u_sub['days_left']} kun qoldi)"
+        text += f"• <b>{u_name}</b> ({u_handle}) — <code>{u_id}</code>\n   └ {sub_lbl}\n"
         buttons.append([
-            InlineKeyboardButton(text=f"🚫 {u_name[:15]} ni bloklash", callback_data=f"auth_reject_{u_id}")
+            InlineKeyboardButton(text=f"➕ {u_name[:12]} (+1 oy)", callback_data=f"auth_ext30_{u_id}"),
+            InlineKeyboardButton(text="🚫 Blok", callback_data=f"auth_reject_{u_id}")
+        ])
+
+    buttons.append([InlineKeyboardButton(text="◀️ Ortga", callback_data="admin_refresh")])
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+
+@dp.callback_query(F.data == "admin_list_expired")
+async def handle_admin_list_expired(callback: CallbackQuery):
+    if not (await database.is_admin(callback.from_user.id) or callback.from_user.id in config.ADMIN_IDS):
+        return
+    expired = await database.get_users_list(is_allowed=1, filter_type="expired", limit=15)
+    if not expired:
+        await callback.answer("Muddati tugagan foydalanuvchilar yo'q!", show_alert=True)
+        return
+
+    text = "🔴 <b>Obuna muddati tugagan foydalanuvchilar (oxirgi 15 ta):</b>\n\n"
+    buttons = []
+    for u in expired:
+        u_name = u['full_name'] or 'Noma\'lum'
+        u_id = u['user_id']
+        u_handle = f"@{u['username']}" if u['username'] else "username yo'q"
+        u_sub = await database.get_user_subscription_info(u_id)
+        text += f"• <b>{u_name}</b> ({u_handle}) — <code>{u_id}</code>\n   └ ⏳ Tugagan: {u_sub['formatted_date']}\n"
+        buttons.append([
+            InlineKeyboardButton(text=f"➕ {u_name[:12]} (+1 oy berish)", callback_data=f"auth_ext30_{u_id}"),
+            InlineKeyboardButton(text="🚫 Blok", callback_data=f"auth_reject_{u_id}")
         ])
 
     buttons.append([InlineKeyboardButton(text="◀️ Ortga", callback_data="admin_refresh")])
@@ -582,20 +732,62 @@ async def handle_cmd_allow(message: Message):
         return
     args = message.text.split()
     if len(args) < 2 or not args[1].isdigit():
-        await message.answer("⚠️ Foydalanish: <code>/allow 123456789</code>")
+        await message.answer("⚠️ Foydalanish: <code>/allow &lt;USER_ID&gt; [kunlar (sukut bo'yicha 30)]</code>")
         return
     target_id = int(args[1])
-    await database.set_user_allowed(target_id, 1)
-    await message.answer(f"✅ <b>{target_id}</b> raqamli foydalanuvchiga ruxsat berildi!")
-    try:
-        await bot.send_message(
-            target_id,
-            "🎉 <b>Administrator sizga botdan foydalanish uchun ruxsat berdi!</b>\n\n"
-            "Quyidagi <b>/start</b> tugmasini bosing:",
-            reply_markup=MAIN_KEYBOARD
+    days = 30
+    if len(args) >= 3 and args[2].isdigit():
+        days = int(args[2])
+
+    end_dt = await database.set_user_subscription(target_id, days=days)
+    if end_dt:
+        dt_str = end_dt.strftime("%d.%m.%Y")
+        msg = f"✅ <b>{target_id}</b> raqamli foydalanuvchiga <b>{days} kunlik (1 oylik)</b> ruxsat berildi! Muddat: <code>{dt_str}</code> gacha."
+        notify = (
+            f"🎉 <b>Administrator sizga botdan foydalanish uchun {days} kunlik ruxsat berdi!</b>\n\n"
+            f"📅 <b>Amal qilish muddati:</b> <code>{dt_str}</code> gacha.\n\n"
+            "Quyidagi <b>/start</b> tugmasini bosib testlarni boshlashingiz mumkin:"
         )
+    else:
+        msg = f"✅ <b>{target_id}</b> raqamli foydalanuvchiga <b>cheksiz</b> ruxsat berildi!"
+        notify = (
+            "🎉 <b>Administrator sizga botdan foydalanish uchun cheksiz ruxsat berdi!</b>\n\n"
+            "Quyidagi <b>/start</b> tugmasini bosib testlarni boshlashingiz mumkin:"
+        )
+
+    await message.answer(msg)
+    try:
+        await bot.send_message(target_id, notify, reply_markup=MAIN_KEYBOARD)
     except Exception:
         pass
+
+
+@dp.message(Command("extend"))
+async def handle_cmd_extend(message: Message):
+    if not (await database.is_admin(message.from_user.id) or message.from_user.id in config.ADMIN_IDS):
+        return
+    args = message.text.split()
+    if len(args) < 2 or not args[1].isdigit():
+        await message.answer("⚠️ Foydalanish: <code>/extend &lt;USER_ID&gt; [qo'shiladigan kunlar (sukut bo'yicha 30)]</code>")
+        return
+    target_id = int(args[1])
+    days = 30
+    if len(args) >= 3 and args[2].isdigit():
+        days = int(args[2])
+
+    end_dt = await database.set_user_subscription(target_id, days=days)
+    if end_dt:
+        dt_str = end_dt.strftime("%d.%m.%Y")
+        await message.answer(f"✅ <b>{target_id}</b> obunasi <b>+{days} kunga</b> uzaytirildi! Yangi muddat: <code>{dt_str}</code> gacha.")
+        try:
+            await bot.send_message(
+                target_id,
+                f"🎉 <b>Administrator sizning obunangizni yana {days} kunga uzaytirdi!</b>\n\n"
+                f"📅 <b>Yangi muddat:</b> <code>{dt_str}</code> gacha.",
+                reply_markup=MAIN_KEYBOARD
+            )
+        except Exception:
+            pass
 
 
 @dp.message(Command("block"))
@@ -1488,10 +1680,20 @@ async def show_my_stats(message: Message):
     lw = report["last_weekly"]
 
     recent_tests = await database.get_user_recent_results(user_id, limit=3)
+    sub_info = await database.get_user_subscription_info(user_id)
+    if sub_info["is_admin"]:
+        sub_str = "👑 Admin (Cheksiz)"
+    elif sub_info["is_lifetime"]:
+        sub_str = "♾ Cheksiz (Doimiy)"
+    elif sub_info["is_active"]:
+        sub_str = f"🟢 <b>{sub_info['formatted_date'][:10]} gacha</b> (<i>{sub_info['days_left']} kun qoldi</i>)"
+    else:
+        sub_str = f"🔴 <b>Muddati tugagan</b> ({sub_info['formatted_date']})"
 
     text = (
         f"📊 <b>SIZNING SHAXSIY PEDAGOGIK HISOBOTINGIZ:</b>\n\n"
         f"👤 O'quvchi: <b>{message.from_user.full_name}</b>\n"
+        f"⏳ Obuna holati: {sub_str}\n"
         f"📚 Joriy tanlangan sinf: <b>{grade_name}</b>\n"
         f"🏆 <b>O'ZLASHTIRISH DARAJANGIZ:</b>\n"
         f"<b>{report['mastery_badge']} ({report['overall_mastery']}%)</b>\n\n"
