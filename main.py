@@ -1344,22 +1344,7 @@ async def send_next_question(user_id: int):
         return
 
     q = questions[index]
-    
-    # Telegram Quiz cheklovlariga qarshi himoya
-    q_text = f"[{index + 1}/{len(questions)}] {q['question']}"
-    if len(q_text) > 295:
-        q_text = q_text[:292] + "..."
-        
-    options_list = []
-    for opt in q["options"]:
-        opt_text = str(opt).strip()
-        if len(opt_text) > 95:
-            opt_text = opt_text[:92] + "..."
-        options_list.append(InputPollOption(text=opt_text))
-
-    expl_text = q.get("explanation", "To'g'ri javob belgilandi!")
-    if len(expl_text) > 195:
-        expl_text = expl_text[:192] + "..."
+    raw_q = q["question"]
 
     # Rasmli testlar uchun rasmni yuborish
     img_rel = q.get("image")
@@ -1374,6 +1359,39 @@ async def send_next_question(user_id: int):
                 )
             except Exception as img_err:
                 logging.warning(f"Rasm yuborishda xatolik: {img_err}")
+
+    # Agar savolda jadval, rasmga havola yoki matn 250 belgidan uzun bo'lsa, uni to'liq matn sifatida oldin yuboramiz
+    has_table = any(kw in raw_q for kw in ["┌", "│", "├", "└", "---", "jadval", "Jadval", "\n1."])
+    if has_table or len(raw_q) > 250 or raw_q.count("\n") >= 2:
+        try:
+            await bot.send_message(
+                chat_id=user_id,
+                text=f"📋 <b>Savol #{index + 1} sharti:</b>\n\n{raw_q}",
+                parse_mode="HTML"
+            )
+        except Exception:
+            await bot.send_message(
+                chat_id=user_id,
+                text=f"📋 Savol #{index + 1} sharti:\n\n{raw_q}"
+            )
+        q_text = f"[{index + 1}/{len(questions)}] Yuqoridagi savol/jadval bo'yicha to'g'ri javobni tanlang:"
+    else:
+        q_text = f"[{index + 1}/{len(questions)}] {raw_q}"
+    
+    # Telegram Quiz cheklovlariga qarshi himoya
+    if len(q_text) > 295:
+        q_text = q_text[:292] + "..."
+        
+    options_list = []
+    for opt in q["options"]:
+        opt_text = str(opt).strip()
+        if len(opt_text) > 95:
+            opt_text = opt_text[:92] + "..."
+        options_list.append(InputPollOption(text=opt_text))
+
+    expl_text = q.get("explanation", "To'g'ri javob belgilandi!")
+    if len(expl_text) > 195:
+        expl_text = expl_text[:192] + "..."
 
     try:
         poll_msg = await bot.send_poll(
