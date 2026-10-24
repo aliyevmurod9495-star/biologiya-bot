@@ -1349,7 +1349,14 @@ async def send_next_question(user_id: int):
     # Rasmli testlar uchun rasmni yuborish
     img_rel = q.get("image")
     if img_rel:
-        img_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), img_rel) if not os.path.isabs(img_rel) else img_rel
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        img_path = os.path.join(base_dir, img_rel) if not os.path.isabs(img_rel) else img_rel
+        # Agar papka ichida topilmasa, to'g'ridan-to'g'ri root (asosiy) katalogdan qidirish
+        if not os.path.exists(img_path):
+            fallback = os.path.join(base_dir, os.path.basename(img_rel))
+            if os.path.exists(fallback):
+                img_path = fallback
+
         if os.path.exists(img_path):
             try:
                 await bot.send_photo(
@@ -1359,6 +1366,8 @@ async def send_next_question(user_id: int):
                 )
             except Exception as img_err:
                 logging.warning(f"Rasm yuborishda xatolik: {img_err}")
+        else:
+            logging.warning(f"Rasm fayli topilmadi: {img_rel}")
 
     # Agar savolda jadval, rasmga havola yoki matn 250 belgidan uzun bo'lsa, uni to'liq matn sifatida oldin yuboramiz
     has_table = any(kw in raw_q for kw in ["┌", "│", "├", "└", "---", "jadval", "Jadval", "\n1."])
