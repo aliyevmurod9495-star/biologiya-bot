@@ -178,7 +178,7 @@ GRADE_NAMES = {
     "7": "🦎 7-sinf (Zoologiya)",
     "8": "🫀 8-sinf (Odam anatomiyasi)",
     "9": "🔬 9-sinf (Sitologiya)",
-    "10": "🧬 10-sinf (Genetika)",
+    "10": "🧬 10-sinf (Yangi darslik)",
     "11": "🌍 11-sinf (Ekologiya va filogenez)"
 }
 
@@ -190,7 +190,7 @@ def get_grades_inline_keyboard() -> InlineKeyboardMarkup:
         [InlineKeyboardButton(text="🦎 7-sinf (Zoologiya)", callback_data="setgrade_7"),
          InlineKeyboardButton(text="🫀 8-sinf (Anatomiya)", callback_data="setgrade_8")],
         [InlineKeyboardButton(text="🔬 9-sinf (Biologiya)", callback_data="setgrade_9"),
-         InlineKeyboardButton(text="🧬 10-sinf (Genetika)", callback_data="setgrade_10")],
+         InlineKeyboardButton(text="🧬 10-sinf (Yangi darslik)", callback_data="setgrade_10")],
         [InlineKeyboardButton(text="🌍 11-sinf (Ekologiya va filogenez)", callback_data="setgrade_11")]
     ]
     return InlineKeyboardMarkup(inline_keyboard=buttons)
