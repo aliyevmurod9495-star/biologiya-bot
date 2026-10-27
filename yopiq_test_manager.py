@@ -9,6 +9,7 @@ va natijalarni umumiy ball/statistika bazasiga yozadi.
 import os
 import html
 import random
+import logging
 from typing import Dict, Any, Optional
 
 from aiogram import Bot
@@ -69,8 +70,8 @@ async def send_yopiq_menu(message: Message):
 
 async def start_yopiq_session(bot: Bot, chat_id: int, user_id: int, cat_id: str):
     """Yangi yopiq test sessiyasini boshlash"""
+    logging.info(f"Ytest: starting session for user {user_id}, cat {cat_id}")
     if cat_id == "mixed_15":
-        # Barcha kategoriyalardan 15 ta tasodifiy savol
         all_qs = []
         for c in YOPIQ_TESTS_10:
             for q in c["questions"]:
@@ -84,6 +85,7 @@ async def start_yopiq_session(bot: Bot, chat_id: int, user_id: int, cat_id: str)
     else:
         cat = CATEGORIES_MAP.get(cat_id)
         if not cat:
+            logging.error(f"Ytest: category {cat_id} not found!")
             return
         selected_qs = list(cat["questions"])
         cat_title = cat["title"]
@@ -97,7 +99,7 @@ async def start_yopiq_session(bot: Bot, chat_id: int, user_id: int, cat_id: str)
         "index": 0,
         "score": 0,
         "total": len(selected_qs),
-        "status": "waiting_answer", # waiting_answer | feedback_shown
+        "status": "waiting_answer",
         "last_answer_status": None
     }
 
@@ -141,8 +143,8 @@ async def send_yopiq_question(bot: Bot, chat_id: int, user_id: int):
                 photo = FSInputFile(img_full)
                 await bot.send_photo(chat_id=chat_id, photo=photo, caption=question_text, reply_markup=kb)
                 return
-            except Exception:
-                pass
+            except Exception as e:
+                logging.warning(f"send_photo error: {e}")
 
     await bot.send_message(chat_id=chat_id, text=question_text, reply_markup=kb)
 
@@ -155,7 +157,6 @@ async def process_yopiq_answer(bot: Bot, message: Message) -> bool:
         return False
 
     if session.get("status") != "waiting_answer":
-        # Agar javob ko'rsatilgan holatda bo'lsa
         return False
 
     idx = session["index"]
@@ -166,13 +167,9 @@ async def process_yopiq_answer(bot: Bot, message: Message) -> bool:
     ref_clean = q.get("clean_answer", "").strip().lower()
     keywords = q.get("keywords", [])
 
-    # Solishtirish tekshiruvi:
     is_correct = False
-    
-    # 1. To'liq yoki qismli moslik
     if len(user_clean) >= 2 and (user_clean in ref_clean or ref_clean in user_clean):
         is_correct = True
-    # 2. Kalit so'zlar bo'yicha moslik
     elif keywords:
         match_count = sum(1 for kw in keywords if kw in user_clean)
         if match_count >= max(1, len(keywords) // 2):
@@ -214,11 +211,20 @@ async def handle_yopiq_callback(bot: Bot, callback: CallbackQuery):
     """Yopiq test inline tugmalari bilan ishlash"""
     data = callback.data
     user_id = callback.from_user.id
-    chat_id = callback.message.chat.id
-    await callback.answer()
+    chat_id = callback.message.chat.id if callback.message else user_id
+
+    try:
+        await callback.answer()
+    except Exception as e:
+        logging.debug(f"callback.answer error: {e}")
 
     if data.startswith("ytest_start_"):
         cat_id = data.replace("ytest_start_", "")
+        try:
+            if callback.message:
+                await callback.message.delete()
+        except Exception:
+            pass
         await start_yopiq_session(bot, chat_id, user_id, cat_id)
 
     elif data == "ytest_reveal":
@@ -251,11 +257,15 @@ async def handle_yopiq_callback(bot: Bot, callback: CallbackQuery):
         if session:
             session["score"] += 1
             session["index"] += 1
-            await callback.message.edit_text(
-                f"✅ <b>Javobingiz to'g'ri deb qabul qilindi (+1 ball)!</b>\n\n"
-                f"📊 <b>Ball:</b> {session['score']} / {session['index']}",
-                reply_markup=None
-            )
+            try:
+                if callback.message:
+                    await callback.message.edit_text(
+                        f"✅ <b>Javobingiz to'g'ri deb qabul qilindi (+1 ball)!</b>\n\n"
+                        f"📊 <b>Ball:</b> {session['score']} / {session['index']}",
+                        reply_markup=None
+                    )
+            except Exception:
+                pass
             await send_yopiq_question(bot, chat_id, user_id)
 
     elif data == "ytest_next":
@@ -272,7 +282,8 @@ async def handle_yopiq_callback(bot: Bot, callback: CallbackQuery):
 
     elif data == "ytest_close":
         try:
-            await callback.message.delete()
+            if callback.message:
+                await callback.message.delete()
         except Exception:
             pass
 
@@ -300,7 +311,6 @@ async def finish_yopiq_session(bot: Bot, chat_id: int, user_id: int):
         badge = "⭐️ KO'PROQ O'QISH TAVSIYA ETILADI"
         praise = "Konspektlar va darslikni yaxshilab o'qib, qayta urinib ko'ring."
 
-    # Bazaga yozish
     try:
         await database.record_test_result(
             user_id=user_id,
@@ -309,8 +319,8 @@ async def finish_yopiq_session(bot: Bot, chat_id: int, user_id: int):
             total=total,
             topic_title=f"Yopiq: {session['short_title']}"
         )
-    except Exception:
-        pass
+    except Exception as e:
+        logging.warning(f"record_test_result error: {e}")
 
     result_text = (
         f"🏆 <b>YOPIQ TEST YAKUNLANDI!</b>\n\n"

@@ -2482,6 +2482,34 @@ async def self_ping_task():
         await asyncio.sleep(600)
 
 
+# ==========================================
+# YOPIQ TESTLAR (JAVOB YOZISH)
+# ==========================================
+@dp.message(F.text.in_(["✍️ Yopiq testlar", "/yopiq"]))
+async def yopiq_tests_menu_handler(message: Message):
+    """10-sinf Yopiq testlar menyusini chiqarish"""
+    await yopiq_test_manager.send_yopiq_menu(message)
+
+
+@dp.callback_query(F.data.startswith("ytest_"))
+async def ytest_callback_handler(callback: CallbackQuery):
+    """Yopiq test inline amallari"""
+    await yopiq_test_manager.handle_yopiq_callback(bot, callback)
+
+
+@dp.callback_query(F.data == "open_yopiq_menu")
+async def open_yopiq_menu_callback(callback: CallbackQuery):
+    """Testlar bo'limidan yopiq test menyusiga o'tish"""
+    await callback.answer()
+    await yopiq_test_manager.send_yopiq_menu(callback.message)
+
+
+@dp.message(lambda msg: msg.from_user and msg.from_user.id in yopiq_test_manager.active_yopiq_sessions and msg.text and not msg.text.startswith("/"))
+async def yopiq_answer_handler(message: Message):
+    """Yopiq test savollariga yozilgan javobni tekshirish"""
+    await yopiq_test_manager.process_yopiq_answer(bot, message)
+
+
 async def main():
     """Botni ishga tushirish funksiyasi"""
     if config.BOT_TOKEN == "SIZNING_BOT_TOKENINGIZ":
@@ -2510,25 +2538,3 @@ if __name__ == "__main__":
         asyncio.run(main())
     except (KeyboardInterrupt, SystemExit):
         print("Bot to'xtatildi.")
-
-
-# ==========================================
-# YOPIQ TESTLAR (JAVOB YOZISH)
-# ==========================================
-@dp.message(F.text.in_(["✍️ Yopiq testlar", "/yopiq"]))
-async def yopiq_tests_menu_handler(message: Message):
-    """10-sinf Yopiq testlar menyusini chiqarish"""
-    await yopiq_test_manager.send_yopiq_menu(message)
-
-
-@dp.callback_query(F.data.startswith("ytest_"))
-async def ytest_callback_handler(callback: CallbackQuery):
-    """Yopiq test inline amallari"""
-    await yopiq_test_manager.handle_yopiq_callback(bot, callback)
-
-
-@dp.callback_query(F.data == "open_yopiq_menu")
-async def open_yopiq_menu_callback(callback: CallbackQuery):
-    """Testlar bo'limidan yopiq test menyusiga o'tish"""
-    await callback.answer()
-    await yopiq_test_manager.send_yopiq_menu(callback.message)
