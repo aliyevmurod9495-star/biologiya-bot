@@ -25,6 +25,7 @@ import config
 import database
 import materials
 import problems
+import yopiq_test_manager
 
 # Loglarni sozlash
 logging.basicConfig(level=logging.INFO)
@@ -163,11 +164,11 @@ poll_to_user: Dict[str, int] = {}
 MAIN_KEYBOARD = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text="📖 Mavzular"), KeyboardButton(text="📝 Testlar")],
-        [KeyboardButton(text="📅 Haftalik Test"), KeyboardButton(text="📐 Masalalar")],
-        [KeyboardButton(text="🎥 Video darslar"), KeyboardButton(text="🧬 Animatsiyalar")],
-        [KeyboardButton(text="🏆 Reyting"), KeyboardButton(text="📊 Natijalar")],
-        [KeyboardButton(text="🤖 AI Biologiya"), KeyboardButton(text="👨‍🏫 O'qituvchi")],
-        [KeyboardButton(text="🔄 Sinfni almashtirish")]
+        [KeyboardButton(text="✍️ Yopiq testlar"), KeyboardButton(text="📐 Masalalar")],
+        [KeyboardButton(text="📅 Haftalik Test"), KeyboardButton(text="🎥 Video darslar")],
+        [KeyboardButton(text="🧬 Animatsiyalar"), KeyboardButton(text="🏆 Reyting")],
+        [KeyboardButton(text="📊 Natijalar"), KeyboardButton(text="🤖 AI Biologiya")],
+        [KeyboardButton(text="🔄 Sinfni almashtirish"), KeyboardButton(text="👨‍🏫 O'qituvchi")]
     ],
     resize_keyboard=True
 )
@@ -954,6 +955,11 @@ def build_tests_keyboard(grade: str, page: int = 1) -> tuple[str, Optional[Inlin
         if page < total_pages:
             nav_row.append(InlineKeyboardButton(text="Keyingi ➡️", callback_data=f"tests_page_{grade}_{page + 1}"))
         buttons.append(nav_row)
+
+    if grade == "10new":
+        buttons.append([
+            InlineKeyboardButton(text="✍️ 10-sinf Yopiq testlar (440 ta savol)", callback_data="open_yopiq_menu")
+        ])
 
     buttons.append([
         InlineKeyboardButton(
@@ -2368,12 +2374,16 @@ async def set_active_grade(callback: CallbackQuery):
 KNOWN_BUTTONS = [
     "📖 Mavzular", "📝 Testlar", "📅 Haftalik Test", "📐 Masalalar",
     "🎥 Video darslar", "🧬 Animatsiyalar", "🏆 Reyting", "📊 Natijalar",
-    "💳 Premium", "👨‍🏫 O'qituvchi", "🤖 AI Biologiya", "🔄 Sinfni almashtirish"
+    "💳 Premium", "👨‍🏫 O'qituvchi", "🤖 AI Biologiya", "🔄 Sinfni almashtirish",
+    "✍️ Yopiq testlar"
 ]
 
 @dp.message(F.text & ~F.text.startswith("/") & ~F.text.in_(KNOWN_BUTTONS))
 async def handle_user_free_text(message: Message):
     """Foydalanuvchi erkin savol yozganda AI orqali javob berish"""
+    # 1. Agar foydalanuvchi yopiq test sessiyasida bo'lsa, javobni tekshirish
+    if await yopiq_test_manager.process_yopiq_answer(bot, message):
+        return
     user = message.from_user
     user_id = user.id
     grade = await database.get_user_grade(user_id)
@@ -2500,3 +2510,25 @@ if __name__ == "__main__":
         asyncio.run(main())
     except (KeyboardInterrupt, SystemExit):
         print("Bot to'xtatildi.")
+
+
+# ==========================================
+# YOPIQ TESTLAR (JAVOB YOZISH)
+# ==========================================
+@dp.message(F.text.in_(["✍️ Yopiq testlar", "/yopiq"]))
+async def yopiq_tests_menu_handler(message: Message):
+    """10-sinf Yopiq testlar menyusini chiqarish"""
+    await yopiq_test_manager.send_yopiq_menu(message)
+
+
+@dp.callback_query(F.data.startswith("ytest_"))
+async def ytest_callback_handler(callback: CallbackQuery):
+    """Yopiq test inline amallari"""
+    await yopiq_test_manager.handle_yopiq_callback(bot, callback)
+
+
+@dp.callback_query(F.data == "open_yopiq_menu")
+async def open_yopiq_menu_callback(callback: CallbackQuery):
+    """Testlar bo'limidan yopiq test menyusiga o'tish"""
+    await callback.answer()
+    await yopiq_test_manager.send_yopiq_menu(callback.message)
