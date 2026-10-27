@@ -836,6 +836,19 @@ try:
     TOPICS_CONTENT["10"] = TOPICS_10
     VIDEO_LESSONS["10"] = VIDEO_LESSONS_10
     ANIMATIONS_3D["10"] = ANIMATIONS_3D_10
-except ImportError:
-    pass
+except Exception as e:
+    TOPICS_10 = []
+    VIDEO_LESSONS_10 = []
+    ANIMATIONS_3D_10 = []
+
+# 10-sinf Yangi darslik (2022/2025)
+try:
+    from materials_10_new import TOPICS_10_NEW, VIDEO_LESSONS_10_NEW, ANIMATIONS_3D_10_NEW
+    TOPICS_CONTENT["10new"] = TOPICS_10_NEW
+    VIDEO_LESSONS["10new"] = VIDEO_LESSONS_10_NEW
+    ANIMATIONS_3D["10new"] = ANIMATIONS_3D_10_NEW
+except Exception as e:
+    TOPICS_10_NEW = []
+    VIDEO_LESSONS_10_NEW = []
+    ANIMATIONS_3D_10_NEW = []
 
