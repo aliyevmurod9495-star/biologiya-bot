@@ -137,14 +137,45 @@ async def send_yopiq_question(bot: Bot, chat_id: int, user_id: int):
 
     img_rel = q.get("image")
     if img_rel:
-        img_full = os.path.join(BASE_DIR, img_rel)
-        if os.path.exists(img_full):
+        img_name = os.path.basename(img_rel)
+        # Qidirish yo'llari:
+        # 1. images_yopiq_10 papkasi ichida
+        # 2. botning asosiy (root) katalogida (agar fayllar papkasiz yuklangan bo'lsa)
+        # 3. img_rel ning o'zi
+        candidates = [
+            os.path.join(BASE_DIR, "images_yopiq_10", img_name),
+            os.path.join(BASE_DIR, img_name),
+            os.path.join(BASE_DIR, img_rel),
+            img_rel
+        ]
+
+        found_path = None
+        for p in candidates:
+            if os.path.exists(p) and os.path.getsize(p) > 0:
+                found_path = p
+                break
+
+        photo_sent = False
+        # 1-usul: Diskdagi mahalliy fayldan jo'natish
+        if found_path:
             try:
-                photo = FSInputFile(img_full)
+                photo = FSInputFile(found_path)
                 await bot.send_photo(chat_id=chat_id, photo=photo, caption=question_text, reply_markup=kb)
-                return
+                photo_sent = True
             except Exception as e:
-                logging.warning(f"send_photo error: {e}")
+                logging.warning(f"send_photo with FSInputFile ({found_path}) failed: {e}")
+
+        # 2-usul (Zaxira): Agar serverda fayl topilmasa, to'g'ridan-to'g'ri GitHub URL orqali jo'natish
+        if not photo_sent:
+            github_url = f"https://raw.githubusercontent.com/aliyevmurod9495-star/biologiya-bot/main/{img_name}"
+            try:
+                await bot.send_photo(chat_id=chat_id, photo=github_url, caption=question_text, reply_markup=kb)
+                photo_sent = True
+            except Exception as e:
+                logging.warning(f"send_photo with GitHub URL failed: {e}")
+
+        if photo_sent:
+            return
 
     await bot.send_message(chat_id=chat_id, text=question_text, reply_markup=kb)
 
