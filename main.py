@@ -48,6 +48,10 @@ class AuthMiddleware(BaseMiddleware):
         if not user:
             return await handler(event, data)
 
+        # 0. Vaqtincha limit tizimi o'chirilgan bo'lsa (Barcha o'quvchilar uchun ochiq erkin rejim)
+        if not getattr(config, "SUBSCRIPTION_REQUIRED", False):
+            return await handler(event, data)
+
         # 1. Admin har doim barcha huquqlarga ega
         if user.id in config.ADMIN_IDS or await database.is_admin(user.id):
             return await handler(event, data)
@@ -204,11 +208,12 @@ async def handle_start(message: Message):
     """Start komandasi berilganda"""
     user = message.from_user
     is_adm = await database.is_admin(user.id) or user.id in config.ADMIN_IDS
+    default_allowed = 1 if (not getattr(config, "SUBSCRIPTION_REQUIRED", False) or is_adm) else 0
     await database.add_or_update_user(
         user_id=user.id,
         full_name=user.full_name or "Noma'lum",
         username=user.username or "",
-        default_allowed=1 if is_adm else 0
+        default_allowed=default_allowed
     )
     grade = await database.get_user_grade(user.id)
     grade_name = GRADE_NAMES.get(grade, f"{grade}-sinf")
@@ -874,6 +879,26 @@ async def handle_cmd_restore(message: Message):
         f"✅ <b>Zaxiradan {restored} ta foydalanuvchi muvaffaqiyatli tiklandi!</b>\n"
         "Ularning barcha 30 kunlik va cheksiz obunalari qayta faollashtirildi."
     )
+
+
+@dp.message(Command("toggle_limit"))
+async def handle_cmd_toggle_limit(message: Message):
+    """Admin uchun limit va obuna tizimini yoqish yoki o'chirish kaliti"""
+    if not (await database.is_admin(message.from_user.id) or message.from_user.id in config.ADMIN_IDS):
+        return
+    config.SUBSCRIPTION_REQUIRED = not getattr(config, "SUBSCRIPTION_REQUIRED", False)
+    if config.SUBSCRIPTION_REQUIRED:
+        status_msg = (
+            "🔒 <b>Limit va 30 kunlik obuna tizimi YOQILDI!</b>\n\n"
+            "Endi yangi o'quvchilar botdan foydalanishi uchun administrator tasdiqlashi "
+            "va 30 kunlik muddat berilishi talab qilinadi."
+        )
+    else:
+        status_msg = (
+            "🔓 <b>Limit tizimi O'CHIRILDI (Ochiq erkin rejim)!</b>\n\n"
+            "Endi barcha o'quvchilar hech qanday cheklovlarsiz va tasdiq kutmasdan botdan erkin foydalanishlari mumkin."
+        )
+    await message.answer(status_msg)
 
 
 

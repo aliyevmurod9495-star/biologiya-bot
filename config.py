@@ -18,3 +18,8 @@ if not ADMIN_IDS:
     ADMIN_IDS = [1855136438]
 
 ADMIN_ID = ADMIN_IDS[0]
+
+# Limit va obuna tizimi:
+# False = Barchaga ochiq (bepul, to'siqlarsiz, rivojlantirish bosqichi)
+# True = Yopiq tizim (admin tasdiqlashi va 30 kunlik muddat talab qilinadi)
+SUBSCRIPTION_REQUIRED = os.getenv("SUBSCRIPTION_REQUIRED", "False").lower() in ("true", "1")
