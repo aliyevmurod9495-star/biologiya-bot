@@ -1,9 +1,87 @@
+import os
+import json
+import logging
 import aiosqlite
 from datetime import datetime, timedelta
 from typing import Optional, List, Dict, Any
 import config
 
 DB_PATH = "bot_database.sqlite"
+BACKUP_FILE = "users_backup.json"
+
+async def export_users_backup() -> str:
+    """Barcha foydalanuvchilar va ularning obunalarini users_backup.json ga zaxiralash"""
+    try:
+        data = {
+            "saved_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "users": []
+        }
+        async with aiosqlite.connect(DB_PATH) as db:
+            db.row_factory = aiosqlite.Row
+            async with db.execute("""
+                SELECT user_id, full_name, username, current_grade, is_allowed, 
+                       subscription_until, total_tests, correct_answers 
+                FROM users
+            """) as cur:
+                rows = await cur.fetchall()
+                for r in rows:
+                    data["users"].append(dict(r))
+        with open(BACKUP_FILE, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        return BACKUP_FILE
+    except Exception as e:
+        logging.warning(f"export_users_backup ogohlantirish: {e}")
+        return BACKUP_FILE
+
+
+async def restore_users_backup(file_path: Optional[str] = None) -> int:
+    """users_backup.json faylidan foydalanuvchilar va 30 kunlik muddatlarni qayta tiklash"""
+    target_path = file_path or BACKUP_FILE
+    if not os.path.exists(target_path):
+        return 0
+    restored = 0
+    try:
+        with open(target_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        users = data.get("users", [])
+        if not users:
+            return 0
+        async with aiosqlite.connect(DB_PATH) as db:
+            for u in users:
+                u_id = u.get("user_id")
+                if not u_id:
+                    continue
+                # Bosh adminlarni o'zgartirmaslik
+                if u_id in config.ADMIN_IDS:
+                    continue
+                await db.execute("""
+                    INSERT INTO users (user_id, full_name, username, current_grade, is_allowed, subscription_until, total_tests, correct_answers)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(user_id) DO UPDATE SET
+                        is_allowed = MAX(users.is_allowed, excluded.is_allowed),
+                        subscription_until = CASE
+                            WHEN excluded.subscription_until IS NOT NULL THEN excluded.subscription_until
+                            ELSE users.subscription_until
+                        END,
+                        full_name = excluded.full_name,
+                        username = excluded.username,
+                        current_grade = excluded.current_grade
+                """, (
+                    u_id,
+                    u.get("full_name") or "Foydalanuvchi",
+                    u.get("username") or "",
+                    u.get("current_grade") or "8",
+                    u.get("is_allowed", 0),
+                    u.get("subscription_until"),
+                    u.get("total_tests", 0),
+                    u.get("correct_answers", 0)
+                ))
+                restored += 1
+            await db.commit()
+        logging.info(f"Zaxiradan {restored} ta foydalanuvchi muvaffaqiyatli tiklandi.")
+    except Exception as e:
+        logging.warning(f"restore_users_backup ogohlantirish: {e}")
+    return restored
 
 async def init_db():
     """Ma'lumotlar bazasini va jadvallarni yaratish hamda yangilash"""
@@ -117,6 +195,12 @@ async def init_db():
         """)
 
         await db.commit()
+
+    # Baza yangi yoki server qayta yuklangan bo'lsa, zaxiradagi foydalanuvchilar va muddatlarni tiklash
+    try:
+        await restore_users_backup()
+    except Exception as e:
+        logging.warning(f"Zaxirani tiklashda ogohlantirish: {e}")
 
 
 async def is_admin(user_id: int) -> bool:
@@ -287,11 +371,14 @@ async def set_user_subscription(user_id: int, days: int = 30) -> Optional[dateti
 
     async with aiosqlite.connect(DB_PATH) as db:
         await db.execute("""
-            UPDATE users 
-            SET is_allowed = 1, subscription_until = ? 
-            WHERE user_id = ?
-        """, (new_end_str, user_id))
+            INSERT INTO users (user_id, full_name, username, current_grade, is_allowed, subscription_until)
+            VALUES (?, 'Foydalanuvchi', '', '8', 1, ?)
+            ON CONFLICT(user_id) DO UPDATE SET
+                is_allowed = 1,
+                subscription_until = excluded.subscription_until
+        """, (user_id, new_end_str))
         await db.commit()
+    await export_users_backup()
     return new_end
 
 
@@ -302,13 +389,21 @@ async def set_user_allowed(user_id: int, is_allowed: int = 1, days: Optional[int
             return await set_user_subscription(user_id, days)
         else:
             async with aiosqlite.connect(DB_PATH) as db:
-                await db.execute("UPDATE users SET is_allowed = 1, subscription_until = NULL WHERE user_id = ?", (user_id,))
+                await db.execute("""
+                    INSERT INTO users (user_id, full_name, username, current_grade, is_allowed, subscription_until)
+                    VALUES (?, 'Foydalanuvchi', '', '8', 1, NULL)
+                    ON CONFLICT(user_id) DO UPDATE SET
+                        is_allowed = 1,
+                        subscription_until = NULL
+                """, (user_id,))
                 await db.commit()
+            await export_users_backup()
             return None
     else:
         async with aiosqlite.connect(DB_PATH) as db:
             await db.execute("UPDATE users SET is_allowed = 0 WHERE user_id = ?", (user_id,))
             await db.commit()
+        await export_users_backup()
         return None
 
 
@@ -325,6 +420,7 @@ async def add_or_update_user(user_id: int, full_name: str, username: str, defaul
                 username = excluded.username
         """, (user_id, full_name, username, initial_allowed))
         await db.commit()
+    await export_users_backup()
 
 
 async def get_user_info(user_id: int) -> Optional[Dict[str, Any]]:

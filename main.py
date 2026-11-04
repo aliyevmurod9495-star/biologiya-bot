@@ -846,6 +846,36 @@ async def handle_cmd_admins(message: Message):
     await message.answer(text)
 
 
+@dp.message(Command("backup"))
+async def handle_cmd_backup(message: Message):
+    """Barcha o'quvchilar va 30 kunlik muddatlar zaxirasini yuklab olish"""
+    if not (await database.is_admin(message.from_user.id) or message.from_user.id in config.ADMIN_IDS):
+        return
+    backup_file = await database.export_users_backup()
+    counts = await database.get_user_counts()
+    summary = (
+        "📦 <b>Foydalanuvchilar zaxira nusxasi (Backup)</b>\n\n"
+        f"👥 <b>Jami foydalanuvchilar:</b> {counts['total']}\n"
+        f"✅ <b>Faol ruxsatga egalar:</b> {counts['active']}\n"
+        f"⏳ <b>Kutilayotganlar:</b> {counts['pending']}\n\n"
+        "<i>Ushbu fayl server qayta ishga tushganda o'quvchilarning 30 kunlik ruxsatini avtomatik tiklash uchun xizmat qiladi.</i>"
+    )
+    doc = FSInputFile(backup_file, filename="users_backup.json")
+    await message.answer_document(doc, caption=summary)
+
+
+@dp.message(Command("restore"))
+async def handle_cmd_restore(message: Message):
+    """Zaxiradagi barcha o'quvchilar va ularning muddatlarini bazaga qayta yuklash"""
+    if not (await database.is_admin(message.from_user.id) or message.from_user.id in config.ADMIN_IDS):
+        return
+    restored = await database.restore_users_backup()
+    await message.answer(
+        f"✅ <b>Zaxiradan {restored} ta foydalanuvchi muvaffaqiyatli tiklandi!</b>\n"
+        "Ularning barcha 30 kunlik va cheksiz obunalari qayta faollashtirildi."
+    )
+
+
 
 # ==========================================
 # 1. MAVZULAR (MA'RUZALAR) BO'LIMI VA SAHIFALASH

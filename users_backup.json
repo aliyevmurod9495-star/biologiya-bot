@@ -1,0 +1,35 @@
+{
+  "saved_at": "2026-11-04 13:54:58",
+  "users": [
+    {
+      "user_id": 0,
+      "full_name": "Administrator",
+      "username": "admin",
+      "current_grade": "8",
+      "is_allowed": 1,
+      "subscription_until": null,
+      "total_tests": 0,
+      "correct_answers": 0
+    },
+    {
+      "user_id": 123,
+      "full_name": "Ali",
+      "username": "ali",
+      "current_grade": "10",
+      "is_allowed": 1,
+      "subscription_until": "2026-12-04 13:00:00",
+      "total_tests": 0,
+      "correct_answers": 0
+    },
+    {
+      "user_id": 1855136438,
+      "full_name": "Murod Aliyev",
+      "username": "Murod_Aliyev_9495",
+      "current_grade": "8",
+      "is_allowed": 0,
+      "subscription_until": null,
+      "total_tests": 5,
+      "correct_answers": 5
+    }
+  ]
+}
