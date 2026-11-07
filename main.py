@@ -1460,6 +1460,34 @@ async def send_next_question(user_id: int):
     if len(q_text) > 295:
         q_text = q_text[:292] + "..."
         
+    # Variantlarni aralashtirish va tozalash (to'g'ri javob doim bir xil harfda qolib ketmasligi uchun)
+    if not q.get("_shuffled"):
+        raw_opts = q.get("options") or []
+        orig_correct = q.get("correct_option_id", 0)
+        
+        cleaned_opts = []
+        for opt in raw_opts:
+            opt_s = str(opt).strip()
+            opt_s = re.sub(r'^[A-Da-d][\)\.\:\-]\s*', '', opt_s).strip()
+            cleaned_opts.append(opt_s)
+
+        if cleaned_opts and orig_correct is not None and 0 <= orig_correct < len(cleaned_opts):
+            indexed = list(enumerate(cleaned_opts))
+            random.shuffle(indexed)
+            new_opts = [item[1] for item in indexed]
+            new_correct_id = next(pos for pos, item in enumerate(indexed) if item[0] == orig_correct)
+            
+            q = dict(q)
+            q["options"] = new_opts
+            q["correct_option_id"] = new_correct_id
+            q["_shuffled"] = True
+            questions[index] = q
+        else:
+            q = dict(q)
+            q["options"] = cleaned_opts
+            q["_shuffled"] = True
+            questions[index] = q
+
     options_list = []
     for opt in q["options"]:
         opt_text = str(opt).strip()
@@ -1467,7 +1495,7 @@ async def send_next_question(user_id: int):
             opt_text = opt_text[:92] + "..."
         options_list.append(InputPollOption(text=opt_text))
 
-    expl_text = q.get("explanation", "To'g'ri javob belgilandi!")
+    expl_text = q.get("explanation") or q.get("solution") or "To'g'ri javob belgilandi!" 
     if len(expl_text) > 195:
         expl_text = expl_text[:192] + "..."
 
