@@ -26,6 +26,11 @@ import database
 import materials
 import problems
 import yopiq_test_manager
+try:
+    from weekly_tests_data import WEEKLY_TESTS_10NEW
+except Exception as e:
+    logging.warning(f"weekly_tests_data yuklanmadi: {e}")
+    WEEKLY_TESTS_10NEW = {}
 
 # Loglarni sozlash
 logging.basicConfig(level=logging.INFO)
@@ -973,6 +978,7 @@ def build_topics_keyboard(grade: str, page: int = 1) -> tuple[str, Optional[Inli
 def build_tests_keyboard(grade: str, page: int = 1) -> tuple[str, Optional[InlineKeyboardMarkup]]:
     """Testlar ro'yxatini 10 tadan sahifalab inline klaviatura tuzish"""
     grade_name = GRADE_NAMES.get(grade, f"{grade}-sinf")
+
     grade_data = QUESTIONS_DATA.get(grade, {})
     topics = grade_data.get("topics", [])
 
@@ -1835,6 +1841,26 @@ async def start_weekly_test(message: Message):
     grade = await database.get_user_grade(user_id)
     grade_name = GRADE_NAMES.get(grade, f"{grade}-sinf")
 
+    if grade == "10new" and WEEKLY_TESTS_10NEW:
+        kb_rows = []
+        for w_num in range(1, 12):
+            w_str = str(w_num)
+            w_data = WEEKLY_TESTS_10NEW.get(w_str, {})
+            topics_txt = w_data.get('topics', f'{w_num}-mavzu')
+            btn_text = f"🗓 {w_num}-hafta: {topics_txt}"
+            kb_rows.append([InlineKeyboardButton(text=btn_text, callback_data=f"wtest10_{w_num}")])
+        
+        kb_rows.append([InlineKeyboardButton(text="🎲 Barcha haftalardan aralash test (20 ta)", callback_data="wtest10_mixed")])
+        kb_rows.append([InlineKeyboardButton(text="🔙 Testlar bo'limiga qaytish", callback_data="show_tests_cb")])
+
+        text = (
+            "📅 <b>10-SINF YANGI DARSLIK: HAFTALIK NAZORAT TESTLARI</b>\n\n"
+            "Har bir hafta uchun 100 ta chuqurlashtirilgan nazorat savollari (rasmli va batafsil tushuntirishlari bilan) tayyorlangan.\n\n"
+            "📌 <i>Istalgan haftani tanlang (har bir testda 15 ta tasodifiy savol beriladi) yoki barcha haftalardan aralash test ishlang:</i>"
+        )
+        await message.answer(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=kb_rows))
+        return
+
     grade_data = QUESTIONS_DATA.get(grade, {})
     topics = grade_data.get("topics", [])
 
@@ -1881,6 +1907,58 @@ async def start_weekly_test(message: Message):
 async def start_weekly_cb(callback: CallbackQuery):
     await callback.answer()
     await start_weekly_test(callback.message)
+
+@dp.callback_query(F.data.startswith("wtest10_"))
+async def handle_wtest10_cb(callback: CallbackQuery):
+    await callback.answer()
+    user_id = callback.from_user.id
+    data = callback.data.split("_")[1]
+
+    if data == "mixed":
+        all_q = []
+        for w_data in WEEKLY_TESTS_10NEW.values():
+            all_q.extend(w_data.get("questions", []))
+        if not all_q:
+            await callback.message.answer("⚠️ Savollar bazasi topilmadi.")
+            return
+        shuffled = all_q[:]
+        random.shuffle(shuffled)
+        selected = shuffled[:20]
+        test_title = "10-sinf Barcha haftalar (Aralash test)"
+        num_q = len(selected)
+    else:
+        w_num = data
+        w_data = WEEKLY_TESTS_10NEW.get(w_num)
+        if not w_data:
+            await callback.message.answer("⚠️ Ushbu hafta uchun test topilmadi.")
+            return
+        q_pool = w_data.get("questions", [])[:]
+        random.shuffle(q_pool)
+        selected = q_pool[:15]
+        test_title = f"10-sinf {w_num}-hafta ({w_data.get('topics', '')})"
+        num_q = len(selected)
+
+    active_sessions[user_id] = {
+        "grade": "10new",
+        "grade_name": test_title,
+        "questions": selected,
+        "index": 0,
+        "score": 0,
+        "last_poll_id": None,
+        "is_weekly": True
+    }
+
+    start_text = (
+        f"📅 <b>{test_title.upper()}</b>\n\n"
+        "Ushbu nazorat testi o'tilgan haftalik mavzularni o'zlashtirish darajasini aniqlash uchun tuzilgan.\n\n"
+        f"📝 <b>Savollar soni:</b> {num_q} ta\n"
+        "⏱ <b>Vaqt chegarasi yo'q</b> — savollarni diqqat bilan o'qib javob bering.\n"
+        "📊 Test yakunlangach, o'zlashtirish ko'rsatkichi hisoblanadi va hisobotga kiritiladi.\n\n"
+        "<i>Boshlaymiz! Omad!</i>"
+    )
+    await callback.message.answer(start_text)
+    await send_next_question(user_id)
+
 
 
 # ==========================================
