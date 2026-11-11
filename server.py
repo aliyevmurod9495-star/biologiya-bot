@@ -264,10 +264,16 @@ async def api_attestation_mock(request: web.Request) -> web.Response:
 
 # Asosiy HTML sahifani uzatish
 async def serve_index(request: web.Request) -> web.FileResponse:
-    index_path = os.path.join(CURRENT_DIR, "index.html")
-    if not os.path.exists(index_path):
-        return web.Response(text="<h1>BioMaster WebApp yuklanmoqda...</h1>", content_type="text/html")
-    return web.FileResponse(index_path)
+    candidates = [
+        os.path.join(CURRENT_DIR, "index.html"),
+        os.path.join(CURRENT_DIR, "webapp", "index.html"),
+        os.path.join(BOT_DIR, "webapp", "index.html"),
+        os.path.join(BOT_DIR, "index.html")
+    ]
+    for p in candidates:
+        if os.path.exists(p):
+            return web.FileResponse(p)
+    return web.Response(text="<h1>BioMaster WebApp yuklanmoqda...</h1>", content_type="text/html")
 
 
 def create_app() -> web.Application:

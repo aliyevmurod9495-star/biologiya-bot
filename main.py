@@ -2643,17 +2643,44 @@ async def run_web_server():
     import os
     from aiohttp import web
 
+    app = None
     try:
         from webapp.server import create_app
         app = create_app()
-    except Exception as e:
-        logging.error(f"webapp server yuklanmadi, fallback yaratilmoqda: {e}")
-        app = web.Application()
+    except Exception as e1:
+        try:
+            import server
+            app = server.create_app()
+        except Exception as e2:
+            logging.error(f"webapp server yuklanmadi: {e1} / {e2}")
+            app = web.Application()
 
     async def health_check(request):
         return web.Response(text="Biologiya Test Boti va BioMaster Mini App 24/7 faol ishlamoqda! 🟢")
 
-    app.router.add_get("/health", health_check)
+    try:
+        app.router.add_get("/health", health_check)
+    except Exception:
+        pass
+
+    has_root = any(getattr(r, 'resource', None) and getattr(r.resource, 'canonical', '') == '/' for r in app.router.routes())
+    if not has_root:
+        async def fallback_serve_index(request):
+            candidates = [
+                os.path.join(os.path.dirname(__file__), "webapp", "index.html"),
+                os.path.join(os.path.dirname(__file__), "index.html"),
+            ]
+            for p in candidates:
+                if os.path.exists(p):
+                    return web.FileResponse(p)
+            return web.Response(
+                text="<!DOCTYPE html><html><body style='background:#020617;color:#fff;font-family:sans-serif;text-align:center;padding:40px;'>"
+                     "<h2>🧬 BioMaster Mini App yangilanmoqda...</h2>"
+                     "<p style='color:#94a3b8;'>Iltimos, ilovani 1 daqiqadan so'ng qayta oching.</p>"
+                     "</body></html>",
+                content_type="text/html"
+            )
+        app.router.add_get("/", fallback_serve_index)
 
     port = int(os.getenv("PORT", "8080"))
     runner = web.AppRunner(app)
