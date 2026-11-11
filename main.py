@@ -18,7 +18,9 @@ from aiogram.types import (
     InlineKeyboardButton,
     InputPollOption,
     TelegramObject,
-    FSInputFile
+    FSInputFile,
+    WebAppInfo,
+    MenuButtonWebApp
 )
 
 import config
@@ -169,9 +171,27 @@ except Exception as e:
 active_sessions: Dict[int, Dict[str, Any]] = {}
 poll_to_user: Dict[str, int] = {}
 
+def get_webapp_url() -> str:
+    env_url = os.getenv("RENDER_EXTERNAL_URL") or os.getenv("WEBAPP_URL")
+    if env_url:
+        return env_url.rstrip("/")
+    url_file = os.path.join(os.path.dirname(__file__), "current_webapp_url.txt")
+    if os.path.exists(url_file):
+        try:
+            with open(url_file, "r") as f:
+                url = f.read().strip()
+                if url and "serveo" not in url:
+                    return url.rstrip("/")
+        except Exception:
+            pass
+    return "https://biologiya-bot-hf2u.onrender.com" 
+
+WEBAPP_URL = get_webapp_url()
+
 # Asosiy menyu klaviaturasi (Aynan rasmdagidek va yangi bo'limlar bilan)
 MAIN_KEYBOARD = ReplyKeyboardMarkup(
     keyboard=[
+        [KeyboardButton(text="📱 BioMaster Ilovasi (TMA)", web_app=WebAppInfo(url=WEBAPP_URL))],
         [KeyboardButton(text="📖 Mavzular"), KeyboardButton(text="📝 Testlar")],
         [KeyboardButton(text="✍️ Yopiq testlar"), KeyboardButton(text="📐 Masalalar")],
         [KeyboardButton(text="📅 Haftalik Test"), KeyboardButton(text="🎥 Video darslar")],
@@ -242,7 +262,17 @@ async def handle_start(message: Message):
         "• 🤖 <b>AI Biologiya</b> — Darslik asosidagi Sun'iy Intellekt\n"
         "• 👨‍🏫 <b>O'qituvchi</b> — Ustoz bilan bog'lanish"
     )
+    start_inline_kb = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="🚀 BioMaster Ilovasini Ochish 📱", web_app=WebAppInfo(url=get_webapp_url()))]
+        ]
+    )
     await message.answer(welcome_text, reply_markup=MAIN_KEYBOARD)
+    await message.answer(
+        "📱 <b>Yangi avlod interaktiv ilovamiz ishga tushdi!</b>\n"
+        "5–11-sinf darsliklari, yopiq testlar, attestatsiya va rasmli savollarni qulay to‘liq ekranda ochish uchun quyidagi tugmani bosing:",
+        reply_markup=start_inline_kb
+    )
 
 
 
@@ -2609,15 +2639,20 @@ async def handle_user_free_text(message: Message):
 # VEB-SERVER VA RENDER KEEP-ALIVE
 # ==========================================
 async def run_web_server():
-    """Bulutli serverlar (Render, Koyeb) uchun portni ochiq ushlab turuvchi veb-server"""
+    """Bulutli serverlar (Render) uchun bot veb-serveri va BioMaster Mini App (TMA) serveri"""
     import os
     from aiohttp import web
 
-    async def health_check(request):
-        return web.Response(text="Biologiya Test Boti 24/7 faol ishlamoqda! 🟢")
+    try:
+        from webapp.server import create_app
+        app = create_app()
+    except Exception as e:
+        logging.error(f"webapp server yuklanmadi, fallback yaratilmoqda: {e}")
+        app = web.Application()
 
-    app = web.Application()
-    app.router.add_get("/", health_check)
+    async def health_check(request):
+        return web.Response(text="Biologiya Test Boti va BioMaster Mini App 24/7 faol ishlamoqda! 🟢")
+
     app.router.add_get("/health", health_check)
 
     port = int(os.getenv("PORT", "8080"))
@@ -2625,7 +2660,7 @@ async def run_web_server():
     await runner.setup()
     site = web.TCPSite(runner, "0.0.0.0", port)
     await site.start()
-    logging.info(f"Veb-server port {port} da ishga tushirildi.")
+    logging.info(f"BioMaster Mini App va Veb-server port {port} da muvaffaqiyatli ishga tushirildi.")
 
 
 async def self_ping_task():
