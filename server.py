@@ -38,6 +38,8 @@ def load_json(filepath: str) -> Any:
 
 QUESTIONS_DATA = load_json(QUESTIONS_FILE)
 YOPIQ_DATA = load_json(YOPIQ_FILE)
+YOZMA_FILE = os.path.join(BOT_DIR, "yozma_29_kun.json")
+YOZMA_DATA = load_json(YOZMA_FILE)
 
 # 7 ta sinf ma'lumotlari (pastdan yuqoriga qat'iy tartibda)
 GRADES_METADATA = [
@@ -276,6 +278,36 @@ async def serve_index(request: web.Request) -> web.FileResponse:
     return web.Response(text="<h1>BioMaster WebApp yuklanmoqda...</h1>", content_type="text/html")
 
 
+
+async def api_get_yozma_days(request: web.Request) -> web.Response:
+    """29 kunlik yozma ishlar ro'yxati"""
+    days = []
+    for d_num in range(1, 30):
+        d_str = str(d_num)
+        d_info = YOZMA_DATA.get(d_str)
+        if d_info:
+            days.append({
+                "day": d_num,
+                "title": d_info.get("title", f"{d_num}-kun Yozma Ishi"),
+                "total_problems": d_info.get("total_problems", 0),
+                "images_count": d_info.get("images_count", 0)
+            })
+    return web.json_response({"ok": True, "days": days})
+
+
+async def api_get_yozma_day_detail(request: web.Request) -> web.Response:
+    """Kun bo'yicha masalalar va ularning yechim rasmlari"""
+    day_num = request.match_info.get("day_num")
+    d_info = YOZMA_DATA.get(str(day_num))
+    if not d_info:
+        return web.json_response({"ok": False, "error": "Kun topilmadi"}, status=404)
+    return web.json_response({
+        "ok": True,
+        "day": d_info.get("day"),
+        "title": d_info.get("title"),
+        "problems": d_info.get("problems", [])
+    })
+
 def create_app() -> web.Application:
     app = web.Application(middlewares=[cors_middleware])
     
@@ -287,6 +319,14 @@ def create_app() -> web.Application:
     app.router.add_get("/api/yopiq_tests", api_get_yopiq_tests)
     app.router.add_get("/api/yopiq_tests/{cat_id}", api_get_yopiq_category)
     app.router.add_get("/api/attestation/mock", api_attestation_mock)
+    app.router.add_get("/api/yozma/days", api_get_yozma_days)
+    app.router.add_get("/api/yozma/day/{day_num}", api_get_yozma_day_detail)
+    
+    # Rasmlarni statik tarqatish
+    for img_folder in ["images_yozma_29", "images_weekly_10", "images_yopiq_10", "images_10", "images_11", "images_5"]:
+        folder_path = os.path.join(BOT_DIR, img_folder)
+        if os.path.exists(folder_path):
+            app.router.add_static(f"/{img_folder}", folder_path)
     
     return app
 

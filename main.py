@@ -192,6 +192,7 @@ WEBAPP_URL = get_webapp_url()
 MAIN_KEYBOARD = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text="📱 BioMaster Ilovasi (TMA)", web_app=WebAppInfo(url=WEBAPP_URL))],
+        [KeyboardButton(text="✍️ 29 kunlik Yozma"), KeyboardButton(text="🎯 Milliy Sertifikat")],
         [KeyboardButton(text="📖 Mavzular"), KeyboardButton(text="📝 Testlar")],
         [KeyboardButton(text="✍️ Yopiq testlar"), KeyboardButton(text="📐 Masalalar")],
         [KeyboardButton(text="📅 Haftalik Test"), KeyboardButton(text="🎥 Video darslar")],
@@ -2706,6 +2707,184 @@ async def self_ping_task():
 
 
 # ==========================================
+
+# ==========================================
+# 29 KUNLIK YOZMA ISHLAR MARAFONI
+# ==========================================
+YOZMA_JSON_PATH = os.path.join(os.path.dirname(__file__), "yozma_29_kun.json")
+try:
+    with open(YOZMA_JSON_PATH, "r", encoding="utf-8") as f:
+        YOZMA_29_DATA = json.load(f)
+except Exception as e:
+    logging.warning(f"yozma_29_kun.json yuklanmadi: {e}")
+    YOZMA_29_DATA = {}
+
+
+def build_yozma_days_keyboard(page: int = 1) -> InlineKeyboardMarkup:
+    """29 kunlik yozma ishlar ro'yxatini 6 tadan sahifalab chiqarish"""
+    per_page = 6
+    total_days = 29
+    total_pages = (total_days + per_page - 1) // per_page
+    page = max(1, min(page, total_pages))
+
+    start_day = (page - 1) * per_page + 1
+    end_day = min(start_day + per_page, total_days + 1)
+
+    buttons = []
+    # 2 tadan qatorda
+    row = []
+    for d in range(start_day, end_day):
+        row.append(InlineKeyboardButton(text=f"🗓 {d}-kun", callback_data=f"yozmaday_{d}"))
+        if len(row) == 2:
+            buttons.append(row)
+            row = []
+    if row:
+        buttons.append(row)
+
+    # Navigatsiya sahifalari
+    nav_row = []
+    if page > 1:
+        nav_row.append(InlineKeyboardButton(text="⬅️ Oldingi", callback_data=f"yozmapage_{page-1}"))
+    nav_row.append(InlineKeyboardButton(text=f"📄 {page}/{total_pages}", callback_data="yozma_noop"))
+    if page < total_pages:
+        nav_row.append(InlineKeyboardButton(text="Keyingi ➡️", callback_data=f"yozmapage_{page+1}"))
+    buttons.append(nav_row)
+
+    return InlineKeyboardMarkup(inline_keyboard=buttons)
+
+
+@dp.message(F.text.in_(["✍️ 29 kunlik Yozma", "/yozma"]))
+async def yozma_marafoni_handler(message: Message):
+    """29 kunlik yozma ishlar marafoni asosiy menyusi"""
+    text = (
+        "✍️ <b>29 KUNLIK YOZMA ISHLAR MARAFONI</b>\n\n"
+        "Ushbu bo'limda Milliy Sertifikat va Respublika Olimpiadalari darajasidagi "
+        "eng murakkab genetik va biokimyoviy yozma masalalar jamlangan:\n\n"
+        "🔹 <b>Qamrab olingan mavzular:</b> Qo'sh krossingover, morganida, Pennet kataklari, "
+        "qon guruhlari, noallell ta'sir va Xardi-Vaynberg qonuniyati.\n"
+        "🔹 <b>Har bir kunda:</b> 3 tadan mukammal yozma masala.\n"
+        "🔹 <b>Etalon yechimlar:</b> Har bir masalaning to'liq daftardagi fotosuratlari va tushuntirishlari mavjud!\n\n"
+        "📌 <i>Kerakli kunni tanlang va yechishni boshlang:</i>"
+    )
+    await message.answer(text, reply_markup=build_yozma_days_keyboard(1))
+
+
+@dp.callback_query(F.data.startswith("yozmapage_"))
+async def yozma_page_callback(callback: CallbackQuery):
+    await callback.answer()
+    page = int(callback.data.split("_")[1])
+    text = (
+        "✍️ <b>29 KUNLIK YOZMA ISHLAR MARAFONI</b>\n\n"
+        "📌 <i>Kerakli kunni tanlang:</i>"
+    )
+    await callback.message.edit_text(text, reply_markup=build_yozma_days_keyboard(page))
+
+
+@dp.callback_query(F.data.startswith("yozmaday_"))
+async def yozma_day_callback(callback: CallbackQuery):
+    await callback.answer()
+    day_num = callback.data.split("_")[1]
+    day_data = YOZMA_29_DATA.get(day_num, {})
+    problems = day_data.get("problems", [])
+
+    if not problems:
+        await callback.message.answer("⚠️ Ushbu kun uchun masalalar topilmadi.")
+        return
+
+    text = (
+        f"🗓 <b>{day_num}-KUN YOZMA ISHI</b>\n\n"
+        f"Ushbu kunda jami <b>{len(problems)} ta</b> chuqurlashtirilgan yozma masala mavjud.\n"
+        "Yechmoqchi bo'lgan masalangizni tanlang:"
+    )
+    buttons = []
+    for p_idx, p in enumerate(problems, 1):
+        btn_title = f"📝 {p_idx}-masala: {p.get('title', '')[:30]}..."
+        buttons.append([InlineKeyboardButton(text=btn_title, callback_data=f"yozmaprob_{day_num}_{p_idx}")])
+    
+    buttons.append([InlineKeyboardButton(text="🔙 Kunlar ro'yxatiga qaytish", callback_data="yozmapage_1")])
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+
+@dp.callback_query(F.data.startswith("yozmaprob_"))
+async def yozma_problem_callback(callback: CallbackQuery):
+    await callback.answer()
+    parts = callback.data.split("_")
+    day_num = parts[1]
+    prob_idx = int(parts[2])
+
+    day_data = YOZMA_29_DATA.get(day_num, {})
+    problems = day_data.get("problems", [])
+    if prob_idx > len(problems):
+        await callback.message.answer("⚠️ Masala topilmadi.")
+        return
+
+    prob = problems[prob_idx - 1]
+    prob_text = prob.get("full_text", "")
+    subtasks = prob.get("subtasks", [])
+
+    text = (
+        f"🗓 <b>{day_num}-KUN • {prob_idx}-MASALA SHARTI:</b>\n\n"
+        f"{prob_text}\n\n"
+        "💡 <i>Masalani daftaringizga Pennet kataklari va formulalar bilan to'liq yeching. "
+        "So'ng quyidagi tugma orqali etalon yechim fotosurati bilan tekshirib oling!</i>"
+    )
+
+    buttons = [
+        [InlineKeyboardButton(text="💡 Etalon Yechimni ko'rish (Foto)", callback_data=f"yozmasol_{day_num}_{prob_idx}")],
+        [InlineKeyboardButton(text="🔙 Kun masalalariga qaytish", callback_data=f"yozmaday_{day_num}")]
+    ]
+    await callback.message.answer(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=buttons))
+
+
+@dp.callback_query(F.data.startswith("yozmasol_"))
+async def yozma_solution_callback(callback: CallbackQuery):
+    await callback.answer()
+    parts = callback.data.split("_")
+    day_num = parts[1]
+    prob_idx = int(parts[2])
+
+    day_data = YOZMA_29_DATA.get(day_num, {})
+    problems = day_data.get("problems", [])
+    if prob_idx > len(problems):
+        await callback.message.answer("⚠️ Yechim topilmadi.")
+        return
+
+    prob = problems[prob_idx - 1]
+    img_rel = prob.get("solution_image")
+    
+    if img_rel:
+        img_path = os.path.join(os.path.dirname(__file__), img_rel)
+        if os.path.exists(img_path):
+            caption = f"📸 <b>{day_num}-kun, {prob_idx}-masalaning to'liq etalon yechimi:</b>"
+            await callback.message.answer_photo(
+                photo=FSInputFile(img_path),
+                caption=caption
+            )
+            return
+
+    await callback.message.answer("⚠️ Ushbu masala uchun yechim fotosurati yuklanmoqda...")
+
+
+@dp.message(F.text.in_(["🎯 Milliy Sertifikat", "/sertifikat"]))
+async def milliy_sertifikat_handler(message: Message):
+    """Milliy sertifikat 43 talik to'liq test simulyatori menyusi"""
+    text = (
+        "🎯 <b>MILLIY SERTIFIKAT TESTI (43 TALIK RASMIY FORMAT)</b>\n\n"
+        "Ushbu bo'limda Davlat Test Markazi (Bilimni baholash agentligi) standarti asosidagi "
+        "eng so'nggi 43 talik namunaviy va mock variantlar jamlangan:\n\n"
+        "📝 <b>1–40 savollar:</b> Yopiq testlar (nazariy biologiya, moslashtirish, diagrammalar)\n"
+        "✍️ <b>41–43 savollar:</b> Ochiq yozma ishlar (murakkab masalalar va Pennet tahlili)\n"
+        "⏱ <b>Vaqt me'yori:</b> 100 daqiqa\n"
+        "📊 <b>Baholash:</b> Rasch modeli bo'yicha darajalar (A+, A, B+, B, C+, C)\n\n"
+        "<i>Mini ilovada to'liq ekranda ishlash uchun quyidagi tugmani bosing:</i>"
+    )
+    kb = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="🚀 Mini Ilovada To'liq Ishlash 📱", web_app=WebAppInfo(url=get_webapp_url()))],
+        [InlineKeyboardButton(text="✍️ 29 kunlik Yozma ishlar", callback_data="yozmapage_1")]
+    ])
+    await message.answer(text, reply_markup=kb)
+
+
 # YOPIQ TESTLAR (JAVOB YOZISH)
 # ==========================================
 @dp.message(F.text.in_(["✍️ Yopiq testlar", "/yopiq"]))

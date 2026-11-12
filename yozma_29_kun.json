@@ -1,0 +1,1291 @@
+{
+  "1": {
+    "day": 1,
+    "title": "1-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…Sebarga o’simligida Gultojibarglarini to’q pushti bo’lishi (A) och pushti bo’l...",
+        "full_text": "1…Sebarga o’simligida Gultojibarglarini to’q pushti bo’lishi (A) och pushti bo’lishi ustidan, Dukkaklarini yirik bo’lishi(B) mayda bo’lishi ustidan, Bargida dog’larini bo’lishi (D) dog’larni bo’lmasligi ustidan to’liq dominantlik qilib bitta gomologik xromasomada chala birikkan xolda nasldan naslga o’tadi.\nTrigomozigta: Gultojibarglari to’p pushti, mayda dukkakli, barglari dog’li o’simlik. Trigomozigota: Gultojibarglari och pushti, yirik dukkakli, bargi dog’siz o’simlik bilan chatishtiriloib olingan avlod barcha belgilari bo’yicha retsessiv gomozigota o’simlik bilan tahlili chatishtirilganda quydagicha natija olindi.\nTo’q pushti gultojibargli, dukkagi mayda, bargi dog’li 752 ta;\nOch pushti gultojibargli, dukkagi yirik, bargi dog’siz 728 ta;\nTo’q pushti gultojibargli, dukkagi yirik, bargi dog’siz 166 ta;\nOch pushti gultojibargli, dukkagi mayda, bargi dog’li 154 ta;\nTo’q pushti gultojibargli, dukkagi mayda, bargi dog’siz 83 ta;\nOch pushti gultojibargli, dukkagi yirik, bargi dog’li 97 ta;\nToq pushti gultojibargli, dukkagi yirik, bargi dog’li 11 ta;\nOch pushti gultojibargli, dukkagi mayda, bargi dog’siz 9 ta;\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) nazariy jihatdan sodir bo‘lgan qo‘sh krossingover miqdorini (%) aniqlang;\nb) B va D genlar orasidagi masofani (morganida) aniqlang;\nc) A va D genlar orasidagi masofani (morganida) aniqlang.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) nazariy jihatdan sodir bo‘lgan qo‘sh krossingover miqdorini (%) aniqlang;",
+          "b) B va D genlar orasidagi masofani (morganida) aniqlang;",
+          "c) A va D genlar orasidagi masofani (morganida) aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_1_sol_1.jpg"
+      },
+      {
+        "number": 2,
+        "title": "2….Odamlarda katarakta va miopiya kasalliklari avtosoma dominant tipda irsiylanu...",
+        "full_text": "2….Odamlarda katarakta va miopiya kasalliklari avtosoma dominant tipda irsiylanuvchi kasalliklar bo’lib. Bitta gomologik xoromasomalarda to’liq birikkan xolda nasldan nasilga o’tadi. QON guruhlarining yuzaga chiqishi A,B,0 genlariga bog’iq. Genotipda gomozigota 0II0 genlarining bo’lishi I-qon guruhni, AIIA va AIIO genlarining bo’lishi II-qon guruhni, BIIB va BII0 genlarining bo’lishi III- qon guruhni, AIIB-genlarining bo’lishi IV-qon guruhni yuzaga chiqaradi. Qandsiz diabet kasaligi domian, daltonizm kasaligi retsessiv tipda irsiylanib jinsiy X xromasomaga chala birikkan xolda nasldan naslga o’tadi genlar orasidagi masofa 16 m ga teng.\nOtasi barcha belgilar bo’yicha sog’lom, onasi barcha belgilari bo’yicha kasal. O’zi esa faqat daltonizm bo’yicha sog’ bo’lgan I-qon guruhli qiz. Barcha kasalliklar bo’yicha sog’om IV-qon guruhli yigitga turmushga chiqdi.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) oilada II-qon guruhli barcha kasalliklar bo’yicha sog’lom o’g’il farzand tug’ilish extimolini aniqlang;\nb) oilada III-qon guruhli qandiz diabet bo’yicha sog’lom qiz farzandlar tug’ilish extimolini % da aniqlang.\nc) oilada III-qon guruhli miopiya va katarakta bo’yicha kasal farzandlar tug’ilish extimolini toping",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) oilada II-qon guruhli barcha kasalliklar bo’yicha sog’lom o’g’il farzand tug’ilish extimolini aniqlang;",
+          "b) oilada III-qon guruhli qandiz diabet bo’yicha sog’lom qiz farzandlar tug’ilish extimolini % da aniqlang.",
+          "c) oilada III-qon guruhli miopiya va katarakta bo’yicha kasal farzandlar tug’ilish extimolini toping"
+        ],
+        "solution_image": "images_yozma_29/day_1_sol_2.jpg"
+      },
+      {
+        "number": 3,
+        "title": "3….Jizzax shahrida A genining uchrash extimoli 30%, III- qon guruhli odamlarni u...",
+        "full_text": "3….Jizzax shahrida A genining uchrash extimoli 30%, III- qon guruhli odamlarni uchrash extimoli 33% ga teng bo’lsa.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, gen va genotip chastotasini yozing;\n2) Pennet kataklariga populyatsiadagi xosil bo’lishi mumkin bo’lgan gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) B genining uchrash extimolini % da toping.\nb) Qishloqdagi II-qon guruhli odamlar % ni toping\nc) qishloqdagi IV-qon guruhli odamlar % ni toping",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) B genining uchrash extimolini % da toping.",
+          "b) Qishloqdagi II-qon guruhli odamlar % ni toping",
+          "c) qishloqdagi IV-qon guruhli odamlar % ni toping"
+        ],
+        "solution_image": "images_yozma_29/day_1_sol_3.jpg"
+      }
+    ],
+    "images_count": 3
+  },
+  "2": {
+    "day": 2,
+    "title": "2-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…Chumchuqsimonlar turkumiga kiruvchi ma'lum bir qush turida pat rangining irsiy...",
+        "full_text": "1…Chumchuqsimonlar turkumiga kiruvchi ma'lum bir qush turida pat rangining irsiylanishi quydagicha. A geni patlarni yashil bo'lishini, a geni sariq bo'lishini yuzaga chiqaradi. Ikkinchi juft noallel gen belgi yuzaga chiqishiga epistaz ta'sir ko'rsatadi, gomozigota FF bo'sa pat rangi oq, geterozigota Ff bo'lsa pat rangi kulrang, ff genlar belgi yuzaga chiqishiga ta'sir ko'rsatmaydi. Ushbu qushlar ko'z rangi jinsiy Xxromasomaga bog'liq bo'lib ko'zning to'q jigarrangda bo'lishi moviy bo'lishi ustidan dominantlik qiladi.\nKulrang patli, to'q jigarrang ko'zli urg'ochi qush. Yashil patli, toq jigarrang ko'zli erkak qush bilan chatishtirilganda umumiy avlodning. 3,125% ni Sariq patli, moviy ko'zli avlod tashkil qilsa.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma'lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) avlodning necha % ni kulrang patli, moviy ko'zli qushlar tashkil etishini aniqlang.\nb) avlodning necha % ni sariq patli, toq qo'ng'ir ko'zli qushlar tashkil etishini aniqlang.\nc) avlodning necha % ni yashil patli, moviy ko'zli qushlar tashkil atishini anialang",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) avlodning necha % ni kulrang patli, moviy ko'zli qushlar tashkil etishini aniqlang.",
+          "b) avlodning necha % ni sariq patli, toq qo'ng'ir ko'zli qushlar tashkil etishini aniqlang.",
+          "c) avlodning necha % ni yashil patli, moviy ko'zli qushlar tashkil atishini anialang"
+        ],
+        "solution_image": "images_yozma_29/day_2_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2…Odamlarda b-talasemiya retsessiv irsiylanuvchi avtosoma gen kasalligi bo'lib, ...",
+        "full_text": "2…Odamlarda b-talasemiya retsessiv irsiylanuvchi avtosoma gen kasalligi bo'lib, kasallik yuzaga chiqishi retsessiv genlar soniga bog'liq. BB-sog'lom, Bb- yengil tur bilan kasallangan, bb-hayotini erta davrida talasemiya bilan nobut bo'ladi. daltonizm va gemofiliya kasalliklari jinsiy Xxromasomaga birikkan retsessiv gen kasalliklari bo'lib chala birikkan xolda irsiylanadi genlar orasidagi masofa 20m ga teng.\nTrigeterozigota (dominant genlarni faqat bir tarafdan olgan) beta- talasemiya bilan yengil kasallangan, daltonizm va gemofiliya bo'yicha sog'lom qiz. Beta-talasemiya bilan yengil kasal, daltonizm bo'yicha sog'lom, gemofiliya bilan kasallangan yigitga turmushga chiqsa.\nYuqoridagi ma'lumotlardan foydalanib quydagilarni aniqlang. Topshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma'lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) oilada beta-talasemiya bo'yicha sog'lom, daltonizm va gemofiliya bilan kasallangan farzandlar tug'ilish extimolini % da toping.\nb) oilada daltonizm va gemofiliya bo'yicha sog lom, beta-talasemiya bilan og'ir kasallangan farzandlar tug'ilishextimolini toping.\nc) oilada faqat daltonizm bilan kasallangan farzandlar tug'ilish extimolini % da toping.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) oilada beta-talasemiya bo'yicha sog'lom, daltonizm va gemofiliya bilan kasallangan farzandlar tug'ilish extimolini % da toping.",
+          "b) oilada daltonizm va gemofiliya bo'yicha sog lom, beta-talasemiya bilan og'ir kasallangan farzandlar tug'ilishextimolini toping.",
+          "c) oilada faqat daltonizm bilan kasallangan farzandlar tug'ilish extimolini % da toping."
+        ],
+        "solution_image": "images_yozma_29/day_2_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3….Ma'lum bir populyatsiada A genining uchrash extimoli 40%, a1=a2, ikkinchi juf...",
+        "full_text": "3….Ma'lum bir populyatsiada A genining uchrash extimoli 40%, a1=a2, ikkinchi juft noallel gen B geni 80% bo'lsa.\nTopshirigni bajarish tartibi:\n1) Pennet katakchalariga gametalar kombinatsiyasini va avlodlar miqdorini (%) yozing.\nBerilgan ma'lumotlardan foydalanib quyidagi topshiriqlarni bajaring.\na) populyatsiyadagi geterozigota (Aa1BB) genotipli individlar % ni aniqlang;\nb) populyatsiyadagi gomozigota (a1a2bb) genotipli individlar % ni aniqlang;\nc) populyatsiyadagi gomozigota (Aa2Bb) genotipli individlar % ni aniqlang.",
+        "subtasks": [
+          "a) populyatsiyadagi geterozigota (Aa1BB) genotipli individlar % ni aniqlang;",
+          "b) populyatsiyadagi gomozigota (a1a2bb) genotipli individlar % ni aniqlang;",
+          "c) populyatsiyadagi gomozigota (Aa2Bb) genotipli individlar % ni aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_2_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "3": {
+    "day": 3,
+    "title": "3-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…Ma’lum bir quyon zotida yung rangini qo’ng’ir rangda bo’lishi (K) malla rangda...",
+        "full_text": "1…Ma’lum bir quyon zotida yung rangini qo’ng’ir rangda bo’lishi (K) malla rangda bo’lishi (k) ustidan, Ko’z rangini pushti bo’lishi (N), qizil bo’lishi(n) ustidan to’liq dominantlik qilib, bu ikki juft gen bitta avtosoma xromasomada chala birikkan xolda irsiylanadi. Kerosingover erkak va urg’ochi organizmlarda birday kuzatilib, genlar orasidagi masofa\n22m daga teng.\nDigeterozigota dominant genlarni birini ota, ikkinchisini ona tarafdan olgan urg’ochi quyon. Digeterozigota dominant genlarini faqat bir tarafdan olgan erkak quyon bilan chatishtirilsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) malla yungli, pushti ko’zli quyonlar tug’ilish extimolini % da toping\nb) digomozigota qo’ng’ir yungli qizil ko’zli quyonlar xosil bo’lish extimolini % da toping\nc) malla yungli, qizil ko’zli quyonlar tug’ilish extimolini % da toping",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) malla yungli, pushti ko’zli quyonlar tug’ilish extimolini % da toping",
+          "b) digomozigota qo’ng’ir yungli qizil ko’zli quyonlar xosil bo’lish extimolini % da toping",
+          "c) malla yungli, qizil ko’zli quyonlar tug’ilish extimolini % da toping"
+        ],
+        "solution_image": "images_yozma_29/day_3_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2…Odamlarda katarakta (A), polidaktiliya (B) va miopiya (D) kasalliklarini yuzag...",
+        "full_text": "2…Odamlarda katarakta (A), polidaktiliya (B) va miopiya (D) kasalliklarini yuzaga chiqaruvchi dominant genlar bitta autosoma xromosomada to‘liq birikkan holda irsiylanadi. Sochning jingalakligi (H) boshqa autosomada joylashgan dominant belgi bo‘lib, bu belgi silliq soch ustidan chala dominantlik qiladi va oraliq holatda taram-taram sochni yuzaga chiqaradi. Ko‘zning optik atrofiyasi jinsiy X xromosomada joylashgan retsessiv (e) gen tomonidan boshqariladi.\nSilliq sochli, katarakta va polidaktiliya bilan kasallangan, miopiya va optik atrofiya bo‘yicha sog‘lom ayol (otasi barcha belgilari bo‘yicha sog‘lom, onasi esa katarakta, polidaktiliya va optik atrofiya bilan kasallangan) va erkak (otasi jingalak sochli, katarakta, polidaktiliya, miopiya bilan kasallangan (gomozigota genotipli), optik atrofiya bo‘yicha sog‘lom, onasi esa silliq sochli, katarakta, polidaktiliya va miopiya bilan kasallanmagan, ammo ko‘z atrofiyasi bilan kasallangan) oila qurdi.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va quyidagi topshiriqlarda (a-d) so‘ralgan avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib, quyidagi topshiriqlarni bajaring.\na) oilada silliq sochli, katarakta, polidaktiliya va miopiya bo‘yicha kasal, optik atrofiya bo‘yicha esa sog‘lom farzandlarning tug‘ilish ehtimolini (%) aniqlang;\nb) oilada o‘g‘il farzandlarning necha foizi katarakta va polidaktiliya bilan kasallangan, miopiya bo‘yicha esa sog‘lom tug‘iladi?\nc) oilada genotipi onasiga o‘xshash qiz farzandlarning tug‘ilish ehtimolini (%) aniqlang;",
+        "subtasks": [
+          "d) so‘ralgan avlodlar genotipini yozing.",
+          "a) oilada silliq sochli, katarakta, polidaktiliya va miopiya bo‘yicha kasal, optik atrofiya bo‘yicha esa sog‘lom farzandlarning tug‘ilish ehtimolini (%) aniqlang;",
+          "b) oilada o‘g‘il farzandlarning necha foizi katarakta va polidaktiliya bilan kasallangan, miopiya bo‘yicha esa sog‘lom tug‘iladi?",
+          "c) oilada genotipi onasiga o‘xshash qiz farzandlarning tug‘ilish ehtimolini (%) aniqlang;"
+        ],
+        "solution_image": "images_yozma_29/day_3_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3…Saxro tulkilarida yung rangining irsiylanishi ko’p allellik qoidasiga bo’y sun...",
+        "full_text": "3…Saxro tulkilarida yung rangining irsiylanishi ko’p allellik qoidasiga bo’y sunadi. A geni qo’ng’ir bo’lishni, a1 geni qo’ng’ir-kulrang bo’lishni, a2 geni malla bo’lishni, a3 geni kulrang bo’lishni yuzaga chiqaradi. Ushbu genlarni o’zaro tasir kuchi quydagicha A>a1>a2>a3 A genining uchrash extimoli 20% ga, a2 genining uchrash extimoli 30% ga teng. 2000 tulkidan iborat Populyatsiada kulrang tulkilar soni 320 ta bo’lsa.\nTopshiriqni bajarish tartibi:\n1) Pennet katakchalariga gametalar kombinatsiyasini va avlodlar miqdorini (%) yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi topshiriqlarni bajaring.\na) populyatsiyadagi geterozigota (Aa1) genotipli individlar % ni aniqlang;\nb) populyatsiyadagi gomozigota (a1a2) genotipli individlar % ni aniqlang;\nc) populyatsiyadagi gomozigota (Aa3) genotipli individlar % ni aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "a) populyatsiyadagi geterozigota (Aa1) genotipli individlar % ni aniqlang;",
+          "b) populyatsiyadagi gomozigota (a1a2) genotipli individlar % ni aniqlang;",
+          "c) populyatsiyadagi gomozigota (Aa3) genotipli individlar % ni aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_3_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "4": {
+    "day": 4,
+    "title": "4-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…Odamda qon guruhlarining yuzaga chiqishi A,B,0 genlariga bog’iq. Genotipda gom...",
+        "full_text": "1…Odamda qon guruhlarining yuzaga chiqishi A,B,0 genlariga bog’iq. Genotipda gomozigota 0II0 genlarining bo’lishi I-qon guruhni, AIIA va AIIO genlarining bo’lishi II-qon guruhni, BIIB va BII0 genlarining bo’lishi III- qon guruhni, AIIB- genlarining bo’lishi IV-qon guruhni yuzaga chiqaradi. Qon guruhlarini yuzaga chiqishi boshqa tarafdan retsessiv ingbitor genga bog’liq, retsessiv ingbitor gen gomozigota xolda kelganda aglutinogen oqsillari xosil bo’lishini to’xtatadi va barcha qon guruhlarini I-qon guruhga aylantiradi. Ko’zning Miopiya kasalligi va katarakta kasalligini yuzagachiqruvchi genlar bitta gomologik autosoma xromasomasida chala birikkan xolda dominant irsiylanadi, genlar orasidagi masofa 16 m ga teng.\nIV-qon guruhli, miopiya va katarakta bo’yicha kasal ( dominant genlarini birini otadan, ikkinchisini onadan olgan) qiz. Gomozigta ikkinchi qon guruhli, miopiya bo’yicha sog’, katarakta bilan kasallangan yigitga turmushga chiqdi. Oilada I-qon guruhli miopiya va katarakta bo’yicha sog’lom farzand tug’ilgan\nbo’lsa.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) oilada II-qon guruhli miopiya bo’yicha kasal, katarakta bo’yicha sog’ farzand tug’ilish extimolini toping.\nb) oilada IV qon guruhli miopiya va katarakta bo’yicha sog’lom farzand tug’ilish extimolini toping.\nc) onasiga o’xshash genotipli farzand rug’ilish extimolini toping",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) oilada II-qon guruhli miopiya bo’yicha kasal, katarakta bo’yicha sog’ farzand tug’ilish extimolini toping.",
+          "b) oilada IV qon guruhli miopiya va katarakta bo’yicha sog’lom farzand tug’ilish extimolini toping.",
+          "c) onasiga o’xshash genotipli farzand rug’ilish extimolini toping"
+        ],
+        "solution_image": "images_yozma_29/day_4_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2..Molyuskalarda chig’anog’ining qirrali bo’lishi dominant -A geniga, tekis bo’l...",
+        "full_text": "2..Molyuskalarda chig’anog’ining qirrali bo’lishi dominant -A geniga, tekis bo’lishi retsessiv –a geniga bog’liq. Chig’anoq rangi to’q yashil bo’lishi dominant –B geniga, och yashil bo’lishi retsessiv- b geniga bog’liq. Bu genlar boshqa boshqa gomologik xromasomada choylashgan bo’lib bir biridan mustaqil xolda irsiylanadi. a- genining uchrash chastotasi 40% ga, B- genining uchrash chastotasi 70% gat eng bo’lsa. 4000 ta molyuskadan iborat populyatsiadagi quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) Pennet katakchalariga gametalar kombinatsiyasini va avlodlar miqdorini (%) yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) chig’anog’I qirrali, och yashil rangli molyuskalar sonini aniqlang\nb) chig’anog’I tekis, to’q yashil molyuskalar sonini aniqlang\nc) digomozigota genotipli molyuskalar sonini aniqlang",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) chig’anog’I qirrali, och yashil rangli molyuskalar sonini aniqlang",
+          "b) chig’anog’I tekis, to’q yashil molyuskalar sonini aniqlang",
+          "c) digomozigota genotipli molyuskalar sonini aniqlang"
+        ],
+        "solution_image": "images_yozma_29/day_4_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3…Malina o’simligida mevasini to’q qizil bo’lishi, och qizil bo’lishi ustidan, b...",
+        "full_text": "3…Malina o’simligida mevasini to’q qizil bo’lishi, och qizil bo’lishi ustidan, bargini yirik bo’lishi, mayda bo’lishi ustidan, gullarini erta ochilishi, kech ochilishi ustidan dominantlik qiladi. Belgilarni yuzaga chiqishida haroratga bog’liq bo’lib. To’q qizil meva xosil bo’lish penetrantligi 80% ga, yirik barg xosil bo’lish penetrantligi 40% ga, gullarni erta ochilish penetrantligi 60% ga teng.\nDigeterozigota gullari kech ochiluvchi o’simlik, digeterozigota barglari mayda o’simlik bilan chatishtirilganda jami 1600 ta avlod olingan bo’lsa.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) shulardan qanchasining mevasi och qizil, bargi yirik, gullari erta ochiluvchi bo’ladi?\nb) shulardan qanchasining mevasi to’q qizil, barglari mayda, gullari erta ochiladigon bo’ladi?\nc) shulardan nechtasining mevasi to’q qizil,barglari yirik, gullari kech ochiluvchi bo’ladi?\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) shulardan qanchasining mevasi och qizil, bargi yirik, gullari erta ochiluvchi bo’ladi?",
+          "b) shulardan qanchasining mevasi to’q qizil, barglari mayda, gullari erta ochiladigon bo’ladi?",
+          "c) shulardan nechtasining mevasi to’q qizil,barglari yirik, gullari kech ochiluvchi bo’ladi?"
+        ],
+        "solution_image": "images_yozma_29/day_4_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "5": {
+    "day": 5,
+    "title": "5-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…Qalampirda meva rangining qizil bo’lishi (A) yashil bo’lishi ustidan (a) chala...",
+        "full_text": "1…Qalampirda meva rangining qizil bo’lishi (A) yashil bo’lishi ustidan (a) chala dominantli qilib Aa genotipli o’simliklar meva rangi sariq rangda bo’ladi. Ushbu belgining yuzaga chiqishiga ikkinchi juft noallel gen bilvosita ta’sir ko’rsatadi. BB-genlari to’q rangni, Bb- genlari odatiy rangni, bb- genlari och rangni yuzaga chiqaradi.\nMevasi sariq rangli qalampir o’simliklari o’zaro chatishtirilsa.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Avlodning nech % ni och qizil rangli o’simlik tashkil qilishini aniqlang.\nb) Avlodning necha % ni to’q sariq rangli avlod tashkil qilishini aniqlang.\nc) Avlodning necha % ni yashil rangli avlod tashkil qilishini aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "a) chala dominantli qilib Aa genotipli o’simliklar meva rangi sariq rangda bo’ladi. Ushbu belgining yuzaga chiqishiga ikkinchi juft noallel gen bilvosita ta’sir ko’rsatadi. BB-genlari to’q rangni, Bb- genlari odatiy rangni, bb- genlari och rangni yuzaga chiqaradi.",
+          "c) topshiriqlarni bajaring.",
+          "a) Avlodning nech % ni och qizil rangli o’simlik tashkil qilishini aniqlang.",
+          "b) Avlodning necha % ni to’q sariq rangli avlod tashkil qilishini aniqlang.",
+          "c) Avlodning necha % ni yashil rangli avlod tashkil qilishini aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_5_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2…Dasht agamasida Ko’z atrofida rangli xalqani bo’lishi quydagi genlar uchrashig...",
+        "full_text": "2…Dasht agamasida Ko’z atrofida rangli xalqani bo’lishi quydagi genlar uchrashiga bog’liq-- C-qora xalqa, c1-qizil xalqa, c2-sariq xalqa bo’ishini yuzaga chiqaradi, ushbu genlarning o’zaro ta’sir kuchi quydagicha C>c1>c2.\nTangachalarni yirik bo’lishi (R ) mayda bo’lishi (r ) ustidan, tanasini kulrang bo’lishi (L) yashil bo’lishi (l) ustidan to’liq dominantlik qilib bitta Jinsiy X xromasomada chala birikkan xolda irsiylanadi, genlar orasidagi masofa 20 m daga teng.\nKo’z atrofi qizil xalqali, tangachalari mayda, yashil tanali urg’ochi agama. Ko’z atrofi qora xalqali, yirik tangacha, kulrang tanali erkak agama bilan chatishtirilganda. Avlodlar orasida ko’z atrofi sariq xalqali, terisi mayda tangachali,\nyashil rangli individlar 2,5% ni tashkil qilsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) avlodning necha % ni ko’z atrofi qizil xalqa, yirik tangachali, yashil tanali agamalar tashkil qilishini aniqlang\nb) avlodning necha % ni ko’z atrofi qora xalqa, mayda tangachali, yashil tanali agamalar tashkil qilishini aniqlang\nc) avlodning necha % ni ko’z atrofi sariq xalqa, yirik tangachali, kulrang tanali agamalar tashkil qilishini aniqlang\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) avlodning necha % ni ko’z atrofi qizil xalqa, yirik tangachali, yashil tanali agamalar tashkil qilishini aniqlang",
+          "b) avlodning necha % ni ko’z atrofi qora xalqa, mayda tangachali, yashil tanali agamalar tashkil qilishini aniqlang",
+          "c) avlodning necha % ni ko’z atrofi sariq xalqa, yirik tangachali, kulrang tanali agamalar tashkil qilishini aniqlang"
+        ],
+        "solution_image": "images_yozma_29/day_5_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3…. X mol glukozaning 10 % miqdori nerv sistemasida, 50 % miqdori muskul to’qima...",
+        "full_text": "3…. X mol glukozaning 10 % miqdori nerv sistemasida, 50 % miqdori muskul to’qimasida parchalandi. 5% miqdori jigarda glikogen sinteziga, 10 % miqdori hujayralarda assimilatsiyaga sarflandi qolgan qismi qonda saqlanib qoldi. Nerv sistemasida glukozaning 1/2 to’la, muskullarda 2/5 qismi chala parchalandi natijada nerv sistemasidan xosil bo’gan issiqlik energiyasi va muskullarda xosil bo’lgan ATF energiyasi farqi 8040 kj bo’lsa,\nTopshiriqni bajarish tartibi:\n1) MASALA YECHIMINI TO'LIQ YOZING!\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) qonda ortib qolgan glukoza molini toping.\nb) muskul hujayrasining sitoplazmasida qancha issiqlik energiyasi (kj) ajralgan?\nc) umumiy aerob sharoitda xosil bo'lgan ATF lar soni nechta?\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) qonda ortib qolgan glukoza molini toping.",
+          "b) muskul hujayrasining sitoplazmasida qancha issiqlik energiyasi (kj) ajralgan?",
+          "c) umumiy aerob sharoitda xosil bo'lgan ATF lar soni nechta?"
+        ],
+        "solution_image": "images_yozma_29/day_5_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "6": {
+    "day": 6,
+    "title": "6-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…Butli o’rgimchakda tana rangining irsiylanishi quydagi genlar ta’siriga bog’li...",
+        "full_text": "1…Butli o’rgimchakda tana rangining irsiylanishi quydagi genlar ta’siriga bog’liq.\nA-Qo’ng’ir;\nA-B-Qora;\nA-B-C-Kulrang;\nQolgan barcha xolatlarda kulrang.\nRang irsiylanishiga:\nB geni to’ldiruvchi ta’sir ko’rsatadi o’zi mustaqil belgisi mavjud emas.\nC geni bo’g’uvchi ta’sir ko’rsatadi.\nD geni modifikator ta’sir ko’rsatish xususiyatiga ega: DD-to’q, Dd-odatiy, dd-och rangni yuzaga chiqaradi.\nTetragomozigota to’q qora rangli Urg’ochi butli o’rgimchak va uchinchi juft geni bo’yicha gomozigota dominant qolgan barcha genlari bo’yicha gomozigota retsessiv genotipga ega och kulrang rangli erkak o’rgimchak bilan chatishtirilib olingan avlod. Digeterozigota Qo’ng’ir rangli o’rgimchak bilan qayta chatishtirilsa.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Avlodda to’q qo’ng’ir rangli individlar xosil bo’lish extimolini % da aniqlang.\nb) Avlodda och qo’ng’ir rangli individlar xosil bo’lish extimolini % da aniqlang.\nc) Avlodda qo’ng’ir rangli individlar xosil bo’lish extimolini % da aniqlang.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Avlodda to’q qo’ng’ir rangli individlar xosil bo’lish extimolini % da aniqlang.",
+          "b) Avlodda och qo’ng’ir rangli individlar xosil bo’lish extimolini % da aniqlang.",
+          "c) Avlodda qo’ng’ir rangli individlar xosil bo’lish extimolini % da aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_6_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2….Uy pashshasida tanasini sertuk bo’lishi kamtuk bo’lishi ustidan to’la dominan...",
+        "full_text": "2….Uy pashshasida tanasini sertuk bo’lishi kamtuk bo’lishi ustidan to’la dominantlik qiladi. Boshqa gomologik xromasomada joylashgan ikki juft gendan biri qanotlarni uzun bo’lishini, ikkinchisi xartumini kalta bo’lishini yuzaga chiqarib chala birikkan xolda dominant irsiylanadi, bu genlarning retsessiv allellari qanotlarni kalta bo’lishi va xartumning uzun bo’lishini taminlaydi. Genlar orasidagi masofa 16m bo’lib krosingover ikki tomonlama kuzatiladi. Ko’z rangining irsiylanishi ko’p allellik qoidasiga asosan yuzaga chiqadi. S-geni ko’zlarni to’q qizil bo’lishini, s1-geni och qizil bo’lishini, s2-geni pushti bo’lishini ta’minlaydi.\nDigeterozigota kam tukli, qanotlari uzun xartumi kalta ( dominant genlarni birini otadan ikkinchisini onadan olgan) pushti ko’zli urg’ochi uy pashshasi. Digeterozigota ko’p tukli, qanoti kalta, xartumi uzun, to’q qizil ko’zli ( onasi och qizil ko’zli bo’lgan) erkak uy pashshasi bilan chatishtirilsa.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Avlodda tanasi kamtuk, qanoti va xartumi uzun, ko’zlari och qizil rangli individlar xosil bo’lish extimolini % da aniqlang.\nb) Avlodda tanasi sertuk, oqanoti va xartumi kalta, ko’zlari to’q qizil rangli individlar xosil bo’lish extimolini % da aniqlang.\nc) Avlodda tanasi kamtukli, qanoti uzun, xartumi kalta, ko’zlar och qizil rangli individlar xosil bo’lish extimolini % da aniqlang.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Avlodda tanasi kamtuk, qanoti va xartumi uzun, ko’zlari och qizil rangli individlar xosil bo’lish extimolini % da aniqlang.",
+          "b) Avlodda tanasi sertuk, oqanoti va xartumi kalta, ko’zlari to’q qizil rangli individlar xosil bo’lish extimolini % da aniqlang.",
+          "c) Avlodda tanasi kamtukli, qanoti uzun, xartumi kalta, ko’zlar och qizil rangli individlar xosil bo’lish extimolini % da aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_6_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3….Afrika agamalarida A-geni tangachalar yashil bo’lishini, a1-geni kulrang bo’l...",
+        "full_text": "3….Afrika agamalarida A-geni tangachalar yashil bo’lishini, a1-geni kulrang bo’lishini yuzaga chiqaradi, a2-geni qo’ngir dog’li kulrang bo’lishni yuzaga chiqaradi. Genlarni o’zaro ustunlik qilish darajasi quydagicha A>a1>a2 Populyatsiada A genining uchrash extimoli 30%. 4800 ta indivitdan iborat populyatsiada qong’ir dog’li kulrang aganalar soni 192 ta  bo’lsa.\nTopshiriqni bajarish tartibi:\n1) Pennet katakchalariga gametalar kombinatsiyasini va avlodlar miqdorini (%) yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi topshiriqlarni bajaring.\na) populyatsiyadagi geterozigota (Aa1) genotipli individlar % ni aniqlang;\nb) populyatsiyadagi gomozigota (a1a2) genotipli individlar % ni aniqlang;\nc) populyatsiyadagi gomozigota (Aa2) genotipli individlar % ni aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "a) populyatsiyadagi geterozigota (Aa1) genotipli individlar % ni aniqlang;",
+          "b) populyatsiyadagi gomozigota (a1a2) genotipli individlar % ni aniqlang;",
+          "c) populyatsiyadagi gomozigota (Aa2) genotipli individlar % ni aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_6_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "7": {
+    "day": 7,
+    "title": "7-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…G’o’za o’simligida gullarini erta ochilishi(A), kech ochilishi ustidan, Bargla...",
+        "full_text": "1…G’o’za o’simligida gullarini erta ochilishi(A), kech ochilishi ustidan, Barglarini to’q yashil bo’lishi(B), och yashil bo’lishi ustidan, Tolasini uzun bo’lish(iD), kalta bo’lishi ustidan to’liq dominantlik qiladi. Bu uch juft gen bitta gomologik xromasomada chala brikkan xolda irsiylanadi.\nTrigomozigota gullari erta ochiluvchi, barglari to’q yashil, tolasi kalta g’o’za o’simligi. Trigomozigota gullari kech ochiluvchi, barglari och yashil, tolasi uzun g’o’za o’simligi bilan chatishtirilib olingan F1 avlod barcha belgilari bo’yicha gomozigota retsessiv genlarga ega go’za o’simligi bilan tahlili chatishtirildi.\nNatijada:\n2808 ta gullari erta ochiluvchi, bargi to’q yashil, tolasi kalta.\n2792 ta gullari kech ochiluvchi, bargi och yashil, tolasi uzun.\n715 ta gullari erta ochiluvchi, barglari och yashil, tolasi uzun.\n725 ta gullari kech ochiluvchi, barglari to’q yashil, tolasi kalta.\n444 ta gullari erta ochiluvchi, bargi to’q yashil, tolasi uzun.\n436 ta gullari kech ochiluvchi, bargi och yashil, tolasi kalta.\n38 ta gullari erta ochiluvchi, bargi och yashil, tolasi kalta.\n42 ta gullari kech ochiluvchi, barglari to’q yashil, tolasi uzun organizmlar xosil bo’ldi.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) nazariy jihatdan sodir bo‘lgan qo‘sh krossingover miqdorini (%) aniqlang;\nb) genlarni xromasomada joylashish tartibini aniqlang\nc) A va D genlar orasidagi masofani (morganida) aniqlang.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) nazariy jihatdan sodir bo‘lgan qo‘sh krossingover miqdorini (%) aniqlang;",
+          "b) genlarni xromasomada joylashish tartibini aniqlang",
+          "c) A va D genlar orasidagi masofani (morganida) aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_7_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2…Odamlarda polidaktliya kasalligi avtosoma dominant tipda irsiylanuvchi avtosom...",
+        "full_text": "2…Odamlarda polidaktliya kasalligi avtosoma dominant tipda irsiylanuvchi avtosoma gen kasalligi. Tug’ma karlik retsessiv tipda irsiylanuvchi avtosoma gen kasalligi xisoblanadi. Bu ikki gen boshqa boshqa gomologik xromasomada joylashgan bo’lib bir biridan mustaqil xolda irsiylanadi. Gemofiliya retsessiv, qandsiz diabet dominant tipda irsiylanib jinsiy X xromasomada chala birikkan xolda nasldan naslga o’tadi. Genlar orasidagi masofa 18m daga teng.\nNormal barmoqli, onasi tug’ma kar bo’lgan o’zi yaxshi eshitadigan, gemofiliya bo’yicha sog’lom, qandsiz diabet bilan kasallangan (jinsga birikkan genlari digeterozigota, bir dominant genini onasidan, ikkinchisini otasidan olgan ) qiz. Onasi normal barmoqli bo’lgan o’zi polidaktliya bilan kasallangan, tug’ma kar, gemofiliya bo’yicha kasal, qandsiz diabetga chalinmagan yigitga turmushga chiqdi.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) oilada normal barmoqli, tug’ma kar, gemofiliya va dandsiz diabet bo’yicha sog’lom farzand tug’ilish extimoli\nb) oilada ko’p barmoqli, tug’ma kar, gemofiliya va dandsiz diabet bo’yicha sog’lom farzand tug’ilish extimoli\nc) oilada normal barmoqli, yaxshi eshirtuvchi, gemofiliya va dandsiz diabet bo’yicha kasal farzand tug’ilish extimoli",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) oilada normal barmoqli, tug’ma kar, gemofiliya va dandsiz diabet bo’yicha sog’lom farzand tug’ilish extimoli",
+          "b) oilada ko’p barmoqli, tug’ma kar, gemofiliya va dandsiz diabet bo’yicha sog’lom farzand tug’ilish extimoli",
+          "c) oilada normal barmoqli, yaxshi eshirtuvchi, gemofiliya va dandsiz diabet bo’yicha kasal farzand tug’ilish extimoli"
+        ],
+        "solution_image": "images_yozma_29/day_7_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3…..Malum bir organizmda yung rangining irsiylanishi ko’p allellik qoidasiga bo’...",
+        "full_text": "3…..Malum bir organizmda yung rangining irsiylanishi ko’p allellik qoidasiga bo’y sunadi. A-gen qora bo’lishni, a1-geni malla bo’lishni, a2-geni kulrang bo’lishni, a3-geni oq bo’lishni yuzaga chiqaradi. Genlarni o’zaro ustunlik qilishi quydagicha: A>a1>a2>a3 Populyatsiyada A geni eng yuqori % da uchrab qolgan genlar mos ravishda dominantlik\ndarajasiga mos ravishda populatsiyada uchrash extimoli 10% ga ozayib borsa.\nTopshiriqni bajarish tartibi:\n1) Pennet katakchalariga gametalar kombinatsiyasini va avlodlar miqdorini (%) yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi topshiriqlarni bajaring.\na) Populyatsiadagi a1a2 genotipli organizmlar %\nb) Populyatsiadagi a2a3 genotipli organizmlar %\nc) Populyatsiadagi malla oganizmlar %",
+        "subtasks": [
+          "a) Populyatsiadagi a1a2 genotipli organizmlar %",
+          "b) Populyatsiadagi a2a3 genotipli organizmlar %",
+          "c) Populyatsiadagi malla oganizmlar %"
+        ],
+        "solution_image": "images_yozma_29/day_7_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "8": {
+    "day": 8,
+    "title": "8-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1….Aguti Janubiy Amarikada tarqalgan juft tuyoqli kavush qaytaruvchi hayvon ( Af...",
+        "full_text": "1….Aguti Janubiy Amarikada tarqalgan juft tuyoqli kavush qaytaruvchi hayvon ( Afrikada tarqalgan yaqin qarindoshi antilopaga o’xshash—parallel evolutsiya natijasi) Agutida oyoqlar kalta bo’lishi va yung rangini qo’ng’ir bo’lishini ta’minlovchi genlar, oyoqlari uzun bo’lishi va yungining malla bo’lishi ustidan dominantlik qilib bitta avtosoma xromasomada chala brikkan xolda irsiylanadi. ( genlar orasidagi masofa 20 m bo’lib, krosingover ikki tomonlama kuzatiladi). Ko’z atrofida qora dog’ni bo’lishi jinsiy X xromasomaga brikkan retsessiv gen ta’sirida yuzaga chiqadi.\nDominant genlarini birini ona tarafdan olgan digeterozigota, ko’z atrofi qora pigmentli urg’ochi aguti. Barcha dominant genlarni bir tarafdan olgan digeterozigota ko’z atrofi pigmentsiz erkak aguti bilan chatishtirilganda.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) oyog’I kalta, malla yunli, ko’z atrofi pigmentsiz agutiylar xosil bo’lish extimolini % da toping.\nb) oyog’I uzun, malla yunli, ko’z atrofi pigmentli agutiylar xosil bo’lish extimolini % da toping.\nc) oyog’I kalta, qo’ng’ir yunli, ko’z atrofi pigmentsiz agutiylar xosil bo’lish extimolini % da toping.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) oyog’I kalta, malla yunli, ko’z atrofi pigmentsiz agutiylar xosil bo’lish extimolini % da toping.",
+          "b) oyog’I uzun, malla yunli, ko’z atrofi pigmentli agutiylar xosil bo’lish extimolini % da toping.",
+          "c) oyog’I kalta, qo’ng’ir yunli, ko’z atrofi pigmentsiz agutiylar xosil bo’lish extimolini % da toping."
+        ],
+        "solution_image": "images_yozma_29/day_8_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2….Suqsunda A-geni patlarni zangorida tovlanishini, a-geni yashilda tovlanishini...",
+        "full_text": "2….Suqsunda A-geni patlarni zangorida tovlanishini, a-geni yashilda tovlanishini ta’minlaydi. Bu belgilarning yuzaga chiqishi ikkinchi juft noallel genlarga bog’liq bo’lib BB- genlari rangni to’q, Bb-genlari o’rtacha, bb-genlari och bo’lishini ta’minlaydi. Uchinchi juft gen retsessiv ingibitor vazifasini bajarib rangni yuzaga chiqarmaydi. Qolgan xollarda ranglar yuzaga chiqadi. Och zangori o’rdaklar o’zaro chatishtirilganda och yashil va oq o’rdaklar xosil bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) och zangori rangli o’rdaklar xosil bo’lish extimolini % da toping.\nb) och yashil rangli o’rdaklar xosil bo’lish extimolini % da toping.\nc) oq rangli o’rdaklar xosil bo’lish extimolini % da toping.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) och zangori rangli o’rdaklar xosil bo’lish extimolini % da toping.",
+          "b) och yashil rangli o’rdaklar xosil bo’lish extimolini % da toping.",
+          "c) oq rangli o’rdaklar xosil bo’lish extimolini % da toping."
+        ],
+        "solution_image": "images_yozma_29/day_8_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3……Odamlarda katarakta avtosoma dominat (A) tipda irsiylanuvchi gen kasalligi, f...",
+        "full_text": "3……Odamlarda katarakta avtosoma dominat (A) tipda irsiylanuvchi gen kasalligi, fenilketonuriya avtosoma retsessiv (b) gen kasalligi. Ma’lum bir aholi populyatsiasida A genining uchrash extimoli 20% ga, B genining uchrash extimoli 90% ga teng bo’lsa.\nTopshiriqni bajarish tartibi:\n1)Pennet katakchalariga gametalar kombinatsiyasini va avlodlar miqdorini (%) yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi topshiriqlarni bajaring.\na) populyatsiyadagi ikki kasallik bilan kasallangan odamlar % ni aniqlang;\nb) populyatsiyadagi ikki kasallik bilan sog’lom odamlar % ni aniqlang;\nc) populyatsiyadagi faqat katarakta kasallik bilan kasallangan odamlar % ni aniqlang;\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "b) gen kasalligi. Ma’lum bir aholi populyatsiasida A genining uchrash extimoli 20% ga, B genining uchrash extimoli 90% ga teng bo’lsa.",
+          "a) populyatsiyadagi ikki kasallik bilan kasallangan odamlar % ni aniqlang;",
+          "b) populyatsiyadagi ikki kasallik bilan sog’lom odamlar % ni aniqlang;",
+          "c) populyatsiyadagi faqat katarakta kasallik bilan kasallangan odamlar % ni aniqlang;"
+        ],
+        "solution_image": "images_yozma_29/day_8_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "9": {
+    "day": 9,
+    "title": "9-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…Odamlarda qon guruhi uchta allel (A, B, 0) ga ega bo‘lgan autosoma genlari bil...",
+        "full_text": "1…Odamlarda qon guruhi uchta allel (A, B, 0) ga ega bo‘lgan autosoma genlari bilan belgilanadi. Odamlarda bu allellarning quyidagi kombinatsiyalari uchraydi: 00 – birinchi, AA va A0 – ikkinchi, BB va B0 – uchinchi, AB – to‘rtinchi qon guruhi hisoblanadi. A va B genlar gomozigota retsessiv ingibitor ta’sirida fenotipda namoyon bo‘lmaydi, natijada I qon guruhi yuzaga chiqadi. Daltonizm va shapko‘rlik X xromosomada joylashgan retsessiv genlar faoliyatiga bog‘liq. Bu genlar orasidagi masofa 40 % (morganida) ga teng. Gomozigota ikkinchi qon guruhli, boshqa genlari bo‘yicha geterozigota (retsessiv genlar faqat otasidan o‘tgan) ayol va gomozigota uchinchi qon guruhli, epistatik genlari bo‘yicha geterozigota, normal ko‘radigan erkak turmush\nqurdi.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Oilada I-qon guruhli, daltonizm bo’yicha sog’, shapko’rlik bilan kasallangan farzand tug’ilish extimoli?\nb) Oilada IV-qon guruhli, daltonizm va shapko’rlik bo’yicha kasal farzand tug’ilish extimoli?\nc) Oilada I-qon guruhli, daltonizm va shapko’rlik bo’yicha sog’ farzand tug’ilish extimoli?\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "a) ga teng. Gomozigota ikkinchi qon guruhli, boshqa genlari bo‘yicha geterozigota (retsessiv genlar faqat otasidan o‘tgan) ayol va gomozigota uchinchi qon guruhli, epistatik genlari bo‘yicha geterozigota, normal ko‘radigan erkak turmush",
+          "c) topshiriqlarni bajaring.",
+          "a) Oilada I-qon guruhli, daltonizm bo’yicha sog’, shapko’rlik bilan kasallangan farzand tug’ilish extimoli?",
+          "b) Oilada IV-qon guruhli, daltonizm va shapko’rlik bo’yicha kasal farzand tug’ilish extimoli?",
+          "c) Oilada I-qon guruhli, daltonizm va shapko’rlik bo’yicha sog’ farzand tug’ilish extimoli?"
+        ],
+        "solution_image": "images_yozma_29/day_9_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2… Odamlar bo‘yining past bo‘lishi (D) normal bo‘lishga nisbatan, burun teshigin...",
+        "full_text": "2… Odamlar bo‘yining past bo‘lishi (D) normal bo‘lishga nisbatan, burun teshigining keng bo‘lishi (E) tor bo‘lishiga nisbatan to‘liq dominantlik qiladi. Birinchi qon guruhiga ega, normal bo‘yli, burun teshigi keng bo‘lgan ayol noma’lum genotipli erkakga turmushga chiqdi. Ushbu oilada har xil tuxumdondan rivojlangan egizak (o‘g‘il va qiz) farzandlar tug‘ildi. O‘g‘il II qon guruhiga ega bo‘lib, past bo‘yli va burun teshigi keng, monogomozigota genotipga ega. Qiz esa III qon guruhiga ega bo‘lib, past bo‘yli va\nburun teshigi tor bo‘lsa.\n(Yuqoridagi uch juft genlarning barchasi har xil autosomalarda joylashgan deb hisoblansin.)\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) oilada tug’ilgan qiz farzand genotipini aniqlang;\nb) oilada tug’ilgan o’g’il farzand genotipini aniqlang;\nc) Oilada I-qon guruhli farzand tug’ilish extimoli aniqlang;\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) oilada tug’ilgan qiz farzand genotipini aniqlang;",
+          "b) oilada tug’ilgan o’g’il farzand genotipini aniqlang;",
+          "c) Oilada I-qon guruhli farzand tug’ilish extimoli aniqlang;"
+        ],
+        "solution_image": "images_yozma_29/day_9_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3... Ma’lum bir aholi populyatsiasida A genining uchrash extimoli 20% ga, IV-qon...",
+        "full_text": "3... Ma’lum bir aholi populyatsiasida A genining uchrash extimoli 20% ga, IV-qon guruhli odamlarning uchrash extimoli 16% ga teng bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) Pennet katakchalariga gametalar kombinatsiyasini va avlodlar miqdorini (%) yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi topshiriqlarni bajaring.\na) Populyatsiadagi I-qon guruhli odanlar uchrash extimolini % da toping.\nb) Populyatsiadagi II-qon guruhli odanlar uchrash extimolini % da toping.\nc) Populyatsiadagi III-qon guruhli odanlar uchrash extimolini % da toping.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "a) Populyatsiadagi I-qon guruhli odanlar uchrash extimolini % da toping.",
+          "b) Populyatsiadagi II-qon guruhli odanlar uchrash extimolini % da toping.",
+          "c) Populyatsiadagi III-qon guruhli odanlar uchrash extimolini % da toping."
+        ],
+        "solution_image": "images_yozma_29/day_9_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "10": {
+    "day": 10,
+    "title": "10-kun Yozma Ishi",
+    "total_problems": 4,
+    "problems": [
+      {
+        "number": 1,
+        "title": "41…Polidaktliya va miopiya kasalliklari avtosoma dominant tipda irsiylanib boshq...",
+        "full_text": "41…Polidaktliya va miopiya kasalliklari avtosoma dominant tipda irsiylanib boshqa-boshqa gomologik xromasomalarda joylashgan. Gemogiliya kasalligi jinsiy X xromasomaga brikkan retsessiv gen kasalligi. Onasi normal barmoqli, gemofiliya bilan kasallangan o’zi polidaktliya bilan kasallangan, qoni normal ivish xususiyatiga ega, miopiya bilan kasallanmagan digeterozigota genotipli qiz. Normal barmoqli, geterozigota uzoqni ko’ra olmaydigon genofiliya bo’yicha sog’lom yigitga turmushga chiqsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) oilada normal barmoqli, miopiya va gemofiliya bilan kasallangan qiz farzand tug’ilish extimolini aniqlang;\nb) oilada normal barmoqli, miopiya va gemofiliya bilan kasallangan o’g’il farzand tug’ilish extimolini aniqlang;\nc) oilada polidaktliya va miopiya bo’yicha sog’, gemofiliya bilan kasallangan farzandlar tug’ilish extimolini aniqlang.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) oilada normal barmoqli, miopiya va gemofiliya bilan kasallangan qiz farzand tug’ilish extimolini aniqlang;",
+          "b) oilada normal barmoqli, miopiya va gemofiliya bilan kasallangan o’g’il farzand tug’ilish extimolini aniqlang;",
+          "c) oilada polidaktliya va miopiya bo’yicha sog’, gemofiliya bilan kasallangan farzandlar tug’ilish extimolini aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_10_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "42…Kanakunjut o’simligida mevasining tikonli bo’lishi-A, poyasining qizil rangda...",
+        "full_text": "42…Kanakunjut o’simligida mevasining tikonli bo’lishi-A, poyasining qizil rangda bo’lishi-B,\nurug’ posti chipor rangda bo’lishi-D genlariga bog’liq bo’lib ushbu genlar bitta gomologik\nxromasomada chala birikkan xolda irsiylanadi.\nGenlar A-B-D ketma-ketlikda joylashgan bo’lib.\nABD gametasining xosil bo’lishi 30% ga,\nAbd gametalarining xosil bo’lishi 10% ga,\nABd gametalarining xosil bo’lishi 9% ga,\nAbD gametalarining xosil bo’lishi 1% ga teng.\nTrigeterozigota dominat genlarini bir tarafdan olgan o’simlik o’ziga o’xshash genotipli\no’simlik bilan chatishtirilib 20 000 avlod olingan bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:",
+        "subtasks": [],
+        "solution_image": "images_yozma_29/day_10_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "1. Belgilar va ularni boshqaruvchi genlarni yozing.                             ...",
+        "full_text": "1. Belgilar va ularni boshqaruvchi genlarni yozing.                                                                                                                                                                                             2. belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari hamda farzandlar genotipini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-d) topshiriqlarni bajaring.\na) Mevasi tikonli, poyasi qizil, urug’ posti oq rangli avlod sonini aniqlang.\nb) Mevasi tikonsiz, poyasi qizil, urug’ posti chipor avlod sonini aniqlang.\nc) A va D genlari orasidagi xaqiqiy masofani aniqlang.\nd) Nokrosingover gametalardan xosil bo’lgan avlod sonini aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "d) topshiriqlarni bajaring.",
+          "a) Mevasi tikonli, poyasi qizil, urug’ posti oq rangli avlod sonini aniqlang.",
+          "b) Mevasi tikonsiz, poyasi qizil, urug’ posti chipor avlod sonini aniqlang.",
+          "c) A va D genlari orasidagi xaqiqiy masofani aniqlang.",
+          "d) Nokrosingover gametalardan xosil bo’lgan avlod sonini aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_10_sol_3.png"
+      },
+      {
+        "number": 4,
+        "title": "43….Keniyadagi konchilar qishlog’ida jami odamlar soni 12000 kishidan iborat bo’...",
+        "full_text": "43….Keniyadagi konchilar qishlog’ida jami odamlar soni 12000 kishidan iborat bo’lib. Ushbu qishloqda A-genining uchrash extimoli 30% ni tashkil qiladi. Konchilar qishlog’ida jami 480 ta I-qon guruhli odamlar uchrasa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) Pennet katakchalariga gametalar kombinatsiyasini va avlodlar miqdorini (%) yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi topshiriqlarni bajaring.\na) Populyatsiadagi VI-qon guruhli odanlar uchrash extimolini % da toping.\nb) Populyatsiadagi II-qon guruhli odanlar uchrash extimolini % da toping.\nc) Populyatsiadagi III-qon guruhli odanlar uchrash extimolini % da toping.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "a) Populyatsiadagi VI-qon guruhli odanlar uchrash extimolini % da toping.",
+          "b) Populyatsiadagi II-qon guruhli odanlar uchrash extimolini % da toping.",
+          "c) Populyatsiadagi III-qon guruhli odanlar uchrash extimolini % da toping."
+        ],
+        "solution_image": "images_yozma_29/day_10_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "11": {
+    "day": 11,
+    "title": "11-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…..Jo’xori o’simligida gullarini erta ochilishi (A), kech ochilishi ustidan, ba...",
+        "full_text": "1…..Jo’xori o’simligida gullarini erta ochilishi (A), kech ochilishi ustidan, barglarini to’q yashil bo’lishi (B) och yashil bo’lishi ustidan, donini qizg’ish bo’lishi (D), sarg’ish bo’lishi ustidan dominantlik qiladi. Bu uch juft genlar bitta gomologik xromasomada chala brikkan xolda irsiylanadi.\nTrigomozigota gullari erta ochiluvchi, bargi och yashil, qizg’ish donli Jo’xori o’simligi, Trigomozigota gullari kech ochiluvchi, to’q yashil bargli, sarg’ish donli jo’xori o’simligi bilan chatishtirildi. Xosil bo’lgan F1 avlod tahliliy chatishtirilganda quydagicha natija olindi.\n1) Gullari erta ochiluvchi, och yashil bargli, qizg’ish donli jo’xorilar soni-2950 ta.\n2) Gullari kech ochiluvchi, to’q yashil bargli, sarg’ish donli jo’xorilar soni-2970 ta\n3) Gullari erta ochiluvchi, to’q yashil bargli, sarg’ish doni jo’xorilar soni 550 ta.\n4) Gullari kech ochiluvchi, och yashil bargli, qizg’ish donli jo’xorilar soni 570 ta.\n5) Gullari erta ochiluvchi, och yashil bargli, sarg’ish donli jo’xorilar soni 452 ta.\n6) Gullari kech ochiluvchi, to’q yashil bargli, qizg’ish sonli jo’xorilar soni 428 ta.\n7) Gullari erta ochiluvchi, to’q yashil bargli, qizg’ish donli jo’xorilar soni 48 ta.\n8) Gullari kech ochiluvchi, och yashil bargli, sarg’ish donli jo’xorilar soni 32 ta.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) nazariy jihatdan sodir bo‘lgan qo‘sh krossingover miqdorini (%) aniqlang;\nb) A va B genlari orasidagi masofani aniqlang\nc) A va D genlari orasidagi masofani aniqlang\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) nazariy jihatdan sodir bo‘lgan qo‘sh krossingover miqdorini (%) aniqlang;",
+          "b) A va B genlari orasidagi masofani aniqlang",
+          "c) A va D genlari orasidagi masofani aniqlang"
+        ],
+        "solution_image": "images_yozma_29/day_11_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2….Drozofila meva pashshasida ko’z rangining qizil bo’lishi oq bo’lishi ustidan ...",
+        "full_text": "2….Drozofila meva pashshasida ko’z rangining qizil bo’lishi oq bo’lishi ustidan dominantlik qilib jinsiy X xromasomaga brikkan xolda irsiylanadi. tana rangi kulrang bo’lishi, va qanotlarini normal uzunlikda bo’lishi dominant genga bog’iq bo’lib bitta gomologik xromasomada chala brikkan xolda irsiylanadi. ( krosingover 17%)\nTrigeterozigota. Avtosomada joylashgan dominant genlarini birini otasidan, ikkinchisini onasidan olgan urg’ochi drozofila meva pashshasi. Oq ko’zli, qora tana kalta qanotli erkak drozofila meva pashshasi bilan chatishtirilsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) kulrang tana kalta qanotli, oq ko’zli avlod xosil bo’lish extimolini % da toping.\nb) kulrang tana kalta qanotli, qizil ko’zli avlod xosil bo’lish extimolini % da toping.\nc) qora tana kalta qanotli, oq ko’zli avlod xosil bo’lish extimolini % da toping.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) kulrang tana kalta qanotli, oq ko’zli avlod xosil bo’lish extimolini % da toping.",
+          "b) kulrang tana kalta qanotli, qizil ko’zli avlod xosil bo’lish extimolini % da toping.",
+          "c) qora tana kalta qanotli, oq ko’zli avlod xosil bo’lish extimolini % da toping."
+        ],
+        "solution_image": "images_yozma_29/day_11_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3…Uy sichqonlarida a genining uchrash extimoli 20% ga, B gening uchrash extimoli...",
+        "full_text": "3…Uy sichqonlarida a genining uchrash extimoli 20% ga, B gening uchrash extimoli 70% ga teng bo’lsa.\nDigeterozigota genotipli sichqonlar o’zaro chatishtirilsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) Pennet katakchalariga gametalar kombinatsiyasini va avlodlar miqdorini (%) yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi topshiriqlarni bajaring.\na) Populyatsiadagi Aabb genotipli individlar uchrash extimolini % da toping.\nb) Populyatsiadagi aaBb genotipli individlar uchrash extimolini % da toping.\nc) Populyatsiadagi AaBb genotipli individlar uchrash extimolini % da toping.",
+        "subtasks": [
+          "a) Populyatsiadagi Aabb genotipli individlar uchrash extimolini % da toping.",
+          "b) Populyatsiadagi aaBb genotipli individlar uchrash extimolini % da toping.",
+          "c) Populyatsiadagi AaBb genotipli individlar uchrash extimolini % da toping."
+        ],
+        "solution_image": "images_yozma_29/day_11_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "12": {
+    "day": 12,
+    "title": "12-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…..Drozofila meva pashshasining I-juft gomologik xromasomasida uch juft chala b...",
+        "full_text": "1…..Drozofila meva pashshasining I-juft gomologik xromasomasida uch juft chala birikkan genning joylashish tartibi quydagicha: W8_Y_4_B. Nazariy va amaliy qo’sh krosingover % lari teng. Interferensiya kuzatilmagan bo’lsa. Barcha dominant genlarini bir tarafdan olgan trigeterozigota urg’ochi drozofila va trigomozigota retsessiv genotipli erkak drozofila tahliliy chatishtirilishi natijasida 10000 ta avlod xosil bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) nokrosingover gametalardan xosil bo’lgan avlodlar sonini toping\nb) 1-yakka krosingover gametalardan xosil bo’lgan avlodlar sonini toping.\nc) qo’sh krosingover gametalardan xosil bo’lgan avlodlar sonini toping.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) nokrosingover gametalardan xosil bo’lgan avlodlar sonini toping",
+          "b) 1-yakka krosingover gametalardan xosil bo’lgan avlodlar sonini toping.",
+          "c) qo’sh krosingover gametalardan xosil bo’lgan avlodlar sonini toping."
+        ],
+        "solution_image": "images_yozma_29/day_12_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2….Pigmentli retinit ( Qorong’ulikda ko’rishning buzilishi) sekinlik bilan ko’rl...",
+        "full_text": "2….Pigmentli retinit ( Qorong’ulikda ko’rishning buzilishi) sekinlik bilan ko’rlikka olib keluvchi kasallik bo’lib. Uch xil tipda irsiylanadi. 1-TIP avtosoma dominant (A), 2-TIP avtosoma retsessiv (b), 3-TIP jinsiy X xromasomaga birikkan retsessiv(dX) genlarga bog’liq bo’lib turlicha xromasomada joylashadi va bir-biridan mustaqil xolda irsiylanadi.\nDigeterozigota normal ko’ruvchi qiz bilan ko’rlikning 1-TIP va 3-TIP lari bilan kasallangan yigit nikoxidan 1-TIP bo’yicha sog’, 2-TIP va 3-TIP bo’yicha kasal qiz tug’ilgan bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, gen va genotip chastotasini yozing;\n2) Pennet kataklariga populyatsiadagi xosil bo’lishi mumkin bo’lgan gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Oilada ko’rlikning 3 turi bilan xam sog’lom o’g’il farzand tug’ilish extimolini % da toping.\nb) Oilada faqat 1-TIP bilan kasal qiz farzandlar tug’ilish extimolini % da aniqlang.\nc) Oilada faqat 3-TIP bilan kasal o’g’il farzandlar tug’ilish extimolini % da aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "b), 3-TIP jinsiy X xromasomaga birikkan retsessiv(dX) genlarga bog’liq bo’lib turlicha xromasomada joylashadi va bir-biridan mustaqil xolda irsiylanadi.",
+          "c) topshiriqlarni bajaring.",
+          "a) Oilada ko’rlikning 3 turi bilan xam sog’lom o’g’il farzand tug’ilish extimolini % da toping.",
+          "b) Oilada faqat 1-TIP bilan kasal qiz farzandlar tug’ilish extimolini % da aniqlang.",
+          "c) Oilada faqat 3-TIP bilan kasal o’g’il farzandlar tug’ilish extimolini % da aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_12_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3…..Qimmatbaxo mo’yna beruvchi Qorakuzan ( norka) larda jun rangining irsiylanis...",
+        "full_text": "3…..Qimmatbaxo mo’yna beruvchi Qorakuzan ( norka) larda jun rangining irsiylanishi bir genning bir necha allellari tomonidan boshqariladi. Qorakuzanlarda mo'ynaning jigarrang (yovvoyi tip), platina (kumushsimon - havorang) va oq rangi uchraydi.\nQorakuzanlarda mo'yna rangining turIarini rivojlantiruvchi gen allellari P harfi bilan belgilangan. P-jigarrang, p- havorang, ph-oq rangni yuzaga chiqaradi. Genlarning o’zaro ta’sir darajasi quydagicha: P> p > ph Dunay daryosi qirg’oqlarida yashovchi maxalli axoli tomonidan mo’yna olish maqsadida ko’paytiriladigon Qorakuzan populyatsiasida P genining uchrash extimoli 70% ga, noyob rangni yuzaga chiqaruvchi p gening uchrash extimoli 10% ga teng bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) Pennet katakchalariga gametalar kombinatsiyasini va avlodlar miqdorini (%) yozing\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Populyatsiyadagi oq junli qorakuzanlar uchrash extimolini % da aniqlang.\nb) Populyatsiadagi geterozigota genotipli havorang junli qorakuzanlar uchrash extimolini % da aniqlang\nc) Populyatsiadagi barcha turdagi gomozigota genotipli qorakuzanlar uchrash extimolini % da aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "a) larda jun rangining irsiylanishi bir genning bir necha allellari tomonidan boshqariladi. Qorakuzanlarda mo'ynaning jigarrang (yovvoyi tip), platina (kumushsimon - havorang) va oq rangi uchraydi.",
+          "c) topshiriqlarni bajaring.",
+          "a) Populyatsiyadagi oq junli qorakuzanlar uchrash extimolini % da aniqlang.",
+          "b) Populyatsiadagi geterozigota genotipli havorang junli qorakuzanlar uchrash extimolini % da aniqlang",
+          "c) Populyatsiadagi barcha turdagi gomozigota genotipli qorakuzanlar uchrash extimolini % da aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_12_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "13": {
+    "day": 13,
+    "title": "13-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…Oq g’ozlar pat rangining irsiylanishi bir juft allel gen ta’sirida yuzaga chiq...",
+        "full_text": "1…Oq g’ozlar pat rangining irsiylanishi bir juft allel gen ta’sirida yuzaga chiqadi. Dominant gomozigota AA genlari pat rangini aguti (noyob qora ) rangda bo’lishini, dominant geterozigota Aa genlari kulrang bo’lishini, retsessiv aa genlari oq bo’lishini ta’minlaydi. Lekin rang yuzaga chiqishi ikki juft ingibitor genlar faoliyatiga xam bog’liq bo’lib.\nBininchi juft ingbitor gen retsessiv alleli, ikkinchi juft gen dominant alleli rang yuzaga chiqishini cheklaydi va oq rangni yuzaga chiqaradi.\nBirinchi va ikkinchi juft genlari bo’yicha geterozigota genotipli kulrang g’oz bilan birinchi va uchinchi juft genlari bo’yicha geterozigota genotipli oq g’oz chatishtirilganda. Xosil bo’lgan avlodning 25% ni kulrang g’ozlar tashkil qilsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, gen va genotip chastotasini yozing;\n2) Pennet kataklariga populyatsiadagi xosil bo’lishi mumkin bo’lgan gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Oq g’ozlar xosil bo’lish extimolini % da aniqlang.\nb) Qora g’ozlar xosil bo’lish extimolini % da aniqlang.\nc) Avloddagi oq va qora g’ozlar nisbatini aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Oq g’ozlar xosil bo’lish extimolini % da aniqlang.",
+          "b) Qora g’ozlar xosil bo’lish extimolini % da aniqlang.",
+          "c) Avloddagi oq va qora g’ozlar nisbatini aniqlang."
+        ],
+        "solution_image": null
+      },
+      {
+        "number": 2,
+        "title": "2….Avstraliya tub aholisida eng ko’p tarqalgan kasallik tish emalining qo’ng’ir ...",
+        "full_text": "2….Avstraliya tub aholisida eng ko’p tarqalgan kasallik tish emalining qo’ng’ir bo’lishi Jinsiy X xromasomada joylashgan Dominant A geniga bog’liq. Etnik aloxidalashgan xalqda qandli diabet kasalligi kamdan kam uchrab belgining yuzaga chiqishi avtosoma retsessiv (d) genlarga bog’liq. Ko’rish nervi atrofiyasi sitoplazmatik irsiylanish xususiyatiga ega. Tishi emalining qo’ng’ir bo’lishi penetrantligi 80% ga, qandli diabet yuzaga chiqish penetrantligi 2% ga teng bo’lsa. Digeterozigota genotipli, ko’rish nervi atrofiyaga uchramagan ayol va qandli diabetga chalingan, tish emali qo’ng’ir bo’lgan, ko’rish nervi atrofiyaga uchragan yigit turmush qursa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, gen va genotip chastotasini yozing;\n2) Pennet kataklariga populyatsiadagi xosil bo’lishi mumkin bo’lgan gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Tish emali qo’ng’ir, qandli diabetga chalingan, ko’rish nervi atrofiyaga uchramagan farzand tug’ilish extimolini % da toping.\nb) Tish emali qo’ng’ir, qandli diabetga chalingan, ko’rish nervi atrofiyaga uchragan farzand tug’ilish extimolini % da toping.\nc) Qandli diabet va tish emali qo’ng’ir bo’lishi bo’yicha genetik sog’lom farzand tug’ilish extimolini % da toping\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "d) genlarga bog’liq. Ko’rish nervi atrofiyasi sitoplazmatik irsiylanish xususiyatiga ega. Tishi emalining qo’ng’ir bo’lishi penetrantligi 80% ga, qandli diabet yuzaga chiqish penetrantligi 2% ga teng bo’lsa. Digeterozigota genotipli, ko’rish nervi atrofiyaga uchramagan ayol va qandli diabetga chalingan, tish emali qo’ng’ir bo’lgan, ko’rish nervi atrofiyaga uchragan yigit turmush qursa.",
+          "c) topshiriqlarni bajaring.",
+          "a) Tish emali qo’ng’ir, qandli diabetga chalingan, ko’rish nervi atrofiyaga uchramagan farzand tug’ilish extimolini % da toping.",
+          "b) Tish emali qo’ng’ir, qandli diabetga chalingan, ko’rish nervi atrofiyaga uchragan farzand tug’ilish extimolini % da toping.",
+          "c) Qandli diabet va tish emali qo’ng’ir bo’lishi bo’yicha genetik sog’lom farzand tug’ilish extimolini % da toping"
+        ],
+        "solution_image": null
+      },
+      {
+        "number": 3,
+        "title": "3…Qizilko’z baliqlar tangachalari rangining yuzaga chiqishi va ko’krak suzgichla...",
+        "full_text": "3…Qizilko’z baliqlar tangachalari rangining yuzaga chiqishi va ko’krak suzgichlari uchki qismining tuzilishini belgilaydigon genlar irsiylanish tipi ko’p allelik asosida yuzaga chiqadi. Tangacha rangining yashil bo’lishi A geni bilan, moviy bo’lishi a1 geni bilan, sariq bo’lishi a2 geni bilan belgilanadi. Suzgichlarning uchki qismi o’tkir qirrali bo’lishi B geni bilan, to’lqinsimon bo’lishi b1 geni bilan, tekis bo’lishi b2 geni bilan belgilanib bitta gomologik avtosoma xromasomada chala birikkan xolda irsiylanadi. Krosingover ikki tomonlama kuzatilib genlar orasidagi masofa 20m daga teng. Genlarni o’zaro ta’sir doirasi A>a1>a2 va B>b1>b2 ko’rinishida.\nDominant genlarini faqat bir tarafdan olgan digeterozigota moviy tangachali, ko’krak suzgichlari uchki qismi to’lqinsimon tuzilishda bo’lgan urg’ochi qizilko’z baliq tuxumlarini. Ota -onasidan biri digomozigota sariq tangachali, ko’krak suzgichlari uchki qismi tekis tuzilishda bo’lgan o’zi esa digeterozigota yashil tangachali, ko’krak suzgichlari uchki qismi o’tkir qirrali erkak qizilko’z baliq spermatozoidlari urug’lantirdi. Hosil bo’lgan jami chavoqlar soni 10000 ta bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, gen va genotip chastotasini yozing;\n2) Pennet kataklariga populyatsiadagi xosil bo’lishi mumkin bo’lgan gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Sariq tangachali, ko’krak suzgichlari uchki qismi tekis bo’lgan avlod sonini aniqlang.\nb) Yashil tangachali, ko’krak suzgichlari uchki qismi tekis bo’lgan avlod sonini aniqlang.\nc) Sariq tangachali, ko’krak suzgichlari uchki qismi o’tkir qirrali avlod sonini aniqlang\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Sariq tangachali, ko’krak suzgichlari uchki qismi tekis bo’lgan avlod sonini aniqlang.",
+          "b) Yashil tangachali, ko’krak suzgichlari uchki qismi tekis bo’lgan avlod sonini aniqlang.",
+          "c) Sariq tangachali, ko’krak suzgichlari uchki qismi o’tkir qirrali avlod sonini aniqlang"
+        ],
+        "solution_image": null
+      }
+    ],
+    "images_count": 0
+  },
+  "14": {
+    "day": 14,
+    "title": "14-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…Proband miyacha ataksiyasi bilan kasallangan ayol, eri sog’lom, ularning 6 o’g...",
+        "full_text": "1…Proband miyacha ataksiyasi bilan kasallangan ayol, eri sog’lom, ularning 6 o’g’li va 3 qizi bor. Bir qiz va bir o’g’il kasal, qolganlari sog’lom. Probandning sog’lom singlisi va 3 ta shu kasallik bilan tug’ilgan aka-ukalari bor. Sog’lom singlisi, sog’lom erkakka turmushga chiqqan bo’lib ularning sog’lom qizi bor. Uchta aka-ukalari sog’lom ayollarga uylangan bo’lib, birining oilasida ikkita sog’lom o’g’il va kasal qiz bor. Ikkinchisida so’lom o’g’il va kasal qiz bor. Uchinchisida 3 ta o’g’il va 2 ta qiz bo’lib xammasi sog’om. Probandning otasi kasal, onasi esa sog’lom.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, probant va uning eri genotipini yozing;\n2) genologik usuldan foydalanib oila shajarasini tuzing\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Probandning sog’ qizlari so’lom erkaklarga turmushga chiqishsa oilada kasal farzand tug’ilish extimolini aniqlang.\nb) Probandning kasal o’g’li o’ziga o’xshash genotipli ayolga uylansa oilada kasal farzand tug’ilish extimolini aniqlang\nc) Proband ota onasi genotipini yozing\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Probandning sog’ qizlari so’lom erkaklarga turmushga chiqishsa oilada kasal farzand tug’ilish extimolini aniqlang.",
+          "b) Probandning kasal o’g’li o’ziga o’xshash genotipli ayolga uylansa oilada kasal farzand tug’ilish extimolini aniqlang",
+          "c) Proband ota onasi genotipini yozing"
+        ],
+        "solution_image": "images_yozma_29/day_14_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2… Odamlarda polidaktliya (ortiqcha barmoqlik) va katarakta (ko’z gavhari xirala...",
+        "full_text": "2… Odamlarda polidaktliya (ortiqcha barmoqlik) va katarakta (ko’z gavhari xiralashishi) bitta gomologik autosoma xromasomasida zich joylashgan dominant genlar (krosingover kuzatilmaydi) orqali yuzaga chiqadi. Ammo bu genlarni doimo birga uchraydi deb bo’lmaydi. Populyatsiyada tez tez takrorlanib turuvchi mutatsiyalar tufali bazan ortiqcha barmoqli, ko’z gavhari o’zgarishsiz yoki normal barmoqli ko’z gavhari xiralashgan odamlar uchrab turadi. Padagra kasalligi boshqa avtosomada joylashgan dominant gen ta’sirida yuzaga chiqadi. Bazi adabiyotlarda keltirilishicha padagra kasalligi penetrantligi erkaklarda 20%, ayollarda 0% ga teng. Gipofosatomik raxit jinsiy X xromasomaga birikkan dominant gen ta’sirida yuzaga chiqadi. Ortiqcha barmoqli, katarakta va padagra bilan kasallanmagan, gipofosfatomik raxitga chalingan ayol. Normal barmoqli, katarakta bilan kasallangan avlodida podagra kuzatilmagan o’zi xam sog’lom bo’lgan, raxit belgilari kuzatilmaydigon yigitga turmushga chiqdi oilada qiz va o’g’il egizak farzand tug’ildi. Qiz polidaktliya va kararakta bilan kasal, padagra bo’yicha genotipik va fenotipik sog’lom, raxitga chalinmagan. O’g’il polidaktliya va katarakta bo’yicha sog’lom, padagra bilan kasallangan, gipofosfatomik raxit bilan kasallangan bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, gen va genotip chastotasini yozing;\n2) Pennet kataklariga populyatsiadagi xosil bo’lishi mumkin bo’lgan gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) oilada faqat katarakta va raxit bilan kasallangan qiz farzand tug’ilish extimolini % da aniqlang.\nb) oilada faqat padagra bilan kasallangan o’g’il farzand tug’ilish extimolini % da aniqlang.\nc) oilada keltirilgan, barcha kasalliklar bo’yicha genotipik va fenotipik sog’lom farzand tug’ilish extimolini % da aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) oilada faqat katarakta va raxit bilan kasallangan qiz farzand tug’ilish extimolini % da aniqlang.",
+          "b) oilada faqat padagra bilan kasallangan o’g’il farzand tug’ilish extimolini % da aniqlang.",
+          "c) oilada keltirilgan, barcha kasalliklar bo’yicha genotipik va fenotipik sog’lom farzand tug’ilish extimolini % da aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_14_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3….Ma’lum bir qoramol zotida teri rangining yuzaga chiqishi ko’dominantlik qoida...",
+        "full_text": "3….Ma’lum bir qoramol zotida teri rangining yuzaga chiqishi ko’dominantlik qoidasi asosida irsiylanadi. Yani belgi yuzaga chiqishida allel genlar o’zaro bir biridan mustaqil xolda ta’sir ko’rsatadi. A geni qoramol teri rangini qora bo’lishini, B geni qoramol teri rangini oq bo’lishini yuzaga chiqaradi. Ikki allel gen (AB) birga kelganda teri rangi ola-bula ko’rinishda bo’ladi. A genining populyatsiada uchrash chastotasi 60% ga, B genining populyatsiada uchrash chastotasi 40% ga teng bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) Pennet katakchalariga gametalar kombinatsiyasini va avlodlar miqdorini (%) yozing\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Populyatsiyadagi ola-bula qoramollar va oq qoramollar uchrash extimoli farqini % da aniqlang.\nb) Populyatsiyadagi ola-bula qoramollar va qora qoramollar uchrash extimoli farqini % da aniqlang.\nc) Populyatsiyadagi qora qoramollar va oq qoramollar uchrash extimoli farqini % da aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Populyatsiyadagi ola-bula qoramollar va oq qoramollar uchrash extimoli farqini % da aniqlang.",
+          "b) Populyatsiyadagi ola-bula qoramollar va qora qoramollar uchrash extimoli farqini % da aniqlang.",
+          "c) Populyatsiyadagi qora qoramollar va oq qoramollar uchrash extimoli farqini % da aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_14_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "15": {
+    "day": 15,
+    "title": "15-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…Retinoblastoma ( Ko’zning yomon sifatli o’smasi) va Marfan sindromi (turli bel...",
+        "full_text": "1…Retinoblastoma ( Ko’zning yomon sifatli o’smasi) va Marfan sindromi (turli belgilar yuzaga chiqishi xususan barmoqlarni ingichka va uzun bo’lishi- ,,o’rgimchak oyoq’’ kabi belgilar yuzaga chiqishi). Ushbu ikki belgi autosoma dominant tipda boshqa boshqa gomologik xromasomalarda bir -biridan mustaliq xolda irsiylanadi. Retinoblastoma\npenetrantligi 80% ga, marfan sindromi penetrantligi 60% ga teng. Bosniya xalqida retinoblastomani yuzaga chiqaruvchi Dominant A genining uchrash chastotasi 20% ga. Marfan sindromini yuzaga chiqaruvchi dominant B genining uchrash chastotasi 10% ga teng bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, gen va genotip chastotasini yozing;\n2) Pennet kataklariga populyatsiadagi xosil bo’lishi mumkin bo’lgan gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) populyatsiyada digeterozigota ikki kasallik bilan kasallangan odamlar uchrash extimolini % da aniqlang.\nb) populyatsiyada gomozigota dominant ikki kasallik bilan kasallangan odamlar uchrash extimolini % da aniqlang.\nc) populyatsiyada 1-belgi bo’yicha gomozigota, 2-belgi bo’yicha geterozigota kasal odamlar uchrash extimolini % da aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) populyatsiyada digeterozigota ikki kasallik bilan kasallangan odamlar uchrash extimolini % da aniqlang.",
+          "b) populyatsiyada gomozigota dominant ikki kasallik bilan kasallangan odamlar uchrash extimolini % da aniqlang.",
+          "c) populyatsiyada 1-belgi bo’yicha gomozigota, 2-belgi bo’yicha geterozigota kasal odamlar uchrash extimolini % da aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_15_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2…Odamlarda Neyrofibromatoz mutatsiya 1- tipi 17-juft xromasomada joylashgan avt...",
+        "full_text": "2…Odamlarda Neyrofibromatoz mutatsiya 1- tipi 17-juft xromasomada joylashgan avtosoma dominant gen kasalligi.\nTurli xil ekspressivlikka ega. Kasallikning yuzaga chiqish ekspressivligi quydagicha:\n20% teridagi neyrofibroma\n30% skoliyoz\n40% ko’z rangli pardasida dog’lar\n10% ko’z nervi o’smasi\n(Belgi yuzaga chiqish penetrantligi 100% )\nGeterozigota genotipli yigit va qiz turmush qursa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, gen va genotip chastotasini yozing;\n2) Pennet kataklariga populyatsiadagi xosil bo’lishi mumkin bo’lgan gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) oilada geterozigota genotipga ega skolyoz bilan kasallangan farzand tug’ilish extimolini% da aniqlang\nb) Oilada gomozigota genotipli ko’rish nervi o’smasi bilan kasal farzand tug’ilish extimolini % da toping\nc) sog’lom farzand tug’ilish extimolini % da toping\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) oilada geterozigota genotipga ega skolyoz bilan kasallangan farzand tug’ilish extimolini% da aniqlang",
+          "b) Oilada gomozigota genotipli ko’rish nervi o’smasi bilan kasal farzand tug’ilish extimolini % da toping",
+          "c) sog’lom farzand tug’ilish extimolini % da toping"
+        ],
+        "solution_image": "images_yozma_29/day_15_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3….Okeanda paydo bo’lgan orollarning birida, o’simliklar o’sa olishi uchun yetar...",
+        "full_text": "3….Okeanda paydo bo’lgan orollarning birida, o’simliklar o’sa olishi uchun yetarli bo’lgan sharoitning yuzaga kelishi bilan, bir gen bo’yicha geterozigota bo’lgan, faqat o’z-o’zini changlatadigon bir yillik hayotiy shaklga ega o’simlik urug’i kelib tushdi. So’ng u ushbu o’simlik populyatsiyasiga asos solgan bo’lsa,\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) Daslabki o’simlikdagi onalik va otalik genotipi xamda F1, F2, F3, F4 avlodlar gentipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) populyatsiyaning F3 avlodidagi gomozigota dominant genotipga ega o’simliklarni uchrash extimolini % da aniqlang.\nb) populyatsiyaning F4 avlodidagi geterozigota dominant genotipga ega o’simliklar uchrash extimolini % da aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) populyatsiyaning F3 avlodidagi gomozigota dominant genotipga ega o’simliklarni uchrash extimolini % da aniqlang.",
+          "b) populyatsiyaning F4 avlodidagi geterozigota dominant genotipga ega o’simliklar uchrash extimolini % da aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_15_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "16": {
+    "day": 16,
+    "title": "16-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…Norkada yung rangining irsiylanishi ikki juft polimer genlar ta’sirida yuzaga ...",
+        "full_text": "1…Norkada yung rangining irsiylanishi ikki juft polimer genlar ta’sirida yuzaga chiqadi. A1-A2 genlari yung rangini qo’ng’ir bo’lishini ta’minlaydi. Yung rangining qo’ng’ir bo’lishiga ushbu ikki juft gendan birining bo’lishi xam kifoya qiladi. Barcha genlar retsessiv a1a1a2a2 bo’lganda yung rangi kumushsimon bo’ladi. Yung rangining uzunligi boshqa uch juft polimer genlarga bog’liq xolda yuzaga chiqadi. Qo’ng’ir yungli, yung uzunligi 32 mm li genotipi B1b1B2b2B3B3 bo’lgan urg’ochi norka, qo’ng’ir yungli, yung uzunligi 28 mm li genotipi b1b1B2B2b3b3 bo’lgan erkak norka bilan chatishtirilib. Jami 320 ta avlod olingan bo’lib shundan 6,25% kumushsimon yungli avlod olingan bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari hamda farzandlar genotipini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Avlodning Qo’ngir yungli, yung uzunligi 28 mm bo’lganlari sonini aniqlang.\nb) Kumushsimon yungli avlodning qancha qismi 28 mm li yunga ega ekanligini aniqlang.\nc) Kumushsimon avlodning necha % qismi 30 mm li yunga ega ekanligini aniqlang.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Avlodning Qo’ngir yungli, yung uzunligi 28 mm bo’lganlari sonini aniqlang.",
+          "b) Kumushsimon yungli avlodning qancha qismi 28 mm li yunga ega ekanligini aniqlang.",
+          "c) Kumushsimon avlodning necha % qismi 30 mm li yunga ega ekanligini aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_16_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2….Kanakunjut o’simligida mevasining tikonli bo’lishi-A, poyasining qizil rangda...",
+        "full_text": "2….Kanakunjut o’simligida mevasining tikonli bo’lishi-A, poyasining qizil rangda bo’lishi-B, urug’ posti chipor rangda bo’lishi-D genlariga bog’liq bo’lib ushbu genlar bitta gomologik xromasomada chala birikkan xolda irsiylanadi. Genlar A-B-D ketma-ketlikda joylashgan bo’lib. ABD gametasining xosil bo’lishi 30% ga, Abd gametalarining xosil bo’lishi 10% ga, ABd gametalarining xosil bo’lishi 9% ga, AbD gametalarining xosil bo’lishi 1% ga teng. Trigeterozigota dominat genlarini bir tarafdan olgan o’simlik o’ziga o’xshash genotipli o’simlik bilan chatishtirilib 20 000 avlod olingan bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n2) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari hamda farzandlar genotipini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Mevasi tikonli, poyasi qizil, urug’ posti oq rangli avlod sonini aniqlang.\nb) Mevasi tikonsiz, poyasi qizil, urug’ posti chipor avlod sonini aniqlang.\nc) A va D genlari orasidagi xaqiqiy masofani aniqlang.\nd) Nokrosingover gametalardan xosil bo’lgan avlod sonini aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Mevasi tikonli, poyasi qizil, urug’ posti oq rangli avlod sonini aniqlang.",
+          "b) Mevasi tikonsiz, poyasi qizil, urug’ posti chipor avlod sonini aniqlang.",
+          "c) A va D genlari orasidagi xaqiqiy masofani aniqlang.",
+          "d) Nokrosingover gametalardan xosil bo’lgan avlod sonini aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_16_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3….Karam o’simligida urug’ postining qalin bo’lishi -A, yupqa bo’lishi-a genlari...",
+        "full_text": "3….Karam o’simligida urug’ postining qalin bo’lishi -A, yupqa bo’lishi-a genlariga bog’liq. Aa genotipli urug’ posti qalin o’simlikdan AAAaaa genotipli poliploid o’simlik olindi. Ushbu o’simlik o’zini o’zi urug’lantirishi natijasida F1 da jami 1200 ta o’simlik olingan bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari hamda farzandlar genotipini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) F1 genotipik nisbatini toping\nb) F1 fenotipik nisbatini toping\nc) F1 dagi urug’ posti qalin o’simliklar sonini toping.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) F1 genotipik nisbatini toping",
+          "b) F1 fenotipik nisbatini toping",
+          "c) F1 dagi urug’ posti qalin o’simliklar sonini toping."
+        ],
+        "solution_image": "images_yozma_29/day_16_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "17": {
+    "day": 17,
+    "title": "17-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1….Polidaktliya, Miopiya va katarakta kasalliklari bitta gomologik avtosoma xrom...",
+        "full_text": "1….Polidaktliya, Miopiya va katarakta kasalliklari bitta gomologik avtosoma xromasomada to’liq birikkan xolda nasldan naslga o’tadi (ba’zan mutatsiya tufayli genlar o’rni almashinadi. Natijada bazi odamlar miopiya va kararakta bilan kasal, normal barmoqli yoki aksincha polidaktliya va miopiya bilan sog’, katarakta bilan kasal bo’lishi mumkin). Ko’zning to’r pardasi angiomatoz kasalligi boshqa avtosomada joylashgan dominant gen kasalligi bo’lib 50% penetrantlikka ega. Qandsiz diabet jinsiy X xromasomaga birikkan dominant gen kasalligi.\nPolidaktliya va miopiya bo’yicha sog’, katarakta bilan kasallangan ko’zning angiomatoz kasalligi bo’yicha sog’lom geterozigota tashuvchi, qandsiz diabet bo’yicha sog’lom ayol. Polidaktliya va miopiya bilan kasallangan, katarakta bo’yicha sog’lom, Ko’zning angiomatoz kasalligi bo’yicha geterozigota kasal, qandsiz diabetga chalingan erkakka turmishga chiqdi. Oilada yuqoridagi barcha kasalliklar bo’yicha sog’lom o’g’il va barcha kasalliklar bilan kasallangan qiz farzand tug’ilgan bo’lsa,\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) oilada faqat ko’zning angiomatoz kasalligi bilan kasallangan qolgan belgilar bo’yicha sog’ farzand tug’ilish extimoli\nb) oilada faqat qandsiz diabet bo’yicha sog’lom qalgan barcha belgilar bo’yicha kasal farzand tug’ilish extimoli\nc) oilada ko’zning angiomatoz kasalligi va katarakta bilan kasallangan, qolgan belgilar bo’yicha sog’lom farzand tug’ilish extimoli\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) oilada faqat ko’zning angiomatoz kasalligi bilan kasallangan qolgan belgilar bo’yicha sog’ farzand tug’ilish extimoli",
+          "b) oilada faqat qandsiz diabet bo’yicha sog’lom qalgan barcha belgilar bo’yicha kasal farzand tug’ilish extimoli",
+          "c) oilada ko’zning angiomatoz kasalligi va katarakta bilan kasallangan, qolgan belgilar bo’yicha sog’lom farzand tug’ilish extimoli"
+        ],
+        "solution_image": "images_yozma_29/day_17_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2…Tovuqlar toj shaklining irsiylanishi ikki juft komplementar genlar ta’sirida y...",
+        "full_text": "2…Tovuqlar toj shaklining irsiylanishi ikki juft komplementar genlar ta’sirida yuzaga chiqadi. Genotipda A-B genlar birga kelishi toj shakli Yong’oqsimon bo’lishini, A-bb genlari gulsimon bo’lishini, aa-B genlari no’xatsimon bo’lishini, aabb genlari oddiy bo’lishni yuzaga chiqaradi. Tana rangi kumushsimon chipor bo’lishi, oltinsimon chipor bo’lish ustidan, oyoqlarida patni bo’lishi, oyoqlarida patni bo’lmasligi ustidan dominantlik qilib bu ikki hujft gen jinsiy X xromasomada chala birikkan xolda nasldan naslga o’tadi. Genlar orasidagi masofa 10 morganidaga teng.\nGulsimon tojli, oltinsimon chipor rangli, oyoqlari patsiz tovuq. No’xotsimon tojli, kumishsimon chipor rangli, oyoqlari patli dominant genlarini faqat bir tarafdan olgan xo’roz bilan chatishtirilganda Avlodlar orasida oddiy tojli, oltinsimon chipor rangli, oyoqlari patsiz jo’zalar xam bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Avlodda yong’oqsimon tojli, oltinsimon chipor rangli, oyoqlari patli jo’jalar xosil bo’lish extimolini % da toping.\nb) Avlodda oddiy tojli, kumushsimon chipor rangli, oyoqlari patsiz jo’jalar xosil bo’lish extimolini % da toping.\nc) avlodda no’xotsimon tojli, kumushsimon chipor rangli, oyoqlari patli jo’jalar xosil bo’lish extimolini % da aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Avlodda yong’oqsimon tojli, oltinsimon chipor rangli, oyoqlari patli jo’jalar xosil bo’lish extimolini % da toping.",
+          "b) Avlodda oddiy tojli, kumushsimon chipor rangli, oyoqlari patsiz jo’jalar xosil bo’lish extimolini % da toping.",
+          "c) avlodda no’xotsimon tojli, kumushsimon chipor rangli, oyoqlari patli jo’jalar xosil bo’lish extimolini % da aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_17_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3…Odamlarda miopiya kasalligi avtosoma dominant tipda irsiylanadi. Belgining yuz...",
+        "full_text": "3…Odamlarda miopiya kasalligi avtosoma dominant tipda irsiylanadi. Belgining yuzaga chiqishi turli xil ekspressivlikka ega\nNisbatan yaqindan ko’rish (-0,5) 30%\nYaqindan ko’rish ( -1) 50%\nJudda yaqindan ko’rish ( -2) 20%\nGeterozigota genotipli yaqindan ko’ruvchi qiz o’ziga o’xshash yigit bilan turmush qursa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini yozing;\n2) Pennet kataklariga ota-ona gametalarini va avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Oilada ota-onasiga o’xshash genotipli judda yaqindan ko’ruvchi farzand tug’ilish extimolini % da toping.\nb) Oilada gomozigota dominant genotipli nisbatan yaqindan ko’ruvchi farzand tug’ilish extimolini % da toping.\nc) Oilada ota-onasiga o’xshash genotipli yaqindan (-1) ko’ruvchi farzand tug’ilish extimolini % da toping.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Oilada ota-onasiga o’xshash genotipli judda yaqindan ko’ruvchi farzand tug’ilish extimolini % da toping.",
+          "b) Oilada gomozigota dominant genotipli nisbatan yaqindan ko’ruvchi farzand tug’ilish extimolini % da toping.",
+          "c) Oilada ota-onasiga o’xshash genotipli yaqindan (-1) ko’ruvchi farzand tug’ilish extimolini % da toping."
+        ],
+        "solution_image": "images_yozma_29/day_17_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "18": {
+    "day": 18,
+    "title": "18-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…Elliptositoz - (eritrotsitlar shakining ovalsimon bo’lishi natijasida yuzaga k...",
+        "full_text": "1…Elliptositoz - (eritrotsitlar shakining ovalsimon bo’lishi natijasida yuzaga keluvchi og’ir gemologik anemiya) autosoma dominant tipda irsiylanadi. Miopiya, katarakta va polidaktliya kaslliklari bitta gomologik xromasomada to’liq birikkan xolda irsiylanuvchi avtosoma dominant gen kasalliklari xisoblanadi. Ammo xar doim xam ushbu kasalliklar birgalikda uchrayvermaydi. Test-tez uchrab turuvchi mutatsiyalar tufayli genlar o’zgarishga uchrashi mumkin. Odam bo’y uzunligi uch juft polimer gen ta’sirida yuzaga chiqadi. Xar bir dominant gen 30 sm, retsessiv gen 25 sm ni yuzaga chiqaradi.\nEritrotsitlari normal shkilda bo’lgan, miopiya va katarakta bo’yicha kasal, normal barmoqli. Ikkinchi va uchinchi juft polimer geni bo’yicha geterozigota bo’yi 160 sm li Qiz. Elliptositoz bilan kasallangan, miopiya va katarakta bilan kasallanmagan, polidaktliya. Birinchi va ikkinchi juft polimer genlari gomozigota 175 sm li yigit nikohidan. Barcha\nkasalliklar bo’yicha sog’lom, bo’yi 160 sm li farzand tug’ilgan bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari hamda farzandlar genotipini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Oilada elliptositoz va polidaktliya bilan kasallangan, qolgan belgilar bo’yicha sog’lom. Bo’yi 165 sm li farzandlar xamda milopiya va katarakta bilan kasallangan qolgan belgilar bo’yicha sog’lom bo’yi 170 smli farzandlar tug’lish extimoli farqini % da toping.\nb) Oilada faqat elliptositoz bilan kasallangan, bo’yi 165 smli farzand va faqat eliptositoz bo’yicha kasal, 170 smli farzand tug’ilish extimoli farqini % da toping.\nc) Oilada barcha kasalliklar bo’yicha sog’om, bo’yi 175 smli farzand tug’ilish extimolini % da toping.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "a) autosoma dominant tipda irsiylanadi. Miopiya, katarakta va polidaktliya kaslliklari bitta gomologik xromasomada to’liq birikkan xolda irsiylanuvchi avtosoma dominant gen kasalliklari xisoblanadi. Ammo xar doim xam ushbu kasalliklar birgalikda uchrayvermaydi. Test-tez uchrab turuvchi mutatsiyalar tufayli genlar o’zgarishga uchrashi mumkin. Odam bo’y uzunligi uch juft polimer gen ta’sirida yuzaga chiqadi. Xar bir dominant gen 30 sm, retsessiv gen 25 sm ni yuzaga chiqaradi.",
+          "c) topshiriqlarni bajaring.",
+          "a) Oilada elliptositoz va polidaktliya bilan kasallangan, qolgan belgilar bo’yicha sog’lom. Bo’yi 165 sm li farzandlar xamda milopiya va katarakta bilan kasallangan qolgan belgilar bo’yicha sog’lom bo’yi 170 smli farzandlar tug’lish extimoli farqini % da toping.",
+          "b) Oilada faqat elliptositoz bilan kasallangan, bo’yi 165 smli farzand va faqat eliptositoz bo’yicha kasal, 170 smli farzand tug’ilish extimoli farqini % da toping.",
+          "c) Oilada barcha kasalliklar bo’yicha sog’om, bo’yi 175 smli farzand tug’ilish extimolini % da toping."
+        ],
+        "solution_image": "images_yozma_29/day_18_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2…Qalampir o’simligida mevasining qizil rangda bo’lishi(A), yashil rangda bo’lis...",
+        "full_text": "2…Qalampir o’simligida mevasining qizil rangda bo’lishi(A), yashil rangda bo’lishi ustidan. Barglarini qirrali bo’lishi(B), tekis bo’lishi ustidan. Ertapisharligi(D), kechpisharligi ustidan to’liq dominantlik qilib bitta gomologik xromasomada chala birikkan xolda irsiylanadi. A va B genlari orasidagi aniq masofa 20m, B va D genlari orasidagi aniq masofa 10m. interferensiya 05 ga teng.\nTrigomozigota qizil mevali, bargi qirrali, ertapishar qalampir o’simligi, trigomozigota yashil mevali, tekis bargli, kechpishar qalampir o’simligi bilan chatishtirilib olingan F1 avlod o’zaro qayta chatishtirilib 200 000 ta avlod olingan bo’lsa,\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari hamda farzandlar genotipini yozing;\n2) F2 avlod genotipini pennet kataklariga to’iq % lari bilan yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Qizil mevali. Barglari tekis, kechpishar avlod sonini toping.\nb) Yashil mevali bargi qirrali, ertapishar avlod sonini toping.\nc) Yashil mevali, bargi qirrali, kechpishar avlod sonini toping.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Qizil mevali. Barglari tekis, kechpishar avlod sonini toping.",
+          "b) Yashil mevali bargi qirrali, ertapishar avlod sonini toping.",
+          "c) Yashil mevali, bargi qirrali, kechpishar avlod sonini toping."
+        ],
+        "solution_image": "images_yozma_29/day_18_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3.. Makkajo’xori o’simligida so’tsini yirik bo’lishi (D), mayda bo’lishi (d) ust...",
+        "full_text": "3.. Makkajo’xori o’simligida so’tsini yirik bo’lishi (D), mayda bo’lishi (d) ustidan to’liq dominantlik qiladi. Geterozigota Dd genotipli yirik sotali o’simlikning DDdd genotipli poliploid navi yaratildi. Agar o’simlik o’z o’zini urug’lantirib ko’paysa va F1 da 1440 ta avlod olinsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini va F1avlod genotipini yozing;\n2) Pennet kataklariga populyatsiadagi xosil bo’lishi mumkin bo’lgan gametalarini va ularning %larini avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) F1 avlodning fenotipik nisbatini aniqlang.\nb) F1 avlodning genotipik nisbatini aniqlang.\nc) F1 da nechta Yirik so’tali o’simlik xosil bo’lganligini aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "d) ustidan to’liq dominantlik qiladi. Geterozigota Dd genotipli yirik sotali o’simlikning DDdd genotipli poliploid navi yaratildi. Agar o’simlik o’z o’zini urug’lantirib ko’paysa va F1 da 1440 ta avlod olinsa.",
+          "c) topshiriqlarni bajaring.",
+          "a) F1 avlodning fenotipik nisbatini aniqlang.",
+          "b) F1 avlodning genotipik nisbatini aniqlang.",
+          "c) F1 da nechta Yirik so’tali o’simlik xosil bo’lganligini aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_18_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "19": {
+    "day": 19,
+    "title": "19-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1….Odamlarda sil kasaliga moyillik avtosoma dominant, qandli diabet avtosoma ret...",
+        "full_text": "1….Odamlarda sil kasaliga moyillik avtosoma dominant, qandli diabet avtosoma retsessiv. Qon guruhlarini yuzaga chiqishi kodoninantli asosida yuzaga chiqadi. Ushbu belgilar irsiylanishi boshqa-boshqa gomologik xromasomada joylashgan genlarga bog’liq bo’lib mustaqil xolda irsiylanadi. Daltonizm va gemofiliya kasalliklari jinsiy X xromasomada chala birikkan xolda irsiylanuvchi retsessiv gen kasalliklari xisoblanadi. Genlar orasidagi masofa 22m ga teng.\nSil kasaliga moyil bo’lgan(geterozigota genotipli), qandli diabet bo’yicha kasal, IV-qon giruhli, daltonizm va gemofiliya bo’yicha sog’lom dominant genlarini birini otasidan, ikkinchisini onasidan olgan QIZ. Sil kasaliga chalinmagan, qandli diabet bilan kasal, I-qon guruhli, daltonizm va gemofiliya bo’yicha kasal YIGIT bilan turmush qursa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari hamda farzandlar genotipini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Oilada qandli diabet bo’yicha kasal, qolgan barcha kasalliklar bo’yicha sog’lom II-qon guruhli farzandlar tug’lish extimoli % da toping.\nb) Oilada barcha kasalliklar bilan kasallangan, III-qon guruhli farzand tug’ilish extimoli % da toping.\nc) Oilada qandli diabet va gemofiliya bilan kasallangan, qalgan kasalliklar bo’yicha sog’lom, III-qon guruhli farzand tug’ilish extimolini % da toping.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Oilada qandli diabet bo’yicha kasal, qolgan barcha kasalliklar bo’yicha sog’lom II-qon guruhli farzandlar tug’lish extimoli % da toping.",
+          "b) Oilada barcha kasalliklar bilan kasallangan, III-qon guruhli farzand tug’ilish extimoli % da toping.",
+          "c) Oilada qandli diabet va gemofiliya bilan kasallangan, qalgan kasalliklar bo’yicha sog’lom, III-qon guruhli farzand tug’ilish extimolini % da toping."
+        ],
+        "solution_image": "images_yozma_29/day_19_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2…G’o’za o’simligida Ko’saklarini yirik bo’lishi (A), mayda bo’lishi ustidan. Ba...",
+        "full_text": "2…G’o’za o’simligida Ko’saklarini yirik bo’lishi (A), mayda bo’lishi ustidan. Bargini toq yashil bo’lishi (B), och yashil bo’lishi ustidan. Poyasini baland bo’lishi(D), past bo’lishi ustidan to’liq dominantlik qilib. Boshqa boshqa gomologik xromasomalarda joylashgan genlar orqali irsiylanadi. O’simlik populatsiyasida A genining uchrash extimoli 70% ga, B genining uchrash extimoli 80% ga, d genining uchrash extimoli 10% ga teng.\nNazariy jixatdan Trigeterozigota o’simliklar o’zaro chatishtirilib 200 000 avlod olingan bo’lsa,\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari hamda farzandlar genotipini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Mayda ko’sakli, toq yashil bargli, baland bo’yli avlod sonini toping.\nb) Yirik ko’sakli, och yashil bargli, baland bo’yli avlod sonini toping.\nc) Yirik ko’sakli, toq yashil bargli, past bo’yli avlod sonini toping.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Mayda ko’sakli, toq yashil bargli, baland bo’yli avlod sonini toping.",
+          "b) Yirik ko’sakli, och yashil bargli, baland bo’yli avlod sonini toping.",
+          "c) Yirik ko’sakli, toq yashil bargli, past bo’yli avlod sonini toping."
+        ],
+        "solution_image": "images_yozma_29/day_19_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3…O’simlikning a b c hujayrasida xosil bo’lgan jami ATF miqdori 840 ta. Sitoplaz...",
+        "full_text": "3…O’simlikning a b c hujayrasida xosil bo’lgan jami ATF miqdori 840 ta. Sitoplazmada xosil bo’lgan ATF ning 1/6 qismi a hujayrada. 2/6 qismi b hujayrada, 3/6 qismi c hujayrada xosil bo’lgan. To’la parchalangan glukozalar a b c hujayralarda mos ravishda 1: 1,5 : 2,25 nisbatda. Jami tola parchalangan glukoza va chala parchalangan glukoza 40 molga farq qilsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) Ishlanish usulini to’liq xisob kitoblarini ketma-ketlikda yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) a hujayrada to’la parchalanish natijasida xosil bo’lgan issiqlik energiyasini kj da toping.\nb) b hujayrada to’la parchalanish natijasida xosil bo’lgan ATF energiyasini kj da toping.\nc) Umumiy chala parchalanish natijasida xosil bo’lgan ATF energiyasini kj da toping.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) a hujayrada to’la parchalanish natijasida xosil bo’lgan issiqlik energiyasini kj da toping.",
+          "b) b hujayrada to’la parchalanish natijasida xosil bo’lgan ATF energiyasini kj da toping.",
+          "c) Umumiy chala parchalanish natijasida xosil bo’lgan ATF energiyasini kj da toping."
+        ],
+        "solution_image": "images_yozma_29/day_19_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "20": {
+    "day": 20,
+    "title": "20-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…Sichqonlarda yungining sariq bo’lishi(A), qora bo’lishi ustidan dominantlik qi...",
+        "full_text": "1…Sichqonlarda yungining sariq bo’lishi(A), qora bo’lishi ustidan dominantlik qiladi. Dominant A genlari domozigota xolda sichqonlarni embrional davrdayoq o’limiga olib keladi. Pnevmokokk va stafilokokk bakteriyalariga chidamlilik genlari bitta avtosoma xromasomasida joylashgan bo’lib chala birikkan xolda dominant tipda irsiylanadi. Genlar orasidagi masofa 16 morganidaga teng bo’lib. Krosingover faqat urg'ochilarida kuzatiladi. Dumini kalta bo’lishi, uzun bo’lishi ustidan to’liq dominantlik qilib jinsiy X xromasomaga birikkan xolda irsiylanadi.\nSariq yungli, dominant genlarini faqat bir tarafdan olgan pnevmokokk va stafilokokk ga chidamli, uzun dumli urg’ochi sichqon. Sariq yungli, pnevmokokk va stafilokokk ga chidamli dominant genlarining ikkalasini ham onasidan olgan, kalta dumli erkak sichqon bilan chatishtirilgan bo'lsa, ....\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari hamda farzandlar genotipini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Sariq yungli, kasalliklarga chidamli, dumi kalta sichqonlar tug’ilgan avlodning necha % ni tashkil qilishini aniqlang.\nb) Pnevmokokk va stafilokokk ga chidamli bo’lgan dumi kalta, embrional davrda xalok bo’lgan sichqonlar xosil bo’lish extimolini % da toping.\nc) Tug’ilgan avlodning necha % ni qora rangli, ikki kasallikka chidamsiz, dumi uzun avlod tashkil qilishini aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Sariq yungli, kasalliklarga chidamli, dumi kalta sichqonlar tug’ilgan avlodning necha % ni tashkil qilishini aniqlang.",
+          "b) Pnevmokokk va stafilokokk ga chidamli bo’lgan dumi kalta, embrional davrda xalok bo’lgan sichqonlar xosil bo’lish extimolini % da toping.",
+          "c) Tug’ilgan avlodning necha % ni qora rangli, ikki kasallikka chidamsiz, dumi uzun avlod tashkil qilishini aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_20_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2….Jag'-jag' o'simligida barglarining qirqilgan bo'lishi (A), butun bo’lishi ust...",
+        "full_text": "2….Jag'-jag' o'simligida barglarining qirqilgan bo'lishi (A), butun bo’lishi ustidan. gulining oq bo'lishi (B), gulining och sariq bo'lishi ustidan. ko'p urug' hosil qilishi (D), kam urug' hosil qilishi ustidan to’liq dominantlik qilib. Boshqa boshqa gomologik xromasomalarda joylashgan genlar orqali irsiylanadi. O’simlik populatsiyasida A genining uchrash extimoli 80% ga, B genining uchrash extimoli 50% ga, d genining uchrash extimoli 40% ga teng.\nNazariy jixatdan Trigeterozigota o’simliklar o’zaro chatishtirilib 200 000 avlod olingan bo’lsa,\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari hamda shartda so'ralgan farzandlar genotipini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) qirqilgan bargli, och sariq gulga ega ko'p urug' hosil qiladigan avlod sonini toping.\nb) barglari butun oq gulga ega kam urug' hosil qiladigan avlod sonini toping.\nc)  barcha belgisi bo'yicha geterozigota avlod sonini barcha belgisi bo'yicha retsessiv avlod sonidan nechtaga ko'p?",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) qirqilgan bargli, och sariq gulga ega ko'p urug' hosil qiladigan avlod sonini toping.",
+          "b) barglari butun oq gulga ega kam urug' hosil qiladigan avlod sonini toping.",
+          "c)  barcha belgisi bo'yicha geterozigota avlod sonini barcha belgisi bo'yicha retsessiv avlod sonidan nechtaga ko'p?"
+        ],
+        "solution_image": "images_yozma_29/day_20_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3…..Tajribada yirik ko'sakli g’o’za o’simligi mayda ko'sakli o’simlik changchila...",
+        "full_text": "3…..Tajribada yirik ko'sakli g’o’za o’simligi mayda ko'sakli o’simlik changchilari bilan chatishtirilib olingan avlod Bb ni Ekspremental poliplodiya usuli bilan tetraploid navga aylantirildi BBbb. Ushbu o’simlik bu o'simlikning ko'sagi yirik bo’ladi. Tetraploid nav o’zini o’zi urug’lantirishi natijasida F2 da jami 2160 ta yangi avlod olingan bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari hamda farzandlar genotipini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) ko'sagi yirik avlod sonini toping.\nb) ko'sagi mayda avlod sonini aniqlang.\nc) BBbb genotipga ega o'simliklar soni, Bbbb genotipga ega o'simliklardan nechtaga ko'p?\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) ko'sagi yirik avlod sonini toping.",
+          "b) ko'sagi mayda avlod sonini aniqlang.",
+          "c) BBbb genotipga ega o'simliklar soni, Bbbb genotipga ega o'simliklardan nechtaga ko'p?"
+        ],
+        "solution_image": "images_yozma_29/day_20_sol_3.png"
+      }
+    ],
+    "images_count": 4
+  },
+  "21": {
+    "day": 21,
+    "title": "21-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1….Echki, uy sichqoni, qoramol, tovuq, va qo’yda somatik hujayrasidagi umumiy xr...",
+        "full_text": "1….Echki, uy sichqoni, qoramol, tovuq, va qo’yda somatik hujayrasidagi umumiy xromasomalar soni yig’indisi 270 ta. Uy sichqoni embrioni maydalanish bosqichi 4-meridianal bo’linishdan so’ng xosil bo’lgan jami blastomerdagi avtosoma xromasomalari soni va Qoramol spermatogenez jarayoni 4 ta spermatogoniylardan xosil bo’lgan spermatidalardagi umumiy xromatinlar soni yig’indisi 2736 ta. Qo’y embrioni maydalanish bosqichi 3-ekvaterial bo’linishdan so’ng xosil bo’lgan hujayralardagi jinsiy xromasomalar soni, avtosoma xromasomalar sonidan 6400 taga kam. Tovuq va qo’y tuxum hujayralaridagi avtosoma xromasomalari soni yig’indisi 64 ta. Echki jinsiy hujayrasi meyoz bo’linish anafaza-1 bosqichida xar bir qutiblarda joylashgan avtosoma xromatidalari va qo’y jinsiy hujayrasi meyoz bo’linish anafaza -2 bosqichidagi umumiy xromasomalari soni yig’indisi 112 ta bo’lsa,\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) berilgan ma’lumotlar asosida matematik amallarni to’liq bajaring.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Qoramol somatik hujayrasi mitoz metafaza bosqichida avtosoma xromasomalari sonini aniqlang.\nb) Echki jinsiy hujayrasi meyoz bo’linish anafaza 1-bosqichida 1-tarafga otalik xromasomasidan 18 ta o’tkan bo’lsa, Ikkinchi tarafga o’tkan onalik xromasomalari sonini aniqlang.\nc) Sichqon tana hujayrasi mitoz bo’linish anafaza bosqichida 10 ta xromasoma sentromeralari uzilmay bir tarafga o’tib qolgan bo’lsa, ushbu tarafdagi xromatidalar sonini aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Qoramol somatik hujayrasi mitoz metafaza bosqichida avtosoma xromasomalari sonini aniqlang.",
+          "b) Echki jinsiy hujayrasi meyoz bo’linish anafaza 1-bosqichida 1-tarafga otalik xromasomasidan 18 ta o’tkan bo’lsa, Ikkinchi tarafga o’tkan onalik xromasomalari sonini aniqlang.",
+          "c) Sichqon tana hujayrasi mitoz bo’linish anafaza bosqichida 10 ta xromasoma sentromeralari uzilmay bir tarafga o’tib qolgan bo’lsa, ushbu tarafdagi xromatidalar sonini aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_21_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2…Malina o’simligida mevasini to’q qizil bo’lishi (A), och qizil bo’lishi ustida...",
+        "full_text": "2…Malina o’simligida mevasini to’q qizil bo’lishi (A), och qizil bo’lishi ustidan. Barglarini qirrali(B), bo’lishi tekis ertapisharligi (D), kechpisharligi ustidan to’liq dominantlik qilib, bitta gomologik xromasomada chala birikkan xolda irsiylanadi.\nTrigomozigota to’q qizil mevali, bargi qirrali, ertapishar malina o’simligi bilan trigomozigota och qizil mevali, bargi tekis, kechpishar malina o’simligi bilan chatishtirilib, olingan F1 avlod o’zaro qayta chatishtirilib umumiy 20 000 ta avlod olindi. A va B genlari orasidagi haqiqiy masofa 22%, B va D genlari orasidagi haqiqiy masofa 12%, amaliy qo’sh krosingover 2% bo’lsa,\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalarini yozing;\n2) F2 avloddan so’ralgan organizmlar genotipini pennet kataklariga to’liq % lari bilan yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) To’q Qizil mevali, barglari tekis, kechpishar avlod sonini toping.\nb) Och qizil mevali bargi qirrali, ertapishar avlod sonini toping.\nc) Trigomozigota holatidagi to’q qizil mevali, barglari qirrali, ertapishar avlodlar sonini aniqlang.\nd) Interfrensiya qiymatini aniqlang?\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) To’q Qizil mevali, barglari tekis, kechpishar avlod sonini toping.",
+          "b) Och qizil mevali bargi qirrali, ertapishar avlod sonini toping.",
+          "c) Trigomozigota holatidagi to’q qizil mevali, barglari qirrali, ertapishar avlodlar sonini aniqlang.",
+          "d) Interfrensiya qiymatini aniqlang?"
+        ],
+        "solution_image": "images_yozma_29/day_21_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3.. Ikki pallali molyuskada chig’anoqdagi chiziqlar quydagicha irsiylanadi. Qirr...",
+        "full_text": "3.. Ikki pallali molyuskada chig’anoqdagi chiziqlar quydagicha irsiylanadi. Qirrali chiziqlarning bo’lishi tekis chiziqlarning bo’lishi ustidan chala dominantlik qiladi. Geterozigota genotipga ega molyuskalar to’lqinsimon chiziqlarga ega. Molyuskalarning yashovchanligi chiziqlar tuzilishiga bog’liq. Qirrali chiziqlarga ega molyuskalar tuxumdan chiqish extimoli 90%, to’lqinsimon chiziqli molyuskalarda 70%, tekis chiziqli molyuskalarda 60% ga teng. To’qinsimon chiziqli molyuskalar o’zaro chatishtirilganda xosil bo’lgan tuxumlardan 140 ta to’lqinsimon chiziqli molyuska chiqqan bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari hamda farzandlar genotipini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Tuxumdan chiqqan qirrali chig’anoqqa ega molyuskalar sonini aniqlang.\nb) Tuxumdan chiqqan tekis chig’anoqqa ega molyuskalar sonini aniqlang.\nc) Dastlabki tuxumlar sonini aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Tuxumdan chiqqan qirrali chig’anoqqa ega molyuskalar sonini aniqlang.",
+          "b) Tuxumdan chiqqan tekis chig’anoqqa ega molyuskalar sonini aniqlang.",
+          "c) Dastlabki tuxumlar sonini aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_21_sol_3.png"
+      }
+    ],
+    "images_count": 5
+  },
+  "22": {
+    "day": 22,
+    "title": "22-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…Malum DNK fragmenti 1-zanjiridagi Purin asosi 2-zanjirdagi purin asosidan 220 ...",
+        "full_text": "1…Malum DNK fragmenti 1-zanjiridagi Purin asosi 2-zanjirdagi purin asosidan 220 ta ko'p bo'lib 1- va 2-zanjirdagi C nukleotidlar nisbati 1:1 bo'lsa Shu DNK ning 30% nukleotidi hisobiga sintezlangan oqsil tarkibida peptid bog'lar 105 ta tashkil qildi, shu DNK tarkibida 2540 ta H bog' mavjud.\nTopshiriqni bajarish tartibi:\n1) DNK malekulasidagi jami nukleotidlar sonini toping.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) DNK fragmentining 1-zanjiridagi A nukleotidlar sonini toping?\nb) DNK fragmentining 2-zanjirdagi purin asoslari orasida nechta H bog' bor?\nc) DNK fragmentining 2-zanjirdagi Purin asosi 1-zanjirdagi G nukleotidan qanchaga ko'p?\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) DNK fragmentining 1-zanjiridagi A nukleotidlar sonini toping?",
+          "b) DNK fragmentining 2-zanjirdagi purin asoslari orasida nechta H bog' bor?",
+          "c) DNK fragmentining 2-zanjirdagi Purin asosi 1-zanjirdagi G nukleotidan qanchaga ko'p?"
+        ],
+        "solution_image": "images_yozma_29/day_22_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2…Bangidevona o’simligida gulkosachabarglarining yirik bo’lishi (A), mayda bo’li...",
+        "full_text": "2…Bangidevona o’simligida gulkosachabarglarining yirik bo’lishi (A), mayda bo’lishi ustidan. Gultoji-barglarining tekis bo’lishi (B), o’yilgan bo’lishi ustidan. Mevasini tikanli bo’lishi (D), tikansiz bo’lishi ustidan to’liq dominantlik qilib bitta gomologik xromasomalarda chala birikkan holda irsiylanadi.  A va B genlari orasidagi aniq masofa 28%,  B va D genlari orasidagi aniq masofa 20%, amaliy qo’sh krossingover 4% ga teng.\nGulkosachabarglari yirik, gultojibarglari tekis, mevasi tikanli bangidevona o’simligi,  Gulkosachabarglari mayda, gultojibarglari o’yilgan, mevasi tikonsiz o’simlik bilan chatishtirilganda F1 da faqat gulkosachabarglari yirik, gultojibarglari tekis, mevasi tikanli bo’lgan avlod olindi. F1 da hosil bo’lgan o’simliklar o’zaro chatishtirilib 10000 ta avlod olingan bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipini va F1avlod genotipini yozing;\n2) Pennet kataklariga populatsiyadagi hosil bo’lishi mumkin bo’lgan gametalarini va ularning % larini, so’ralgan avlodlar genotipini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Avlod orasidan gulkosachabarglari mayda, gultoji-barglari o’yilgan, mevasi tikansiz individlar sonini aniqlang.\nb) Avlod orasidan gulkosachabarglari yirik, gultoji-barglari tekis, mevasi tikansiz individlar sonini aniqlang.\nc) Avlod orasidan gulkosachabarglari mayda, gultojibarglari o’yilgan, mevasi tikanli individlar sonini aniqlang.\nd) nazariy krossingover foizini aniqlang?\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Avlod orasidan gulkosachabarglari mayda, gultoji-barglari o’yilgan, mevasi tikansiz individlar sonini aniqlang.",
+          "b) Avlod orasidan gulkosachabarglari yirik, gultoji-barglari tekis, mevasi tikansiz individlar sonini aniqlang.",
+          "c) Avlod orasidan gulkosachabarglari mayda, gultojibarglari o’yilgan, mevasi tikanli individlar sonini aniqlang.",
+          "d) nazariy krossingover foizini aniqlang?"
+        ],
+        "solution_image": "images_yozma_29/day_22_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3….O‘simlik 3 ta hujayrada jami 399 ta ATF  hosil bo‘ldi, ulardan  4/21 qismi bi...",
+        "full_text": "3….O‘simlik 3 ta hujayrada jami 399 ta ATF  hosil bo‘ldi, ulardan  4/21 qismi birinchi hujayrada, 5/21 qismi ikkinchi hujayrada, 12/21 qismi uchinchi hujayrada hosil bo‘ldi. Birinchi hujayrada parchalanmay qolgan sut kislota miqdori ikkinchi hujayrada parchalanmay qolgan sut kislotadan 2 marta ko‘p, uchinchi hujayrada parchalanmay qolgan sut kislota miqdori birinchi hujayrada parchalanmagan sut kislotadan 2 marta ko‘p. Ikkinchi hujayrada to‘liq parchalangan glukoza, birinchi hujayrada parchalanmagan sut kislotadan 19 marta kam bo’lsa, quyidagi savollarga javob bering ?\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) birinchi hujayradagi aerob bosqichda ajralgan issiqlik energiyasini kj da aniqlang  ?\nb) uchinchi hujayrada necha foiz glukoza to'liq parchalangan ?\nc) 2-hujayrada glikoliz bosqichida ajralgan issiqlik energiyasini kj da aniqlang ?",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) birinchi hujayradagi aerob bosqichda ajralgan issiqlik energiyasini kj da aniqlang  ?",
+          "b) uchinchi hujayrada necha foiz glukoza to'liq parchalangan ?",
+          "c) 2-hujayrada glikoliz bosqichida ajralgan issiqlik energiyasini kj da aniqlang ?"
+        ],
+        "solution_image": "images_yozma_29/day_22_sol_3.png"
+      }
+    ],
+    "images_count": 4
+  },
+  "23": {
+    "day": 23,
+    "title": "23-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…Quyonlarda yung rangini irsiylanishi Ko‘p allelik qoidasi asosida yuzaga chiqa...",
+        "full_text": "1…Quyonlarda yung rangini irsiylanishi Ko‘p allelik qoidasi asosida yuzaga chiqadi. C geni rangni aguti (qora) bo‘lishini. c h - geni himolay rangni. cch -geni shinshila rangni. c -geni albinost (oq) rangni yuzaga chiqaradi. Genlarni bir biridan ustunlik qilishi quydagi tartibda ( C --c h ---cch---c ) xar bir genning uchrash extimoli yuqiridagi tartibda 10% ga kamayib boradi. Jami 100% ni tashkil qiladi. Ko’z rangini qizil bo’lishi-D, pushti bo’lishi -d ustidan. Yungini xurpaygan bo’lishi-L, tekis bo’lishi-l ustidan to’liq domiantlik qilib bir-biridan mustaqil xolda irsiylanadi. Populyatsiyada D genining uchrash extimoli 60% ga, L gening uchrash extimoli 70% ga teng.\nTrigeterozigota onasi shinshilla bo’lgan o’zi aguti, qizil ko’zli, yungi hurpaygan urg’ochi quyon. Trigeterozigota onasi albinost bo’lgan o’zi himolay, qizil ko’zli, yungi xurpaygan erkak quyon bilan chatishtirilsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari hamda farzandlar genotipini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Avlodda shinshilla rangli, pushti ko’zli, yungi xurpaygan quyonlar xosil bo’lish extimolini % da toping.\nb) Avlodda aguti rangli, qizil ko’zli, yungi tekis quyonlar xosil bo’lish extimolini % da aniqlang.\nc) Avlodda himolay rangli, pushti ko’zli, tekis yungli quyonlar xosil bo’lish extimolini % da toping.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "a) bo‘lishini. c h - geni himolay rangni. cch -geni shinshila rangni. c -geni albinost (oq) rangni yuzaga chiqaradi. Genlarni bir biridan ustunlik qilishi quydagi tartibda ( C --c h ---cch---c ) xar bir genning uchrash extimoli yuqiridagi tartibda 10% ga kamayib boradi. Jami 100% ni tashkil qiladi. Ko’z rangini qizil bo’lishi-D, pushti bo’lishi -d ustidan. Yungini xurpaygan bo’lishi-L, tekis bo’lishi-l ustidan to’liq domiantlik qilib bir-biridan mustaqil xolda irsiylanadi. Populyatsiyada D genining uchrash extimoli 60% ga, L gening uchrash extimoli 70% ga teng.",
+          "c) topshiriqlarni bajaring.",
+          "a) Avlodda shinshilla rangli, pushti ko’zli, yungi xurpaygan quyonlar xosil bo’lish extimolini % da toping.",
+          "b) Avlodda aguti rangli, qizil ko’zli, yungi tekis quyonlar xosil bo’lish extimolini % da aniqlang.",
+          "c) Avlodda himolay rangli, pushti ko’zli, tekis yungli quyonlar xosil bo’lish extimolini % da toping."
+        ],
+        "solution_image": "images_yozma_29/day_23_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2…",
+        "full_text": "2…\nKanakunjut o’simligida mevasining tikanli bo’lishi-A, poyasining qizil rangda bo’lishi-B, urug’ po'sti chipor rangda bo’lishi-D genlariga bog’liq bo’lib, ushbu genlar bitta gomologik xromasomada chala birikkan xolda irsiylanadi. Genlar A-B-D ketma-ketlikda joylashgan bo’lib. Trigeterozigota o’simliklar o'zaro chatishtirilganda ABd gametasining xosil bo’lishi 30% ga, AbD gametalarining xosil bo’lishi 10% ga, ABD gametalarining xosil bo’lishi 8% ga, Abd gametalarining xosil bo’lishi 2% ga teng bo'lsa, va chatishtirish natijasida 10 000 avlod olingan bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari hamda farzandlar genotipini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Mevasi tikanli, poyasi qizil, urug’ posti oq rangli avlod sonini aniqlang.\nb) Mevasi tikansiz, poyasi qizil, urug’ posti chipor avlod sonini aniqlang.\nc) A va D genlari orasidagi xaqiqiy masofani aniqlang.\nd) Nokrosingover gametalardan xosil bo’lgan avlod sonini aniqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Mevasi tikanli, poyasi qizil, urug’ posti oq rangli avlod sonini aniqlang.",
+          "b) Mevasi tikansiz, poyasi qizil, urug’ posti chipor avlod sonini aniqlang.",
+          "c) A va D genlari orasidagi xaqiqiy masofani aniqlang.",
+          "d) Nokrosingover gametalardan xosil bo’lgan avlod sonini aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_23_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3….",
+        "full_text": "3….\nDiploid navli Qizil donli (A) uzun poyali (B) AaBB genotipli bug'doy tetraploid navli AAaaBBbb genotipli bug‘doy tomonidan changlatilganida 72 000 avlod olindi . Yuqoridagi ma’lumotlarga asosan quyidagilarni bajaring\nTopshiriq bajarish tartibi :\n1 )Belgilar va ularni boshqaruvchi genlarni , ota ona genotipi va gameta yozing.\n2) Pennet katagidagi avlodlar ko’rsatilsin .\nBerilgan ma’lumotlardan foydalangan holda quyidagilarni aniqlang (a-d)\na) Fenotipik sinflar nisbatini aniqlang\nb) Genotipik sinflar sonini aniqlang\nc) Qizil donli uzun poyali o’simliklar sonini aniqlang?\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "d)\na) Fenotipik sinflar nisbatini aniqlang",
+          "b) Genotipik sinflar sonini aniqlang",
+          "c) Qizil donli uzun poyali o’simliklar sonini aniqlang?"
+        ],
+        "solution_image": "images_yozma_29/day_23_sol_3.png"
+      }
+    ],
+    "images_count": 5
+  },
+  "24": {
+    "day": 24,
+    "title": "24-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…..Yovvoyi Makkajo’xori o’simligida mevasining yetillishi ikki juft ko’p allell...",
+        "full_text": "1…..Yovvoyi Makkajo’xori o’simligida mevasining yetillishi ikki juft ko’p allellik qoidasi asosida irsiylanuvchi genlarga bog’liq xolda yuzaga chiqadi.\n1-juftdagi A-geni bahorgilikni, a1 -geni yozgilikni, a2-geni kuzgilikni yuzaga chiqaradi. Genlarni o’zaro ustunlik darajasi quydagicha: A>a1>a2. populatsiyada A genining uchrash extimoli 60% ga, a1 gening uchrash extimoli 30% ga, a2 genining uchrash extimoli 10% ga teng.\n2-Juftdagi B-geni ertapisharlikni, b1-geni o’rtapisharlikni, b2-geni kechpisharlikni yuzaga chiqaradi. Genlarni o’zaro ustinlik darajasi quydagicha: B>b1>b2. populasiyada B genining uchrash extimoli 50% ga, b1 genining uchrash extimoli 30% ga, b2 genining uchrash extimoli 20% ga teng bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, gen va genotip chastotasini, populyatsiyadagi umumiy gametalar kombinatsiyasini yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Populatsiyadagi yozgi o’rtapishar o’simliklar uchrash extimolini % da toping.\nb) Populatsiyadagi kuzgi ertapishar o’simliklar uchrash extimolini % da toping.\nc) Populatsiyadagi baxorgi kechpishar o’simliklar uchrash extimolini % da toping.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Populatsiyadagi yozgi o’rtapishar o’simliklar uchrash extimolini % da toping.",
+          "b) Populatsiyadagi kuzgi ertapishar o’simliklar uchrash extimolini % da toping.",
+          "c) Populatsiyadagi baxorgi kechpishar o’simliklar uchrash extimolini % da toping."
+        ],
+        "solution_image": "images_yozma_29/day_24_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2…",
+        "full_text": "2…\nMakkajo’xori o’simligida don rangining Qizil bo’lishi-A geniga, sariq bo’lishi-a1 geniga, oq bo’lishi-a2 geniga bog’liq. Daladagi geterozigota genotipga ega sariq donli makkajo’xorilarning 20% qismi oq donli makkajo’xorilarning changlari bilan suniy changlantirildi. 20% qismi AA genotipli qizil donli makkajo’xorilar changlari bilan suniy changlantirildi. 10% qismi Aa1 genotipli makkajo’xori changlari bilan suniy changlantirildi, qolgan qismi o’zini o’zi changlantirgan bo’lsa va jami 1000 ta avlod olingan bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari hamda farzandlar genotipini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Avlodlar orasidagi sariq donli makkajo’xorilar sonini toping.\nb) Avlodlar orasidagi oq donli makkajo’xorilar sonini toping.\nc) Avlodlar orasidagi qizil donli makkajo’xorilar sonini toping.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Avlodlar orasidagi sariq donli makkajo’xorilar sonini toping.",
+          "b) Avlodlar orasidagi oq donli makkajo’xorilar sonini toping.",
+          "c) Avlodlar orasidagi qizil donli makkajo’xorilar sonini toping."
+        ],
+        "solution_image": "images_yozma_29/day_24_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3….",
+        "full_text": "3….\nMakkajo’xori o’simligida A geni so’tasini 10 sm bo’lishini, a geni 5 sm bo’lishini yuzaga chiqaradi. 1-tajribada so’tasi 20 sm bo’lgan AA genotipli makkajo’xori va so’tasi 10 sm bo’lgan aa genotipli makkajo’xori o’simliklari o’zaro chatishtirilib so’tasi 15 sm bo’lgan Aa genotipli makkajo’xori olindi. So’ngra olingan avlod ekspremental poliplodiya usuli bilan so’tasi 30 sm bo’lgan tetraploid nav yaratildi. 2- tajribada so’tasi 20 sm bo’lgan o’simliklardan olingan avlod ekspremental poliplodiya yo’li bilan so’tasi 40 sm bo’lgan AAAA genotipli tetraploid o’simlikka aylantirildi. 1- va 2- tajribada olingan tetraploid navlar o’zaro chatishtirilganda. Jami 540 ta avlod xosil bo’lgan bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari va farzandlar genotipini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Avlodlar orasidagi 40 sm so’ta xosil qiluvchi makkajo’xorilar sonini toping\nb) Avlodlar orasidagi 30 sm so’ta xosil qiluvchi makkajo’xorilar sonini toping\nc) Avlodlar orasidagi 35 sm so’ta xosil qiluvchi makkajo’xorilar sonini toping\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Avlodlar orasidagi 40 sm so’ta xosil qiluvchi makkajo’xorilar sonini toping",
+          "b) Avlodlar orasidagi 30 sm so’ta xosil qiluvchi makkajo’xorilar sonini toping",
+          "c) Avlodlar orasidagi 35 sm so’ta xosil qiluvchi makkajo’xorilar sonini toping"
+        ],
+        "solution_image": "images_yozma_29/day_24_sol_3.png"
+      }
+    ],
+    "images_count": 4
+  },
+  "25": {
+    "day": 25,
+    "title": "25-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…Quyonda embrional rivojlanish maydalanish bosqichida zigota 5-meridianal bo’li...",
+        "full_text": "1…Quyonda embrional rivojlanish maydalanish bosqichida zigota 5-meridianal bo’linishgacha normal bo’lindi. Blastomerlarning 3/4 qismi 5-marta meridianal bo’lindi. Qolgan qizmi 4-ekvaterial bo’linishdan bo’linishga qo’shildi. Xosil bo’lgan blastomerlar 6-ekvaterial bo’linishgacha normal bo’lindi, va xosil bo’lgan blastomerlarning 1/2 qismi 6-marta ekvaterial bo’lindi. Qolganlari 8-meridianal bo’linishdan bo’linishga qo’shildi va qolgan bo’linishlar oxirigacha narmal kechdi. Maydalanish bosqichi 10-meridianal bo’ilinishdan so’ng tugagan. Quyonlarning somatik hujayrasida 44 ta xromasoma mavjud bo’lsa,\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) Quyida berilgan blastomerlarning bo’linishini va sonini to’gri hisoblab javob varog’izga ko’chiring\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) 8-meridianal bo’linishdan so’ng xosil bo’lgan blastomerlardagi jami jinsiy xromasomalar sonini aniqlang?\nb) beshinchi ekvatorial bo’linishdan song, jami blastomerlardagi xromasomalar sonini aniqlang?\nc) agar embrion jinsi erkak bo’lsa maydalanish tugagandan so’ng hosil bo’lgan barcha blastomerlarda nechta tayoqchasimon xromasoma mavjud?\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) 8-meridianal bo’linishdan so’ng xosil bo’lgan blastomerlardagi jami jinsiy xromasomalar sonini aniqlang?",
+          "b) beshinchi ekvatorial bo’linishdan song, jami blastomerlardagi xromasomalar sonini aniqlang?",
+          "c) agar embrion jinsi erkak bo’lsa maydalanish tugagandan so’ng hosil bo’lgan barcha blastomerlarda nechta tayoqchasimon xromasoma mavjud?"
+        ],
+        "solution_image": "images_yozma_29/day_25_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2….",
+        "full_text": "2….\nKabarga, karaganka, ko’l buqasi, va dingo itining spermatozoidlaridagi xromasoma soni yig’indisi 126 ta.\nKabarganing somatik hujayrasi mitoz bo’linish metafaza bosqichidagi xromasomalar soni, ko’l buqasining jinsiy hujayralari meyoz bo’linish profaza-2 bosqichidagi xromasomalar soniga teng.\nDingo itining jinsiy hjayrasi meyoz bo’linish anafaza-2 bosqichidagi DNK si soni, ko’l buqasining somatik hujayrasi mitoz bo’linish interfaza sintez davridagi DNK sonidan 1,6 marta kam.\nKaragankaning somatik hujayrasi mitoz bo’linish interfaza G2 bosqichidagi xromasomalar soni, kabarganing jinsiy hujayrasi meyoz bo’linish metafaza-2 dagi xromasomalar sonidan 3 marta ko’p bo’lsa,\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) maskirovka ega organizmning hujayra mitoz siklida anafaza bosqichida qutblarga nechta xromatida tortiladi?\nb) Ko’l buqaning somatik hujayrasi meyoz bo’linishning anafaza I bosqichida DNK soni qancha?\nc) kabarga ovogenezida bitta ovogoniyning bo’linishidan hosil bo’lgan yunaltiruvchi tanachalardagi xromasomalar soni nechta?\nd) Zarafshon qo’riqxonasida tarqalgan hayvonning ikkinchi tartib ovotsitlarida nechta xromasoma mavjud?\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) maskirovka ega organizmning hujayra mitoz siklida anafaza bosqichida qutblarga nechta xromatida tortiladi?",
+          "b) Ko’l buqaning somatik hujayrasi meyoz bo’linishning anafaza I bosqichida DNK soni qancha?",
+          "c) kabarga ovogenezida bitta ovogoniyning bo’linishidan hosil bo’lgan yunaltiruvchi tanachalardagi xromasomalar soni nechta?",
+          "d) Zarafshon qo’riqxonasida tarqalgan hayvonning ikkinchi tartib ovotsitlarida nechta xromasoma mavjud?"
+        ],
+        "solution_image": "images_yozma_29/day_25_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3….",
+        "full_text": "3….\nBeda o’simligi barg etining 3 ta hujayrasida jami 768 ta ATF xosil bo’ldi.\nATF ning 3/8 qismi 1-hujayrada, 1/8 qismi 2-hujayrada, 4/8 qismi 3-hujayrada xosil bo’lgan.\n1-hujayrada parchalanmay qolgan sut kislota miqdori, 2-hujayrada parchalanmay qolgan sut kislota miqdoridan uch marta ko’p.\n3-hujayrada parchalanmay qolgan sut kislota, 1-hujayrada parchalangan sut kislotadan 3,5 marta ko’p.\n2-hujayrada to’liq parchalangan glukoza 1- hujayrada chala parchalangan glukozadan 15 marta kam bo’lsa,\nBerilgan ma’lumotlardan foydalangan holda quyidagilarni aniqlang (a-d)\na) ikkinchi hujayradagi ATF energiyasini kj da hisoblang?\nb) 1-hujayra va 3-hujayradagi issiqlik energiyasining farqini aniqlang?\nc) Jami to’liq parchalangan glukoza miqdorini aniqlang?\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "d)\na) ikkinchi hujayradagi ATF energiyasini kj da hisoblang?",
+          "b) 1-hujayra va 3-hujayradagi issiqlik energiyasining farqini aniqlang?",
+          "c) Jami to’liq parchalangan glukoza miqdorini aniqlang?"
+        ],
+        "solution_image": "images_yozma_29/day_25_sol_3.png"
+      }
+    ],
+    "images_count": 3
+  },
+  "26": {
+    "day": 26,
+    "title": "26-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…..Go’zadagi chigit uzunligi(A=1sm ;a=0,75sm)  va poyasining uzunligi( B=20sm; ...",
+        "full_text": "1…..Go’zadagi chigit uzunligi(A=1sm ;a=0,75sm)  va poyasining uzunligi( B=20sm; b=15sm)  2 juft polimer genlarga bog’liq  bo’lib Trigeterozigotali tolasining uzunligi 3,75 sm li o’simlik trigeterozigotali tolasining uzunligi 3,25 smli o’simlik tomonidan changlatilganda 800 000 ta avlod olindi.\nYuqoridagi ma’lumotlarga asosan quyidagi topshiriqlarni bajaring .\nTopshiriq bajarish tartibi :\n1) Belgilar va ularni boshqaruvchi genlarni va ota ona genotipi yozing .\n2) Pennet katagida gametalar va savollarda so’ralgan avlodlar ko’rsatilsin .\nBerilgan ma’lumotlardan foydalangan holda quyidagilarni aniqlang (a-c)\na) Avlodlar orasidan chigit tolasining uzunligi 3,25 sm li poyasining uzunligi 70 sm li go’zalar sonini aniqlang .\nb) Avlodlar orasidan chigit tolasining uzunligi 3,5 sm li poyasining uzunligi 70 sm li go’zalar sonini aniqlang .\nc) Avlodlar orasidan chigit tolasining uzunligi 3,25 sm li poyasining uzunligi 65 sm li go’zalar sonini aniqlang .\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c)\na) Avlodlar orasidan chigit tolasining uzunligi 3,25 sm li poyasining uzunligi 70 sm li go’zalar sonini aniqlang .",
+          "b) Avlodlar orasidan chigit tolasining uzunligi 3,5 sm li poyasining uzunligi 70 sm li go’zalar sonini aniqlang .",
+          "c) Avlodlar orasidan chigit tolasining uzunligi 3,25 sm li poyasining uzunligi 65 sm li go’zalar sonini aniqlang ."
+        ],
+        "solution_image": "images_yozma_29/day_26_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2……",
+        "full_text": "2……\nSichqonlarning yungining bo’lmasligi (A) , quloqlarining uzunligi (B) terisining qoraligi(C)  Yungining bo’lishi ,  quloqlarining kaltaligi va terisining oqligi ustidan tuliq daminantlik qiladi va chala birikkan holatda irsiylanadi. A-B orasidagi masofa 20M   B-C orasidagi masofa 44M ( Interfernsiya 0,1667) ekanligi malum. Trigeterozigotali (terisi qoraligini otasidab olgan) sichqonlar o’zaro chatishtirilganida 100 000 avlod olinganligi ma’lum bo’lsa\nYuqoridagi ma’lumotlarga asosan quyidagi topshiriqlarni bajaring .\nTopshiriq bajarish tartibi :\n1)Belgilarni boshqaruvchi genlar  va ota- ona genotipi yozing.\n2. Pennet katagida gametalar % i va savollarda so’ralgan avlodlar ko’rsatilsin .\nBerilgan ma’lumotlardan foydalangan holda quyidagilarni aniqlang (a-c)\na) Avlodlar orasida 3ta geni bo’yicha geterozigotali organizmlar sonini aniqlang .\nb) Olingan avlodlar orasidan yungsiz, qora rangli teriga ega , quloqlari kalta sichqonlar sonini aniqlang\nc) Olingan avlodlar orasidan yungli, oq rangli teriga ega , quloqlari kalta sichqonlar sonini\naniqlang\nd) nokrossver avlodlar sonini aniqlang\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c)\na) Avlodlar orasida 3ta geni bo’yicha geterozigotali organizmlar sonini aniqlang .",
+          "b) Olingan avlodlar orasidan yungsiz, qora rangli teriga ega , quloqlari kalta sichqonlar sonini aniqlang",
+          "c) Olingan avlodlar orasidan yungli, oq rangli teriga ega , quloqlari kalta sichqonlar sonini",
+          "d) nokrossver avlodlar sonini aniqlang"
+        ],
+        "solution_image": "images_yozma_29/day_26_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3……Baqada glyukoza 4kun parchalandi, 1-kun 14400gr, 2-kun 10800gr, 3-kun 13500gr...",
+        "full_text": "3……Baqada glyukoza 4kun parchalandi, 1-kun 14400gr, 2-kun 10800gr, 3-kun 13500gr, 4-kun 16200gr. 1-kun hammasi toʻliq parchalandi, 2-kun bir qismi toʻliq bir qismi chala parchalandi, 3-kun aerobda 2-kun aerobiga nisbatan 80% koʻp glyukoza parchalandi, 4-kun aerobda 3-kun aerobiga nisbagan 25% kam glyukoza parchalandi.  Jami 9466mol ATF hosil boʻlganligi ma’lum bo’lsa ,\nBerilgan ma’lumotlardan foydalangan holda quyidagilarni aniqlang (a-c)\na) 3-kun aerobda qancha issiqlik ajralgan?\nb) 4-kun aerobda nechta ATF hosil boʻlgan?\nc) 2-kun glikoliz va aerobda nechtadan ATF hosil boʻlgan?\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c)\na) 3-kun aerobda qancha issiqlik ajralgan?",
+          "b) 4-kun aerobda nechta ATF hosil boʻlgan?",
+          "c) 2-kun glikoliz va aerobda nechtadan ATF hosil boʻlgan?"
+        ],
+        "solution_image": "images_yozma_29/day_26_sol_3.png"
+      }
+    ],
+    "images_count": 5
+  },
+  "27": {
+    "day": 27,
+    "title": "27-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…Odamlarda miopiya avtosoma dominat tipda, qandli diabet avtosoma retsessiv tip...",
+        "full_text": "1…Odamlarda miopiya avtosoma dominat tipda, qandli diabet avtosoma retsessiv tipda irsiylanuvchi gen kasalliklari bo’lib boshqa-boshqa gomologik xromasomalarda joylashgan genlar asosida bir-biridan mustaqil xosilda nasldan -naslga o’tadi. Bo’y balandligi uch juft polimer genga bog’liq bo’lib xar bir dominant gen 30 sm ni, retsessiv gen 25 sm ni yuzaga chiqaradi. Daltonizm va gemofiliya kasalliklari retsessiv tipda irsiylanib, jinsiy X xromasomada chala birikkan xolda nasldan-naslga o’tadi. Genlar orasidagi masofa 20 morganidaga teng. Miopiya kasalligi erkaklarda 40%, ayollarda 60% penetrantlikka ega bo’lib. Qolgan kasalliklar penetrantligi 100% ga teng.\nMiopiya va qandli diabet bilan kasallangan, 1-juft polimer geni bo’yicha geterozigota bo’yi 175 sm li. Daltonizm va gemofiliya bo’yicha sog’lom ( otasi daltonizm va gemofiliya bilan kasallangan) QIZ. Miopiya va qandli diabet bo’yicha sog’lom, 2-polimer geni bo’yicha geterozigota genotipli, bo’yi 175 smli, daltonizm va gemofiliya bo’yicha kasal YIGIT nikohidan miopiya bo’yicha genetik sog’, qandli diabetga chalingan bo’yi 180 sm li, daltonizm va gemofiliya bilan kasallangan qiz farzand tug’ilgan bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari hamda farzandlar genotipini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Oilada miopiya va qandli diabet bo’yicha kasal, bo’yi 175 sm li daltonizm bilan kasallangan, gemofiliya bo’yicha sog’ qiz farzand tug’ilish extimolini % da toping.\nb) Oilada miopiya bilan kasal, qandli diabet bo’yicha sog’lom, bo’yi 175 sm li daltonizm bilan kasallangan, gemofiliya bo’yicha sog’ o’g’il farzand tug’ilish extimolini % da toping.\nc) Oilada miopiya va qandli diabet bo’yicha kasal, bo’yi 180 sm li daltonizm bilan kasallanmagan, gemofiliya bo’yicha kasal o’g’il farzand tug’ilish extimolini % da toping.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Oilada miopiya va qandli diabet bo’yicha kasal, bo’yi 175 sm li daltonizm bilan kasallangan, gemofiliya bo’yicha sog’ qiz farzand tug’ilish extimolini % da toping.",
+          "b) Oilada miopiya bilan kasal, qandli diabet bo’yicha sog’lom, bo’yi 175 sm li daltonizm bilan kasallangan, gemofiliya bo’yicha sog’ o’g’il farzand tug’ilish extimolini % da toping.",
+          "c) Oilada miopiya va qandli diabet bo’yicha kasal, bo’yi 180 sm li daltonizm bilan kasallanmagan, gemofiliya bo’yicha kasal o’g’il farzand tug’ilish extimolini % da toping."
+        ],
+        "solution_image": "images_yozma_29/day_27_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2…Odamda qon guruhlarining yuzaga chiqishi A,B,0 genlariga bog’iq. Genotipda gom...",
+        "full_text": "2…Odamda qon guruhlarining yuzaga chiqishi A,B,0 genlariga bog’iq. Genotipda gomozigota 0II0 genlarining bo’lishi I-qon guruhni, AIIA va AIIO genlarining bo’lishi II-qon guruhni, BIIB va BII0 genlarining bo’lishi III- qon guruhni, AIIB- genlarining bo’lishi IV-qon guruhni yuzaga chiqaradi. Kelin eritrotsitlar yuzasidagi aglutinogen oqsillari sintezini retsessiv ingibitor hh genlari to’xtatadi natijada xar qanday qon guruh ushbu hh genlar ta’sirida 1-qon guruhga aylanib qoladi. Polidaktliya va katarakta kasalliklari bitta avtosoma xromasomasida chala birikkan xolda irsiylanuvchi dominat gen kasalliklari xisoblanib genlar orasidagi masofa 10 morganidaga teng. Qandsiz diabet kasalligi jinsiy X xromasomada joyllashgan dominat gen ta’sirida irsiylanadi.\nIV-qon guruhli, polidaktliya va katarakta bilan kasallangan ( onasi ikki kasallik bo’yicha sog’lom), qandsiz diabetga chalingan QIZ va III-qon guruhli, polidaktliya bilan kasallangan, katarakta bo’yicha sog’lom, qandsiz diabetga chalinmagan YIGIT nikohidan. I-qon guruhli, barcha kasalliklar bo’yicha sog’lom qiz farzand tug’ilgan bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari hamda farzandlar genotipini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Oilada IV-qon guruhli, polidaktliya bo’yicha sog’lom, katarakta bilan kasallangan, qandsiz diabetga uchramagan qiz farzand tug’ilish extimolini % da toping.\nb) Oilada III-qon guruhli, polidaktliya bo’yicha Kasal, katarakta bilan kasallanmagan, qandsiz diabetga uchragan qiz farzand tug’ilish extimolini % da toping.\nc) Oilada I-qon guruhli, polidaktliya va katarakta bilan kasallangan, qandsiz diabetga uchramagan farzand tug’ilish extimolini % da toping.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Oilada IV-qon guruhli, polidaktliya bo’yicha sog’lom, katarakta bilan kasallangan, qandsiz diabetga uchramagan qiz farzand tug’ilish extimolini % da toping.",
+          "b) Oilada III-qon guruhli, polidaktliya bo’yicha Kasal, katarakta bilan kasallanmagan, qandsiz diabetga uchragan qiz farzand tug’ilish extimolini % da toping.",
+          "c) Oilada I-qon guruhli, polidaktliya va katarakta bilan kasallangan, qandsiz diabetga uchramagan farzand tug’ilish extimolini % da toping."
+        ],
+        "solution_image": "images_yozma_29/day_27_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3…..Ikki pallali molyuskalarning ma’lum bir turida chig’anoq tuzilishi va rangi ...",
+        "full_text": "3…..Ikki pallali molyuskalarning ma’lum bir turida chig’anoq tuzilishi va rangi ko’p allelik qoidasi asosida irsiylanuvchi ikki juft gen ta’sirida yuzaga chiqadi. Chig’anoqning chetki qismi qirrali bo’lishi-A geniga, to’lqinsimon bo’lishi-a1 geniga, tekis bo’lishi-a2 geniga bog’liq. Ushbu genlar o’zaro A>a1>a2 ko’rinishida bir-biridan ustunlik qiladi. A genining populatsiyada uchrash extimoli 60% ga, a2 genining populatsiyada uchrash extimoli 10% ga teng.\nChig’anoq rangining ko’k rangda bo’lishi D geniga, to’q yashil bo’lishi d1 geniga, och yashil bo’lishi d2 geniga bog’liq. Ushbu genlar o’zaro D>d1>d2 ko’rinishida bir-biridan ustunlik qiladi. D genining populatsiyada uchrash extimoli 40% ga, d1 genining populatsiyadagi uchrash extimoli 30% ga teng bo’lsa.\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, xar bir genning uchrash chastotasi va pennet kataklariga populatsiyadagi barcha genlar kompinatsiyasini yozing;\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Populatsiyada chog’anoq chetki qismi to’lqinsimon bo’lgan, och yashil chig’anoqli molyuskalar uchrash extimolini % da aniqlang.\nb) Populatsiyada chog’anoq chetki qismi qirrali bo’lgan, to’q yashil chig’anoqli molyuskalar uchrash extimolini % da aniqlang.\nc) Populatsiyada chog’anoq chetki qismi tekis bo’lgan, ko’k rangli chig’anoqli molyuskalar uchrash extimolini % da aniqlang.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Populatsiyada chog’anoq chetki qismi to’lqinsimon bo’lgan, och yashil chig’anoqli molyuskalar uchrash extimolini % da aniqlang.",
+          "b) Populatsiyada chog’anoq chetki qismi qirrali bo’lgan, to’q yashil chig’anoqli molyuskalar uchrash extimolini % da aniqlang.",
+          "c) Populatsiyada chog’anoq chetki qismi tekis bo’lgan, ko’k rangli chig’anoqli molyuskalar uchrash extimolini % da aniqlang."
+        ],
+        "solution_image": "images_yozma_29/day_27_sol_3.png"
+      }
+    ],
+    "images_count": 5
+  },
+  "28": {
+    "day": 28,
+    "title": "28-kun Yozma Ishi",
+    "total_problems": 4,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…..Bug’doy O’simligida donining maydaligi(A) yirikligi ustidan, poyasining kalt...",
+        "full_text": "1…..Bug’doy O’simligida donining maydaligi(A) yirikligi ustidan, poyasining kaltaligi (B) uzunligi ustidan,\ndonining qizil rangda(C) bo’lishi oq rang ustidan to’liq daminantlik qiladi. Don hajmining yirikligi poyaning kaltaligiga uzviy bog’liq bo’lib, uzun poyali o’simliklarda don mayda bo’lib qoladi.\nUshbu genlar boshqa boshqa gomologik xromosomalarda joylashgan bo’lib, umumiy populatsiyada dominant\nA genining uchrash chastotasi 20%, B genining uchrash chastotasi 60%, C genining uchrash chastotasi 40 %ligi ma’lum. Trigeterozigotali o’simliklar chatishtirilganida jami 500 000 ta avlod olingani ma’lum bo’lsa,\nYuqoridagi ma’lumotlarga asosan quyidagilarni aniqlang.\nTopshiriq bajarish tartibi:\n1) Belgilar va ularni boshqaruvchi genlarni, ota ona genotipi va genlarning chastotalarini yozing\n2) Pennet katagida gametalar % i va savollarda so’ralgan avlodlar ko’rsatilsin\nBerilgan ma’lumotlardan foydalangan holda quyidagilarni aniqlang (a-c)\na) Avlodlar orasida 3ta geni bo’yicha geterozigotali organizmlar sonini aniqlang\nb) Avlodlar orasida doni mayda, poyasi uzun, oq rangli donga ega bo’lgan o’simliklar sonini aniqlang\nc) Avlodlar orasida doni yirik, poyasi kalta, oq rangli donga ega bo’lgan o’simliklar sonini aniqlang\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va  barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c)\na) Avlodlar orasida 3ta geni bo’yicha geterozigotali organizmlar sonini aniqlang",
+          "b) Avlodlar orasida doni mayda, poyasi uzun, oq rangli donga ega bo’lgan o’simliklar sonini aniqlang",
+          "c) Avlodlar orasida doni yirik, poyasi kalta, oq rangli donga ega bo’lgan o’simliklar sonini aniqlang"
+        ],
+        "solution_image": "images_yozma_29/day_28_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2….Bo‘y uzunligi 3 juft polimer gen bilan irsiylanib A geni 30 sm, a geni esa 25...",
+        "full_text": "2….Bo‘y uzunligi 3 juft polimer gen bilan irsiylanib A geni 30 sm, a geni esa 25 sm uzunlikni namoyon qiladi. Polidaktiliya autasoma xromosomada dominant holda avloddan avlodga o’tadi.\nDaltonizm va Gemofiliya kasalligi X xromasomaga chalabirikkan retsessiv kasalliklar hisoblanib,\nUshbu genlar orasidagi masofa 20M.\nDigeterozigota 165sm (birinchi juft polimer gen geterozigota, qolgani gomozigotali) uzunlikka ega normal barmoqli, gemofiliya va daltonizm kasalliklari bo’yicha sog’lom (otasi gemofilik, onasi daltonik) qiz,\n3 juft polimer geni bo’yicha birinchi va ikkinchi jufti gomozigotali 175 smli 6 barmoqli (otasi normal barmoqli, onasi gemofilik) rangni yaxshi ajratadigan yigit bilan turmush qurdi.\nUshbu malumotlar asosida quyidagi topshiriqlarni bajaring.\nTopshiriq bajarish tartibi:\n1) Belgilar va ularni boshqaruvchi genlarni va ota ona genotipi yozing.\n2) Pennet katagida gametalar % i va savollarda so’ralgan avlodlar ko’rsatilsin.\nBerilgan ma’lumotlardan foydalangan holda quyidagilarni aniqlang (a-c)\na) Ushbu oilada 170 smli faqat gemofiliya bilan kasallangan farzand tug’ilish ehtimolini aniqlang.\nb) Ushbu oilada 165 smli normal barmoqli daltonik qiz farzand tug’ilish ehtimolini anqlang.\nc) Ushbu oilada 170 smli 6 barmoqli daltonizm va gemofiliya bilan kasallangan o’g’il farzand tug’ilish ehtimolini anqlang.\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va  barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c)\na) Ushbu oilada 170 smli faqat gemofiliya bilan kasallangan farzand tug’ilish ehtimolini aniqlang.",
+          "b) Ushbu oilada 165 smli normal barmoqli daltonik qiz farzand tug’ilish ehtimolini anqlang.",
+          "c) Ushbu oilada 170 smli 6 barmoqli daltonizm va gemofiliya bilan kasallangan o’g’il farzand tug’ilish ehtimolini anqlang."
+        ],
+        "solution_image": "images_yozma_29/day_28_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3…Tajribada 4 ta DNK bo’lagi o'rganildi.",
+        "full_text": "3…Tajribada 4 ta DNK bo’lagi o'rganildi.\nO’rganilgan DNK bo’laglarga quyidagi xulosalar berildi:\n1) 4 ta DNK uzunlik nisbati 1:1,5:2:1,5\n2) A nukleotid nisbati 1:1,25:1:1,25\n3) 4-DNK tarkibida A soni 250 ta\n4) 4 tala DNK dagi ekzon % nisbati 3:2:2,5:2 ligi aniqlandi.\n5) 3-DNK dagi Purin va Ekzon % nisbati   1:1,5 nisbatda.\n6) 3-DNK ning intron qismining uzunligi 59,5 nm\nUshbu ma’lumotlarga asosan quyidagilarni aniqlang:\na) 4 tala DNK tarkibidagi H bog'lar sonini aniqlang\nb) 4 tala DNK dan sintezlangan oqsildagi peptid bog'lar yig'indisini aniqlang\nc) 2-DNK va 4-DNK malekulasidan hosil bo’lgan oqsil tarkibidagi aminokislotalar farqini aniqlang\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va  barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "a) 4 tala DNK tarkibidagi H bog'lar sonini aniqlang",
+          "b) 4 tala DNK dan sintezlangan oqsildagi peptid bog'lar yig'indisini aniqlang",
+          "c) 2-DNK va 4-DNK malekulasidan hosil bo’lgan oqsil tarkibidagi aminokislotalar farqini aniqlang"
+        ],
+        "solution_image": "images_yozma_29/day_28_sol_3.png"
+      },
+      {
+        "number": 4,
+        "title": "3..",
+        "full_text": "3..",
+        "subtasks": [],
+        "solution_image": "images_yozma_29/day_28_sol_4.png"
+      }
+    ],
+    "images_count": 6
+  },
+  "29": {
+    "day": 29,
+    "title": "29-kun Yozma Ishi",
+    "total_problems": 3,
+    "problems": [
+      {
+        "number": 1,
+        "title": "1…..Umumiy kiyik populatsiyasi 800 000 ta bo’lib, kiyiklar populatsiyasida shoxl...",
+        "full_text": "1…..Umumiy kiyik populatsiyasi 800 000 ta bo’lib, kiyiklar populatsiyasida shoxlarining uzunligi(A) kaltaligi (a) ustidan , yungining uzunligi(B) va malla rangda(D) bo’lishi kaltaligi va sariq rangda bo’lishi ustida to’liq daminantlik qiladi.\nFenotipda Uzun shoxli kiyiklar orasida ekspressivlik quyidagicha taqsimlangan :\n- Juda uzun (kuchli ekspressivlik) -30%\n- O’rtacha uzunlikda (o‘rtacha ekspressivlik) - 50%\n- Biroz uzun (zaif ekspressivlik) – 20%\nPopulatsiyada A genining tarqalish chastotasi 60%, B genining uchrash chastotasi 50% , D\ngeninig uchrash chastotasi 20% .\nTopshiriq bajarish tartibi :\n1) Belgilar va ularni boshqaruvchi genlarni  va genlarning chastotalarini yozing .\n2) Pennet katagida gametalar % i va savollarda so’ralgan avlodlar ko’rsatilsin .\nBerilgan ma’lumotlardan foydalangan holda quyidagilarni aniqlang (a-c)\na) Avlodlar orasida 3 ta geni bo’yicha geterozigotali organizmlar sonini aniqlang .\nb) Avlodlar o’rtacha uzunlikdagi shoxga ega bo’lgan sariq rangli kalta yungli kiyiklar sonini aniqlang .\nc) Avlodlar biroz uzunlikdagi shoxga ega bo’lgan malla rangli kalta yungli kiyiklar sonini aniqlang .\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "a) ustidan , yungining uzunligi(B) va malla rangda(D) bo’lishi kaltaligi va sariq rangda bo’lishi ustida to’liq daminantlik qiladi.",
+          "c)\na) Avlodlar orasida 3 ta geni bo’yicha geterozigotali organizmlar sonini aniqlang .",
+          "b) Avlodlar o’rtacha uzunlikdagi shoxga ega bo’lgan sariq rangli kalta yungli kiyiklar sonini aniqlang .",
+          "c) Avlodlar biroz uzunlikdagi shoxga ega bo’lgan malla rangli kalta yungli kiyiklar sonini aniqlang ."
+        ],
+        "solution_image": "images_yozma_29/day_29_sol_1.png"
+      },
+      {
+        "number": 2,
+        "title": "2…..Malina o’simligida mevasini to’q qizil bo’lishi-A, och qizil bo’lishi-a usti...",
+        "full_text": "2…..Malina o’simligida mevasini to’q qizil bo’lishi-A, och qizil bo’lishi-a ustidan. Bargini qirqilgan bo’lishi-B, tekis bo’lishi-b ustidan. Poyasini tikonli bo’lishi-D, tikonsiz bo’lishi-d ustidan to’liq dominantlik qilib bitta gomologik xromasomada chala birikkan xolda nasldan naslga o’tadi. A va B genlari orasidagi aniq masofa 23 % ga.\nB va D genlari orasidagi aniq masofa 17% ga teng. Amaliy qo’sh krosingover 5% ga teng.\nDominant genlarini bir tarafdan olgan trigeterozigota genotipli o'simliklar chatishtirilib,\n10000 ta avlod olingan bo’lsa,\nYuqoridagi ma’lumotlardan foydalanib quydagilarni aniqlang.\nTopshiriqni bajarish tartibi:\n1) belgilar va ularni boshqaruvchi genlarni, ota-ona genotipi, gametalari, hamda farzandlar genotipini pennet kataklariga yozing.\nBerilgan ma’lumotlardan foydalanib quyidagi (a-c) topshiriqlarni bajaring.\na) Avlodning qancha qismini och qizil mevali, bargi qirqilgan, poyasi tikonli o’simliklar tashkil qilishini aniqlang.\nb) Avlodning qancha qismini toq qizil mevali, bargi qirqilgan, poyasi tikonsiz o’simliklar tashkil qilishini aniqlang.\nc) Avlodning qancha qismini och qizil mevali, bargi tekis, poyasi tikonli o’simliklar tashkil qilishini aniqlang.\nd) interfrensiya qiymatini aniqlang?\nDiqqat! Mazkur topshiriq kengaytirilgan javobni talab etib, uning yechilish uslubi va barcha arifmetik hisob-kitob amallarini javoblar varaqasida to‘liq aks ettirish talab etiladi.",
+        "subtasks": [
+          "c) topshiriqlarni bajaring.",
+          "a) Avlodning qancha qismini och qizil mevali, bargi qirqilgan, poyasi tikonli o’simliklar tashkil qilishini aniqlang.",
+          "b) Avlodning qancha qismini toq qizil mevali, bargi qirqilgan, poyasi tikonsiz o’simliklar tashkil qilishini aniqlang.",
+          "c) Avlodning qancha qismini och qizil mevali, bargi tekis, poyasi tikonli o’simliklar tashkil qilishini aniqlang.",
+          "d) interfrensiya qiymatini aniqlang?"
+        ],
+        "solution_image": "images_yozma_29/day_29_sol_2.png"
+      },
+      {
+        "number": 3,
+        "title": "3…..",
+        "full_text": "3…..\nSichqonlar orasida yungsiz sichqonlar ham uchrab turadi . Ushbu yungsiz sichqonlar voyaga yetmasdan halok bo’lishad. Yunglarning bo’lishi yungning bo’lmasligi ustidan chala dominantlik qilib , geterozigotali sichqonlar siyrak yungga ega bo’lishadi. Siyrak yungli sichqonlar o’zaro chatishtirilganida hosil bo'lgan avlodlar keyingi bo'g'inda faqat o'ziga o'xshash genotipli organizmlar bilan chatishtirilsa,\nYuqoridagi ma’lumotlarga asosan quyidagilarni aniqlang.\nTopshiriq bajarish tartibi :\n1) Belgilar va ularni boshqaruvchi genlarni , ota-ona genotiplari javob varaqasida ko’rsatilsin\nBerilgan ma’lumotlardan foydalangan holda quyidagilarni aniqlang (a-b)\na) F3 da tug'ilgan sichqonlarning fenotipik nisbatini aniqlang .\nb) F4 dagi nasl bera oladigan sichqonlarning genotipik sinflarni aniqlang .\nc) F5 da tug'ilgan sichqonlarning nechtasi gomozigotali organizm ekanligi aniqlang",
+        "subtasks": [
+          "b)\na) F3 da tug'ilgan sichqonlarning fenotipik nisbatini aniqlang .",
+          "b) F4 dagi nasl bera oladigan sichqonlarning genotipik sinflarni aniqlang .",
+          "c) F5 da tug'ilgan sichqonlarning nechtasi gomozigotali organizm ekanligi aniqlang"
+        ],
+        "solution_image": "images_yozma_29/day_29_sol_3.png"
+      }
+    ],
+    "images_count": 5
+  }
+}
