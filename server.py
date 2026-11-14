@@ -329,6 +329,21 @@ def create_app() -> web.Application:
         return web.Response(text="PDF topilmadi", status=404)
 
     app.router.add_get("/titul.pdf", serve_titul_pdf)
+
+    async def serve_variant_pdf(request: web.Request) -> web.Response:
+        v_num = request.match_info.get("v_num")
+        file_map = {
+            "1": "milliy_variant_1_yozma.pdf",
+            "2": "milliy_variant_2_yozma.pdf",
+            "3": "milliy_variant_3_yozma.pdf"
+        }
+        filename = file_map.get(str(v_num), "milliy_variant_1_yozma.pdf")
+        pdf_path = os.path.join(BOT_DIR, filename)
+        if os.path.exists(pdf_path):
+            return web.FileResponse(pdf_path, headers={"Content-Disposition": f"attachment; filename={filename}"})
+        return web.Response(text="PDF topilmadi", status=404)
+
+    app.router.add_get("/api/variant/{v_num}/pdf", serve_variant_pdf)
     
     # Rasmlarni statik tarqatish
     for img_folder in ["images_yozma_29", "images_weekly_10", "images_yopiq_10", "images_10", "images_11", "images_5"]:

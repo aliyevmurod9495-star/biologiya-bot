@@ -179,6 +179,8 @@ except Exception as e:
 # O'quvchilarning faol test sessiyalarini saqlash
 active_sessions: Dict[int, Dict[str, Any]] = {}
 poll_to_user: Dict[str, int] = {}
+# Faol Milliy Sertifikat variant sessiyalari: user_id -> test_code
+active_milliy_sessions: Dict[int, str] = {}
 
 def get_webapp_url() -> str:
     env_url = os.getenv("RENDER_EXTERNAL_URL") or os.getenv("WEBAPP_URL")
@@ -2880,24 +2882,142 @@ async def yozma_solution_callback(callback: CallbackQuery):
 @dp.message(F.text.in_(["🎯 Milliy Sertifikat", "/sertifikat"]))
 async def milliy_sertifikat_handler(message: Message):
     """Milliy sertifikat 43 talik to'liq test simulyatori menyusi"""
-    text = (
-        "🎯 <b>MILLIY SERTIFIKAT TESTI (43 TALIK RASMIY FORMAT)</b>\n\n"
-        "Ushbu bo'limda Davlat Test Markazi (Bilimni baholash agentligi) standarti asosidagi "
-        "eng so'nggi 43 talik rasmiy titul va yozma ishlar tizimi yo'lga qo'yilgan:\n\n"
-        "📝 <b>1–32 savollar:</b> 4 variantli yopiq testlar (A, B, C, D)\n"
-        "🔤 <b>33–35 savollar:</b> 6 variantli moslashtirish testlari (A–F)\n"
-        "🔢 <b>36–40 savollar:</b> Qisqa javobli katakchalar (sonlar va formulalar)\n"
-        "✍️ <b>41–43 savollar:</b> Ochiq yozma ishlar (daftardagi to'liq yechim)\n"
-        "🤖 <b>AI Vision:</b> Titul yoki daftar rasmini yuboring, sun'iy intellekt darhol tekshirib ball qo'yadi!\n\n"
-        "<i>Quyidagi amallardan birini tanlang:</i>"
-    )
-    kb = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="📸 Titul / Yozma ish rasmini tekshirish 🤖", callback_data="check_titul_prompt")],
+    variants = titul_checker.get_all_variants()
+    variant_btns = []
+    for v in variants:
+        variant_btns.append([InlineKeyboardButton(
+            text=f"📌 {v['title']}", 
+            callback_data=f"mvar_{v['test_code']}"
+        )])
+
+    variant_btns.extend([
         [InlineKeyboardButton(text="📥 Rasmiy Titul Blankini yuklab olish (PDF) 📄", callback_data="download_titul_pdf")],
         [InlineKeyboardButton(text="🚀 Mini Ilovada To'liq Ishlash 📱", web_app=WebAppInfo(url=get_webapp_url()))],
         [InlineKeyboardButton(text="✍️ 29 kunlik Yozma ishlar", callback_data="yozmapage_1")]
     ])
-    await message.answer(text, reply_markup=kb)
+
+    text = (
+        "🎯 <b>MILLIY SERTIFIKAT TESTLARI (43 TALIK RASMIY FORMAT)</b>\n\n"
+        "Quyidagi rasmiy variantlardan birini tanlang. Bot sizga ushbu variantning to'liq "
+        "test savollari (1–43) va bo'sh javoblar varaqasini (titul) taqdim etadi:\n\n"
+        "📝 <b>Tuzilishi:</b>\n"
+        "• 1–32: 4 variantli yopiq testlar (A, B, C, D)\n"
+        "• 33–35: Moslashtirish testlari (A–F)\n"
+        "• 36–40: Qisqa javobli kataklar (sonlar/formula)\n"
+        "• 41–43: Daftardagi ochiq yozma ishlar (Pennet va Xardi-Vaynberg)\n\n"
+        "<i>Kerakli variantni tanlang va ishlashni boshlang:</i>"
+    )
+    await message.answer(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=variant_btns))
+
+
+@dp.callback_query(F.data == "open_milliy_menu")
+async def open_milliy_menu_callback(callback: CallbackQuery):
+    """Milliy sertifikat menyusini inline orqali ochadi"""
+    await callback.answer()
+    variants = titul_checker.get_all_variants()
+    variant_btns = []
+    for v in variants:
+        variant_btns.append([InlineKeyboardButton(
+            text=f"📌 {v['title']}", 
+            callback_data=f"mvar_{v['test_code']}"
+        )])
+
+    variant_btns.extend([
+        [InlineKeyboardButton(text="📥 Rasmiy Titul Blankini yuklab olish (PDF) 📄", callback_data="download_titul_pdf")],
+        [InlineKeyboardButton(text="🚀 Mini Ilovada To'liq Ishlash 📱", web_app=WebAppInfo(url=get_webapp_url()))],
+        [InlineKeyboardButton(text="✍️ 29 kunlik Yozma ishlar", callback_data="yozmapage_1")]
+    ])
+
+    text = (
+        "🎯 <b>MILLIY SERTIFIKAT TESTLARI (43 TALIK RASMIY FORMAT)</b>\n\n"
+        "Kerakli variantni tanlang:\n"
+        "Bot savollarni beradi va ishlab bo'lgach, titul va yozma ish fotosuratini qabul qilib tekshiradi!"
+    )
+    await callback.message.edit_text(text, reply_markup=InlineKeyboardMarkup(inline_keyboard=variant_btns))
+
+
+@dp.callback_query(F.data.startswith("mvar_"))
+async def mvar_select_handler(callback: CallbackQuery):
+    """Tanlangan variant haqida ma'lumot berish va test faylini yuklash"""
+    await callback.answer()
+    test_code = callback.data.split("_")[1]
+    active_milliy_sessions[callback.from_user.id] = test_code
+
+    v_info = titul_checker.get_variant_rubrics(test_code)
+    v_title = v_info.get("title", f"Variant #{test_code}")
+    
+    text = (
+        f"📄 <b>{v_title.upper()}</b>\n\n"
+        f"🆔 <b>Test kodi (Booklet):</b> <code>{test_code}</code>\n"
+        f"🔬 <b>Fan:</b> Biologiya\n"
+        f"⏱ <b>Vaqt me'yori:</b> 100 daqiqa\n\n"
+        "📋 <b>Topshiriqlar tarkibi:</b>\n"
+        "• <b>1–40 savollar:</b> Yopiq va qisqa javobli testlar\n"
+        "• <b>41–43 savollar:</b> Daftarda to'liq yechiladigan genetik masalalar\n\n"
+        "💡 <b>Yo'riqnoma:</b>\n"
+        "1. Quyidagi tugma orqali savollar kitobchasi va bo'sh titulni yuklab oling.\n"
+        "2. Testni ishlab, titulni bo'yang va yozma ishlarni daftarga yozing.\n"
+        "3. Ishlab bo'lgach, <b>«📤 Javoblarni yuborish va tekshirtirish»</b> tugmasini bosing!"
+    )
+    kb = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="📥 Test & Yozma ish savollari (PDF) 📄", callback_data=f"dl_mvar_{test_code}")],
+        [InlineKeyboardButton(text="📥 Rasmiy Titul Blanki (PDF) 📄", callback_data="download_titul_pdf")],
+        [InlineKeyboardButton(text="📤 Javoblarni yuborish va tekshirtirish ✅", callback_data=f"submit_mvar_{test_code}")],
+        [InlineKeyboardButton(text="🔙 Boshqa variantni tanlash", callback_data="open_milliy_menu")]
+    ])
+    await callback.message.edit_text(text, reply_markup=kb)
+
+
+@dp.callback_query(F.data.startswith("dl_mvar_"))
+async def dl_mvar_handler(callback: CallbackQuery):
+    """Variantning savollar kitobchasi PDF faylini yuboradi"""
+    await callback.answer("Fayl yuborilmoqda...")
+    test_code = callback.data.split("_")[2]
+    
+    file_map = {
+        "8392004": "milliy_variant_1_yozma.pdf",
+        "8392005": "milliy_variant_2_yozma.pdf",
+        "8392006": "milliy_variant_3_yozma.pdf"
+    }
+    pdf_filename = file_map.get(test_code, "milliy_variant_1_yozma.pdf")
+    pdf_path = os.path.join(os.path.dirname(__file__), pdf_filename)
+    
+    if os.path.exists(pdf_path):
+        doc = FSInputFile(pdf_path, filename=f"Milliy_Sertifikat_{test_code}_savollar.pdf")
+        caption = (
+            f"📄 <b>Milliy Sertifikat {test_code}-variant savollar kitobchasi.</b>\n\n"
+            "• Savollarni diqqat bilan o'qib chiqing.\n"
+            "• Javoblarni rasmiy titul blankiga va daftarga yozing.\n"
+            "• Ishlab bo'lgach, botdagi «📤 Javoblarni yuborish» tugmasi orqali tekshirtiring!"
+        )
+        await callback.message.answer_document(doc, caption=caption)
+    else:
+        general_pdf = os.path.join(os.path.dirname(__file__), "milliy_test_kitobcha.pdf")
+        if os.path.exists(general_pdf):
+            doc = FSInputFile(general_pdf, filename="Milliy_Sertifikat_Savollari.pdf")
+            await callback.message.answer_document(doc, caption="📄 Milliy Sertifikat savollar kitobchasi")
+        else:
+            await callback.message.answer("⚠️ Ushbu variant fayli serverda topilmadi.")
+
+
+@dp.callback_query(F.data.startswith("submit_mvar_"))
+async def submit_mvar_handler(callback: CallbackQuery):
+    """Javoblarni yuborish rejimini faollashtiradi"""
+    await callback.answer()
+    test_code = callback.data.split("_")[2]
+    active_milliy_sessions[callback.from_user.id] = test_code
+    v_info = titul_checker.get_variant_rubrics(test_code)
+    v_title = v_info.get("title", f"Variant #{test_code}")
+
+    text = (
+        f"📸 <b>{v_title.upper()} JAVOBLARINI YUBORISH</b>\n\n"
+        f"✅ <b>Faol variant:</b> <code>{test_code}</code>\n\n"
+        "Endi ushbu chatga fotosuratlarni yuboring:\n"
+        "1️⃣ <b>Titul varaqasi:</b> 1–40 doirachalari va katakchalari to'ldirilgan varaq rasmi.\n"
+        "2️⃣ <b>Yozma ish:</b> 41, 42, 43-masalalarning daftardagi qo'lyozma yechimi rasmi.\n\n"
+        "⚡ <i>Rasm kelishi bilan sun'iy intellekt darhol uni aynan ushbu variant mezonlari bilan tekshirib, sertifikat darajangizni hisoblab beradi!</i>"
+    )
+    await callback.message.answer(text)
 
 
 @dp.message(F.text.in_(["📸 Titul tekshirish", "/titul", "titul", "Titul"]))
@@ -2921,33 +3041,20 @@ async def titul_command_handler(message: Message):
     await message.answer(text, reply_markup=kb)
 
 
-@dp.callback_query(F.data == "open_milliy_menu")
-async def open_milliy_menu_callback(callback: CallbackQuery):
-    """Milliy sertifikat menyusini inline orqali ochadi"""
-    await callback.answer()
-    text = (
-        "🎯 <b>MILLIY SERTIFIKAT TESTI (43 TALIK RASMIY FORMAT)</b>\n\n"
-        "Ushbu bo'limda Davlat Test Markazi (Bilimni baholash agentligi) standarti asosidagi "
-        "eng so'nggi 43 talik rasmiy titul va yozma ishlar tizimi yo'lga qo'yilgan:\n\n"
-        "📝 <b>1–32 savollar:</b> 4 variantli yopiq testlar (A, B, C, D)\n"
-        "🔤 <b>33–35 savollar:</b> 6 variantli moslashtirish testlari (A–F)\n"
-        "🔢 <b>36–40 savollar:</b> Qisqa javobli katakchalar (sonlar va formulalar)\n"
-        "✍️ <b>41–43 savollar:</b> Ochiq yozma ishlar (daftardagi to'liq yechim)\n"
-        "🤖 <b>AI Vision:</b> Titul yoki daftar rasmini yuboring, sun'iy intellekt darhol tekshirib ball qo'yadi!\n\n"
-        "<i>Quyidagi amallardan birini tanlang:</i>"
-    )
-    kb = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="📸 Titul / Yozma ish rasmini tekshirish 🤖", callback_data="check_titul_prompt")],
-        [InlineKeyboardButton(text="📥 Rasmiy Titul Blankini yuklab olish (PDF) 📄", callback_data="download_titul_pdf")],
-        [InlineKeyboardButton(text="🚀 Mini Ilovada To'liq Ishlash 📱", web_app=WebAppInfo(url=get_webapp_url()))],
-        [InlineKeyboardButton(text="✍️ 29 kunlik Yozma ishlar", callback_data="yozmapage_1")]
-    ])
-    await callback.message.edit_text(text, reply_markup=kb)
-
-
 @dp.callback_query(F.data == "check_titul_prompt")
 async def check_titul_prompt_handler(callback: CallbackQuery):
     """O'quvchiga titul rasmini yuborish bo'yicha yo'riqnoma beradi"""
+    await callback.answer()
+    text = (
+        "📸 <b>MILLIY SERTIFIKAT TITULINI TEKSHIRISH</b>\n\n"
+        "To'ldirilgan javoblar varaqasi (1-40) yoki 41, 42, 43-savollar bo'yicha daftardagi "
+        "yozma ish fotosuratini <b>to'g'ridan-to'g'ri ushbu chatga rasm qilib yuboring</b>.\n\n"
+        "💡 <b>Tavsiya:</b>\n"
+        "• Rasmni yaxshi yoritilgan joyda, qog'oz to'liq ko'rinadigan qilib tushiring.\n"
+        "• Sun'iy intellekt (Gemini Vision) soniyalar ichida doirachalar va qo'lyozmalarni o'qib, "
+        "natija va sertifikat darajasini hisoblab beradi!"
+    )
+    await callback.message.answer(text)
     await callback.answer()
     text = (
         "📸 <b>MILLIY SERTIFIKAT TITULINI TEKSHIRISH</b>\n\n"
@@ -2997,14 +3104,22 @@ async def handle_photo_titul_checker(message: Message, bot: Bot):
         await bot.download(photo, destination=file_io)
         img_bytes = file_io.getvalue()
 
+        # Foydalanuvchining faol variant sessiyasi bormi?
+        user_id = message.from_user.id if message.from_user else 0
+        expected_code = active_milliy_sessions.get(user_id)
+
         # Non-blocking executor orqali AI tahlilini bajaramiz
         loop = asyncio.get_running_loop()
         sub_type, res_text, raw_data = await loop.run_in_executor(
-            None, titul_checker.process_titul_image, img_bytes
+            None, titul_checker.process_titul_image, img_bytes, expected_code
         )
 
         # Natijani xabarga chiqaramiz
-        await status_msg.edit_text(res_text, parse_mode="HTML")
+        after_kb = InlineKeyboardMarkup(inline_keyboard=[
+            [InlineKeyboardButton(text="🎯 Boshqa variantni tanlash", callback_data="open_milliy_menu")],
+            [InlineKeyboardButton(text="🚀 Mini Ilovada Ochish 📱", web_app=WebAppInfo(url=get_webapp_url()))]
+        ])
+        await status_msg.edit_text(res_text, parse_mode="HTML", reply_markup=after_kb)
 
         # Agar bazaga saqlash kerak bo'lsa
         if sub_type != "error" and raw_data:

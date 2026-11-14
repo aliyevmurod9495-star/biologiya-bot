@@ -290,34 +290,68 @@
       </div>
 
       <div class="p-3.5 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
-        <h3 class="text-xs font-bold text-white flex items-center gap-1.5">
-          <span>📋</span> Rasmiy format tuzilishi:
+        <h3 class="text-xs font-bold text-white flex items-center justify-between">
+          <span>📋 Rasmiy Test Variantlari (43 talik):</span>
+          <span class="text-[10px] text-emerald-400 font-mono font-normal">3 ta variant tayyor</span>
         </h3>
-        <div class="space-y-1.5 text-[11px] text-slate-300">
-          <div class="p-2 rounded-xl bg-slate-950/70 border border-slate-800 flex justify-between items-center">
-            <span>📝 <b>1–32 savollar:</b> 4 variantli yopiq test (A, B, C, D)</span>
-            <span class="text-emerald-400 font-mono font-bold text-[10px]">48 ball</span>
+
+        <!-- 3 ta Variant Kartochkalari -->
+        <div class="space-y-2">
+          <div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-white">📌 1-Namunaviy Variant (Rasmiy 2025)</span>
+              <span class="text-[9px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">Kod: 8392004</span>
+            </div>
+            <p class="text-[10px] text-slate-400">Quyonlar krossingoveri (41), G'o'za oraliq irsiylanishi (42), Jakarta aholisi (43)</p>
+            <div class="flex gap-2 pt-1">
+              <a href="/api/variant/1/pdf" download="1-Variant_Milliy_Sertifikat.pdf" class="flex-1 py-1.5 px-2 rounded-lg bg-emerald-600/30 hover:bg-emerald-600/50 border border-emerald-500/40 text-emerald-300 font-bold text-[10px] text-center transition">
+                📥 Testni yuklab olish (PDF)
+              </a>
+              <button onclick="tg ? tg.close() : alert('Botga o\'tib, rasm yuboring!')" class="py-1.5 px-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-[10px] transition">
+                📤 Yuborish
+              </button>
+            </div>
           </div>
-          <div class="p-2 rounded-xl bg-slate-950/70 border border-slate-800 flex justify-between items-center">
-            <span>🔤 <b>33–35 savollar:</b> Moslashtirish testlari (A–F)</span>
-            <span class="text-emerald-400 font-mono font-bold text-[10px]">6 ball</span>
+
+          <div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-white">📌 2-Namunaviy Variant (Mock Sinov)</span>
+              <span class="text-[9px] px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-mono">Kod: 8392005</span>
+            </div>
+            <p class="text-[10px] text-slate-400">Itlar krossingoveri (41), Drozofila komplementar ko'z (42), Zomin aholisi (43)</p>
+            <div class="flex gap-2 pt-1">
+              <a href="/api/variant/2/pdf" download="2-Variant_Milliy_Sertifikat.pdf" class="flex-1 py-1.5 px-2 rounded-lg bg-blue-600/30 hover:bg-blue-600/50 border border-blue-500/40 text-blue-300 font-bold text-[10px] text-center transition">
+                📥 Testni yuklab olish (PDF)
+              </a>
+              <button onclick="tg ? tg.close() : alert('Botga o\'tib, rasm yuboring!')" class="py-1.5 px-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-[10px] transition">
+                📤 Yuborish
+              </button>
+            </div>
           </div>
-          <div class="p-2 rounded-xl bg-slate-950/70 border border-slate-800 flex justify-between items-center">
-            <span>🔢 <b>36–40 savollar:</b> Qisqa javobli kataklar (sonlar/formula)</span>
-            <span class="text-emerald-400 font-mono font-bold text-[10px]">12.5 ball</span>
-          </div>
-          <div class="p-2 rounded-xl bg-slate-950/70 border border-slate-800 flex justify-between items-center">
-            <span>✍️ <b>41–43 savollar:</b> Ochiq yozma ishlar (krossingover, qon guruhlari)</span>
-            <span class="text-emerald-400 font-mono font-bold text-[10px]">33.5 ball</span>
+
+          <div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-white">📌 3-Namunaviy Variant (Diagnostik)</span>
+              <span class="text-[9px] px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 font-mono">Kod: 8392006</span>
+            </div>
+            <p class="text-[10px] text-slate-400">Kaputsin maymunlari (41), G'o'za polimer (42), Rezus omil va qon (43)</p>
+            <div class="flex gap-2 pt-1">
+              <a href="/api/variant/3/pdf" download="3-Variant_Milliy_Sertifikat.pdf" class="flex-1 py-1.5 px-2 rounded-lg bg-purple-600/30 hover:bg-purple-600/50 border border-purple-500/40 text-purple-300 font-bold text-[10px] text-center transition">
+                📥 Testni yuklab olish (PDF)
+              </a>
+              <button onclick="tg ? tg.close() : alert('Botga o\'tib, rasm yuboring!')" class="py-1.5 px-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-[10px] transition">
+                📤 Yuborish
+              </button>
+            </div>
           </div>
         </div>
 
         <div class="pt-2 flex flex-col gap-2">
           <a href="/titul.pdf" download="Milliy_sertifikat_titul_43.pdf" class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition text-center">
-            <span>📥</span> Rasmiy Titul Blankini Yuklab Olish (PDF)
+            <span>📥</span> Rasmiy Bo'sh Titul Blankini Yuklab Olish (PDF)
           </a>
           <button onclick="tg ? tg.close() : alert('Telegram bot chatiga o\'tib, fotosurat yuboring!')" class="w-full py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
-            <span>📸</span> Botga qaytib, titul rasmini yuborish
+            <span>📸</span> Botga qaytib, javob rasmini tekshirtirish
           </button>
         </div>
       </div>

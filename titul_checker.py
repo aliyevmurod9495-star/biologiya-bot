@@ -132,6 +132,7 @@ def seed_default_keys(conn):
                 ]
             }
         }
+        # Variant 1 saqlandi
         cur.execute("""
             INSERT INTO milliy_test_keys 
             (test_code, subject, title, keys_1_32, keys_33_35, keys_36_40, rubrics_41_43)
@@ -139,13 +140,172 @@ def seed_default_keys(conn):
         """, (
             "8392004",
             "Biologiya",
-            "Milliy Sertifikat Rasmiy Namunaviy Test 2025",
+            "1-Namunaviy Variant (Rasmiy 2025/2026)",
             json.dumps(keys_1_32),
             json.dumps(keys_33_35),
             json.dumps(keys_36_40),
             json.dumps(rubrics_41_43)
         ))
         conn.commit()
+
+    # 2-VARIANTNI TEKSHIRISH VA KIRITISH (8392005)
+    cur.execute("SELECT test_code FROM milliy_test_keys WHERE test_code = '8392005'")
+    if not cur.fetchone():
+        keys_1_32_v2 = {
+            "1": "B", "2": "D", "3": "A", "4": "C", "5": "B", "6": "D", "7": "A",
+            "8": "C", "9": "B", "10": "D", "11": "A", "12": "C", "13": "B", "14": "D",
+            "15": "A", "16": "C", "17": "B", "18": "D", "19": "A", "20": "C", "21": "B",
+            "22": "D", "23": "A", "24": "C", "25": "B", "26": "D", "27": "A", "28": "C",
+            "29": "B", "30": "D", "31": "A", "32": "C"
+        }
+        keys_33_35_v2 = {"33": "C", "34": "D", "35": "B"}
+        keys_36_40_v2 = {
+            "36": "1500",
+            "37": "17",
+            "38": "1:1:1:1",
+            "39": "Bb",
+            "40": "364500"
+        }
+        rubrics_41_43_v2 = {
+            "41": {
+                "title": "Itlarda birikkan holda irsiylanish (S, B, L) va koensidensiya",
+                "max_score": 10.0,
+                "descriptors": [
+                    {"step": 1, "desc": "Ota-ona genotiplarini (SSBBLL x ssbbll) va fenotiplarini to'g'ri yozish", "points": 2.0},
+                    {"step": 2, "desc": "F1 gametalari va tahliliy chatishtirish sxemasi", "points": 2.0},
+                    {"step": 3, "desc": "Amaliy krossingover foizini to'g'ri hisoblash", "points": 2.0},
+                    {"step": 4, "desc": "S va B genlari orasidagi masofani (morgan) aniqlash", "points": 2.0},
+                    {"step": 5, "desc": "Koensidensiya va interferensiya miqdorini aniqlash", "points": 2.0}
+                ]
+            },
+            "42": {
+                "title": "Drozofila meva pashshasida komplementar ko'z rangi va birikkan irsiylanish",
+                "max_score": 10.0,
+                "descriptors": [
+                    {"step": 1, "desc": "Komplementar genotiplarni (C_D_, C_dd, ccD_, ccdd) to'g'ri belgilash", "points": 2.5},
+                    {"step": 2, "desc": "Kulrang/qora tana va uzun/kalta qanot 17% krossingoverini hisoblash", "points": 2.5},
+                    {"step": 3, "desc": "F1 dagi 12000 ta avlod orasidan so'ralgan genotiplarni aniqlash", "points": 2.5},
+                    {"step": 4, "desc": "Kalta qanotli pashshalar orasidagi qizil ko'zlilar foizini hisoblash", "points": 2.5}
+                ]
+            },
+            "43": {
+                "title": "Zomin aholisida soch rangi oraliq irsiylanishi (Hardy-Weinberg)",
+                "max_score": 15.0,
+                "descriptors": [
+                    {"step": 1, "desc": "BB (qora), Bb (malla), bb (sarg'imtir) genotiplarini ifodalash", "points": 3.0},
+                    {"step": 2, "desc": "Jami 1.8 mln aholidan qora+malla orqali q^2 (bb) chastotasini topish", "points": 3.0},
+                    {"step": 3, "desc": "q (sarg'imtir allel) va p (qora allel) chastotasini aniqlash", "points": 3.0},
+                    {"step": 4, "desc": "Populyatsiyadagi geterozigota (Bb) malla sochlilar sonini hisoblash", "points": 3.0},
+                    {"step": 5, "desc": "Gomozigota (BB va bb) insonlar soni va foizini to'g'ri hisoblash", "points": 3.0}
+                ]
+            }
+        }
+        cur.execute("""
+            INSERT INTO milliy_test_keys 
+            (test_code, subject, title, keys_1_32, keys_33_35, keys_36_40, rubrics_41_43)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            "8392005",
+            "Biologiya",
+            "2-Namunaviy Variant (Mock Sinov 2025)",
+            json.dumps(keys_1_32_v2),
+            json.dumps(keys_33_35_v2),
+            json.dumps(keys_36_40_v2),
+            json.dumps(rubrics_41_43_v2)
+        ))
+        conn.commit()
+
+    # 3-VARIANTNI TEKSHIRISH VA KIRITISH (8392006)
+    cur.execute("SELECT test_code FROM milliy_test_keys WHERE test_code = '8392006'")
+    if not cur.fetchone():
+        keys_1_32_v3 = {
+            "1": "C", "2": "A", "3": "D", "4": "B", "5": "C", "6": "A", "7": "D",
+            "8": "B", "9": "C", "10": "A", "11": "D", "12": "B", "13": "C", "14": "A",
+            "15": "D", "16": "B", "17": "C", "18": "A", "19": "D", "20": "B", "21": "C",
+            "22": "A", "23": "D", "24": "B", "25": "C", "26": "A", "27": "D", "28": "B",
+            "29": "C", "30": "A", "31": "D", "32": "B"
+        }
+        keys_33_35_v3 = {"33": "A", "34": "C", "35": "D"}
+        keys_36_40_v3 = {
+            "36": "250",
+            "37": "9:3:3:1",
+            "38": "12.5",
+            "39": "CcDd",
+            "40": "288000"
+        }
+        rubrics_41_43_v3 = {
+            "41": {
+                "title": "Kaputsin maymunlarida uch nuqtali krossingover (A, B, L)",
+                "max_score": 10.0,
+                "descriptors": [
+                    {"step": 1, "desc": "Keng qo'llar, yirik bosh va uzun oyoqlar genotiplarini yozish", "points": 2.0},
+                    {"step": 2, "desc": "F1 duragaylarining tahliliy chatishtirish natijalarini guruhlash", "points": 2.0},
+                    {"step": 3, "desc": "Yakka va qo'sh krossingover avlodlarini aniqlash", "points": 2.0},
+                    {"step": 4, "desc": "Genlar xromosomadagi ketma-ketligi va masofalarini topish", "points": 2.0},
+                    {"step": 5, "desc": "Interferensiya koeffitsientini hisoblash", "points": 2.0}
+                ]
+            },
+            "42": {
+                "title": "G'o'zada polimer irsiylanish va tola hosildorligi",
+                "max_score": 10.0,
+                "descriptors": [
+                    {"step": 1, "desc": "Polimer genlar (A1A1A2A2) ifodasini belgilash", "points": 2.5},
+                    {"step": 2, "desc": "F2 da fenotipik nisbatlar va ajralishlarni hisoblash", "points": 2.5},
+                    {"step": 3, "desc": "Geterozigota genotipli o'simliklar ulushini aniqlash", "points": 2.5},
+                    {"step": 4, "desc": "Nazariy hosildorlik ko'rsatkichlarini hisoblash", "points": 2.5}
+                ]
+            },
+            "43": {
+                "title": "Aholi populyatsiyasida rezus omil va qon guruhlari taqsimoti",
+                "max_score": 15.0,
+                "descriptors": [
+                    {"step": 1, "desc": "Rh+ va Rh- allellarining populyatsiyadagi chastotasini topish", "points": 3.0},
+                    {"step": 2, "desc": "ABO tizimi bo'yicha p, q, r chastotalarini aniqlash", "points": 3.0},
+                    {"step": 3, "desc": "Rezus-manfiy 1-qon guruhli insonlar sonini hisoblash", "points": 3.0},
+                    {"step": 4, "desc": "Geterozigota Rh+ insonlar sonini hisoblash", "points": 3.0},
+                    {"step": 5, "desc": "Yakuniy genetik tahlil va xulosani ifodalash", "points": 3.0}
+                ]
+            }
+        }
+        cur.execute("""
+            INSERT INTO milliy_test_keys 
+            (test_code, subject, title, keys_1_32, keys_33_35, keys_36_40, rubrics_41_43)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            "8392006",
+            "Biologiya",
+            "3-Namunaviy Variant (Diagnostik 2025)",
+            json.dumps(keys_1_32_v3),
+            json.dumps(keys_33_35_v3),
+            json.dumps(keys_36_40_v3),
+            json.dumps(rubrics_41_43_v3)
+        ))
+        conn.commit()
+
+
+def get_all_variants() -> list:
+    """Bazadagi barcha Milliy Sertifikat variantlari ro'yxatini qaytaradi."""
+    conn = sqlite3.connect(DB_PATH)
+    cur = conn.cursor()
+    cur.execute("SELECT test_code, title, subject FROM milliy_test_keys ORDER BY test_code ASC")
+    rows = cur.fetchall()
+    conn.close()
+    return [{"test_code": r[0], "title": r[1], "subject": r[2]} for r in rows]
+
+
+def get_variant_rubrics(test_code: str) -> dict:
+    """Variantning rasmiy mezonlari va sarlavhasini qaytaradi."""
+    conn = sqlite3.connect(DB_PATH)
+    cur = conn.cursor()
+    cur.execute("SELECT rubrics_41_43, title FROM milliy_test_keys WHERE test_code = ?", (test_code,))
+    row = cur.fetchone()
+    conn.close()
+    if row and row[0]:
+        try:
+            return {"title": row[1], "rubrics": json.loads(row[0])}
+        except Exception:
+            pass
+    return {}
 
 
 # ==========================================================
@@ -443,17 +603,36 @@ def format_written_result_message(eval_data: dict) -> str:
     return "\n".join(lines)
 
 
+def build_titul_prompt(expected_code: Optional[str] = None) -> str:
+    """Variant kodi asosida dinamik va 100% aniq prompt tuzadi."""
+    prompt = MASTER_TITUL_PROMPT
+    if expected_code:
+        v_info = get_variant_rubrics(expected_code)
+        if v_info and v_info.get("rubrics"):
+            r_dict = v_info.get("rubrics", {})
+            rubrics_desc = f"\n\nDIQQAT! Foydalanuvchi aynan {expected_code} ({v_info.get('title')}) variantini topshirmoqda!\n"
+            rubrics_desc += "Agar rasm 41, 42 yoki 43-savollarning yozma ishi bo'lsa, qat'iy ravishda quyidagi rasmiy mezonlar va to'g'ri yechim bo'yicha bahola:\n"
+            for q_num, q_data in r_dict.items():
+                rubrics_desc += f"\nSavol {q_num}: {q_data.get('title')} (Maksimal: {q_data.get('max_score')} ball):\n"
+                for step in q_data.get("descriptors", []):
+                    rubrics_desc += f"  - {step.get('step')}-qadam: {step.get('desc')} ({step.get('points')} ball)\n"
+            prompt += rubrics_desc
+    return prompt
+
+
 # ==========================================================
 # 5. UNIVERSAL RASM TEKSHIRUV ENTRYPOINTI
 # ==========================================================
 
-def process_titul_image(image_bytes: bytes) -> Tuple[str, str, dict]:
+def process_titul_image(image_bytes: bytes, expected_test_code: Optional[str] = None) -> Tuple[str, str, dict]:
     """
     Rasm qabul qilib, bitta tezkor Vision so'rovi orqali uning 1-bet (OMR) yoki
     Yozma ish (41-43) ekanligini aniqlaydi va tayyor natijani beradi.
+    Agar expected_test_code berilsa, aynan o'sha variant mezonlari bilan tekshiradi.
     """
-    logger.info("Rasm Gemini 3 Flash orqali tahlil qilinmoqda...")
-    extracted = call_gemini_vision(image_bytes, MASTER_TITUL_PROMPT)
+    logger.info(f"Rasm Gemini 3 Flash orqali tahlil qilinmoqda (Variant: {expected_test_code or 'Avtomatik'})...")
+    custom_prompt = build_titul_prompt(expected_test_code)
+    extracted = call_gemini_vision(image_bytes, custom_prompt)
     if not extracted:
         return "error", "❌ Rasmni tahlil qilishda xatolik yuz berdi. Iltimos, rasmni tiniqroq qilib qayta yuboring.", {}
 
@@ -472,10 +651,14 @@ def process_titul_image(image_bytes: bytes) -> Tuple[str, str, dict]:
         return "unknown", msg_text, extracted
     elif sheet_type == "written_work":
         logger.info("Yozma ish (41-43) natijasi formatlanmoqda...")
+        if expected_test_code:
+            extracted["test_code"] = expected_test_code
         msg_text = format_written_result_message(extracted)
         return "written_work", msg_text, extracted
     else:
         logger.info("Titul 1-bet natijasi solishtirilmoqda...")
+        if expected_test_code and not extracted.get("booklet_number"):
+            extracted["booklet_number"] = expected_test_code
         grade_res = grade_titul_submission(extracted)
         msg_text = format_titul_result_message(grade_res)
         return "titul_page_1", msg_text, grade_res
