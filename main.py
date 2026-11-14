@@ -261,8 +261,11 @@ async def handle_start(message: Message):
         "🧬 <b>Biologiya ta'lim va test botiga xush kelibsiz!</b>\n\n"
         f"📌 Joriy faol sinf: <b>{grade_name}</b>\n\n"
         "Quyidagi menyudan kerakli bo'limni tanlang:\n"
+        "• 🎯 <b>Milliy Sertifikat</b> — 43 talik rasmiy test va AI Vision titul tekshirish\n"
+        "• ✍️ <b>29 kunlik Yozma</b> — Murakkab genetik va biokimyoviy masalalar marafoni\n"
         "• 📖 <b>Mavzular</b> — Darslik ma'ruzalari va konspektlar\n"
         "• 📝 <b>Testlar</b> — Mavzulashtirilgan viktorina testlari\n"
+        "• ✍️ <b>Yopiq testlar</b> — 10-sinf so'z yozish testlari\n"
         "• 📅 <b>Haftalik Test</b> — O'zlashtirish darajasini aniqlovchi nazorat\n"
         "• 📐 <b>Masalalar</b> — DNK, oqsil, ATF va genetika masalalari\n"
         "• 🎥 <b>Video darslar</b> — Mavzuga oid videoroliklar\n"
@@ -2576,7 +2579,7 @@ KNOWN_BUTTONS = [
     "📖 Mavzular", "📝 Testlar", "📅 Haftalik Test", "📐 Masalalar",
     "🎥 Video darslar", "🧬 Animatsiyalar", "🏆 Reyting", "📊 Natijalar",
     "💳 Premium", "👨‍🏫 O'qituvchi", "🤖 AI Biologiya", "🔄 Sinfni almashtirish",
-    "✍️ Yopiq testlar"
+    "✍️ Yopiq testlar", "🎯 Milliy Sertifikat", "✍️ 29 kunlik Yozma"
 ]
 
 @dp.message(F.text & ~F.text.startswith("/") & ~F.text.in_(KNOWN_BUTTONS))
@@ -2897,6 +2900,51 @@ async def milliy_sertifikat_handler(message: Message):
     await message.answer(text, reply_markup=kb)
 
 
+@dp.message(F.text.in_(["📸 Titul tekshirish", "/titul", "titul", "Titul"]))
+async def titul_command_handler(message: Message):
+    """Titul yoki yozma ish fotosuratini tekshirtirish yo'riqnomasi"""
+    text = (
+        "📸 <b>MILLIY SERTIFIKAT TITULI VA YOZMA ISHNI TEKSHIRISH (AI VISION)</b>\n\n"
+        "To'ldirilgan javoblar varaqasi (1–40) yoki 41, 42, 43-savollar bo'yicha daftardagi "
+        "yozma ish fotosuratini <b>to'g'ridan-to'g'ri ushbu chatga rasm qilib yuboring</b>.\n\n"
+        "💡 <b>Tavsiya:</b>\n"
+        "• Rasmni yaxshi yoritilgan joyda, qog'oz to'liq ko'rinadigan qilib tushiring.\n"
+        "• Sun'iy intellekt (Gemini Vision) soniyalar ichida doirachalar va qo'lyozmalarni o'qib, "
+        "natija va sertifikat darajasini hisoblab beradi!\n\n"
+        "<i>Quyidagi tugmalar orqali rasmiy titul blankini yuklab oling yoki to'liq test bilan tanishing:</i>"
+    )
+    kb = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="📥 Rasmiy Titul Blankini yuklab olish (PDF) 📄", callback_data="download_titul_pdf")],
+        [InlineKeyboardButton(text="🎯 43 talik Milliy Test Menyusi", callback_data="open_milliy_menu")],
+        [InlineKeyboardButton(text="🚀 Mini Ilovada Ochish 📱", web_app=WebAppInfo(url=get_webapp_url()))]
+    ])
+    await message.answer(text, reply_markup=kb)
+
+
+@dp.callback_query(F.data == "open_milliy_menu")
+async def open_milliy_menu_callback(callback: CallbackQuery):
+    """Milliy sertifikat menyusini inline orqali ochadi"""
+    await callback.answer()
+    text = (
+        "🎯 <b>MILLIY SERTIFIKAT TESTI (43 TALIK RASMIY FORMAT)</b>\n\n"
+        "Ushbu bo'limda Davlat Test Markazi (Bilimni baholash agentligi) standarti asosidagi "
+        "eng so'nggi 43 talik rasmiy titul va yozma ishlar tizimi yo'lga qo'yilgan:\n\n"
+        "📝 <b>1–32 savollar:</b> 4 variantli yopiq testlar (A, B, C, D)\n"
+        "🔤 <b>33–35 savollar:</b> 6 variantli moslashtirish testlari (A–F)\n"
+        "🔢 <b>36–40 savollar:</b> Qisqa javobli katakchalar (sonlar va formulalar)\n"
+        "✍️ <b>41–43 savollar:</b> Ochiq yozma ishlar (daftardagi to'liq yechim)\n"
+        "🤖 <b>AI Vision:</b> Titul yoki daftar rasmini yuboring, sun'iy intellekt darhol tekshirib ball qo'yadi!\n\n"
+        "<i>Quyidagi amallardan birini tanlang:</i>"
+    )
+    kb = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="📸 Titul / Yozma ish rasmini tekshirish 🤖", callback_data="check_titul_prompt")],
+        [InlineKeyboardButton(text="📥 Rasmiy Titul Blankini yuklab olish (PDF) 📄", callback_data="download_titul_pdf")],
+        [InlineKeyboardButton(text="🚀 Mini Ilovada To'liq Ishlash 📱", web_app=WebAppInfo(url=get_webapp_url()))],
+        [InlineKeyboardButton(text="✍️ 29 kunlik Yozma ishlar", callback_data="yozmapage_1")]
+    ])
+    await callback.message.edit_text(text, reply_markup=kb)
+
+
 @dp.callback_query(F.data == "check_titul_prompt")
 async def check_titul_prompt_handler(callback: CallbackQuery):
     """O'quvchiga titul rasmini yuborish bo'yicha yo'riqnoma beradi"""
@@ -2917,7 +2965,8 @@ async def check_titul_prompt_handler(callback: CallbackQuery):
 async def download_titul_pdf_handler(callback: CallbackQuery):
     """Rasmiy 43 talik titul blanki PDF faylini yuboradi"""
     await callback.answer("Fayl yuborilmoqda...")
-    pdf_path = r"F:\Antigravity A.I\1-MILLIY SERTIFIKAT 2025\Milliy sertifikat javoblar varaqasi titul 43 talik.pdf"
+    local_pdf = os.path.join(os.path.dirname(__file__), "Milliy_sertifikat_javoblar_varaqasi_titul_43_talik.pdf")
+    pdf_path = local_pdf if os.path.exists(local_pdf) else r"F:\Antigravity A.I\1-MILLIY SERTIFIKAT 2025\Milliy sertifikat javoblar varaqasi titul 43 talik.pdf"
     if os.path.exists(pdf_path):
         doc = FSInputFile(pdf_path, filename="Milliy_sertifikat_javoblar_varaqasi_titul_43_talik.pdf")
         caption = (
@@ -3036,6 +3085,22 @@ async def main():
         asyncio.create_task(self_ping_task())
     except Exception as e:
         logging.warning(f"Veb-serverni ishga tushirishda ogohlantirish: {e}")
+
+    try:
+        from aiogram.types import BotCommand, MenuButtonWebApp
+        await bot.set_my_commands([
+            BotCommand(command="start", description="Botni qayta ishga tushirish"),
+            BotCommand(command="sertifikat", description="🎯 Milliy Sertifikat (43 talik test)"),
+            BotCommand(command="titul", description="📸 Titul & Yozma ish tekshirish (AI)"),
+            BotCommand(command="yozma", description="✍️ 29 kunlik Yozma ishlar"),
+            BotCommand(command="yopiq", description="📝 10-sinf Yopiq testlari"),
+            BotCommand(command="menu", description="📱 Asosiy menyu")
+        ])
+        await bot.set_chat_menu_button(
+            menu_button=MenuButtonWebApp(text="🚀 BioMaster", web_app=WebAppInfo(url=get_webapp_url()))
+        )
+    except Exception as cmd_err:
+        logging.warning(f"Bot buyruqlarini sozlashda ogohlantirish: {cmd_err}")
 
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)

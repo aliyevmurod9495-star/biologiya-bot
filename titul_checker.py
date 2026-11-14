@@ -1,4 +1,4 @@
-"""
+﻿"""
 titul_checker.py - Milliy Sertifikat (43 talik) Titul va Yozma Ishlarni (41-43)
 AI Vision (Gemini 3 Flash) orqali to'liq tekshirish va baholash tizimi.
 Tezkor, bitta so'rovli (Single-Shot) va optimallashgan arxitektura.
@@ -209,6 +209,13 @@ Qat'iy format:
   "total_score": 7.0,
   "max_score": 10.0,
   "general_feedback": "Yaxshi yechim..."
+}
+
+VARIANT C: Agar rasm Milliy sertifikat titul varaqasi ham, biologiya yozma ish daftari ham BO'LMASA (masalan, shaxsiy rasm, darslik sahifasi, tabiat rasmi va h.k.):
+Qat'iy format:
+{
+  "sheet_type": "unknown",
+  "reason": "Yuborilgan fotosurat Milliy sertifikat titul blanki yoki biologiya yozma ish daftari emas."
 }
 """
 
@@ -452,7 +459,18 @@ def process_titul_image(image_bytes: bytes) -> Tuple[str, str, dict]:
 
     sheet_type = extracted.get("sheet_type", "titul_page_1")
     
-    if sheet_type == "written_work":
+    if sheet_type == "unknown":
+        logger.info("Rasm titul yoki yozma ish emas deb topildi.")
+        msg_text = (
+            "ℹ️ <b>Yuborilgan fotosurat tanilmadi</b>\n\n"
+            f"<i>{extracted.get('reason', 'Ushbu rasm Milliy sertifikat titul varaqasi yoki yozma ish daftari emas.')}</i>\n\n"
+            "💡 <b>To'g'ri tekshirtirish uchun:</b>\n"
+            "• Milliy sertifikat rasmiy 43 talik javoblar varaqasi (titul)ni to'ldirib, rasmga olib yuboring.\n"
+            "• Yoki 41, 42, 43-masalalarning daftardagi qo'lyozma yechimini rasmga olib yuboring.\n"
+            "• Titul blanki yo'q bo'lsa, /sertifikat menyusidan yuklab oling!"
+        )
+        return "unknown", msg_text, extracted
+    elif sheet_type == "written_work":
         logger.info("Yozma ish (41-43) natijasi formatlanmoqda...")
         msg_text = format_written_result_message(extracted)
         return "written_work", msg_text, extracted

@@ -321,6 +321,14 @@ def create_app() -> web.Application:
     app.router.add_get("/api/attestation/mock", api_attestation_mock)
     app.router.add_get("/api/yozma/days", api_get_yozma_days)
     app.router.add_get("/api/yozma/day/{day_num}", api_get_yozma_day_detail)
+
+    async def serve_titul_pdf(request: web.Request) -> web.Response:
+        pdf_path = os.path.join(BOT_DIR, "Milliy_sertifikat_javoblar_varaqasi_titul_43_talik.pdf")
+        if os.path.exists(pdf_path):
+            return web.FileResponse(pdf_path, headers={"Content-Disposition": "attachment; filename=Milliy_sertifikat_javoblar_varaqasi_titul_43_talik.pdf"})
+        return web.Response(text="PDF topilmadi", status=404)
+
+    app.router.add_get("/titul.pdf", serve_titul_pdf)
     
     # Rasmlarni statik tarqatish
     for img_folder in ["images_yozma_29", "images_weekly_10", "images_yopiq_10", "images_10", "images_11", "images_5"]:

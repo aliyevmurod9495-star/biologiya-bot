@@ -67,7 +67,7 @@
       <!-- Banner -->
       <div class="p-3.5 rounded-2xl bg-gradient-to-r from-emerald-950 via-teal-950 to-slate-900 border border-emerald-500/30 shadow-lg flex items-center justify-between">
         <div>
-          <span class="text-[9px] uppercase font-mono font-bold tracking-wider text-emerald-400">YANGI AVVAL DARSLIKLARI</span>
+          <span class="text-[9px] uppercase font-mono font-bold tracking-wider text-emerald-400">YANGI AVLOD DARSLIKLARI</span>
           <h2 class="text-xs font-bold text-white mt-0.5">Biologiya Ta’lim Kursi</h2>
           <p class="text-[10px] text-slate-300 mt-0.5">5-sinfdan 11-sinfgacha bosqichma-bosqich</p>
         </div>
@@ -97,7 +97,7 @@
           <p class="text-[9px] text-slate-400">10-sinf: So‘z yozish</p>
         </div>
 
-        <div onclick="openAttestation()" class="cursor-pointer p-2.5 rounded-xl bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border border-emerald-500/30 hover:border-emerald-400 transition">
+        <div onclick="openMilliyMenu()" class="cursor-pointer p-2.5 rounded-xl bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border border-emerald-500/30 hover:border-emerald-400 transition">
           <div class="flex items-center gap-1.5 text-emerald-400 font-bold text-xs mb-0.5">
             <span>🏆</span> <span>Milliy Sertifikat</span>
           </div>
@@ -278,6 +278,51 @@
       </div>
     </section>
 
+    <!-- EKRAN: MILLIY SERTIFIKAT VA TITUL TEKSHIRISH -->
+    <section id="view-milliy" class="hidden space-y-3">
+      <div class="p-3 rounded-2xl bg-gradient-to-r from-emerald-950 via-teal-950 to-slate-900 border border-emerald-500/30 shadow-lg flex items-center justify-between">
+        <div>
+          <span class="text-[9px] uppercase font-mono font-bold tracking-wider text-emerald-400">DAVLAT TEST MARKAZI 2025/2026</span>
+          <h2 class="text-xs font-bold text-white mt-0.5">Milliy Sertifikat (43 talik)</h2>
+          <p class="text-[10px] text-slate-300 mt-0.5">OMR Titul va AI Vision orqali tekshirish</p>
+        </div>
+        <div class="text-2xl">🏆</div>
+      </div>
+
+      <div class="p-3.5 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
+        <h3 class="text-xs font-bold text-white flex items-center gap-1.5">
+          <span>📋</span> Rasmiy format tuzilishi:
+        </h3>
+        <div class="space-y-1.5 text-[11px] text-slate-300">
+          <div class="p-2 rounded-xl bg-slate-950/70 border border-slate-800 flex justify-between items-center">
+            <span>📝 <b>1–32 savollar:</b> 4 variantli yopiq test (A, B, C, D)</span>
+            <span class="text-emerald-400 font-mono font-bold text-[10px]">48 ball</span>
+          </div>
+          <div class="p-2 rounded-xl bg-slate-950/70 border border-slate-800 flex justify-between items-center">
+            <span>🔤 <b>33–35 savollar:</b> Moslashtirish testlari (A–F)</span>
+            <span class="text-emerald-400 font-mono font-bold text-[10px]">6 ball</span>
+          </div>
+          <div class="p-2 rounded-xl bg-slate-950/70 border border-slate-800 flex justify-between items-center">
+            <span>🔢 <b>36–40 savollar:</b> Qisqa javobli kataklar (sonlar/formula)</span>
+            <span class="text-emerald-400 font-mono font-bold text-[10px]">12.5 ball</span>
+          </div>
+          <div class="p-2 rounded-xl bg-slate-950/70 border border-slate-800 flex justify-between items-center">
+            <span>✍️ <b>41–43 savollar:</b> Ochiq yozma ishlar (krossingover, qon guruhlari)</span>
+            <span class="text-emerald-400 font-mono font-bold text-[10px]">33.5 ball</span>
+          </div>
+        </div>
+
+        <div class="pt-2 flex flex-col gap-2">
+          <a href="/titul.pdf" download="Milliy_sertifikat_titul_43.pdf" class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition text-center">
+            <span>📥</span> Rasmiy Titul Blankini Yuklab Olish (PDF)
+          </a>
+          <button onclick="tg ? tg.close() : alert('Telegram bot chatiga o\'tib, fotosurat yuboring!')" class="w-full py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
+            <span>📸</span> Botga qaytib, titul rasmini yuborish
+          </button>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ========================================== -->
@@ -353,7 +398,7 @@
     function navSwitch(viewName) {
       if (tg?.HapticFeedback) tg.HapticFeedback.impactOccurred('light');
 
-      ['grades', 'topics', 'lesson', 'yopiq', 'yozma', 'attestation', 'ebbinghaus'].forEach(v => {
+      ['grades', 'topics', 'lesson', 'yopiq', 'yozma', 'attestation', 'ebbinghaus', 'milliy'].forEach(v => {
         const el = document.getElementById('view-' + v);
         if (el) el.classList.add('hidden');
       });
@@ -734,6 +779,88 @@
       mistakesBank = mistakesBank.filter(m => m.id !== id);
       localStorage.setItem('biomaster_mistakes', JSON.stringify(mistakesBank));
       renderEbbinghaus();
+    }
+
+    // 7. MILLIY SERTIFIKAT MENYUSI
+    function openMilliyMenu() {
+      navSwitch('milliy');
+    }
+
+    // 8. 29 KUNLIK YOZMA ISHLAR MARAFONI
+    async function openYozmaMenu() {
+      navSwitch('yozma');
+      const container = document.getElementById('yozma-content-area');
+      container.innerHTML = '<div class="text-center py-8 text-xs text-slate-500 font-mono"><span class="inline-block animate-spin mr-2">🔄</span> 29 kunlik yozma marafoni yuklanmoqda...</div>';
+
+      const data = await apiFetch('/api/yozma/days');
+      if (!data || !data.ok || !data.days || data.days.length === 0) {
+        container.innerHTML = '<div class="text-red-400 text-xs text-center font-mono py-4">Yozma ishlar ma’lumotini yuklab bo‘lmadi.</div>';
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          ${data.days.map(d => `
+            <div onclick="openYozmaDay(${d.day})" class="cursor-pointer p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-blue-500/50 transition active:scale-[0.98]">
+              <div class="flex items-center justify-between text-blue-400 font-bold text-xs mb-1">
+                <span>📅 ${d.day}-kun</span>
+                <span class="text-[9px] px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-mono font-normal">3 ta masala</span>
+              </div>
+              <p class="text-[10px] text-slate-300 line-clamp-1">${d.title}</p>
+              <div class="text-[9px] text-slate-500 mt-1 flex items-center gap-1">
+                <span>🖼 ${d.images_count} ta yechim rasmi</span>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    async function openYozmaDay(dayNum) {
+      const container = document.getElementById('yozma-content-area');
+      container.innerHTML = '<div class="text-center py-8 text-xs text-slate-500 font-mono"><span class="inline-block animate-spin mr-2">🔄</span> ' + dayNum + '-kun masalalari va yechimlari yuklanmoqda...</div>';
+
+      const data = await apiFetch('/api/yozma/day/' + dayNum);
+      if (!data || !data.ok || !data.problems) {
+        container.innerHTML = '<div class="text-red-400 text-xs text-center font-mono py-4">Masalalarni yuklab bo‘lmadi.</div>';
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+          <button onclick="openYozmaMenu()" class="text-xs text-blue-400 font-bold flex items-center gap-1 hover:underline">
+            ← Barcha kunlarga qaytish
+          </button>
+          <span class="text-xs font-mono font-bold text-white">${dayNum}-KUN MARAFONI</span>
+        </div>
+        <div class="space-y-3 pt-2">
+          ${data.problems.map((p, idx) => `
+            <div class="p-3 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-mono font-bold text-[10px]">${p.number || (idx + 1)}-MASALA</span>
+              </div>
+              <p class="text-xs text-slate-200 leading-relaxed whitespace-pre-wrap">${p.text}</p>
+              ${p.images && p.images.length > 0 ? `
+                <div class="pt-2 border-t border-slate-800/80">
+                  <div class="text-[10px] font-bold text-emerald-400 mb-1 flex items-center gap-1">
+                    <span>📝</span> Daftardagi namunaviy yechim:
+                  </div>
+                  <div class="space-y-2">
+                    ${p.images.map(img => `
+                      <img src="/${img}" alt="Yechim" class="w-full rounded-xl border border-slate-700 shadow-md bg-slate-950" loading="lazy" onerror="this.style.display='none'">
+                    `).join('')}
+                  </div>
+                </div>
+              ` : ''}
+            </div>
+          `).join('')}
+        </div>
+        <div class="pt-3">
+          <button onclick="openYozmaMenu()" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition">
+            ← Boshqa kunni tanlash
+          </button>
+        </div>
+      `;
     }
 
     // Ilk yuklanish
