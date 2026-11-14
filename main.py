@@ -28,6 +28,15 @@ import database
 import materials
 import problems
 import yopiq_test_manager
+import io
+import titul_checker
+
+# Milliy sertifikat bazasini ishga tushirish
+try:
+    titul_checker.init_milliy_db()
+except Exception as e:
+    logging.warning(f"Milliy DB ishga tushmadi: {e}")
+
 try:
     from weekly_tests_data import WEEKLY_TESTS_10NEW
 except Exception as e:
@@ -2871,18 +2880,115 @@ async def milliy_sertifikat_handler(message: Message):
     text = (
         "🎯 <b>MILLIY SERTIFIKAT TESTI (43 TALIK RASMIY FORMAT)</b>\n\n"
         "Ushbu bo'limda Davlat Test Markazi (Bilimni baholash agentligi) standarti asosidagi "
-        "eng so'nggi 43 talik namunaviy va mock variantlar jamlangan:\n\n"
-        "📝 <b>1–40 savollar:</b> Yopiq testlar (nazariy biologiya, moslashtirish, diagrammalar)\n"
-        "✍️ <b>41–43 savollar:</b> Ochiq yozma ishlar (murakkab masalalar va Pennet tahlili)\n"
-        "⏱ <b>Vaqt me'yori:</b> 100 daqiqa\n"
-        "📊 <b>Baholash:</b> Rasch modeli bo'yicha darajalar (A+, A, B+, B, C+, C)\n\n"
-        "<i>Mini ilovada to'liq ekranda ishlash uchun quyidagi tugmani bosing:</i>"
+        "eng so'nggi 43 talik rasmiy titul va yozma ishlar tizimi yo'lga qo'yilgan:\n\n"
+        "📝 <b>1–32 savollar:</b> 4 variantli yopiq testlar (A, B, C, D)\n"
+        "🔤 <b>33–35 savollar:</b> 6 variantli moslashtirish testlari (A–F)\n"
+        "🔢 <b>36–40 savollar:</b> Qisqa javobli katakchalar (sonlar va formulalar)\n"
+        "✍️ <b>41–43 savollar:</b> Ochiq yozma ishlar (daftardagi to'liq yechim)\n"
+        "🤖 <b>AI Vision:</b> Titul yoki daftar rasmini yuboring, sun'iy intellekt darhol tekshirib ball qo'yadi!\n\n"
+        "<i>Quyidagi amallardan birini tanlang:</i>"
     )
     kb = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="📸 Titul / Yozma ish rasmini tekshirish 🤖", callback_data="check_titul_prompt")],
+        [InlineKeyboardButton(text="📥 Rasmiy Titul Blankini yuklab olish (PDF) 📄", callback_data="download_titul_pdf")],
         [InlineKeyboardButton(text="🚀 Mini Ilovada To'liq Ishlash 📱", web_app=WebAppInfo(url=get_webapp_url()))],
         [InlineKeyboardButton(text="✍️ 29 kunlik Yozma ishlar", callback_data="yozmapage_1")]
     ])
     await message.answer(text, reply_markup=kb)
+
+
+@dp.callback_query(F.data == "check_titul_prompt")
+async def check_titul_prompt_handler(callback: CallbackQuery):
+    """O'quvchiga titul rasmini yuborish bo'yicha yo'riqnoma beradi"""
+    await callback.answer()
+    text = (
+        "📸 <b>MILLIY SERTIFIKAT TITULINI TEKSHIRISH</b>\n\n"
+        "To'ldirilgan javoblar varaqasi (1-40) yoki 41, 42, 43-savollar bo'yicha daftardagi "
+        "yozma ish fotosuratini <b>to'g'ridan-to'g'ri ushbu chatga rasm qilib yuboring</b>.\n\n"
+        "💡 <b>Tavsiya:</b>\n"
+        "• Rasmni yaxshi yoritilgan joyda, qog'oz to'liq ko'rinadigan qilib tushiring.\n"
+        "• Sun'iy intellekt (Gemini Vision) soniyalar ichida doirachalar va qo'lyozmalarni o'qib, "
+        "natija va sertifikat darajasini hisoblab beradi!"
+    )
+    await callback.message.answer(text)
+
+
+@dp.callback_query(F.data == "download_titul_pdf")
+async def download_titul_pdf_handler(callback: CallbackQuery):
+    """Rasmiy 43 talik titul blanki PDF faylini yuboradi"""
+    await callback.answer("Fayl yuborilmoqda...")
+    pdf_path = r"F:\Antigravity A.I\1-MILLIY SERTIFIKAT 2025\Milliy sertifikat javoblar varaqasi titul 43 talik.pdf"
+    if os.path.exists(pdf_path):
+        doc = FSInputFile(pdf_path, filename="Milliy_sertifikat_javoblar_varaqasi_titul_43_talik.pdf")
+        caption = (
+            "📄 <b>Davlat Test Markazi (Bilimni baholash agentligi) 2025-yilgi rasmiy 43 talik javoblar varaqasi (Titul).</b>\n\n"
+            "• Ushbu PDF ni chop eting (print qiling).\n"
+            "• Savollarni ishlab, javoblarni ruchka bilan belgilang.\n"
+            "• To'ldirilgan varaqni rasmga olib botga jo'natsangiz, AI to'liq tekshirib ball qo'yadi!"
+        )
+        await callback.message.answer_document(doc, caption=caption)
+    else:
+        await callback.message.answer("⚠️ Titul fayli serverda topilmadi.")
+
+
+# ==========================================================
+# FOTOSURAT ORQALI TITUL VA YOZMA ISHNI AVTOMATIK TEKSHIRISH
+# ==========================================================
+@dp.message(F.photo)
+async def handle_photo_titul_checker(message: Message, bot: Bot):
+    """Foydalanuvchi yuborgan fotosuratni AI orqali tekshirish"""
+    status_msg = await message.answer(
+        "🔎 <b>Sun'iy intellekt (Gemini Vision) titulni tahlil qilmoqda...</b>\n"
+        "<i>Iltimos, 5-10 soniya kuting, natija hisoblanmoqda... ⏳</i>"
+    )
+    try:
+        # Eng yuqori sifatli rasmni yuklab olamiz
+        photo = message.photo[-1]
+        file_io = io.BytesIO()
+        await bot.download(photo, destination=file_io)
+        img_bytes = file_io.getvalue()
+
+        # Non-blocking executor orqali AI tahlilini bajaramiz
+        loop = asyncio.get_running_loop()
+        sub_type, res_text, raw_data = await loop.run_in_executor(
+            None, titul_checker.process_titul_image, img_bytes
+        )
+
+        # Natijani xabarga chiqaramiz
+        await status_msg.edit_text(res_text, parse_mode="HTML")
+
+        # Agar bazaga saqlash kerak bo'lsa
+        if sub_type != "error" and raw_data:
+            try:
+                conn = sqlite3.connect(titul_checker.DB_PATH)
+                cur = conn.cursor()
+                cur.execute("""
+                    INSERT INTO milliy_submissions 
+                    (user_id, user_full_name, test_code, submission_type, score, max_score, percentage, tier, detailed_results)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, (
+                    message.from_user.id if message.from_user else 0,
+                    message.from_user.full_name if message.from_user else "Talabgor",
+                    str(raw_data.get("test_code", raw_data.get("question_number", ""))),
+                    sub_type,
+                    float(raw_data.get("total_score", 0.0)),
+                    float(raw_data.get("max_score", 100.0)),
+                    float(raw_data.get("percentage", 0.0)),
+                    str(raw_data.get("tier", "")),
+                    json.dumps(raw_data)
+                ))
+                conn.commit()
+                conn.close()
+            except Exception as dberr:
+                logging.warning(f"Submissionni saqlashda xatolik: {dberr}")
+
+    except Exception as e:
+        logging.error(f"Titul fotosuratini tekshirishda xatolik: {e}")
+        await status_msg.edit_text(
+            "❌ <b>Rasmni tekshirishda xatolik yuz berdi.</b>\n"
+            "Iltimos, rasmni aniq, to'g'ri burchak ostida va yaxshi yorug'likda tushirib, qayta yuboring."
+        )
+
 
 
 # YOPIQ TESTLAR (JAVOB YOZISH)
