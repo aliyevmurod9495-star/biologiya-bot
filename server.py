@@ -16,7 +16,11 @@ from aiohttp import web
 
 # biologiya_test_bot yo'lini qo'shish
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-BOT_DIR = os.path.abspath(os.path.join(CURRENT_DIR, ".."))
+if os.path.exists(os.path.join(CURRENT_DIR, "main.py")):
+    BOT_DIR = CURRENT_DIR
+else:
+    BOT_DIR = os.path.abspath(os.path.join(CURRENT_DIR, ".."))
+
 if BOT_DIR not in sys.path:
     sys.path.insert(0, BOT_DIR)
 
@@ -323,9 +327,13 @@ def create_app() -> web.Application:
     app.router.add_get("/api/yozma/day/{day_num}", api_get_yozma_day_detail)
 
     async def serve_titul_pdf(request: web.Request) -> web.Response:
-        pdf_path = os.path.join(BOT_DIR, "Milliy_sertifikat_javoblar_varaqasi_titul_43_talik.pdf")
-        if os.path.exists(pdf_path):
-            return web.FileResponse(pdf_path, headers={"Content-Disposition": "attachment; filename=Milliy_sertifikat_javoblar_varaqasi_titul_43_talik.pdf"})
+        candidates = [
+            os.path.join(BOT_DIR, "Milliy_sertifikat_javoblar_varaqasi_titul_43_talik.pdf"),
+            os.path.join(CURRENT_DIR, "Milliy_sertifikat_javoblar_varaqasi_titul_43_talik.pdf")
+        ]
+        for p in candidates:
+            if os.path.exists(p):
+                return web.FileResponse(p, headers={"Content-Disposition": "attachment; filename=Milliy_sertifikat_javoblar_varaqasi_titul_43_talik.pdf"})
         return web.Response(text="PDF topilmadi", status=404)
 
     app.router.add_get("/titul.pdf", serve_titul_pdf)
@@ -335,12 +343,25 @@ def create_app() -> web.Application:
         file_map = {
             "1": "milliy_variant_1_yozma.pdf",
             "2": "milliy_variant_2_yozma.pdf",
-            "3": "milliy_variant_3_yozma.pdf"
+            "3": "milliy_variant_3_yozma.pdf",
+            "4": "milliy_variant_4_yozma.pdf",
+            "5": "milliy_variant_5_yozma.pdf",
+            "6": "milliy_variant_6_yozma.pdf",
+            "8392004": "milliy_variant_1_yozma.pdf",
+            "8392005": "milliy_variant_2_yozma.pdf",
+            "8392006": "milliy_variant_3_yozma.pdf",
+            "8392007": "milliy_variant_4_yozma.pdf",
+            "8392008": "milliy_variant_5_yozma.pdf",
+            "8392009": "milliy_variant_6_yozma.pdf"
         }
         filename = file_map.get(str(v_num), "milliy_variant_1_yozma.pdf")
-        pdf_path = os.path.join(BOT_DIR, filename)
-        if os.path.exists(pdf_path):
-            return web.FileResponse(pdf_path, headers={"Content-Disposition": f"attachment; filename={filename}"})
+        candidates = [
+            os.path.join(BOT_DIR, filename),
+            os.path.join(CURRENT_DIR, filename)
+        ]
+        for p in candidates:
+            if os.path.exists(p):
+                return web.FileResponse(p, headers={"Content-Disposition": f"attachment; filename={filename}"})
         return web.Response(text="PDF topilmadi", status=404)
 
     app.router.add_get("/api/variant/{v_num}/pdf", serve_variant_pdf)

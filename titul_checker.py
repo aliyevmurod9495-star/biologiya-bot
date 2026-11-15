@@ -282,6 +282,186 @@ def seed_default_keys(conn):
         ))
         conn.commit()
 
+    # 4-VARIANT (8392007)
+    cur.execute("SELECT test_code FROM milliy_test_keys WHERE test_code = '8392007'")
+    if not cur.fetchone():
+        keys_1_32_v4 = {
+            "1": "A", "2": "B", "3": "C", "4": "D", "5": "A", "6": "B", "7": "C",
+            "8": "D", "9": "A", "10": "B", "11": "C", "12": "D", "13": "A", "14": "B",
+            "15": "C", "16": "D", "17": "A", "18": "B", "19": "C", "20": "D", "21": "A",
+            "22": "B", "23": "C", "24": "D", "25": "A", "26": "B", "27": "C", "28": "D",
+            "29": "A", "30": "B", "31": "C", "32": "D"
+        }
+        keys_33_35_v4 = {"33": "B", "34": "E", "35": "A"}
+        keys_36_40_v4 = {"36": "8000", "37": "9:3:3:1", "38": "60000", "39": "AaBb", "40": "3600"}
+        rubrics_41_43_v4 = {
+            "41": {
+                "title": "Populyatsiyada oyoq uzunligi va tana genetikasi",
+                "max_score": 10.0,
+                "descriptors": [
+                    {"step": 1, "desc": "F va f genlari, ota-ona genotiplarini to'g'ri ifodalash", "points": 2.5},
+                    {"step": 2, "desc": "Populyatsiyadagi genotipik sinflar va avlodlar taqsimoti", "points": 2.5},
+                    {"step": 3, "desc": "Amaliy va nazariy ko'rsatkichlarni solishtirish", "points": 2.5},
+                    {"step": 4, "desc": "Yakuniy xulosani to'g'ri yozish", "points": 2.5}
+                ]
+            },
+            "42": {
+                "title": "Tovuqlarda toj shaklining komplementar irsiylanishi",
+                "max_score": 10.0,
+                "descriptors": [
+                    {"step": 1, "desc": "A-B (yong'oqsimon), A-bb (atirgul), aaB- (no'xat), aabb (oddiy) genotiplari", "points": 2.5},
+                    {"step": 2, "desc": "Chatishtirish sxemasi va Panet katagini tuzish", "points": 2.5},
+                    {"step": 3, "desc": "Avlodlar fenotipik nisbatlarini aniqlash (9:3:3:1)", "points": 2.5},
+                    {"step": 4, "desc": "So'ralgan toj shakllari foizini hisoblash", "points": 2.5}
+                ]
+            },
+            "43": {
+                "title": "Aholi genetikasi: ko'z shakli (Hardy-Weinberg qonuniyati)",
+                "max_score": 15.0,
+                "descriptors": [
+                    {"step": 1, "desc": "60000 kishilik aholidan q^2 (aa) chastotasini aniqlash", "points": 3.0},
+                    {"step": 2, "desc": "q (retsessiv) va p (dominant) allellar chastotasini topish", "points": 3.0},
+                    {"step": 3, "desc": "Geterozigota (Aa) insonlar sonini hisoblash (2pq * N)", "points": 3.0},
+                    {"step": 4, "desc": "Gomozigota (AA) insonlar sonini hisoblash (p^2 * N)", "points": 3.0},
+                    {"step": 5, "desc": "Yakuniy populyatsion xulosani asoslash", "points": 3.0}
+                ]
+            }
+        }
+        cur.execute("""
+            INSERT INTO milliy_test_keys 
+            (test_code, subject, title, keys_1_32, keys_33_35, keys_36_40, rubrics_41_43)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            "8392007",
+            "Biologiya",
+            "4-Namunaviy Variant (Shernazarov & Azimov)",
+            json.dumps(keys_1_32_v4),
+            json.dumps(keys_33_35_v4),
+            json.dumps(keys_36_40_v4),
+            json.dumps(rubrics_41_43_v4)
+        ))
+        conn.commit()
+
+    # 5-VARIANT (8392008)
+    cur.execute("SELECT test_code FROM milliy_test_keys WHERE test_code = '8392008'")
+    if not cur.fetchone():
+        keys_1_32_v5 = {
+            "1": "D", "2": "C", "3": "B", "4": "A", "5": "D", "6": "C", "7": "B",
+            "8": "A", "9": "D", "10": "C", "11": "B", "12": "A", "13": "D", "14": "C",
+            "15": "B", "16": "A", "17": "D", "18": "C", "19": "B", "20": "A", "21": "D",
+            "22": "C", "23": "B", "24": "A", "25": "D", "26": "C", "27": "B", "28": "A",
+            "29": "D", "30": "C", "31": "B", "32": "A"
+        }
+        keys_33_35_v5 = {"33": "F", "34": "B", "35": "E"}
+        keys_36_40_v5 = {"36": "120", "37": "50%", "38": "1:2:1", "39": "XDY", "40": "25000"}
+        rubrics_41_43_v5 = {
+            "41": {
+                "title": "Zebralarda birikkan holda irsiylanish (D, E genlari)",
+                "max_score": 10.0,
+                "descriptors": [
+                    {"step": 1, "desc": "Katta oyoq (D) va katta peshona (E) genotiplarini yozish", "points": 2.5},
+                    {"step": 2, "desc": "Gametalar va birikish guruhlarini tahlil qilish", "points": 2.5},
+                    {"step": 3, "desc": "Krossingover foizi va masofani aniqlash", "points": 2.5},
+                    {"step": 4, "desc": "F2 fenotipik nisbatlarini hisoblash", "points": 2.5}
+                ]
+            },
+            "42": {
+                "title": "Daltonizm, gemofiliya (jinsiy xromosoma) va braxidaktiliya",
+                "max_score": 10.0,
+                "descriptors": [
+                    {"step": 1, "desc": "X^dH va X^Dh genotiplarini to'g'ri belgilash", "points": 2.5},
+                    {"step": 2, "desc": "Ota-ona fenotipi va nikoh sxemasini tuzish", "points": 2.5},
+                    {"step": 3, "desc": "Farzandlarda kasalliklar namoyon bo'lish ehtimolini hisoblash", "points": 2.5},
+                    {"step": 4, "desc": "Sog'lom va tashuvchi qizlar nisbatini aniqlash", "points": 2.5}
+                ]
+            },
+            "43": {
+                "title": "Garvy formulasi bo'yicha populyatsiyada kasallik tarqalishi",
+                "max_score": 15.0,
+                "descriptors": [
+                    {"step": 1, "desc": "Populyatsiya ko'rsatkichlari va Garvy formulasi qoidasi", "points": 3.0},
+                    {"step": 2, "desc": "Vaksina qilinishi lozim bo'lgan qatlamni hisoblash", "points": 3.0},
+                    {"step": 3, "desc": "Kasallik tarqalish darajasi va koeffitsientini topish", "points": 3.0},
+                    {"step": 4, "desc": "Jami himoyalangan organizmlar foizini aniqlash", "points": 3.0},
+                    {"step": 5, "desc": "Epifitologik/epidemiologik xulosa berish", "points": 3.0}
+                ]
+            }
+        }
+        cur.execute("""
+            INSERT INTO milliy_test_keys 
+            (test_code, subject, title, keys_1_32, keys_33_35, keys_36_40, rubrics_41_43)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            "8392008",
+            "Biologiya",
+            "5-Namunaviy Variant (Milliy Sertifikat 2025)",
+            json.dumps(keys_1_32_v5),
+            json.dumps(keys_33_35_v5),
+            json.dumps(keys_36_40_v5),
+            json.dumps(rubrics_41_43_v5)
+        ))
+        conn.commit()
+
+    # 6-VARIANT (8392009)
+    cur.execute("SELECT test_code FROM milliy_test_keys WHERE test_code = '8392009'")
+    if not cur.fetchone():
+        keys_1_32_v6 = {
+            "1": "B", "2": "C", "3": "A", "4": "D", "5": "B", "6": "C", "7": "A",
+            "8": "D", "9": "B", "10": "C", "11": "A", "12": "D", "13": "B", "14": "C",
+            "15": "A", "16": "D", "17": "B", "18": "C", "19": "A", "20": "D", "21": "B",
+            "22": "C", "23": "A", "24": "D", "25": "B", "26": "C", "27": "A", "28": "D",
+            "29": "B", "30": "C", "31": "A", "32": "D"
+        }
+        keys_33_35_v6 = {"33": "C", "34": "F", "35": "B"}
+        keys_36_40_v6 = {"36": "16", "37": "256", "38": "800", "39": "AaBbCc", "40": "320"}
+        rubrics_41_43_v6 = {
+            "41": {
+                "title": "Sut emizuvchilarda poligen va polimer genotiplar tahlili",
+                "max_score": 10.0,
+                "descriptors": [
+                    {"step": 1, "desc": "AaBbCcDE genotipidan 16 xil gameta hosil bo'lishini ko'rsatish", "points": 2.5},
+                    {"step": 2, "desc": "Ota-ona chatishtirishidagi genotipik sinflar soni (2^n)", "points": 2.5},
+                    {"step": 3, "desc": "Retsessiv gomozigotalar va geterozigotalar nisbati", "points": 2.5},
+                    {"step": 4, "desc": "F1 avlod tahlilini yakunlash", "points": 2.5}
+                ]
+            },
+            "42": {
+                "title": "Interferon oqsili hosil bo'lishi va irsiylanish",
+                "max_score": 10.0,
+                "descriptors": [
+                    {"step": 1, "desc": "Interferon (A) va hosil bo'lmaslik (a) genotiplarini yozish", "points": 2.5},
+                    {"step": 2, "desc": "Autosoma bo'yicha ajralishlar va ehtimolliklar", "points": 2.5},
+                    {"step": 3, "desc": "Serologik tahlillar va avlodlar sog'lomlik darajasi", "points": 2.5},
+                    {"step": 4, "desc": "Nazariy xulosa chiqarish", "points": 2.5}
+                ]
+            },
+            "43": {
+                "title": "Tropik o'rmon populyatsiyasi: pat ranglari (R/r)",
+                "max_score": 15.0,
+                "descriptors": [
+                    {"step": 1, "desc": "800 ta qushdan dominant (R) va retsessiv (r) pat chastotasini topish", "points": 3.0},
+                    {"step": 2, "desc": "Tillarang va havorang patli organizmlar sonini hisoblash", "points": 3.0},
+                    {"step": 3, "desc": "Geterozigota (Rr) organizmlar sonini aniqlash", "points": 3.0},
+                    {"step": 4, "desc": "Populyatsion muvozanatni tahlil qilish", "points": 3.0},
+                    {"step": 5, "desc": "Biogeotsenotik xulosa berish", "points": 3.0}
+                ]
+            }
+        }
+        cur.execute("""
+            INSERT INTO milliy_test_keys 
+            (test_code, subject, title, keys_1_32, keys_33_35, keys_36_40, rubrics_41_43)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            "8392009",
+            "Biologiya",
+            "6-Namunaviy Variant (Murakkab Sinov 2025)",
+            json.dumps(keys_1_32_v6),
+            json.dumps(keys_33_35_v6),
+            json.dumps(keys_36_40_v6),
+            json.dumps(rubrics_41_43_v6)
+        ))
+        conn.commit()
+
 
 def get_all_variants() -> list:
     """Bazadagi barcha Milliy Sertifikat variantlari ro'yxatini qaytaradi."""
@@ -662,6 +842,83 @@ def process_titul_image(image_bytes: bytes, expected_test_code: Optional[str] = 
         grade_res = grade_titul_submission(extracted)
         msg_text = format_titul_result_message(grade_res)
         return "titul_page_1", msg_text, grade_res
+
+
+# ==========================================================
+# 6. ADMIN MONITORING VA STATISTIKA FUNKSIYALARI
+# ==========================================================
+
+def get_milliy_stats() -> dict:
+    """Milliy sertifikat bo'yicha umumiy statistika va so'nggi topshiriqlar."""
+    conn = sqlite3.connect(DB_PATH)
+    cur = conn.cursor()
+    
+    cur.execute("SELECT count(*) FROM milliy_submissions")
+    total = cur.fetchone()[0] or 0
+    
+    cur.execute("SELECT count(*) FROM milliy_submissions WHERE submission_type = 'titul_page_1'")
+    titul_count = cur.fetchone()[0] or 0
+    
+    cur.execute("SELECT count(*) FROM milliy_submissions WHERE submission_type = 'written_work'")
+    written_count = cur.fetchone()[0] or 0
+
+    cur.execute("SELECT tier, count(*) FROM milliy_submissions WHERE tier IS NOT NULL AND tier != '' GROUP BY tier")
+    tier_counts = dict(cur.fetchall())
+    
+    cur.execute("""
+        SELECT user_id, user_full_name, test_code, submission_type, score, max_score, percentage, tier, created_at
+        FROM milliy_submissions
+        ORDER BY id DESC LIMIT 10
+    """)
+    recent = cur.fetchall()
+    conn.close()
+
+    return {
+        "total": total,
+        "titul_count": titul_count,
+        "written_count": written_count,
+        "tier_counts": tier_counts,
+        "recent": [
+            {
+                "user_id": r[0],
+                "user_name": r[1] or "Talabgor",
+                "test_code": r[2] or "Noma'lum",
+                "type": r[3] or "titul",
+                "score": r[4] or 0.0,
+                "max_score": r[5] or 100.0,
+                "percentage": r[6] or 0.0,
+                "tier": r[7] or "-",
+                "date": str(r[8])[:16] if r[8] else ""
+            }
+            for r in recent
+        ]
+    }
+
+
+def get_milliy_submissions_by_user(user_id: int) -> list:
+    """Muayyan o'quvchining barcha topshiriqlari tarixi."""
+    conn = sqlite3.connect(DB_PATH)
+    cur = conn.cursor()
+    cur.execute("""
+        SELECT test_code, submission_type, score, max_score, percentage, tier, created_at
+        FROM milliy_submissions
+        WHERE user_id = ?
+        ORDER BY id DESC
+    """, (user_id,))
+    rows = cur.fetchall()
+    conn.close()
+    return [
+        {
+            "test_code": r[0],
+            "type": r[1],
+            "score": r[2],
+            "max_score": r[3],
+            "percentage": r[4],
+            "tier": r[5],
+            "date": str(r[6])[:16] if r[6] else ""
+        }
+        for r in rows
+    ]
 
 
 if __name__ == "__main__":

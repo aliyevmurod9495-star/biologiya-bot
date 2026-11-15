@@ -19,6 +19,7 @@ from aiogram.types import (
     InputPollOption,
     TelegramObject,
     FSInputFile,
+    BufferedInputFile,
     WebAppInfo,
     MenuButtonWebApp
 )
@@ -30,6 +31,7 @@ import problems
 import yopiq_test_manager
 import io
 import titul_checker
+import certificate_generator
 
 # Milliy sertifikat bazasini ishga tushirish
 try:
@@ -452,6 +454,7 @@ async def handle_admin_panel(message: Message):
             InlineKeyboardButton(text=f"👑 Adminlar ({counts['admins']})", callback_data="admin_list_admins")
         ],
         [
+            InlineKeyboardButton(text="🎯 Milliy Sertifikat Natijalari", callback_data="admin_milliy_stats"),
             InlineKeyboardButton(text="🔄 Yangilash", callback_data="admin_refresh")
         ]
     ])
@@ -467,6 +470,7 @@ async def handle_admin_panel(message: Message):
         "• <code>/allow &lt;ID&gt; [kun]</code> — Foydalanuvchiga obuna berish (sukut bo'yicha 30 kun)\n"
         "• <code>/extend &lt;ID&gt; [kun]</code> — Foydalanuvchi obunasini uzaytirish (sukut bo'yicha +30 kun)\n"
         "• <code>/block &lt;ID&gt;</code> — Foydalanuvchini bloklash (ruxsatini bekor qilish)\n"
+        "• <code>/milliy</code> — Milliy sertifikat topshiriqlari va statistikasi\n"
         "• <code>/report</code> — O'quvchilarning umumiy o'zlashtirish hisoboti\n"
         "• <code>/report &lt;ID&gt;</code> — Muayyan o'quvchi bo'yicha batafsil hisobot\n"
         "• <code>/questions</code> — O'quvchilar AI ga bergan oxirgi savollar\n"
@@ -495,6 +499,7 @@ async def handle_admin_refresh(callback: CallbackQuery):
             InlineKeyboardButton(text=f"👑 Adminlar ({counts['admins']})", callback_data="admin_list_admins")
         ],
         [
+            InlineKeyboardButton(text="🎯 Milliy Sertifikat Natijalari", callback_data="admin_milliy_stats"),
             InlineKeyboardButton(text="🔄 Yangilash", callback_data="admin_refresh")
         ]
     ])
@@ -509,6 +514,7 @@ async def handle_admin_refresh(callback: CallbackQuery):
         "• <code>/allow &lt;ID&gt; [kun]</code> — Foydalanuvchiga obuna berish (sukut bo'yicha 30 kun)\n"
         "• <code>/extend &lt;ID&gt; [kun]</code> — Foydalanuvchi obunasini uzaytirish (sukut bo'yicha +30 kun)\n"
         "• <code>/block &lt;ID&gt;</code> — Foydalanuvchini bloklash\n"
+        "• <code>/milliy</code> — Milliy sertifikat topshiriqlari va statistikasi\n"
         "• <code>/report</code> — O'quvchilarning umumiy o'zlashtirish hisoboti\n"
         "• <code>/report &lt;ID&gt;</code> — Muayyan o'quvchi bo'yicha batafsil hisobot\n"
         "• <code>/questions</code> — O'quvchilar AI ga bergan oxirgi savollar\n"
@@ -520,6 +526,84 @@ async def handle_admin_refresh(callback: CallbackQuery):
         await callback.answer("Yangilandi!")
     except Exception:
         await callback.answer()
+
+
+
+@dp.callback_query(F.data == "admin_milliy_stats")
+async def handle_admin_milliy_stats(callback: CallbackQuery):
+    """Admin uchun Milliy sertifikat statistikasi va oxirgi topshiriqlar"""
+    if not (await database.is_admin(callback.from_user.id) or callback.from_user.id in config.ADMIN_IDS):
+        return
+    await callback.answer()
+    stats = titul_checker.get_milliy_stats()
+    
+    text = (
+        "🎯 <b>MILLIY SERTIFIKAT TOPSHIRIQLARI VA STATISTIKASI</b>\n\n"
+        f"📊 <b>Jami tekshirilgan ishlar:</b> {stats['total']} ta\n"
+        f"📋 <b>Titul varaqalari:</b> {stats['titul_count']} ta\n"
+        f"✍️ <b>Yozma ishlar (41-43):</b> {stats['written_count']} ta\n\n"
+    )
+    
+    if stats['tier_counts']:
+        text += "🏅 <b>Darajalar taqsimoti:</b>\n"
+        for tier_name, count in stats['tier_counts'].items():
+            text += f"   • {tier_name}: <b>{count} ta</b>\n"
+        text += "\n"
+        
+    text += "📋 <b>Oxirgi topshiriqlar:</b>\n"
+    if stats['recent']:
+        for s in stats['recent']:
+            t_type = "Titul" if s['type'] == 'titul_page_1' else "Yozma"
+            text += (
+                f"• <b>{s['user_name']}</b> (<code>{s['user_id']}</code>)\n"
+                f"  └ Var: <code>{s['test_code']}</code> | {t_type} | Ball: <b>{s['score']}/{s['max_score']}</b> ({s['percentage']}%) | {s['tier']} | <i>{s['date']}</i>\n"
+            )
+    else:
+        text += "<i>Hozircha topshiriqlar mavjud emas.</i>\n"
+
+    kb = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="🔄 Yangilash", callback_data="admin_milliy_stats")],
+        [InlineKeyboardButton(text="◀️ Ortga", callback_data="admin_refresh")]
+    ])
+    await callback.message.edit_text(text, reply_markup=kb)
+
+
+@dp.message(Command("milliy"))
+async def handle_cmd_milliy_stats(message: Message):
+    """Admin uchun /milliy komandasi"""
+    if not (await database.is_admin(message.from_user.id) or message.from_user.id in config.ADMIN_IDS):
+        return
+    stats = titul_checker.get_milliy_stats()
+    
+    text = (
+        "🎯 <b>MILLIY SERTIFIKAT TOPSHIRIQLARI VA STATISTIKASI</b>\n\n"
+        f"📊 <b>Jami tekshirilgan ishlar:</b> {stats['total']} ta\n"
+        f"📋 <b>Titul varaqalari:</b> {stats['titul_count']} ta\n"
+        f"✍️ <b>Yozma ishlar (41-43):</b> {stats['written_count']} ta\n\n"
+    )
+    
+    if stats['tier_counts']:
+        text += "🏅 <b>Darajalar taqsimoti:</b>\n"
+        for tier_name, count in stats['tier_counts'].items():
+            text += f"   • {tier_name}: <b>{count} ta</b>\n"
+        text += "\n"
+        
+    text += "📋 <b>Oxirgi topshiriqlar:</b>\n"
+    if stats['recent']:
+        for s in stats['recent']:
+            t_type = "Titul" if s['type'] == 'titul_page_1' else "Yozma"
+            text += (
+                f"• <b>{s['user_name']}</b> (<code>{s['user_id']}</code>)\n"
+                f"  └ Var: <code>{s['test_code']}</code> | {t_type} | Ball: <b>{s['score']}/{s['max_score']}</b> ({s['percentage']}%) | {s['tier']} | <i>{s['date']}</i>\n"
+            )
+    else:
+        text += "<i>Hozircha topshiriqlar mavjud emas.</i>\n"
+
+    kb = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="🎯 Milliy menyuni ochish", callback_data="open_milliy_menu")],
+        [InlineKeyboardButton(text="🔄 Yangilash", callback_data="admin_milliy_stats")]
+    ])
+    await message.answer(text, reply_markup=kb)
 
 
 @dp.callback_query(F.data == "admin_students_report")
@@ -2660,12 +2744,12 @@ async def run_web_server():
 
     app = None
     try:
-        from webapp.server import create_app
-        app = create_app()
+        import server
+        app = server.create_app()
     except Exception as e1:
         try:
-            import server
-            app = server.create_app()
+            from webapp.server import create_app
+            app = create_app()
         except Exception as e2:
             logging.error(f"webapp server yuklanmadi: {e1} / {e2}")
             app = web.Application()
@@ -2977,7 +3061,10 @@ async def dl_mvar_handler(callback: CallbackQuery):
     file_map = {
         "8392004": "milliy_variant_1_yozma.pdf",
         "8392005": "milliy_variant_2_yozma.pdf",
-        "8392006": "milliy_variant_3_yozma.pdf"
+        "8392006": "milliy_variant_3_yozma.pdf",
+        "8392007": "milliy_variant_4_yozma.pdf",
+        "8392008": "milliy_variant_5_yozma.pdf",
+        "8392009": "milliy_variant_6_yozma.pdf"
     }
     pdf_filename = file_map.get(test_code, "milliy_variant_1_yozma.pdf")
     pdf_path = os.path.join(os.path.dirname(__file__), pdf_filename)
@@ -3121,7 +3208,31 @@ async def handle_photo_titul_checker(message: Message, bot: Bot):
         ])
         await status_msg.edit_text(res_text, parse_mode="HTML", reply_markup=after_kb)
 
-        # Agar bazaga saqlash kerak bo'lsa
+        # 1. Titul varaqasi tekshirilgan bo'lsa, rasmiy Sertifikat kartasini yasab yuboramiz
+        if sub_type == "titul_page_1" and raw_data:
+            try:
+                cert_bytes = certificate_generator.generate_certificate_image(
+                    student_name=raw_data.get("student_name") or (message.from_user.full_name if message.from_user else "Talabgor"),
+                    test_code=str(raw_data.get("test_code", expected_code or "8392004")),
+                    total_score=float(raw_data.get("total_score", 0.0)),
+                    max_score=float(raw_data.get("max_score", 66.5)),
+                    percentage=float(raw_data.get("percentage", 0.0)),
+                    tier=str(raw_data.get("tier", "Sinov")),
+                    tier_desc=str(raw_data.get("tier_desc", ""))
+                )
+                cert_file = BufferedInputFile(cert_bytes, filename=f"Sertifikat_{raw_data.get('test_code', 'natija')}.png")
+                cert_caption = (
+                    f"🎖 <b>RASMIY MALAKA SERTIFIKATI KARTASI</b>\n\n"
+                    f"👤 <b>Talabgor:</b> {raw_data.get('student_name', 'Talabgor')}\n"
+                    f"🎯 <b>Natija:</b> {raw_data.get('total_score', 0)} / {raw_data.get('max_score', 66.5)} ball ({raw_data.get('percentage', 0)}%)\n"
+                    f"🏆 <b>Daraja:</b> <b>{raw_data.get('tier', 'Sinov')}</b>\n\n"
+                    f"<i>Sertifikat kartangizni saqlab oling yoki natijangiz bilan ulashing!</i>"
+                )
+                await message.answer_photo(photo=cert_file, caption=cert_caption)
+            except Exception as cert_err:
+                logging.warning(f"Sertifikat kartasi yaratishda xatolik: {cert_err}")
+
+        # 2. Bazaga saqlash
         if sub_type != "error" and raw_data:
             try:
                 conn = sqlite3.connect(titul_checker.DB_PATH)
@@ -3145,6 +3256,25 @@ async def handle_photo_titul_checker(message: Message, bot: Bot):
                 conn.close()
             except Exception as dberr:
                 logging.warning(f"Submissionni saqlashda xatolik: {dberr}")
+
+            # 3. O'qituvchi va adminlarga bildirishnoma yuborish
+            try:
+                type_name = "Titul varaqasi (1-40)" if sub_type == "titul_page_1" else f"Yozma ish ({raw_data.get('question_number', '41-43')}-savol)"
+                alert_text = (
+                    "🔔 <b>Yangi Milliy Sertifikat Topshirig'i!</b>\n\n"
+                    f"👤 <b>Talabgor:</b> {message.from_user.full_name} (@{message.from_user.username or 'yo‘q'})\n"
+                    f"📋 <b>Variant:</b> <code>{raw_data.get('test_code', expected_code or 'Noma\'lum')}</code>\n"
+                    f"📝 <b>Turi:</b> {type_name}\n"
+                    f"📊 <b>Ball:</b> {raw_data.get('total_score', 0)}/{raw_data.get('max_score', 0)} ({raw_data.get('percentage', 0):.1f}%)\n"
+                    f"🏆 <b>Daraja:</b> {raw_data.get('tier', '-')}"
+                )
+                for adm_id in await database.get_all_admins():
+                    try:
+                        await bot.send_message(adm_id, alert_text)
+                    except Exception:
+                        pass
+            except Exception as nerr:
+                logging.warning(f"Adminlarga xabar berishda xatolik: {nerr}")
 
     except Exception as e:
         logging.error(f"Titul fotosuratini tekshirishda xatolik: {e}")
