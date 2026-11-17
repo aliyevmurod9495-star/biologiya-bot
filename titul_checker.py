@@ -462,6 +462,62 @@ def seed_default_keys(conn):
         ))
         conn.commit()
 
+    # 7-VARIANT (8392010) - Rasmiy Yozma Nazorat Sinovi 2026
+    cur.execute("SELECT test_code FROM milliy_test_keys WHERE test_code = '8392010'")
+    if not cur.fetchone():
+        keys_1_32_v7 = {str(i): "A" for i in range(1, 33)}
+        keys_33_35_v7 = {"33": "B", "34": "D", "35": "A"}
+        keys_36_40_v7 = {"36": "24", "37": "80%", "38": "2880", "39": "10%", "40": "1%"}
+        rubrics_41_43_v7 = {
+            "41": {
+                "title": "Makkajo'xorida 3 nuqtali xaritalash va qo'sh krossover (A, B, C genlari)",
+                "max_score": 10.0,
+                "descriptors": [
+                    {"step": 1, "desc": "Belgilar genlari va F1 genotipi: A (uzun), a (kalta), B (kraxm), b (mum), C (yirik), c (mayda), F1: ACB/acb", "points": 2.0},
+                    {"step": 2, "desc": "Qo'sh krossover qiymatini topish: x = 1% (nokrossover 51%, krossover 49%, 50% - 49% = 1%)", "points": 2.0},
+                    {"step": 3, "desc": "Genetik xarita: A <--- 29 cM ---> C <--- 21 cM ---> B (C geni o'rtada, A-B oralig'i 50 cM)", "points": 2.0},
+                    {"step": 4, "desc": "Gametalar foizlari: ACB, acb (25.5%); aCB, Acb (14%); ACb, acB (10%); AcB, aCb (0.5%)", "points": 2.0},
+                    {"step": 5, "desc": "Yakuniy hisob: a) 1500 ta (yoki F1xF1 da 1371 ta); b) 2100 ta (yoki 1821 ta); c) 2100 ta (yoki 1365 ta)", "points": 2.0}
+                ]
+            },
+            "42": {
+                "title": "Odamda sindaktiliya, miopiya, soch shakli, optik atrofiya va daltonizm irsiylanishi",
+                "max_score": 10.0,
+                "descriptors": [
+                    {"step": 1, "desc": "Yigit (Hh Ab/aB X^ed Y) va qiz (Hh ab/ab X^ED X^ed) hamda ota-onalari genotiplarini aniqlash", "points": 2.5},
+                    {"step": 2, "desc": "Yigit (8 xil 12.5%) va qiz (8 xil: 20%, 20%, 5%, 5%) gametalari va foizlarini ko'rsatish", "points": 2.5},
+                    {"step": 3, "desc": "a) Silliq sochli, sindaktiliya kasal, miopiya sog'lom, optik atrofiya sog'lom = 6.25% (1/4 * 1/2 * 1/2)", "points": 2.0},
+                    {"step": 4, "desc": "b) O'g'illar orasida miopiya va optik atrofiya kasal, sindaktiliya sog'lom = 25% (1/2 * 1/2)", "points": 1.5},
+                    {"step": 5, "desc": "c) Taram-taram sochli, sindaktiliya kasal, miopiya, optik atrofiya va daltonizm sog'lom = 10% (0.5 * 0.5 * 0.4)", "points": 1.5}
+                ]
+            },
+            "43": {
+                "title": "Drozofila meva pashshasida ko'z rangi irsiylanishi (Xardi-Vaynberg panmiksiya)",
+                "max_score": 10.0,
+                "descriptors": [
+                    {"step": 1, "desc": "Dastlabki populyatsiyada genlar (A=80% yoki 0.8; a=20% yoki 0.2) va genotiplar (AA=80%, aa=20%, Aa=0%) chastotasini aniqlash", "points": 2.5},
+                    {"step": 2, "desc": "Panmiksiyada genotipik muvozanat: AA=64%, Aa=32%, aa=4%, qizil ko'zli (A_)=96%, oq ko'zli (aa)=4%", "points": 2.5},
+                    {"step": 3, "desc": "a) F5 da 3000 tadan qizil ko'zlilar SONI: 3000 * 96% = 2880 ta (faqat 96% yozilsa yarim ball beriladi)", "points": 2.0},
+                    {"step": 4, "desc": "b) F3 da qizil ko'zlilar oq ko'zlilardan necha marta ko'p: 96% / 4% = 24 marta (26 deb yozilsa xato)", "points": 1.5},
+                    {"step": 5, "desc": "c) F4 da A genining uchrash chastotasi: 80% yoki 0.8 (erkin chatishuvda o'zgarmas saqlanadi)", "points": 1.5}
+                ]
+            }
+        }
+        cur.execute("""
+            INSERT INTO milliy_test_keys 
+            (test_code, subject, title, keys_1_32, keys_33_35, keys_36_40, rubrics_41_43)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            "8392010",
+            "Biologiya",
+            "7-Namunaviy Variant (Yozma Nazorat Sinovi 2026)",
+            json.dumps(keys_1_32_v7),
+            json.dumps(keys_33_35_v7),
+            json.dumps(keys_36_40_v7),
+            json.dumps(rubrics_41_43_v7)
+        ))
+        conn.commit()
+
 
 def get_all_variants() -> list:
     """Bazadagi barcha Milliy Sertifikat variantlari ro'yxatini qaytaradi."""
@@ -537,6 +593,25 @@ VARIANT B: Agar bu 41, 42 yoki 43-savollarning yozma ish daftari (katakli varaq)
 - "total_score": To'plangan umumiy ball (float).
 - "max_score": Ushbu masala uchun maksimal ball (odatda 8.0 dan 15.0 gacha).
 - "general_feedback": O'quvchiga tavsiya va xatolar izohi.
+
+MUHIM MEZONLAR VA TANIQLI MASALALAR JAVOBLARI:
+1) 41-SAVOL: Makkajo'xorida 3 nuqtali xarita (uzunlik A, kraxmal B, yiriklik C):
+   - Xarita: A --- 29 cM --- C --- 21 cM --- B (C geni o'rtada).
+   - Qo'sh krossover x = 1%.
+   - Gametalar: ACB, acb (25.5%); aCB, Acb (14%); ACb, acB (10%); AcB, aCb (0.5%).
+   - a) 1500 ta (yoki F1xF1 da 1371 ta); b) 2100 ta (yoki 1821 ta); c) 2100 ta (yoki 1365 ta).
+2) 42-SAVOL: Odamda sindaktiliya (A), miopiya (B), soch (Hh), optik atrofiya (e) va daltonizm (d):
+   - Yigit: Hh Ab/aB X^ed Y; Qiz: Hh ab/ab X^ED X^ed.
+   - a) Silliq soch, sindaktiliya kasal, miopiya sog'lom, optik atrofiya sog'lom = 6.25% (1/16).
+   - b) O'g'illar orasida miopiya va atrofiya kasal, sindaktiliya sog'lom = 25% (1/4).
+   - c) Taram-taram, sindaktiliya kasal, miopiya sog'lom, optik atrofiya va daltonizm sog'lom = 10%.
+3) 43-SAVOL: Drozofila panmiksiya (10 juft oq ko'zli aa, 40 juft qizil ko'zli AA):
+   - Dastlabki genlar: A = 80% (0.8), a = 20% (0.2); Genotiplar: AA = 80%, aa = 20%, Aa = 0%.
+   - Xardi-Vaynberg bo'yicha keyingi bo'g'inlarda: AA = 64%, Aa = 32%, aa = 4%; Qizil = 96%, Oq = 4%.
+   - a) F5 da 3000 tadan qizil ko'zlilar SONI: 3000 * 96% = 2880 ta. (DIQQAT: Agar o'quvchi faqat 96% deb yozib, 2880 sonini hisoblamagan bo'lsa, qisman ball ber va "pashshalar soni 2880 ta bo'lishi kerak" deb ko'rsat).
+   - b) F3 da qizil ko'zlilar oq ko'zlilardan necha marta ko'p: 96% / 4% = 24 marta. (DIQQAT: Agar o'quvchi 26 marta deb yozgan bo'lsa, 96:4=24 bo'ladi, arifmetik xatolik deb ko'rsat).
+   - c) F4 da A genining uchrash chastotasi: 80% (0.8).
+
 Qat'iy format:
 {
   "sheet_type": "written_work",
@@ -559,8 +634,16 @@ Qat'iy format:
 }
 """
 
+GEMINI_MODELS = [
+    "models/gemini-3.5-flash-lite",
+    "models/gemini-3.1-flash-lite",
+    "models/gemini-3-flash-preview",
+    "models/gemini-3.5-flash",
+    "models/gemini-flash-latest"
+]
+
 def call_gemini_vision(image_bytes: bytes, prompt: str) -> Optional[dict]:
-    """Gemini 3 Flash modeliga rasm va tizimli prompt yuborib, JSON javob oladi."""
+    """Gemini modeliga rasm va tizimli prompt yuborib, JSON javob oladi (avtomatik fallback bilan)."""
     compressed_bytes = compress_image_for_ai(image_bytes)
     img_b64 = base64.b64encode(compressed_bytes).decode("utf-8")
     
@@ -569,7 +652,6 @@ def call_gemini_vision(image_bytes: bytes, prompt: str) -> Optional[dict]:
         logger.error("GEMINI_API_KEY topilmadi!")
         return None
 
-    url = f"https://generativelanguage.googleapis.com/v1beta/{GEMINI_MODEL}:generateContent?key={api_key}"
     payload = {
         "contents": [{
             "parts": [
@@ -582,21 +664,28 @@ def call_gemini_vision(image_bytes: bytes, prompt: str) -> Optional[dict]:
             "temperature": 0.1
         }
     }
+    encoded_data = json.dumps(payload).encode("utf-8")
 
-    req = urllib.request.Request(
-        url,
-        data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json"}
-    )
+    for model_name in GEMINI_MODELS:
+        url = f"https://generativelanguage.googleapis.com/v1beta/{model_name}:generateContent?key={api_key}"
+        req = urllib.request.Request(
+            url,
+            data=encoded_data,
+            headers={"Content-Type": "application/json"}
+        )
 
-    try:
-        with urllib.request.urlopen(req, timeout=65) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-            raw_text = data["candidates"][0]["content"]["parts"][0]["text"]
-            return json.loads(raw_text)
-    except Exception as e:
-        logger.error(f"Gemini API chaqiruvida xatolik: {e}")
-        return None
+        try:
+            with urllib.request.urlopen(req, timeout=45) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                raw_text = data["candidates"][0]["content"]["parts"][0]["text"]
+                logger.info(f"AI Vision javobi olindi ({model_name})")
+                return json.loads(raw_text)
+        except Exception as e:
+            logger.warning(f"Model {model_name} xatolik berdi: {e}, keyingi modelga o'tilmoqda...")
+            continue
+
+    logger.error("Barcha Gemini modellari muvaffaqiyatsiz bo'ldi.")
+    return None
 
 
 # ==========================================================
