@@ -347,12 +347,14 @@ def create_app() -> web.Application:
             "4": "milliy_variant_4_yozma.pdf",
             "5": "milliy_variant_5_yozma.pdf",
             "6": "milliy_variant_6_yozma.pdf",
+            "7": "milliy_variant_7_yozma.pdf",
             "8392004": "milliy_variant_1_yozma.pdf",
             "8392005": "milliy_variant_2_yozma.pdf",
             "8392006": "milliy_variant_3_yozma.pdf",
             "8392007": "milliy_variant_4_yozma.pdf",
             "8392008": "milliy_variant_5_yozma.pdf",
-            "8392009": "milliy_variant_6_yozma.pdf"
+            "8392009": "milliy_variant_6_yozma.pdf",
+            "8392010": "milliy_variant_7_yozma.pdf"
         }
         filename = file_map.get(str(v_num), "milliy_variant_1_yozma.pdf")
         candidates = [

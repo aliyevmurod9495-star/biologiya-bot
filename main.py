@@ -3064,7 +3064,8 @@ async def dl_mvar_handler(callback: CallbackQuery):
         "8392006": "milliy_variant_3_yozma.pdf",
         "8392007": "milliy_variant_4_yozma.pdf",
         "8392008": "milliy_variant_5_yozma.pdf",
-        "8392009": "milliy_variant_6_yozma.pdf"
+        "8392009": "milliy_variant_6_yozma.pdf",
+        "8392010": "milliy_variant_7_yozma.pdf"
     }
     pdf_filename = file_map.get(test_code, "milliy_variant_1_yozma.pdf")
     pdf_path = os.path.join(os.path.dirname(__file__), pdf_filename)
