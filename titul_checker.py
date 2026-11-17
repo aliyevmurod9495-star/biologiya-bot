@@ -462,61 +462,63 @@ def seed_default_keys(conn):
         ))
         conn.commit()
 
-    # 7-VARIANT (8392010) - Rasmiy Yozma Nazorat Sinovi 2026
-    cur.execute("SELECT test_code FROM milliy_test_keys WHERE test_code = '8392010'")
-    if not cur.fetchone():
-        keys_1_32_v7 = {str(i): "A" for i in range(1, 33)}
-        keys_33_35_v7 = {"33": "B", "34": "D", "35": "A"}
-        keys_36_40_v7 = {"36": "24", "37": "80%", "38": "2880", "39": "10%", "40": "1%"}
-        rubrics_41_43_v7 = {
-            "41": {
-                "title": "Makkajo'xorida 3 nuqtali xaritalash va qo'sh krossover (A, B, C genlari)",
-                "max_score": 10.0,
-                "descriptors": [
-                    {"step": 1, "desc": "Belgilar genlari va F1 genotipi: A (uzun), a (kalta), B (kraxm), b (mum), C (yirik), c (mayda), F1: ACB/acb", "points": 2.0},
-                    {"step": 2, "desc": "Qo'sh krossover qiymatini topish: x = 1% (nokrossover 51%, krossover 49%, 50% - 49% = 1%)", "points": 2.0},
-                    {"step": 3, "desc": "Genetik xarita: A <--- 29 cM ---> C <--- 21 cM ---> B (C geni o'rtada, A-B oralig'i 50 cM)", "points": 2.0},
-                    {"step": 4, "desc": "Gametalar foizlari: ACB, acb (25.5%); aCB, Acb (14%); ACb, acB (10%); AcB, aCb (0.5%)", "points": 2.0},
-                    {"step": 5, "desc": "Yakuniy hisob: a) 1500 ta (yoki F1xF1 da 1371 ta); b) 2100 ta (yoki 1821 ta); c) 2100 ta (yoki 1365 ta)", "points": 2.0}
-                ]
-            },
-            "42": {
-                "title": "Odamda sindaktiliya, miopiya, soch shakli, optik atrofiya va daltonizm irsiylanishi",
-                "max_score": 10.0,
-                "descriptors": [
-                    {"step": 1, "desc": "Yigit (Hh Ab/aB X^ed Y) va qiz (Hh ab/ab X^ED X^ed) hamda ota-onalari genotiplarini aniqlash", "points": 2.5},
-                    {"step": 2, "desc": "Yigit (8 xil 12.5%) va qiz (8 xil: 20%, 20%, 5%, 5%) gametalari va foizlarini ko'rsatish", "points": 2.5},
-                    {"step": 3, "desc": "a) Silliq sochli, sindaktiliya kasal, miopiya sog'lom, optik atrofiya sog'lom = 6.25% (1/4 * 1/2 * 1/2)", "points": 2.0},
-                    {"step": 4, "desc": "b) O'g'illar orasida miopiya va optik atrofiya kasal, sindaktiliya sog'lom = 25% (1/2 * 1/2)", "points": 1.5},
-                    {"step": 5, "desc": "c) Taram-taram sochli, sindaktiliya kasal, miopiya, optik atrofiya va daltonizm sog'lom = 10% (0.5 * 0.5 * 0.4)", "points": 1.5}
-                ]
-            },
-            "43": {
-                "title": "Drozofila meva pashshasida ko'z rangi irsiylanishi (Xardi-Vaynberg panmiksiya)",
-                "max_score": 10.0,
-                "descriptors": [
-                    {"step": 1, "desc": "Dastlabki populyatsiyada genlar (A=80% yoki 0.8; a=20% yoki 0.2) va genotiplar (AA=80%, aa=20%, Aa=0%) chastotasini aniqlash", "points": 2.5},
-                    {"step": 2, "desc": "Panmiksiyada genotipik muvozanat: AA=64%, Aa=32%, aa=4%, qizil ko'zli (A_)=96%, oq ko'zli (aa)=4%", "points": 2.5},
-                    {"step": 3, "desc": "a) F5 da 3000 tadan qizil ko'zlilar SONI: 3000 * 96% = 2880 ta (faqat 96% yozilsa yarim ball beriladi)", "points": 2.0},
-                    {"step": 4, "desc": "b) F3 da qizil ko'zlilar oq ko'zlilardan necha marta ko'p: 96% / 4% = 24 marta (26 deb yozilsa xato)", "points": 1.5},
-                    {"step": 5, "desc": "c) F4 da A genining uchrash chastotasi: 80% yoki 0.8 (erkin chatishuvda o'zgarmas saqlanadi)", "points": 1.5}
-                ]
-            }
+    # 7-VARIANT (8392010) - Rasmiy Yozma Nazorat Sinovi 2026 (BMBA 30 / 35 / 10 = 75 ball mezoni)
+    keys_1_32_v7 = {str(i): "A" for i in range(1, 33)}
+    keys_33_35_v7 = {"33": "B", "34": "D", "35": "A"}
+    keys_36_40_v7 = {"36": "24", "37": "80%", "38": "2880", "39": "10%", "40": "1%"}
+    rubrics_41_43_v7 = {
+        "41": {
+            "title": "Makkajo'xorida 3 nuqtali xaritalash va qo'sh krossover (BMBA: 30 ball)",
+            "max_score": 30.0,
+            "descriptors": [
+                {"step": 1, "desc": "Belgilar genlari va F1 genotipini to'g'ri yozish (A-uzun, a-kalta, B-kraxmal, b-mum, C-yirik, c-mayda; F1: ACB/acb)", "points": 4.0},
+                {"step": 2, "desc": "Amaliy qo'sh krossingover qiymatini topish: x = 1% (nokrossover 51%, krossover 49%, 50% - 49% = 1%)", "points": 4.0},
+                {"step": 3, "desc": "F1 avlod uchun genetik xarita: A <--- 29 cM ---> C <--- 21 cM ---> B (C geni o'rtada, jami 50 cM)", "points": 4.0},
+                {"step": 4, "desc": "Pennet kataklarida gametalar, foizlari (25.5%, 14%, 10%, 0.5%) va so'ralgan avlod genotiplarini to'g'ri ko'rsatish", "points": 6.0},
+                {"step": 5, "desc": "a) Poyasi uzun, mumsimon, doni yirik: 1500 ta (tahliliy) yoki 1371 ta (F1xF1 64 katakli hisob)", "points": 4.0},
+                {"step": 6, "desc": "b) Poyasi kalta, kraxmalsimon, doni yirik: 2100 ta (tahliliy) yoki 1821 ta (F1xF1 64 katakli hisob)", "points": 4.0},
+                {"step": 7, "desc": "c) Poyasi uzun, mumsimon, doni mayda: 2100 ta (tahliliy) yoki 1365 ta (F1xF1 64 katakli hisob)", "points": 4.0}
+            ]
+        },
+        "42": {
+            "title": "Odamda sindaktiliya, miopiya, soch shakli, optik atrofiya va daltonizm (BMBA: 35 ball)",
+            "max_score": 35.0,
+            "descriptors": [
+                {"step": 1, "desc": "Belgilar genlari hamda yigit (Hh Ab/aB X^ed Y), qiz (Hh ab/ab X^ED X^ed) va ota-onalari genotiplarini aniqlash", "points": 6.0},
+                {"step": 2, "desc": "Pennet kataklarida yigit (8 xil, har biri 12.5%) va qiz (8 xil: 20%, 20%, 5%, 5%) gametalari va foizlarini yozish", "points": 8.0},
+                {"step": 3, "desc": "Pennet jadvalida (a-c) topshiriqlarda so'ralgan avlodlar genotiplarini aniq ajratib belgilash", "points": 6.0},
+                {"step": 4, "desc": "a) Silliq sochli, sindaktiliya kasal, miopiya va optik atrofiya sog'lom farzand = 6.25% (1/4 * 1/2 * 1/2)", "points": 5.0},
+                {"step": 5, "desc": "b) O'g'illar orasida miopiya va optik atrofiya kasal, sindaktiliya sog'lom = 25% (1/2 * 1/2)", "points": 5.0},
+                {"step": 6, "desc": "c) Taram-taram sochli, sindaktiliya kasal, miopiya, optik atrofiya va daltonizm sog'lom = 10% (0.5 * 0.5 * 0.4)", "points": 5.0}
+            ]
+        },
+        "43": {
+            "title": "Drozofila meva pashshasida panmiksiya / Xardi-Vaynberg (BMBA: 10 ball)",
+            "max_score": 10.0,
+            "descriptors": [
+                {"step": 1, "desc": "Dastlabki populyatsiyada har bir genning uchrash chastotasi: A = 80% (0.8), a = 20% (0.2)", "points": 1.5},
+                {"step": 2, "desc": "Dastlabki populyatsiyada har bir genotipning uchrash chastotasi: AA = 80%, Aa = 0%, aa = 20%", "points": 1.5},
+                {"step": 3, "desc": "Panmiksiyada Xardi-Vaynberg muvozanati: AA = 64%, Aa = 32%, aa = 4% (Qizil = 96%, Oq = 4%)", "points": 1.0},
+                {"step": 4, "desc": "a) F5 da 3000 tadan qizil ko'zlilar SONI: 3000 * 96% = 2880 ta (faqat 96% yozilsa 1.0 ball)", "points": 2.0},
+                {"step": 5, "desc": "b) F3 da qizil ko'zlilar oq ko'zlilardan necha marta ko'p: 96% / 4% = 24 marta (arifmetik xato bo'lsa 0.5-1.0 ball)", "points": 2.0},
+                {"step": 6, "desc": "c) F4 da A genining uchrash chastotasi: 80% yoki 0.8 (erkin chatishuvda o'zgarmas saqlanadi)", "points": 2.0}
+            ]
         }
-        cur.execute("""
-            INSERT INTO milliy_test_keys 
-            (test_code, subject, title, keys_1_32, keys_33_35, keys_36_40, rubrics_41_43)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
-        """, (
-            "8392010",
-            "Biologiya",
-            "7-Namunaviy Variant (Yozma Nazorat Sinovi 2026)",
-            json.dumps(keys_1_32_v7),
-            json.dumps(keys_33_35_v7),
-            json.dumps(keys_36_40_v7),
-            json.dumps(rubrics_41_43_v7)
-        ))
-        conn.commit()
+    }
+    cur.execute("""
+        INSERT OR REPLACE INTO milliy_test_keys 
+        (test_code, subject, title, keys_1_32, keys_33_35, keys_36_40, rubrics_41_43)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    """, (
+        "8392010",
+        "Biologiya",
+        "7-Namunaviy Variant (Yozma Nazorat Sinovi 2026)",
+        json.dumps(keys_1_32_v7),
+        json.dumps(keys_33_35_v7),
+        json.dumps(keys_36_40_v7),
+        json.dumps(rubrics_41_43_v7)
+    ))
+    conn.commit()
 
 
 def get_all_variants() -> list:
@@ -590,27 +592,43 @@ VARIANT B: Agar bu 41, 42 yoki 43-savollarning yozma ish daftari (katakli varaq)
 - "question_number": Savol raqami (41, 42 yoki 43).
 - "student_name": Talabgor F.I.O.
 - "descriptors": Yechimning qadamma-qadam deskriptor tahlili (har bir qadam uchun: step, title, earned_points, max_points, status: "correct"|"partial"|"incorrect", comment).
-- "total_score": To'plangan umumiy ball (float).
-- "max_score": Ushbu masala uchun maksimal ball (odatda 8.0 dan 15.0 gacha).
-- "general_feedback": O'quvchiga tavsiya va xatolar izohi.
+- "total_score": To'plangan umumiy ball (float) — barcha deskriptorlardagi earned_points yig'indisiga TENG bo'lsin!
+- "max_score": RASMIY BMBA (UzBMB) BAHOLASH SHKALASI BO'YICHA QAT'IY:
+  * 41-savol uchun max_score = 30.0 ball!
+  * 42-savol uchun max_score = 35.0 ball!
+  * 43-savol uchun max_score = 10.0 ball!
+  (Barcha deskriptorlardagi max_points yig'indisi aynan 30.0, 35.0 yoki 10.0 ga teng bo'lishi SHART!)
+- "general_feedback": O'quvchiga BMBA mezonlari asosida aniq tavsiya va xatolar izohi.
 
-MUHIM MEZONLAR VA TANIQLI MASALALAR JAVOBLARI:
-1) 41-SAVOL: Makkajo'xorida 3 nuqtali xarita (uzunlik A, kraxmal B, yiriklik C):
-   - Xarita: A --- 29 cM --- C --- 21 cM --- B (C geni o'rtada).
-   - Qo'sh krossover x = 1%.
-   - Gametalar: ACB, acb (25.5%); aCB, Acb (14%); ACb, acB (10%); AcB, aCb (0.5%).
-   - a) 1500 ta (yoki F1xF1 da 1371 ta); b) 2100 ta (yoki 1821 ta); c) 2100 ta (yoki 1365 ta).
-2) 42-SAVOL: Odamda sindaktiliya (A), miopiya (B), soch (Hh), optik atrofiya (e) va daltonizm (d):
-   - Yigit: Hh Ab/aB X^ed Y; Qiz: Hh ab/ab X^ED X^ed.
-   - a) Silliq soch, sindaktiliya kasal, miopiya sog'lom, optik atrofiya sog'lom = 6.25% (1/16).
-   - b) O'g'illar orasida miopiya va atrofiya kasal, sindaktiliya sog'lom = 25% (1/4).
-   - c) Taram-taram, sindaktiliya kasal, miopiya sog'lom, optik atrofiya va daltonizm sog'lom = 10%.
-3) 43-SAVOL: Drozofila panmiksiya (10 juft oq ko'zli aa, 40 juft qizil ko'zli AA):
-   - Dastlabki genlar: A = 80% (0.8), a = 20% (0.2); Genotiplar: AA = 80%, aa = 20%, Aa = 0%.
-   - Xardi-Vaynberg bo'yicha keyingi bo'g'inlarda: AA = 64%, Aa = 32%, aa = 4%; Qizil = 96%, Oq = 4%.
-   - a) F5 da 3000 tadan qizil ko'zlilar SONI: 3000 * 96% = 2880 ta. (DIQQAT: Agar o'quvchi faqat 96% deb yozib, 2880 sonini hisoblamagan bo'lsa, qisman ball ber va "pashshalar soni 2880 ta bo'lishi kerak" deb ko'rsat).
-   - b) F3 da qizil ko'zlilar oq ko'zlilardan necha marta ko'p: 96% / 4% = 24 marta. (DIQQAT: Agar o'quvchi 26 marta deb yozgan bo'lsa, 96:4=24 bo'ladi, arifmetik xatolik deb ko'rsat).
-   - c) F4 da A genining uchrash chastotasi: 80% (0.8).
+RASMIY BMBA (UzBMB) BAHOLASH QOIDALARI (QAT'IY AMAL QIL):
+1. Faqat oxirgi javob yozilib, yechim qadamlari/sxema ko'rsatilmagan bo'lsa -> 0 ball yoki juda minimal ball ber!
+2. Usul va qonuniyat to'g'ri, lekin arifmetik xato qilingan bo'lsa -> faqat o'sha bandning ballini kamaytir, oldingi to'g'ri qadamlarga to'liq ball ber!
+3. "Topshiriqni bajarish tartibi" dagi biror band (masalan, ota-ona genotipi, gametalar foizi yoki dastlabki genlar/genotiplar chastotasi) tashlab ketilgan bo'lsa -> o'sha qadam uchun 0 ball qo'y!
+4. Yechim oxirigacha yetmasa ham, to'g'ri bajarilgan har bir dastlabki qadam uchun tegishli ballini ber!
+
+MUHIM MEZONLAR VA TANIQLI MASALALAR JAVOBLARI (BMBA 30 / 35 / 10 = 75 BALL):
+1) 41-SAVOL (Jami: 30.0 ball) — Makkajo'xorida 3 nuqtali xarita (uzunlik A, kraxmal B, yiriklik C):
+   - 1-qadam (4.0 ball): Belgilar genlari va F1 genotipi (ACB/acb).
+   - 2-qadam (4.0 ball): Qo'sh krossover x = 1%.
+   - 3-qadam (4.0 ball): Genetik xarita: A --- 29 cM --- C --- 21 cM --- B (C geni o'rtada).
+   - 4-qadam (6.0 ball): Pennet jadvali, gametalar va foizlari: ACB, acb (25.5%); aCB, Acb (14%); ACb, acB (10%); AcB, aCb (0.5%).
+   - 5-qadam (4.0 ball): a) 1500 ta (tahliliy) yoki 1371 ta (F1xF1).
+   - 6-qadam (4.0 ball): b) 2100 ta (tahliliy) yoki 1821 ta (F1xF1).
+   - 7-qadam (4.0 ball): c) 2100 ta (tahliliy) yoki 1365 ta (F1xF1).
+2) 42-SAVOL (Jami: 35.0 ball) — Odamda sindaktiliya (A), miopiya (B), soch (Hh), optik atrofiya (e) va daltonizm (d):
+   - 1-qadam (6.0 ball): Ota-onalar hamda Yigit (Hh Ab/aB X^ed Y) va Qiz (Hh ab/ab X^ED X^ed) genotiplari.
+   - 2-qadam (8.0 ball): Pennet jadvalida yigit (8 xil, 12.5%) va qiz (8 xil: 20%, 20%, 5%, 5%) gametalari va foizlari.
+   - 3-qadam (6.0 ball): Pennet kataklarida (a-c) avlodlar genotiplarini to'g'ri ko'rsatish.
+   - 4-qadam (5.0 ball): a) Silliq soch, sindaktiliya kasal, miopiya va optik atrofiya sog'lom = 6.25% (1/16).
+   - 5-qadam (5.0 ball): b) O'g'illar orasida miopiya va atrofiya kasal, sindaktiliya sog'lom = 25% (1/4).
+   - 6-qadam (5.0 ball): c) Taram-taram, sindaktiliya kasal, miopiya, optik atrofiya va daltonizm sog'lom = 10%.
+3) 43-SAVOL (Jami: 10.0 ball) — Drozofila panmiksiya (10 juft oq ko'zli aa, 40 juft qizil ko'zli AA):
+   - 1-qadam (1.5 ball): Dastlabki populyatsiyada genlar chastotasi: A = 80% (0.8), a = 20% (0.2).
+   - 2-qadam (1.5 ball): Dastlabki populyatsiyada genotiplar chastotasi: AA = 80%, Aa = 0%, aa = 20%.
+   - 3-qadam (1.0 ball): Xardi-Vaynberg muvozanati: AA = 64%, Aa = 32%, aa = 4%; Qizil = 96%, Oq = 4%.
+   - 4-qadam (2.0 ball): a) F5 da 3000 tadan qizil ko'zlilar SONI: 3000 * 96% = 2880 ta. (Agar faqat 96% yozilib, 2880 soni topilmasa -> 1.0 ball ber).
+   - 5-qadam (2.0 ball): b) F3 da qizil ko'zlilar oq ko'zlilardan necha marta ko'p: 96% / 4% = 24 marta. (Agar arifmetik xato, masalan 26 yozilsa -> 0.5 ball ber).
+   - 6-qadam (2.0 ball): c) F4 da A genining uchrash chastotasi: 80% (0.8).
 
 Qat'iy format:
 {
@@ -618,12 +636,12 @@ Qat'iy format:
   "question_number": 41,
   "student_name": "Familiya Ism",
   "descriptors": [
-    {"step": 1, "title": "Genotiplar", "earned_points": 2.0, "max_points": 2.0, "status": "correct", "comment": "To'g'ri"},
-    {"step": 2, "title": "Gametalar", "earned_points": 2.0, "max_points": 2.0, "status": "correct", "comment": "To'g'ri"}
+    {"step": 1, "title": "Genotiplar", "earned_points": 4.0, "max_points": 4.0, "status": "correct", "comment": "To'g'ri"},
+    {"step": 2, "title": "Qo'sh krossover", "earned_points": 4.0, "max_points": 4.0, "status": "correct", "comment": "To'g'ri"}
   ],
-  "total_score": 7.0,
-  "max_score": 10.0,
-  "general_feedback": "Yaxshi yechim..."
+  "total_score": 28.0,
+  "max_score": 30.0,
+  "general_feedback": "BMBA mezonlari bo'yicha a'lo natija..."
 }
 
 VARIANT C: Agar rasm Milliy sertifikat titul varaqasi ham, biologiya yozma ish daftari ham BO'LMASA (masalan, shaxsiy rasm, darslik sahifasi, tabiat rasmi va h.k.):
@@ -840,14 +858,29 @@ def format_titul_result_message(result: dict) -> str:
 
 
 def format_written_result_message(eval_data: dict) -> str:
-    """Yozma ish (41-43) natijasini chiroyli xabarga aylantiradi."""
-    q_num = eval_data.get("question_number", 41)
-    t_score = eval_data.get("total_score", 0.0)
-    m_score = eval_data.get("max_score", 10.0)
+    """Yozma ish (41-43) natijasini BMBA rasmiy mezoni bo'yicha chiroyli xabarga aylantiradi."""
+    q_num = int(eval_data.get("question_number", 41))
+    bmba_max_map = {41: 30.0, 42: 35.0, 43: 10.0}
+    default_max = bmba_max_map.get(q_num, 10.0)
+    
+    descs = eval_data.get("descriptors", [])
+    if descs:
+        calc_earned = sum(float(d.get("earned_points", 0.0)) for d in descs)
+        calc_max = sum(float(d.get("max_points", 0.0)) for d in descs)
+        t_score = round(calc_earned, 1)
+        m_score = round(calc_max, 1) if calc_max > 0 else default_max
+        eval_data["total_score"] = t_score
+        eval_data["max_score"] = m_score
+    else:
+        t_score = round(float(eval_data.get("total_score", 0.0)), 1)
+        m_score = round(float(eval_data.get("max_score", default_max)), 1)
+
     perc = (t_score / m_score) * 100 if m_score > 0 else 0
+    eval_data["percentage"] = round(perc, 1)
 
     lines = [
         f"✍️ <b>YOZMA ISH BAHOLASH NATIJASI: {q_num}-SAVOL</b>",
+        f"🏛 <b>Mezon:</b> Rasmiy BMBA Standarti (41: 30b | 42: 35b | 43: 10b)",
         f"👤 <b>Talabgor:</b> {eval_data.get('student_name', 'Talabgor')}",
         "",
         f"🎯 <b>To'plangan ball:</b> <b>{t_score} / {m_score} ball</b> ({perc:.1f}%)",
