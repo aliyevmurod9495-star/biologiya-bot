@@ -550,8 +550,8 @@ def get_variant_rubrics(test_code: str) -> dict:
 # 2. RASMNI SIQISH VA TEZKOR VISION SO'ROVI
 # ==========================================================
 
-def compress_image_for_ai(image_bytes: bytes, max_dim: int = 1500) -> bytes:
-    """Rasmni sifatini yo'qotmagan holda optimal hajmga keltiradi (tezkor API uchun)."""
+def compress_image_for_ai(image_bytes: bytes, max_dim: int = 2000) -> bytes:
+    """Rasmni qo'lyozmalar tiniq o'qilishi uchun yuqori sifatda tayyorlaydi."""
     try:
         img = Image.open(io.BytesIO(image_bytes))
         if img.mode in ("RGBA", "P"):
@@ -562,24 +562,21 @@ def compress_image_for_ai(image_bytes: bytes, max_dim: int = 1500) -> bytes:
             new_size = (int(w * ratio), int(h * ratio))
             img = img.resize(new_size, Image.Resampling.LANCZOS)
         out_buf = io.BytesIO()
-        img.save(out_buf, format="JPEG", quality=85, optimize=True)
+        img.save(out_buf, format="JPEG", quality=92, optimize=True)
         return out_buf.getvalue()
     except Exception as e:
         logger.warning(f"Rasm siqishda xatolik (asl nusxa ishlatiladi): {e}")
         return image_bytes
 
 
-# Yagona, universal va o'ta aniq tahlil prompti
-MASTER_TITUL_PROMPT = """
-Sen O'zbekiston Milliy sertifikatining rasmiy javoblar varaqasini (titul) va yozma ishlarni (41-43) tekshiruvchi mutaxassissan.
-Rasmga qarab avval uning TURINI aniqla:
+# 1-BOSQICH: BLIND OCR PROMPT (JAVOB KALITISIZ — FAQAT VARAQDA NIMA YOZILGANINI AYNAN O'QISH!)
+BLIND_OCR_PROMPT = """
+Sen o'ta aniq qo'lyozma va optik varaq o'quvchi (OCR) tizimisan.
+MUHIM QOIDA: Sen masalani o'zing YECHMA va o'quvchining xatolarini TO'G'RILAMA! Varaqning o'zida AYNAN qanday son, formula va harf yozilgan bo'lsa (xato bo'lsa ham!), xuddi o'shani so'zma-so'z ko'chirib yoz!
+
+Rasmning turini aniqla:
 
 VARIANT A: Agar bu 1-bet (Javoblar varaqasi - OMR doirachali va katakchali 1-40) bo'lsa:
-- "booklet_number": 7 xonali test kodi (masalan: 8392004).
-- "student_name": Talabgor familiyasi va ismi.
-- "bubble_answers": 1-32 savollardagi bo'yalgan doirachalar (A, B, C, D) va 33-35 dagi (A, B, C, D, E, F). Belgilanmagan bo'lsa null.
-- "short_answers": 36-40 katakchalardagi qo'lyozma son/formula/nisbatlar.
-Qat'iy format:
 {
   "sheet_type": "titul_page_1",
   "booklet_number": "8392004",
@@ -588,69 +585,32 @@ Qat'iy format:
   "short_answers": {"36": "24", "37": "1:2:1", "38": "50", "39": "AaBb", "40": "1452000"}
 }
 
-VARIANT B: Agar bu 41, 42 yoki 43-savollarning yozma ish daftari (katakli varaq) bo'lsa:
-- "question_number": Savol raqami (41, 42 yoki 43).
-- "student_name": Talabgor F.I.O.
-- "descriptors": Yechimning qadamma-qadam deskriptor tahlili (har bir qadam uchun: step, title, earned_points, max_points, status: "correct"|"partial"|"incorrect", comment).
-- "total_score": To'plangan umumiy ball (float) — barcha deskriptorlardagi earned_points yig'indisiga TENG bo'lsin!
-- "max_score": RASMIY BMBA (UzBMB) BAHOLASH SHKALASI BO'YICHA QAT'IY:
-  * 41-savol uchun max_score = 30.0 ball!
-  * 42-savol uchun max_score = 35.0 ball!
-  * 43-savol uchun max_score = 10.0 ball!
-  (Barcha deskriptorlardagi max_points yig'indisi aynan 30.0, 35.0 yoki 10.0 ga teng bo'lishi SHART!)
-- "general_feedback": O'quvchiga BMBA mezonlari asosida aniq tavsiya va xatolar izohi.
-
-RASMIY BMBA (UzBMB) BAHOLASH QOIDALARI (QAT'IY AMAL QIL):
-1. Faqat oxirgi javob yozilib, yechim qadamlari/sxema ko'rsatilmagan bo'lsa -> 0 ball yoki juda minimal ball ber!
-2. Usul va qonuniyat to'g'ri, lekin arifmetik xato qilingan bo'lsa -> faqat o'sha bandning ballini kamaytir, oldingi to'g'ri qadamlarga to'liq ball ber!
-3. "Topshiriqni bajarish tartibi" dagi biror band (masalan, ota-ona genotipi, gametalar foizi yoki dastlabki genlar/genotiplar chastotasi) tashlab ketilgan bo'lsa -> o'sha qadam uchun 0 ball qo'y!
-4. Yechim oxirigacha yetmasa ham, to'g'ri bajarilgan har bir dastlabki qadam uchun tegishli ballini ber!
-
-MUHIM MEZONLAR VA TANIQLI MASALALAR JAVOBLARI (BMBA 30 / 35 / 10 = 75 BALL):
-1) 41-SAVOL (Jami: 30.0 ball) — Makkajo'xorida 3 nuqtali xarita (uzunlik A, kraxmal B, yiriklik C):
-   - 1-qadam (4.0 ball): Belgilar genlari va F1 genotipi (ACB/acb).
-   - 2-qadam (4.0 ball): Qo'sh krossover x = 1%.
-   - 3-qadam (4.0 ball): Genetik xarita: A --- 29 cM --- C --- 21 cM --- B (C geni o'rtada).
-   - 4-qadam (6.0 ball): Pennet jadvali, gametalar va foizlari: ACB, acb (25.5%); aCB, Acb (14%); ACb, acB (10%); AcB, aCb (0.5%).
-   - 5-qadam (4.0 ball): a) 1500 ta (tahliliy) yoki 1371 ta (F1xF1).
-   - 6-qadam (4.0 ball): b) 2100 ta (tahliliy) yoki 1821 ta (F1xF1).
-   - 7-qadam (4.0 ball): c) 2100 ta (tahliliy) yoki 1365 ta (F1xF1).
-2) 42-SAVOL (Jami: 35.0 ball) — Odamda sindaktiliya (A), miopiya (B), soch (Hh), optik atrofiya (e) va daltonizm (d):
-   - 1-qadam (6.0 ball): Ota-onalar hamda Yigit (Hh Ab/aB X^ed Y) va Qiz (Hh ab/ab X^ED X^ed) genotiplari.
-   - 2-qadam (8.0 ball): Pennet jadvalida yigit (8 xil, 12.5%) va qiz (8 xil: 20%, 20%, 5%, 5%) gametalari va foizlari.
-   - 3-qadam (6.0 ball): Pennet kataklarida (a-c) avlodlar genotiplarini to'g'ri ko'rsatish.
-   - 4-qadam (5.0 ball): a) Silliq soch, sindaktiliya kasal, miopiya va optik atrofiya sog'lom = 6.25% (1/16).
-   - 5-qadam (5.0 ball): b) O'g'illar orasida miopiya va atrofiya kasal, sindaktiliya sog'lom = 25% (1/4).
-   - 6-qadam (5.0 ball): c) Taram-taram, sindaktiliya kasal, miopiya, optik atrofiya va daltonizm sog'lom = 10%.
-3) 43-SAVOL (Jami: 10.0 ball) — Drozofila panmiksiya (10 juft oq ko'zli aa, 40 juft qizil ko'zli AA):
-   - 1-qadam (1.5 ball): Dastlabki populyatsiyada genlar chastotasi: A = 80% (0.8), a = 20% (0.2).
-   - 2-qadam (1.5 ball): Dastlabki populyatsiyada genotiplar chastotasi: AA = 80%, Aa = 0%, aa = 20%.
-   - 3-qadam (1.0 ball): Xardi-Vaynberg muvozanati: AA = 64%, Aa = 32%, aa = 4%; Qizil = 96%, Oq = 4%.
-   - 4-qadam (2.0 ball): a) F5 da 3000 tadan qizil ko'zlilar SONI: 3000 * 96% = 2880 ta. (Agar faqat 96% yozilib, 2880 soni topilmasa -> 1.0 ball ber).
-   - 5-qadam (2.0 ball): b) F3 da qizil ko'zlilar oq ko'zlilardan necha marta ko'p: 96% / 4% = 24 marta. (Agar arifmetik xato, masalan 26 yozilsa -> 0.5 ball ber).
-   - 6-qadam (2.0 ball): c) F4 da A genining uchrash chastotasi: 80% (0.8).
-
-Qat'iy format:
+VARIANT B: Agar bu 41, 42 yoki 43-savollarning yozma ish varaqasi (yoki katakli daftar) bo'lsa:
+Varaqdan o'quvchi yozgan barcha ma'lumotlarni HECH NARSANI O'ZGARTIRMASDAN aniq ko'chirib ol:
 {
   "sheet_type": "written_work",
   "question_number": 41,
-  "student_name": "Familiya Ism",
-  "descriptors": [
-    {"step": 1, "title": "Genotiplar", "earned_points": 4.0, "max_points": 4.0, "status": "correct", "comment": "To'g'ri"},
-    {"step": 2, "title": "Qo'sh krossover", "earned_points": 4.0, "max_points": 4.0, "status": "correct", "comment": "To'g'ri"}
-  ],
-  "total_score": 28.0,
-  "max_score": 30.0,
-  "general_feedback": "BMBA mezonlari bo'yicha a'lo natija..."
+  "student_name": "Varaqning F.I.O. qatorida yozilgan ism-familiya (yozilmagan bo'lsa 'Noma'lum')",
+  "transcribed_solution": {
+    "genes_and_genotypes": "O'quvchi yozgan barcha belgilar, genlar, P, F1, ota-ona / yigit-qiz genotiplari",
+    "map_and_initial_calcs": "O'quvchi chizgan genetik xarita, masofalar, qo'sh krossover (x) hisobi yoki dastlabki populyatsiya gen/genotip chastotalari",
+    "punnett_table_details": "Pennet jadvalining ustki va chap tomonida yozilgan gametalar va ularning foizlari; agar foizlar o'chirilgan, chalkashtirilgan yoki kataklar bo'sh/xato bo'lsa buni aniq yoz",
+    "part_a_exact_text": "a) bandi uchun o'quvchi yozgan AYNAN formula va oxirgi javob soni (DIQQAT: agar '9% - x=1350 / 100 - 15000' kabi proporsiya bo'lsa, 15000 ni emas, aynan x=... qiymatini yoz!)",
+    "part_b_exact_text": "b) bandi uchun o'quvchi yozgan AYNAN formula va oxirgi javob soni (proporsiyada aynan x=... qiymatini ol!)",
+    "part_c_exact_text": "c) bandi uchun o'quvchi yozgan AYNAN formula va oxirgi javob soni (proporsiyada aynan x=... qiymatini ol!)",
+    "observations": "Varaqda o'chirilgan joylar, arifmetik yoki chalkashlik belgilari, yozilmay qolgan bosqichlar"
+  }
 }
 
-VARIANT C: Agar rasm Milliy sertifikat titul varaqasi ham, biologiya yozma ish daftari ham BO'LMASA (masalan, shaxsiy rasm, darslik sahifasi, tabiat rasmi va h.k.):
-Qat'iy format:
+VARIANT C: Agar rasm Milliy sertifikat titul varaqasi ham, biologiya yozma ish varaqasi ham BO'LMASA:
 {
   "sheet_type": "unknown",
   "reason": "Yuborilgan fotosurat Milliy sertifikat titul blanki yoki biologiya yozma ish daftari emas."
 }
 """
+
+# Backward compatibility alias
+MASTER_TITUL_PROMPT = BLIND_OCR_PROMPT
 
 GEMINI_MODELS = [
     "models/gemini-3.5-flash-lite",
@@ -661,7 +621,7 @@ GEMINI_MODELS = [
 ]
 
 def call_gemini_vision(image_bytes: bytes, prompt: str) -> Optional[dict]:
-    """Gemini modeliga rasm va tizimli prompt yuborib, JSON javob oladi (avtomatik fallback bilan)."""
+    """Gemini modeliga rasm va OCR prompt yuborib, JSON javob oladi (avtomatik fallback bilan)."""
     compressed_bytes = compress_image_for_ai(image_bytes)
     img_b64 = base64.b64encode(compressed_bytes).decode("utf-8")
     
@@ -679,7 +639,7 @@ def call_gemini_vision(image_bytes: bytes, prompt: str) -> Optional[dict]:
         }],
         "generationConfig": {
             "responseMimeType": "application/json",
-            "temperature": 0.1
+            "temperature": 0.0
         }
     }
     encoded_data = json.dumps(payload).encode("utf-8")
@@ -696,13 +656,50 @@ def call_gemini_vision(image_bytes: bytes, prompt: str) -> Optional[dict]:
             with urllib.request.urlopen(req, timeout=45) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
                 raw_text = data["candidates"][0]["content"]["parts"][0]["text"]
-                logger.info(f"AI Vision javobi olindi ({model_name})")
+                logger.info(f"AI Vision OCR javobi olindi ({model_name})")
                 return json.loads(raw_text)
         except Exception as e:
-            logger.warning(f"Model {model_name} xatolik berdi: {e}, keyingi modelga o'tilmoqda...")
+            logger.warning(f"Vision model {model_name} xatolik berdi: {e}, keyingi modelga o'tilmoqda...")
             continue
 
-    logger.error("Barcha Gemini modellari muvaffaqiyatsiz bo'ldi.")
+    logger.error("Barcha Gemini Vision modellari muvaffaqiyatsiz bo'ldi.")
+    return None
+
+
+def call_gemini_text(prompt: str) -> Optional[dict]:
+    """2-BOSQICH: Faqat matnli tezkor va qat'iy ekspert baholash so'rovi (JSON qaytaradi)."""
+    api_key = getattr(config, "GEMINI_API_KEY", "")
+    if not api_key:
+        logger.error("GEMINI_API_KEY topilmadi!")
+        return None
+
+    payload = {
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {
+            "responseMimeType": "application/json",
+            "temperature": 0.0
+        }
+    }
+    encoded_data = json.dumps(payload).encode("utf-8")
+
+    for model_name in GEMINI_MODELS:
+        url = f"https://generativelanguage.googleapis.com/v1beta/{model_name}:generateContent?key={api_key}"
+        req = urllib.request.Request(
+            url,
+            data=encoded_data,
+            headers={"Content-Type": "application/json"}
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+                raw_text = data["candidates"][0]["content"]["parts"][0]["text"]
+                logger.info(f"AI Text Baholash javobi olindi ({model_name})")
+                return json.loads(raw_text)
+        except Exception as e:
+            logger.warning(f"Text model {model_name} xatolik berdi: {e}, keyingi modelga o'tilmoqda...")
+            continue
+
+    logger.error("Barcha Gemini Text modellari muvaffaqiyatsiz bo'ldi.")
     return None
 
 
@@ -905,63 +902,151 @@ def format_written_result_message(eval_data: dict) -> str:
     return "\n".join(lines)
 
 
-def build_titul_prompt(expected_code: Optional[str] = None) -> str:
-    """Variant kodi asosida dinamik va 100% aniq prompt tuzadi."""
-    prompt = MASTER_TITUL_PROMPT
+def build_written_grading_prompt(q_num: int, student_name: str, transcribed: dict, expected_code: Optional[str] = None) -> str:
+    """2-BOSQICH: Blind OCR transkripsiyasini rasmiy BMBA mezonlari bilan qat'iy solishtiruvchi prompt."""
+    bmba_max_map = {41: 30.0, 42: 35.0, 43: 10.0}
+    target_max = bmba_max_map.get(int(q_num), 10.0)
+
+    rubric_block = ""
     if expected_code:
         v_info = get_variant_rubrics(expected_code)
         if v_info and v_info.get("rubrics"):
             r_dict = v_info.get("rubrics", {})
-            rubrics_desc = f"\n\nDIQQAT! Foydalanuvchi aynan {expected_code} ({v_info.get('title')}) variantini topshirmoqda!\n"
-            rubrics_desc += "Agar rasm 41, 42 yoki 43-savollarning yozma ishi bo'lsa, qat'iy ravishda quyidagi rasmiy mezonlar va to'g'ri yechim bo'yicha bahola:\n"
-            for q_num, q_data in r_dict.items():
-                rubrics_desc += f"\nSavol {q_num}: {q_data.get('title')} (Maksimal: {q_data.get('max_score')} ball):\n"
+            q_data = r_dict.get(str(q_num))
+            if q_data:
+                rubric_block = f"\nTANLANGAN VARIANT MEZONI ({expected_code} — {v_info.get('title')}):\n"
+                rubric_block += f"Savol {q_num}: {q_data.get('title')} (Maksimal: {q_data.get('max_score')} ball):\n"
                 for step in q_data.get("descriptors", []):
-                    rubrics_desc += f"  - {step.get('step')}-qadam: {step.get('desc')} ({step.get('points')} ball)\n"
-            prompt += rubrics_desc
+                    rubric_block += f"  - {step.get('step')}-qadam ({step.get('points')} ball): {step.get('desc')}\n"
+
+    default_keys = """
+UMUMIY RASMIY BMBA KALITLARI (Agar yuqorida aniq variant ko'rsatilmagan bo'lsa, shularni ishlat):
+1) 41-SAVOL (Jami: 30.0 ball) — Makkajo'xorida 3 nuqtali xarita (uzunlik A, kraxmal B, yiriklik C):
+   - 1-qadam (4.0 ball): Belgilar genlari va F1 genotipi (ACB/acb).
+   - 2-qadam (4.0 ball): Qo'sh krossover x = 1%.
+   - 3-qadam (4.0 ball): Genetik xarita: A --- 29 cM --- C --- 21 cM --- B (C geni o'rtada).
+   - 4-qadam (6.0 ball): Pennet jadvali, gametalar va foizlari: ACB, acb (25.5%); aCB, Acb (14%); ACb, acB (10%); AcB, aCb (0.5%).
+   - 5-qadam (4.0 ball): a) 1500 ta (tahliliy) YOKI 1371 ta / 9.14% (F1xF1 64 katakli hisob). (DIQQAT: Agar 1350 / 9% yozilgan bo'lsa -> qo'sh krossover 0.14% tushib qolgan, 3.0/4.0 ball ber!).
+   - 6-qadam (4.0 ball): b) 2100 ta (tahliliy) YOKI 1821 ta / 12.14% (F1xF1). (DIQQAT: Agar 12.14% to'g'ri, lekin soni 1845 deb xato ko'paytirilgan bo'lsa -> 3.0-3.5/4.0 ball ber!).
+   - 7-qadam (4.0 ball): c) 2100 ta (tahliliy) YOKI 1365 ta / 9.1% (F1xF1).
+
+2) 42-SAVOL (Jami: 35.0 ball) — Odamda sindaktiliya (A), miopiya (B), soch (Hh), optik atrofiya (e) va daltonizm (d):
+   - 1-qadam (6.0 ball): Ota-onalar hamda Yigit (Hh Ab/aB X^ed Y) va Qiz (Hh ab/ab X^ED X^ed) genotiplari.
+   - 2-qadam (8.0 ball): Pennet jadvalida yigit (8 xil, 12.5%) va qiz (8 xil: 20%, 20%, 5%, 5%) gametalari va foizlari. (DIQQAT: Agar yigit va qiz foizlari o'chirilgan/chalkashtirilgan bo'lsa -> 5.0/8.0 ball ber!).
+   - 3-qadam (6.0 ball): Pennet kataklarida (a-c) avlodlar genotiplarini to'g'ri belgilash. (Agar a/b/c kataklari xato sanalsa -> 2.0-3.0/6.0 ball ber!).
+   - 4-qadam (5.0 ball): a) Silliq soch, sindaktiliya kasal, miopiya va optik atrofiya sog'lom = 6.25% (1/16). (DIQQAT: Agar 9.375% yoki boshqa xato son yozilgan bo'lsa -> 1.5-2.0/5.0 ball ber, TO'LIQ BALL BERISH TAQIQLANADI!).
+   - 5-qadam (5.0 ball): b) O'g'illar orasida miopiya va atrofiya kasal, sindaktiliya sog'lom = 25% (1/4). (DIQQAT: Agar 12.5% yozilgan bo'lsa, bu barcha farzandlar ichida, o'g'illar orasida 25% bo'lishi kerak -> 2.5-3.0/5.0 ball ber!).
+   - 6-qadam (5.0 ball): c) Taram-taram, sindaktiliya kasal, miopiya, optik atrofiya va daltonizm sog'lom = 10%. (DIQQAT: Agar 17.5% yoki boshqa xato son yozilgan bo'lsa -> 1.0-1.5/5.0 ball ber!).
+
+3) 43-SAVOL (Jami: 10.0 ball) — Drozofila panmiksiya (10 juft oq ko'zli aa, 40 juft qizil ko'zli AA):
+   - 1-qadam (1.5 ball): Dastlabki populyatsiyada genlar chastotasi: A = 80% (0.8), a = 20% (0.2).
+   - 2-qadam (1.5 ball): Dastlabki populyatsiyada genotiplar chastotasi: AA = 80%, Aa = 0%, aa = 20%.
+   - 3-qadam (1.0 ball): Xardi-Vaynberg muvozanati: AA = 64%, Aa = 32%, aa = 4%; Qizil = 96%, Oq = 4%.
+   - 4-qadam (2.0 ball): a) F5 da 3000 tadan qizil ko'zlilar SONI: 3000 * 96% = 2880 ta. (Agar faqat 96% yozilib, 2880 soni topilmasa -> 1.0/2.0 ball ber!).
+   - 5-qadam (2.0 ball): b) F3 da qizil ko'zlilar oq ko'zlilardan necha marta ko'p: 96% / 4% = 24 marta. (Agar arifmetik xato, masalan 26 yozilsa -> 0.5/2.0 ball ber!).
+   - 6-qadam (2.0 ball): c) F4 da A genining uchrash chastotasi: 80% (0.8).
+"""
+
+    prompt = f"""
+Sen O'zbekiston BMBA (UzBMB) Biologiya fanidan O'TA QAT'IY va XOLIS ekspert-tekshiruvchisan!
+Senga o'quvchining varag'idan KO'CHIRIB OLINGAN (Blind OCR) aniq matn berildi. Sening vazifang — o'quvchi AYNAN yozgan sonlarni rasmiy BMBA kaliti bilan qat'iy solishtirish va xatosiz ball qo'yish!
+
+O'QUVCHI ISMI: {student_name}
+SAVOL RAQAMI: {q_num}-savol (Maksimal ball: {target_max})
+
+O'QUVCHI VARAG'IDA AYNAN YOZILGAN YECHIM (OCR):
+{json.dumps(transcribed, ensure_ascii=False, indent=2)}
+
+{rubric_block}
+{default_keys}
+
+QAT'IY TAQIQ VA BAHOLASH QOIDALARI:
+1. O'QUVCHI YOZGAN OXIRGI SON (a, b, c) TO'G'RI JAVOBGA TENG BO'LMASA, O'SHA BANDGA HECH QACHON TO'LIQ BALL BERMA! (Masalan: 9.375 != 6.25, 12.5 != 25, 17.5 != 10, 1350 != 1371, 1845 != 1821, 26 != 24).
+2. Har bir xato yoki qisman to'g'ri bandning izohida (comment) O'QUVCHI NIMA YOZGANI VA TO'G'RI JAVOB QANDAY BO'LISHI KERAKLIGINI ANIQ SONLAR BILAN YOZ!
+3. Agar Pennet jadvalida foizlar chalkashtirilgan/o'chirilgan yoki kataklar noto'g'ri sanalgan bo'lsa, albatta ball kes!
+4. Barcha deskriptorlarning max_points yig'indisi AYNAN {target_max} ball bo'lsin, total_score esa earned_points yig'indisiga AYNAN teng bo'lsin!
+
+Faqat quyidagi JSON formatda javob qaytar:
+{{
+  "sheet_type": "written_work",
+  "question_number": {q_num},
+  "student_name": "{student_name}",
+  "descriptors": [
+    {{
+      "step": 1,
+      "title": "Qadam nomi",
+      "earned_points": 4.0,
+      "max_points": 4.0,
+      "status": "correct",
+      "comment": "Aniq tahlil..."
+    }}
+  ],
+  "total_score": 0.0,
+  "max_score": {target_max},
+  "general_feedback": "O'quvchiga BMBA mezonlari bo'yicha aniq va foydali maslahat"
+}}
+"""
     return prompt
 
 
+def build_titul_prompt(expected_code: Optional[str] = None) -> str:
+    """1-bosqich Blind OCR promptini qaytaradi (hech qanday javob kalitisiz!)."""
+    return BLIND_OCR_PROMPT
+
+
 # ==========================================================
-# 5. UNIVERSAL RASM TEKSHIRUV ENTRYPOINTI
+# 5. UNIVERSAL RASM TEKSHIRUV ENTRYPOINTI (2-BOSQICHLI ARXITEKTURA)
 # ==========================================================
 
 def process_titul_image(image_bytes: bytes, expected_test_code: Optional[str] = None) -> Tuple[str, str, dict]:
     """
-    Rasm qabul qilib, bitta tezkor Vision so'rovi orqali uning 1-bet (OMR) yoki
-    Yozma ish (41-43) ekanligini aniqlaydi va tayyor natijani beradi.
-    Agar expected_test_code berilsa, aynan o'sha variant mezonlari bilan tekshiradi.
+    1-BOSQICH: Rasmni Blind OCR orqali (javob kalitisiz) aniq o'qiydi.
+    2-BOSQICH: Agar yozma ish bo'lsa, ko'chirilgan yechimni rasmiy BMBA mezonlari bilan qat'iy solishtirib baholaydi.
     """
-    logger.info(f"Rasm Gemini 3 Flash orqali tahlil qilinmoqda (Variant: {expected_test_code or 'Avtomatik'})...")
-    custom_prompt = build_titul_prompt(expected_test_code)
-    extracted = call_gemini_vision(image_bytes, custom_prompt)
-    if not extracted:
+    logger.info(f"[1-Bosqich] Blind OCR tahlili boshlandi (Variant: {expected_test_code or 'Avtomatik'})...")
+    ocr_data = call_gemini_vision(image_bytes, BLIND_OCR_PROMPT)
+    if not ocr_data:
         return "error", "❌ Rasmni tahlil qilishda xatolik yuz berdi. Iltimos, rasmni tiniqroq qilib qayta yuboring.", {}
 
-    sheet_type = extracted.get("sheet_type", "titul_page_1")
+    sheet_type = ocr_data.get("sheet_type", "titul_page_1")
     
     if sheet_type == "unknown":
         logger.info("Rasm titul yoki yozma ish emas deb topildi.")
         msg_text = (
             "ℹ️ <b>Yuborilgan fotosurat tanilmadi</b>\n\n"
-            f"<i>{extracted.get('reason', 'Ushbu rasm Milliy sertifikat titul varaqasi yoki yozma ish daftari emas.')}</i>\n\n"
+            f"<i>{ocr_data.get('reason', 'Ushbu rasm Milliy sertifikat titul varaqasi yoki yozma ish daftari emas.')}</i>\n\n"
             "💡 <b>To'g'ri tekshirtirish uchun:</b>\n"
             "• Milliy sertifikat rasmiy 43 talik javoblar varaqasi (titul)ni to'ldirib, rasmga olib yuboring.\n"
             "• Yoki 41, 42, 43-masalalarning daftardagi qo'lyozma yechimini rasmga olib yuboring.\n"
             "• Titul blanki yo'q bo'lsa, /sertifikat menyusidan yuklab oling!"
         )
-        return "unknown", msg_text, extracted
+        return "unknown", msg_text, ocr_data
+
     elif sheet_type == "written_work":
-        logger.info("Yozma ish (41-43) natijasi formatlanmoqda...")
+        q_num = int(ocr_data.get("question_number", 41))
+        student_name = ocr_data.get("student_name") or "Talabgor"
+        transcribed = ocr_data.get("transcribed_solution", {})
+        logger.info(f"[2-Bosqich] {q_num}-savol BMBA qat'iy baholash boshlandi (Talabgor: {student_name})...")
+
+        grading_prompt = build_written_grading_prompt(q_num, student_name, transcribed, expected_test_code)
+        graded = call_gemini_text(grading_prompt)
+        if not graded:
+            return "error", "❌ Yozma ishni baholashda server xatoligi yuz berdi. Iltimos, qayta urinib ko'ring.", {}
+
+        graded["question_number"] = q_num
+        graded["student_name"] = student_name
+        graded["ocr_transcription"] = transcribed
         if expected_test_code:
-            extracted["test_code"] = expected_test_code
-        msg_text = format_written_result_message(extracted)
-        return "written_work", msg_text, extracted
+            graded["test_code"] = expected_test_code
+
+        msg_text = format_written_result_message(graded)
+        return "written_work", msg_text, graded
+
     else:
         logger.info("Titul 1-bet natijasi solishtirilmoqda...")
-        if expected_test_code and not extracted.get("booklet_number"):
-            extracted["booklet_number"] = expected_test_code
-        grade_res = grade_titul_submission(extracted)
+        if expected_test_code and not ocr_data.get("booklet_number"):
+            ocr_data["booklet_number"] = expected_test_code
+        grade_res = grade_titul_submission(ocr_data)
         msg_text = format_titul_result_message(grade_res)
         return "titul_page_1", msg_text, grade_res
 
